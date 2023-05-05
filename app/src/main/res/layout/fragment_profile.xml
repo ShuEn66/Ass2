@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile.ProfileFragment">
+
+        <!-- TODO: if change button color, navigation up button,get data from database -->
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/textViewProfileTitle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="32dp"-->
+<!--            android:layout_marginTop="90dp"-->
+<!--            android:text="@string/ProfileTitle"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="24sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--if want to change button color after clicking-->
+        <!--https://www.geeksforgeeks.org/how-to-change-the-background-color-of-button-in-android-using-colorstatelist/-->
+
+    <LinearLayout
+        android:id="@+id/linearLayoutProfileContent"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_viewUserProfileTab"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:clickable="true"
+            android:src="@drawable/rectanglenodeep">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectanglenodeep"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageViewUserProfile"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/user_profile" />
+
+
+                <LinearLayout
+                    android:layout_width="290dp"
+                    android:layout_height="90dp"
+                    android:orientation="vertical">
+
+                    <!--get user name from database-->
+                    <TextView
+                        android:id="@+id/UserProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rectanglenodeep"
+                        android:text="@string/userProfileTitle"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:translationX="10dp" />
+
+                    <TextView
+                        android:id="@+id/textViewUserNameValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rectanglenodeep"
+                        android:text="TextView"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:translationX="10dp" />
+
+                    <TextView
+                        android:id="@+id/textViewUserEmailValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rectanglenodeep"
+                        android:text="TextView"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:translationX="10dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/arrowUserProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="@string/arrow"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_viewElectricityAccProfileTab"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:clickable="true"
+            android:src="@drawable/rectangledeep">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangledeep"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageViewElectricityAccProfile"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/electricity_acc" />
+
+                <LinearLayout
+                    android:layout_width="290dp"
+                    android:layout_height="90dp"
+                    android:orientation="vertical">
+
+                    <!--get user name from database-->
+                    <TextView
+                        android:id="@+id/ElectricityAccProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rectangledeep"
+                        android:text="@string/ElectricityAccountProfileTitle"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:translationX="10dp" />
+
+                    <TextView
+                        android:id="@+id/textViewElectricityAccNumValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rectangledeep"
+                        android:text="TextView"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:translationX="10dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/arrowElectricityAcc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="@string/arrow"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_viewAppSettingTab"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:clickable="true"
+            android:src="@drawable/rectanglenodeep">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectanglenodeep"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageViewAppSetting"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/app_setting" />
+
+                <LinearLayout
+                    android:layout_width="290dp"
+                    android:layout_height="90dp"
+                    android:orientation="vertical">
+
+                    <!--get user name from database-->
+
+                    <TextView
+                        android:id="@+id/textViewAppSetting"
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:background="@drawable/rectanglenodeep"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/AppSetting"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:translationX="10dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/arrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="@string/arrow"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar3"
+            android:layout_width="466dp"
+            android:layout_height="208dp"
+            android:layout_marginBottom="-60dp"
+            android:background="@drawable/elipse_orange"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonLogOut"
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:background="@drawable/button_corner_yellow"
+        android:backgroundTint="@color/yellowButton"
+        android:text="@string/LogOutButton"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

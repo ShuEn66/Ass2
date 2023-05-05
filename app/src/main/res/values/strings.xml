@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Ass2</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="profile_fragment_label">Profile Fragment</string>
+    <string name="user_fragment_label">User Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    //Profile page
+    <string name="ProfileTitle">Profile</string>
+    <string name="userProfileTitle">User Profile</string>
+    <string name="arrow"> > </string>
+    <string name="ElectricityAccountProfileTitle">Electricity Account Profile</string>
+    <string name="AppSetting">App Setting</string>
+    <string name="LogOutButton">Log Out</string>
+    //User profile page
+    <string name="changePassword">Change Password</string>
+    <string name="UserName">User Name</string>
+    <string name="updateClickableText">Update</string>
+    <string name="UserIC">Identity Card</string>
+    <string name="UserEmail">Email Address</string>
+    <string name="UserMobile">Mobile Number</string>
+    //Edit user profile page
+    <string name="cancel">Cancel</string>
+    <string name="UpdateUserNameTitle">Update User Name</string>
+    <string name="hintUpdateUserName">Name of user as in IC</string>
+    //Electricity Account page
+    <string name="deleteAccount">Delete Account</string>
+    <string name="ElectricityAccNickname">Account Nickname</string>
+    <string name="ElectricityAccNum">Account Number</string>
+    <string name="ElectricityAccAddress">Account Address</string>
+    <string name="AboutAccount">"About Account"</string>
+    <string name="NoOfResident">No Of Resident</string>
+    <string name="MonthlyIncome">Monthly Income</string>
+    <string name="PropertyType">Property Type</string>
+    <string name="AccountOwner">Account Owner</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+
+</resources>

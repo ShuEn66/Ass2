@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ProfileFragment">
+
+    <fragment
+        android:id="@+id/ProfileFragment"
+        android:name="my.edu.tarc.ass2.Profile.ProfileFragment"
+        android:label="@string/profile_fragment_label"
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_ProfileFragment_to_UserFragment"
+            app:destination="@id/UserFragment" />
+        <action
+            android:id="@+id/action_ProfileFragment_to_electricityAccFragment"
+            app:destination="@id/electricityAccFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/UserFragment"
+        android:name="my.edu.tarc.ass2.Profile.UserFragment"
+        android:label="@string/user_fragment_label"
+        tools:layout="@layout/fragment_user">
+
+        <action
+            android:id="@+id/action_UserFragment_to_ProfileFragment"
+            app:destination="@id/ProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityAccFragment"
+        android:name="my.edu.tarc.ass2.Profile.ElectricityAccFragment"
+        android:label="fragment_electricity_acc"
+        tools:layout="@layout/fragment_electricity_acc" >
+        <action
+            android:id="@+id/action_electricityAccFragment_to_ProfileFragment"
+            app:destination="@id/ProfileFragment" />
+    </fragment>
+</navigation>

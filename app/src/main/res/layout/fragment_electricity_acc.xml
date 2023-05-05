@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile.ElectricityAccFragment">
+
+    <!-- TODO: if change button color, navigation up button,get data from database -->
+
+        <!--if want to change button color after clicking-->
+        <!--https://www.geeksforgeeks.org/how-to-change-the-background-color-of-button-in-android-using-colorstatelist/-->
+    <Button
+        android:id="@+id/buttonDeleteAccount"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:backgroundTint="@color/yellowButton"
+        android:text="@string/deleteAccount"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutElectricityAccProfileContent"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDeleteAccount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_viewElectricityAccNickname"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:src="@drawable/rectanglenodeep">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectanglenodeep"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="330dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical">
+
+                    <!--get user name from database-->
+                    <TextView
+                        android:id="@+id/ElectricityAccNickname"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rectanglenodeep"
+                        android:text="@string/ElectricityAccNickname"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:translationX="10dp" />
+
+                    <TextView
+                        android:id="@+id/textViewElectricityAccNicknameValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rectanglenodeep"
+                        android:text="TextView"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:translationX="10dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textViewUpdateElectricityAccNickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rectanglenodeep"
+                    android:clickable="true"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="@string/updateClickableText"
+                    android:textColor="@color/blue" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_viewElectricityAccNum"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:src="@drawable/rectangledeep">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/rectangledeep"
+                android:orientation="vertical">
+
+                <!--get user ic from database-->
+                <TextView
+                    android:id="@+id/ElectricityAccNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:alpha="0.6"
+                    android:background="@drawable/rectangledeep"
+                    android:text="@string/ElectricityAccNum"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:translationX="10dp" />
+
+                <TextView
+                    android:id="@+id/textViewElectricityAccNumValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:alpha="0.6"
+                    android:background="@drawable/rectangledeep"
+                    android:text="TextView"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:translationX="10dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_viewElectricityAccAddress"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:src="@drawable/rectanglenodeep">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/rectanglenodeep"
+                android:orientation="vertical">
+
+                <!--get user name from database-->
+                <TextView
+                    android:id="@+id/ElectricityAccAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:alpha="0.6"
+                    android:background="@drawable/rectanglenodeep"
+                    android:text="@string/ElectricityAccAddress"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:translationX="10dp" />
+
+                <TextView
+                    android:id="@+id/textViewElectricityAccAddressValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:alpha="0.6"
+                    android:background="@drawable/rectanglenodeep"
+                    android:text="TextView"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:translationX="10dp" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_viewAboutAccount"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/rectangledeep">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangledeep"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="140dp"
+                    android:layout_height="150dp"
+                    android:orientation="vertical">
+
+                    <!--get user name from database-->
+                    <TextView
+                        android:id="@+id/AboutAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rectangledeep"
+                        android:text="@string/AboutAccount"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:translationX="10dp" />
+
+                    <TextView
+                        android:id="@+id/textViewNoOfResident"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rectangledeep"
+                        android:text="@string/NoOfResident"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:translationX="10dp" />
+
+                    <TextView
+                        android:id="@+id/textViewMonthlyIncome"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rectangledeep"
+                        android:text="@string/MonthlyIncome"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:translationX="10dp" />
+
+                    <TextView
+                        android:id="@+id/textViewPropertyType"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:alpha="0.6"
+                        android:background="@drawable/rectangledeep"
+                        android:text="@string/PropertyType"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:translationX="10dp" />
+
+                    <TextView
+                        android:id="@+id/textViewAccountOwner"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:alpha="0.6"
+                        android:background="@drawable/rectangledeep"
+                        android:text="@string/AccountOwner"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:translationX="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="190dp"
+                    android:layout_height="150dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/EmptyTextAboutAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rectangledeep" />
+
+                    <TextView
+                        android:id="@+id/textViewNoOfResidentValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rectangledeep"
+                        android:text="TextView"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textViewMonthlyIncomeValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rectangledeep"
+                        android:text="TextView"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textViewPropertyTypeValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:alpha="0.6"
+                        android:background="@drawable/rectangledeep"
+                        android:text="TextView"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textViewAccountOwnerValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:alpha="0.6"
+                        android:background="@drawable/rectangledeep"
+                        android:text="TextView"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/EmptyTextUpdateAboutAcc"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangledeep" />
+
+                    <TextView
+                        android:id="@+id/textViewUpdateNoOfResident"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangledeep"
+                        android:clickable="true"
+                        android:text="@string/updateClickableText"
+                        android:textAlignment="center"
+                        android:textColor="@color/blue"
+                        android:translationZ="25dp" />
+
+                    <TextView
+                        android:id="@+id/textViewUpdateMonthlyIncome"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangledeep"
+                        android:clickable="true"
+                        android:text="@string/updateClickableText"
+                        android:textAlignment="center"
+                        android:textColor="@color/blue"
+                        android:translationZ="25dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

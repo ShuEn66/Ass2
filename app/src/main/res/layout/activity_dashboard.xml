@@ -101,7 +101,7 @@
         android:id="@+id/button7"
         android:layout_width="152dp"
         android:layout_height="49dp"
-        android:layout_marginTop="272dp"
+        android:layout_marginTop="290dp"
         android:layout_marginEnd="68dp"
         android:backgroundTint="#FEDD59"
         android:text="@string/appliances_button"
@@ -114,7 +114,7 @@
         android:layout_width="152dp"
         android:layout_height="49dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="272dp"
+        android:layout_marginTop="290dp"
         android:backgroundTint="#D8D8D8"
         android:text="@string/viewBill_button"
         android:textColor="#000000"
@@ -122,19 +122,52 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="405dp"
+        android:layout_height="209dp"
+
+        android:layout_marginBottom="316dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/announcement_white" />
+
+    <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/announcement_bar"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="331dp" />
+        android:layout_width="218dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="384dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/announcement_bar" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="509dp"
+        android:layout_height="369dp"
+        android:layout_marginTop="592dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dashboard_green" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="78dp"
+        android:layout_height="67dp"
+        app:srcCompat="@drawable/hotline_logo"
+        tools:layout_editor_absoluteX="344dp"
+        tools:layout_editor_absoluteY="817dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintGuide_begin="612dp" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -145,11 +178,10 @@
         app:layout_constraintGuide_begin="285dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
+        android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="invisible"
-        app:layout_constraintGuide_end="219dp" />
+        app:layout_constraintGuide_begin="220dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

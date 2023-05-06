@@ -52,6 +52,26 @@
     <string name="payment_due">Payment Due:</string>
     <string name="viewBill_button">VIEW BILL</string>
     <string name="appliances_button">APPLIANCES</string>
+    <!-- Strings related to hotline -->
+    <string name="hotline_title">HOTLINE:</string>
+    <string name="hotlinePhone_faulty">TNB (Faulty) : 15454</string>
+    <string name="hotlinePhone_billing">TNB (Billing) : 1-300-88-5454</string>
+    <string name="hotlineEmail">TNB (Email) :  tnbcareline@tnb.com.my</string>
+    <!-- Strings related to usage analysis -->
+    <string name="usageAnalysis_title">USAGE ANALSIS</string>
+    <string name="overallUsage_title">Overall Usage:</string>
+    <string name="optimumUsage_title">Optimum Usage:</string>
+    <string name="billStatus_title">Bill Status:</string>
+    <string name="budget_title">Budget:</string>
+    <string name="address_title">Address</string>
+
+
+
+
+    <!-- SHARABLE COMPONENTS -->
+    <string name="doneButton">DONE</string>
+    <string name="setButton">SET</string>
+
 
 
 </resources>

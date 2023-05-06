@@ -19,6 +19,31 @@
         app:layout_constraintVertical_bias="0.497"
         app:srcCompat="@drawable/background1" />
 
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="152dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="290dp"
+        android:layout_marginEnd="68dp"
+        android:backgroundTint="#FEDD59"
+        android:text="@string/appliances_button"
+        android:textColor="#0E0101"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="152dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="290dp"
+        android:backgroundTint="#D8D8D8"
+        android:text="@string/viewBill_button"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <ImageView
         android:id="@+id/golLogo"
         android:layout_width="236dp"
@@ -86,6 +111,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/profile_pic"
         android:layout_width="46dp"
@@ -97,29 +123,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile_pic" />
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="152dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="290dp"
-        android:layout_marginEnd="68dp"
-        android:backgroundTint="#FEDD59"
-        android:text="@string/appliances_button"
-        android:textColor="#0E0101"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="152dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="290dp"
-        android:backgroundTint="#D8D8D8"
-        android:text="@string/viewBill_button"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView14"
@@ -143,24 +147,217 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/announcement_bar" />
 
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="509dp"
-        android:layout_height="369dp"
-        android:layout_marginTop="592dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dashboard_green" />
+    <ScrollView
+        android:layout_width="446dp"
+        android:layout_height="1015dp"
+        tools:layout_editor_absoluteX="-4dp"
+        tools:layout_editor_absoluteY="261dp">
 
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="78dp"
-        android:layout_height="67dp"
-        app:srcCompat="@drawable/hotline_logo"
-        tools:layout_editor_absoluteX="344dp"
-        tools:layout_editor_absoluteY="817dp" />
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="650dp"
+                tools:context=".Dashboard.UsageAnalysisFragment">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="497dp"
+                        android:layout_height="643dp"
+                        android:src="@drawable/dashboard_green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.49"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.571" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="@string/usageAnalysis_title" />
+
+                    <LinearLayout
+                        android:layout_width="377dp"
+                        android:layout_height="158dp"
+                        android:layout_marginTop="100dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/imageView5">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textView13"
+                                android:layout_width="134dp"
+                                android:layout_height="wrap_content"
+                                tools:text="@string/overallUsage_title" />
+
+                            <TextView
+                                android:id="@+id/textView18"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                tools:text="DISPLAY" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textView20"
+                                android:layout_width="32dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                tools:text="@string/optimumUsage_title" />
+
+                            <TextView
+                                android:id="@+id/textView19"
+                                android:layout_width="134dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="DISPLAY" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textView21"
+                                android:layout_width="41dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                tools:text="@string/billStatus_title" />
+
+                            <TextView
+                                android:id="@+id/textView22"
+                                android:layout_width="143dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="DISPLAY" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textView23"
+                                android:layout_width="265dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                tools:text="@string/budget_title" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+
+                                <EditText
+                                    android:id="@+id/editTextNumberSigned"
+                                    android:layout_width="109dp"
+                                    android:layout_height="50dp"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:inputType="numberSigned"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <Button
+                                    android:id="@+id/button2"
+                                    android:layout_width="61dp"
+                                    android:layout_height="48dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#73C5C6"
+                                    android:text="@string/setButton"
+                                    android:textColor="#000000"
+                                    android:textSize="10sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.0"
+                                    app:layout_constraintStart_toEndOf="@+id/editTextNumberSigned"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="335dp"
+                        android:layout_height="215dp"
+                        android:layout_marginTop="280dp"
+                        tools:layout_editor_absoluteX="40dp"
+                        tools:layout_editor_absoluteY="301dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/imageView5"
+                        tools:src="@tools:sample/backgrounds/scenic" />
+
+                    <TextView
+                        android:id="@+id/textView26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="516dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="@string/address_title" />
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        android:layout_width="149dp"
+                        android:layout_height="96dp"
+                        android:layout_marginTop="536dp"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="ADDRESS" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="155dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -183,5 +380,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="220dp" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="58dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/hotline_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

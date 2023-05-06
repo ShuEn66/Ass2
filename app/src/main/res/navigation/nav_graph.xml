@@ -3,38 +3,92 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/ProfileFragment">
+    app:startDestination="@id/nav_ProfileFragment">
 
     <fragment
-        android:id="@+id/ProfileFragment"
+        android:id="@+id/nav_ProfileFragment"
         android:name="my.edu.tarc.ass2.Profile.ProfileFragment"
         android:label="@string/profile_fragment_label"
         tools:layout="@layout/fragment_profile">
 
         <action
             android:id="@+id/action_ProfileFragment_to_UserFragment"
-            app:destination="@id/UserFragment" />
+            app:destination="@id/nav_UserFragment" />
         <action
             android:id="@+id/action_ProfileFragment_to_electricityAccFragment"
-            app:destination="@id/electricityAccFragment" />
+            app:destination="@id/nax_ElectricityAccFragment" />
     </fragment>
     <fragment
-        android:id="@+id/UserFragment"
+        android:id="@+id/nav_UserFragment"
         android:name="my.edu.tarc.ass2.Profile.UserFragment"
         android:label="@string/user_fragment_label"
         tools:layout="@layout/fragment_user">
 
         <action
             android:id="@+id/action_UserFragment_to_ProfileFragment"
-            app:destination="@id/ProfileFragment" />
+            app:destination="@id/nav_ProfileFragment" />
     </fragment>
     <fragment
-        android:id="@+id/electricityAccFragment"
+        android:id="@+id/nax_ElectricityAccFragment"
         android:name="my.edu.tarc.ass2.Profile.ElectricityAccFragment"
         android:label="fragment_electricity_acc"
         tools:layout="@layout/fragment_electricity_acc" >
         <action
-            android:id="@+id/action_electricityAccFragment_to_ProfileFragment"
-            app:destination="@id/ProfileFragment" />
+            android:id="@+id/action_ElectricityAccFragment_to_ProfileFragment3"
+            app:destination="@id/nav_ProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userRegistrationFragment"
+        android:name="my.edu.tarc.ass2.Registration.userRegistrationFragment"
+        android:label="fragment_user_registration"
+        tools:layout="@layout/fragment_user_registration" >
+        <action
+            android:id="@+id/action_userRegistrationFragment_to_userInfoRegisterFragment"
+            app:destination="@id/userInfoRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userInfoRegisterFragment"
+        android:name="my.edu.tarc.ass2.Registration.userInfoRegisterFragment"
+        android:label="fragment_user_info_register"
+        tools:layout="@layout/fragment_user_info_register" >
+        <action
+            android:id="@+id/action_userInfoRegisterFragment_to_userRegistrationFragment"
+            app:destination="@id/userRegistrationFragment" />
+        <action
+            android:id="@+id/action_userInfoRegisterFragment_to_registerAddElectricityAccFragment"
+            app:destination="@id/registerAddElectricityAccFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerAddElectricityAccFragment"
+        android:name="my.edu.tarc.ass2.Registration.registerAddElectricityAccFragment"
+        android:label="fragment_register_add_electricity_acc"
+        tools:layout="@layout/fragment_register_add_electricity_acc" >
+        <action
+            android:id="@+id/action_registerAddElectricityAccFragment_to_userInfoRegisterFragment"
+            app:destination="@id/userInfoRegisterFragment" />
+        <action
+            android:id="@+id/action_registerAddElectricityAccFragment_to_accConfirmationFragment"
+            app:destination="@id/accConfirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityAccInfoFragment"
+        android:name="my.edu.tarc.ass2.Registration.ElectricityAccInfoFragment"
+        android:label="fragment_electricity_acc_info"
+        tools:layout="@layout/fragment_electricity_acc_info" >
+        <action
+            android:id="@+id/action_electricityAccInfoFragment_to_registerAddElectricityAccFragment"
+            app:destination="@id/registerAddElectricityAccFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accConfirmationFragment"
+        android:name="my.edu.tarc.ass2.Registration.AccConfirmationFragment"
+        android:label="fragment_acc_confirmation"
+        tools:layout="@layout/fragment_acc_confirmation" >
+        <action
+            android:id="@+id/action_accConfirmationFragment_to_electricityAccInfoFragment"
+            app:destination="@id/electricityAccInfoFragment" />
+        <action
+            android:id="@+id/action_accConfirmationFragment_to_registerAddElectricityAccFragment"
+            app:destination="@id/registerAddElectricityAccFragment" />
     </fragment>
 </navigation>

@@ -23,8 +23,8 @@
         android:id="@+id/button7"
         android:layout_width="152dp"
         android:layout_height="49dp"
-        android:layout_marginTop="290dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginEnd="60dp"
         android:backgroundTint="#FEDD59"
         android:text="@string/appliances_button"
         android:textColor="#0E0101"
@@ -35,8 +35,8 @@
         android:id="@+id/button4"
         android:layout_width="152dp"
         android:layout_height="49dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="290dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="270dp"
         android:backgroundTint="#D8D8D8"
         android:text="@string/viewBill_button"
         android:textColor="#000000"
@@ -52,6 +52,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.005"
         app:srcCompat="@drawable/gol_logo" />
 
     <TextView
@@ -69,8 +70,8 @@
         android:id="@+id/textView8"
         android:layout_width="203dp"
         android:layout_height="25dp"
-        android:layout_marginStart="288dp"
-        android:layout_marginTop="233dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="232dp"
         android:textColor="#FBFBFB"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -91,11 +92,11 @@
         android:id="@+id/textView9"
         android:layout_width="148dp"
         android:layout_height="17dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="216dp"
         android:text="@string/payment_due"
         android:textColor="#FBFBFB"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.993"
+        app:layout_constraintHorizontal_bias="0.988"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -124,39 +125,40 @@
         app:srcCompat="@drawable/profile_pic" />
 
 
-
     <ImageView
         android:id="@+id/imageView14"
         android:layout_width="405dp"
         android:layout_height="209dp"
-
-        android:layout_marginBottom="316dp"
+        android:layout_marginTop="160dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/announcement_white" />
 
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="218dp"
         android:layout_height="44dp"
-        android:layout_marginTop="384dp"
+        android:layout_marginTop="345dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/announcement_bar" />
 
     <ScrollView
-        android:layout_width="446dp"
-        android:layout_height="1015dp"
+        android:id="@+id/scrollView2"
+        android:layout_width="415dp"
+        android:layout_height="953dp"
+        android:visibility="visible"
         tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="261dp">
+        tools:layout_editor_absoluteY="258dp">
 
         <LinearLayout
-            android:layout_gravity="bottom"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="bottom"
             android:orientation="vertical">
 
             <FrameLayout
@@ -186,9 +188,10 @@
                         android:id="@+id/textView12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
+                        android:layout_marginTop="35dp"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.498"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="@string/usageAnalysis_title" />
@@ -196,7 +199,7 @@
                     <LinearLayout
                         android:layout_width="377dp"
                         android:layout_height="158dp"
-                        android:layout_marginTop="100dp"
+                        android:layout_marginTop="80dp"
                         android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -228,7 +231,7 @@
 
                             <TextView
                                 android:id="@+id/textView20"
-                                android:layout_width="32dp"
+                                android:layout_width="25dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 tools:text="@string/optimumUsage_title" />
@@ -248,7 +251,7 @@
 
                             <TextView
                                 android:id="@+id/textView21"
-                                android:layout_width="41dp"
+                                android:layout_width="35dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 tools:text="@string/billStatus_title" />
@@ -318,11 +321,11 @@
                         android:layout_width="335dp"
                         android:layout_height="215dp"
                         android:layout_marginTop="280dp"
-                        tools:layout_editor_absoluteX="40dp"
-                        tools:layout_editor_absoluteY="301dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/imageView5"
+                        tools:layout_editor_absoluteX="40dp"
+                        tools:layout_editor_absoluteY="301dp"
                         tools:src="@tools:sample/backgrounds/scenic" />
 
                     <TextView
@@ -351,7 +354,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        app:layout_constraintGuide_begin="155dp" />
+                        app:layout_constraintGuide_begin="154dp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -365,21 +368,21 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:visibility="visible"
-        app:layout_constraintGuide_begin="612dp" />
+        app:layout_constraintGuide_begin="562dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="285dp" />
+        app:layout_constraintGuide_begin="258dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="220dp" />
+        app:layout_constraintGuide_begin="212dp" />
 
     <ImageView
         android:id="@+id/imageView16"

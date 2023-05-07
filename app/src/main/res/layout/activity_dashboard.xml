@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/background1" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/buttonAppliances"
         android:layout_width="152dp"
         android:layout_height="49dp"
         android:layout_marginTop="270dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonViewBill"
         android:layout_width="152dp"
         android:layout_height="49dp"
         android:layout_marginStart="60dp"
@@ -89,7 +89,7 @@
         tools:text="MONTH" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/paymentDueTitle"
         android:layout_width="148dp"
         android:layout_height="17dp"
         android:layout_marginTop="216dp"
@@ -147,8 +147,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/announcement_bar" />
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="248dp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/announcement_title" />
+
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/scrollUsageAnalysis"
         android:layout_width="415dp"
         android:layout_height="953dp"
         android:visibility="visible"

@@ -52,6 +52,7 @@
     <string name="payment_due">Payment Due:</string>
     <string name="viewBill_button">VIEW BILL</string>
     <string name="appliances_button">APPLIANCES</string>
+    <string name="announcement_title">ANNOUNCEMENT</string>
     <!-- Strings related to hotline -->
     <string name="hotline_title">HOTLINE:</string>
     <string name="hotlinePhone_faulty">TNB (Faulty) : 15454</string>

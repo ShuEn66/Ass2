@@ -208,8 +208,8 @@
                         tools:text="@string/usageAnalysis_title" />
 
                     <LinearLayout
-                        android:layout_width="377dp"
-                        android:layout_height="158dp"
+                        android:layout_width="379dp"
+                        android:layout_height="98dp"
                         android:layout_marginTop="80dp"
                         android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -276,54 +276,6 @@
 
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/textView23"
-                                android:layout_width="265dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                tools:text="@string/budget_title" />
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1">
-
-                                <EditText
-                                    android:id="@+id/editTextNumberSigned"
-                                    android:layout_width="109dp"
-                                    android:layout_height="50dp"
-                                    android:layout_weight="1"
-                                    android:ems="10"
-                                    android:inputType="numberSigned"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias="0.0"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <Button
-                                    android:id="@+id/button2"
-                                    android:layout_width="61dp"
-                                    android:layout_height="48dp"
-                                    android:layout_weight="1"
-                                    android:backgroundTint="#73C5C6"
-                                    android:text="@string/setButton"
-                                    android:textColor="#000000"
-                                    android:textSize="10sp"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias="0.0"
-                                    app:layout_constraintStart_toEndOf="@+id/editTextNumberSigned"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:layout_constraintVertical_bias="0.0" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -331,7 +283,7 @@
                         android:id="@+id/imageView6"
                         android:layout_width="335dp"
                         android:layout_height="215dp"
-                        android:layout_marginTop="280dp"
+                        android:layout_marginTop="190dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/imageView5"
@@ -343,7 +295,7 @@
                         android:id="@+id/textView26"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="516dp"
+                        android:layout_marginTop="420dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -353,7 +305,7 @@
                         android:id="@+id/textView25"
                         android:layout_width="149dp"
                         android:layout_height="96dp"
-                        android:layout_marginTop="536dp"
+                        android:layout_marginTop="440dp"
                         android:textAlignment="center"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

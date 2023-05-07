@@ -83,9 +83,9 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonDone"
             android:layout_width="267dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginTop="380dp"
             android:backgroundTint="#D8E975"
             android:text="@string/doneButton"

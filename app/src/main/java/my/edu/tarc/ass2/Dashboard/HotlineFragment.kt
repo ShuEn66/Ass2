@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.FragmentHotlineBinding
 
@@ -25,24 +27,17 @@ class HotlineFragment : Fragment() {
         _binding = FragmentHotlineBinding.inflate(inflater, container, false)
 
         return binding.root
+
+        binding.buttonDone.setOnClickListener() {
+
+            val fragmentManager = requireActivity().supportFragmentManager
+            val transaction = fragmentManager.beginTransaction()
+            transaction.remove(this)
+            transaction.commit()
+
+            findNavController().navigateUp()
+        }
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HotlineFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HotlineFragment().apply {
-                arguments = Bundle().apply {
-
-                }
-            }
-    }
 }

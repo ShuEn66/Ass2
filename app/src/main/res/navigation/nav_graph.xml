@@ -91,4 +91,9 @@
             android:id="@+id/action_accConfirmationFragment_to_registerAddElectricityAccFragment"
             app:destination="@id/registerAddElectricityAccFragment" />
     </fragment>
+    <activity
+        android:id="@+id/dashboard"
+        android:name="my.edu.tarc.ass2.Dashboard.Dashboard"
+        android:label="activity_dashboard"
+        tools:layout="@layout/activity_dashboard" />
 </navigation>

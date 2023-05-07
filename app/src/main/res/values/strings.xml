@@ -67,12 +67,37 @@
     <string name="address_title">Address</string>
 
 
-
-
     <!-- SHARABLE COMPONENTS -->
     <string name="doneButton">DONE</string>
     <string name="setButton">SET</string>
-
+    <string name="notificationName">Allow Notifications</string>
+    <string name="changeLang">Change Language:</string>
+    <string name="developerInfo">Developer Info:</string>
+    <string name="companyName">GOL Software Company</string>
+    <string name="developerEmail">golsoftware@gmail.com</string>
+    <string name="about">About:</string>
+    <string name="appVer">App version 2.17.31</string>
+    <string name="appSettings">App Settings</string>
+    <string name="english">English (United States)</string>
+    <string name="malay">Bahasa Melayu (Malaysia)</string>
+    <string name="chinese">Chinese (Simplified, China)</string>
+    <string name="changelang">Change Language</string>
+    <string name="aboutUs">ABOUT US</string>
+    <string name="companyAddress">Address: Lot 10, Jalan Besar , 12345 , WPKL</string>
+    <string name="companyEmail">Email: golsoftware@gmail.com</string>
+    <string name="developers">DEVELOPERS</string>
+    <string name="teamMem">Team Member:</string>
+    <string name="manager">Manager:</string>
+    <string name="keen">LAN KE EN</string>
+    <string name="keenEmail">kez@gmail.com</string>
+    <string name="jx">LEE JIA XUAN</string>
+    <string name="jxEmail">jx@gmail.com</string>
+    <string name="se">CHONG SHU EN</string>
+    <string name="seEmail">se@gmail.com</string>
+    <string name="cq">CHANG CHEE QIAN</string>
+    <string name="cqEmail">cq@gmail.com</string>
+    <string name="rateUs">RATE US</string>
+    <string name="devInfo">Developer Info</string>
 
 
 </resources>

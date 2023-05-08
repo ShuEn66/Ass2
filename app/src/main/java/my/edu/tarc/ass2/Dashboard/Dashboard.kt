@@ -24,7 +24,7 @@ class Dashboard : AppCompatActivity() {
         //Initialize ViewModel
         dashboardViewModel= ViewModelProvider(this).get(DashboardViewModel::class.java)
 
-
+        //onclicks
         binding.hotlinePic.setOnClickListener(){
             val fragment = HotlineFragment()
             supportFragmentManager.beginTransaction()

@@ -2,18 +2,28 @@ package my.edu.tarc.ass2.Dashboard
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.ActivityDashboardBinding
 
 private lateinit var binding: ActivityDashboardBinding
+private lateinit var dashboardViewModel: DashboardViewModel
 class Dashboard : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //Initialize ViewModel
+        dashboardViewModel= ViewModelProvider(this).get(DashboardViewModel::class.java)
+
 
         binding.hotlinePic.setOnClickListener(){
             val fragment = HotlineFragment()
@@ -29,6 +39,17 @@ class Dashboard : AppCompatActivity() {
 
         }
 
+        binding.buttonAppliances.setOnClickListener(){
+            val navController = Navigation.findNavController(this, R.id.dashboard)
+            //navController.navigate(R.id.)
+
+        }
+
+        binding.buttonViewBill.setOnClickListener(){
+            val navController = Navigation.findNavController(this, R.id.dashboard)
+            //navController.navigate(R.id.)
+
+        }
 
         //back press
         val backPressedCallback = object: OnBackPressedCallback(true)
@@ -44,10 +65,6 @@ class Dashboard : AppCompatActivity() {
             }
         }
         onBackPressedDispatcher.addCallback(backPressedCallback)
-
-
-
-
 
     }
 }

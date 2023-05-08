@@ -12,6 +12,26 @@
         android:theme="@style/Theme.Ass2"
         tools:targetApi="31">
         <activity
+            android:name=".Respository"
+            android:exported="false"
+            android:label="@string/title_activity_respository"
+            android:theme="@style/Theme.Ass2.NoActionBar" />
+        <activity
+            android:name=".Dao"
+            android:exported="false"
+            android:label="@string/title_activity_dao"
+            android:theme="@style/Theme.Ass2.NoActionBar" />
+        <activity
+            android:name=".Database"
+            android:exported="false"
+            android:label="@string/title_activity_database"
+            android:theme="@style/Theme.Ass2.NoActionBar" />
+        <activity
+            android:name=".DashboadViewModel"
+            android:exported="false"
+            android:label="@string/title_activity_dashboad_view_model"
+            android:theme="@style/Theme.Ass2.NoActionBar" />
+        <activity
             android:name=".Dashboard"
             android:exported="false" />
         <activity

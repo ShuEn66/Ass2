@@ -2,6 +2,7 @@ package my.edu.tarc.ass2.Dashboard
 
 import androidx.lifecycle.ViewModel
 
-class UsageAnalysisViewModel : ViewModel() {
+class DashboardViewModel : ViewModel() {
+
 
 }

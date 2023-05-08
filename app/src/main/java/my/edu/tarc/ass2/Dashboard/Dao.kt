@@ -1,41 +1,22 @@
-package my.edu.tarc.ass2.Dashboard
+package my.tarc.mycontact
 
-import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import my.edu.tarc.ass2.R
-import my.edu.tarc.ass2.Dashboard.databinding.ActivityDaoBinding
+import androidx.lifecycle.LiveData
+import androidx.room.*
 
-class Dao : AppCompatActivity() {
+@Dao
+interface ContactDao {
+    @Query("SELECT * FROM contact ORDER BY name ASC")
+    fun getAllContact(): LiveData<List<Contact>>
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityDaoBinding
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(contact: Contact)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    @Delete
+    suspend fun delete(contact: Contact)
 
-        binding = ActivityDaoBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    @Update
+    suspend fun update(contact: Contact)
 
-        setSupportActionBar(binding.toolbar)
-
-        val navController = findNavController(R.id.nav_host_fragment_content_dao)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_dao)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
-    }
+    @Query("DELETE FROM contact")
+    suspend fun deleteAll()
 }

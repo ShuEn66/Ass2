@@ -1,10 +1,11 @@
-package my.tarc.mycontact
+package my.edu.tarc.ass2
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
+
 @Dao
-interface ContactDao {
+interface databaseDao {
     @Query("SELECT * FROM contact ORDER BY name ASC")
     fun getAllContact(): LiveData<List<Contact>>
 

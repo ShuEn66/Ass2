@@ -123,6 +123,10 @@
     <string name="title_activity_database">Database</string>
     <string name="title_activity_dao">Dao</string>
     <string name="title_activity_respository">Respository</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name= "url_server">https://guardianoflighting.000webhostapp.com/</string>
+    <string name= "url_read">user/read.php</string>
+    <string name= "url_create">user/create.php</string>
 
 
 </resources>

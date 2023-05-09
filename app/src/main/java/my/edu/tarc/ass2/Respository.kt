@@ -2,20 +2,21 @@ package my.edu.tarc.ass2
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
+import my.tarc.mycontact.Bill
 
-class ContactRepository(private val dbDao: databaseDao){
+class BillRepository(private val dbDao: databaseDao){
     //Room execute all queries on a separate thread
-    val allContacts: LiveData<List<Contact>> = dbDao.getAllContact()
+    val b: LiveData<List<Bill>> = dbDao.getAllContact()
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    suspend fun add(contact: Contact){
-        dbDao.insert(contact)
+    suspend fun add(Bill: Bill){
+        dbDao.insert(Bill)
     }
 
     @WorkerThread
-    suspend fun delete(contact: Contact){
-        dbDao.delete(contact)
+    suspend fun delete(Bill: Bill){
+        dbDao.delete(BBill)
     }
 
     @WorkerThread
@@ -24,7 +25,7 @@ class ContactRepository(private val dbDao: databaseDao){
     }
 
     @WorkerThread
-    suspend fun update(contact: Contact){
+    suspend fun update(Bill){
         dbDao.update(contact)
     }
 }

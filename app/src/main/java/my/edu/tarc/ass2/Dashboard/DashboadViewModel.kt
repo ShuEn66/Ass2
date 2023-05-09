@@ -4,11 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import my.tarc.mycontact.Bill
 import my.tarc.mycontact.Contact
 
 class DashboardViewModel : ViewModel() {
     //LiveData gives us updated contacts when they change
-    var contactList : LiveData<List<Contact>>
+    var contactList : LiveData<List<Bill>>
     private val repository: ContactRepository
     var selectedIndex: Int = -1
 

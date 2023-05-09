@@ -5,24 +5,35 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.room.Room
+import my.edu.tarc.ass2.AppDatabase
 import my.edu.tarc.ass2.R
+import my.edu.tarc.ass2.databaseDao
 import my.edu.tarc.ass2.databinding.ActivityDashboardBinding
 
 private lateinit var binding: ActivityDashboardBinding
 private lateinit var dashboardViewModel: DashboardViewModel
 class Dashboard : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         //Initialize ViewModel
         dashboardViewModel= ViewModelProvider(this).get(DashboardViewModel::class.java)
+
+        //Connect database
+        val db = Room.databaseBuilder(this, AppDatabase::class.java, "my-database").build()
+        val databaseDao = db.databaseDao()
+        viewModel = ViewModelProvider(this, ViewModelFactory(databaseDao)).get(DashboardViewModel::class.java)
+
 
         //onclicks
         binding.hotlinePic.setOnClickListener(){

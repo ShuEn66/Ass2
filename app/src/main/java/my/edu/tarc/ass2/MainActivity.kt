@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
        //go dashboard from main activity
         navController.navigate(R.id.dashboard)
 
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

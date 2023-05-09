@@ -1,39 +1,57 @@
 package my.edu.tarc.ass2.Dashboard
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.launch
+import my.edu.tarc.ass2.AppDatabase
+import my.edu.tarc.ass2.databaseDao
 import my.tarc.mycontact.Bill
-import my.tarc.mycontact.Contact
 
-class DashboardViewModel : ViewModel() {
-    //LiveData gives us updated contacts when they change
-    var contactList : LiveData<List<Bill>>
-    private val repository: ContactRepository
-    var selectedIndex: Int = -1
+
+class DashboardViewModel(application: Application, private var databaseDao: databaseDao) : ViewModel() {
+    suspend fun getOverallUsage(accNo: Int, month: Int, year: Int): LiveData<Bill> {
+        return databaseDao.getOverallUsage(accNo, month, year)
+    }
+
+    suspend fun getBillStatus(accNo: Int, month: Int, year: Int): LiveData<Bill> {
+        return databaseDao.getBillStatus(accNo, month, year)
+    }
+
+    suspend fun getPaymentDue(accNo: Int, month: Int, year: Int): LiveData<Bill> {
+        return databaseDao.getPaymentDue(accNo, month, year)
+    }
+
+    suspend fun getTotalAmount(accNo: Int, month: Int, year: Int): LiveData<Bill> {
+        return databaseDao.getTotalAmount(accNo, month, year)
+    }
+
+    suspend fun getCurrentCharges(accNo: Int, month: Int, year: Int): LiveData<Bill> {
+        return databaseDao.getCurrentCharges(accNo, month, year)
+    }
+
+    suspend fun getOutstandingCharges(accNo: Int, month: Int, year: Int): LiveData<Bill> {
+        return databaseDao.getOutstandingCharges(accNo, month, year)
+    }
+
+    suspend fun getInvoiceDate(accNo: Int, month: Int, year: Int): LiveData<Bill> {
+        return databaseDao.getInvoiceDate(accNo, month, year)
+    }
+
+    suspend fun getOverdueCharges(accNo: Int, month: Int, year: Int): LiveData<Bill> {
+        return databaseDao.getOverdueCharges(accNo, month, year)
+    }
+
+    suspend fun updateBillStatus() {
+        databaseDao.updateBillStatus()
+    }
 
     init {
-        val contactDao = ContactDatabase.getDatabase(application).contactDao()
-        repository = ContactRepository(contactDao)
-        contactList = repository.allContacts
-    }
-
-    fun addContact(contact: Contact) = viewModelScope.launch{
-        repository.add(contact)
-    }
-
-    fun deleteContact(contact: Contact) = viewModelScope.launch{
-        repository.delete(contact)
-    }
-
-    fun updateContact(contact: Contact) = viewModelScope.launch{
-        repository.update(contact)
-    }
-
-    fun deleteAll() = viewModelScope.launch {
-        repository.deleteAll()
+        val database = AppDatabase.getInstance(application)
+        databaseDao = database.databaseDao()
     }
 
 
 }
+
+

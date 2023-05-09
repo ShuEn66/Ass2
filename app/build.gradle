@@ -54,4 +54,12 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     def nav_safe_args_version = "2.3.5"
     implementation "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_safe_args_version"
+    implementation 'mysql:mysql-connector-java:8.0.23'
+    //View Model and Live Data
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    implementation 'androidx.activity:activity-ktx:1.7.0'
+    //Room Dependency
+    def room_version = "2.5.1"
+    implementation "androidx.room:room-runtime:$room_version"
 }

@@ -114,6 +114,13 @@
     <string name="cqEmail">cq@gmail.com</string>
     <string name="rateUs">RATE US</string>
     <string name="devInfo">Developer Info</string>
+    <
+    <
+    <
+    <
+    <
+    <
+    < Updated upstream
     <string name="exit_message">Are you sure you wanna exit?</string>
     <string name="exit">Exit</string>
     <string name="title_activity_dashboad_view_model">DashboadViewModel</string>
@@ -123,6 +130,17 @@
     <string name="title_activity_database">Database</string>
     <string name="title_activity_dao">Dao</string>
     <string name="title_activity_respository">Respository</string>
+    =======
+    <string name="enjoyGOL">Enjoying GOL?</string>
+    <string name="enjoy2">Tap a star to rate this app.</string>
+    <string name="submit">SUBMIT</string>
+    <string name="currentBill">Current Bill</string>
+    <string name="currentCharges">Current Charges</string>
+    <string name="outstandingCharges">Outstanding Charges</string>
+    <string name="RM">RM</string>
+    <string name="display">DISPLAY</string>
+    <string name="totalAmountDue">Total Amount Due</string>
+    >>>>>>> Stashed changes
 
 
 </resources>

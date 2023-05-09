@@ -129,6 +129,25 @@
     <string name="RM">RM</string>
     <string name="display">DISPLAY</string>
     <string name="totalAmountDue">Total Amount Due</string>
+    <string name="billHistory">Billing History</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+    <string name="billing">Billing</string>
+    //Bill Details
+    <string name="billInfo">Bill Details</string>
+    <string name="invoiceDate">Invoice Date:</string>
+    <string name="dueDate">Due Date:</string>
+    <string name="totalBill">Total Bill:</string>
+    <string name="currentBillShow">Current Bill:</string>
+    <string name="previousOverdue">Previous Overdue:</string>
+    <string name="penalty">*1% late payment penalty charge will be imposed if payment of electricity bill is made later than 30 days</string>
+    //Bill History
+    <string name="billHistoryTitle">Bill History</string>
+    <string name="paymentDate">Payment Date:</string>
+    <string name="paymentStatus">Payment Status:</string>
+    <string name="paymentMethod">Payment Method:</string>
+    <string name="energyConsumption">Energy Consumption (kWh):</string>
+    <string name="amount">Amount:</string>
 
     <string name="exit_message">Are you sure you wanna exit?</string>
     <string name="exit">Exit</string>
@@ -141,10 +160,11 @@
     <string name="title_activity_respository">Respository</string>
 
     <!-- Strings used for fragments for navigation -->
-    <string name= "url_server">https://guardianoflighting.000webhostapp.com/</string>
-    <string name= "url_read">user/read.php</string>
-    <string name= "url_create">user/create.php</string>
-// 6edc224cb96fbcf5418fdc9473c43aa9d4200731
+    <string name="url_server">https://guardianoflighting.000webhostapp.com/</string>
+    <string name="url_read">user/read.php</string>
+    <string name="url_create">user/create.php</string>
+
+    // 6edc224cb96fbcf5418fdc9473c43aa9d4200731
 
 
 </resources>

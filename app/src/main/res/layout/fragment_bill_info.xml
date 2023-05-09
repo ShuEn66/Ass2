@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Billing.BillInfoFragment" >
+
+    <LinearLayout
+        android:id="@+id/layoutBillInfo"
+        android:layout_width="375dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="140dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewBill"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangledeep">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="129dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="16dp" />
+
+                <TextView
+                    android:id="@+id/textViewCurrentBill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/billInfo"
+                    android:textColor="#020202"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline21"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.061" />
+
+                <TextView
+                    android:id="@+id/textViewCurrentBill3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/totalBill"
+                    android:textColor="#020202"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline17"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageViewBar2"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textViewCurrentCharges"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/invoiceDate"
+                    android:textColor="#020202"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline17"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline21"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewCurrentBill"
+                    app:layout_constraintVertical_bias="0.077" />
+
+                <TextView
+                    android:id="@+id/textViewOutstandingCharges"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/dueDate"
+                    android:textColor="#020202"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline17"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline21"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewCurrentCharges"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textViewOutstandingCharges2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/currentBillShow"
+                    android:textColor="#020202"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline17"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline21"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewOutstandingCharges"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textViewOutstandingCharges3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/previousOverdue"
+                    android:textColor="#020202"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline17"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline21"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewOutstandingCharges2"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textViewRM1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/display"
+                    android:textColor="#020202"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewCurrentCharges"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline17"
+                    app:layout_constraintTop_toTopOf="@+id/textViewCurrentCharges"
+                    app:layout_constraintVertical_bias="0.22" />
+
+                <TextView
+                    android:id="@+id/textViewRM1content3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/display"
+                    android:textColor="#020202"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewRM3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.083"
+                    app:layout_constraintStart_toEndOf="@+id/textViewRM3"
+                    app:layout_constraintTop_toTopOf="@+id/textViewRM3" />
+
+                <ImageView
+                    android:id="@+id/imageViewBar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="26dp"
+                    android:layout_marginTop="8dp"
+                    android:scaleX="20"
+                    android:scaleY="1"
+                    android:src="@drawable/baseline_horizontal_rule_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewOutstandingCharges"
+                    app:layout_constraintVertical_bias="0.808" />
+
+                <TextView
+                    android:id="@+id/textViewRM2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/display"
+                    android:textColor="#020202"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewOutstandingCharges"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline17"
+                    app:layout_constraintTop_toTopOf="@+id/textViewOutstandingCharges"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textViewRM4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/display"
+                    android:textColor="#020202"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewRM"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.034"
+                    app:layout_constraintStart_toEndOf="@+id/textViewRM"
+                    app:layout_constraintTop_toTopOf="@+id/textViewRM" />
+
+                <TextView
+                    android:id="@+id/textViewRM6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/display"
+                    android:textColor="#020202"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewRM5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.034"
+                    app:layout_constraintStart_toEndOf="@+id/textViewRM5"
+                    app:layout_constraintTop_toTopOf="@+id/textViewRM5" />
+
+                <TextView
+                    android:id="@+id/textViewRM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/RM"
+                    android:textColor="#020202"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewOutstandingCharges2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline17"
+                    app:layout_constraintTop_toTopOf="@+id/textViewOutstandingCharges2" />
+
+                <TextView
+                    android:id="@+id/textViewRM5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/RM"
+                    android:textColor="#020202"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewOutstandingCharges3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline17"
+                    app:layout_constraintTop_toTopOf="@+id/textViewOutstandingCharges3" />
+
+                <TextView
+                    android:id="@+id/textViewRM3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/RM"
+                    android:textColor="#020202"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewCurrentBill3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline17"
+                    app:layout_constraintTop_toTopOf="@+id/textViewCurrentBill3" />
+
+                <TextView
+                    android:id="@+id/textViewPenalty"
+                    android:layout_width="344dp"
+                    android:layout_height="54dp"
+                    android:text="@string/penalty"
+                    android:textColor="#F44336"
+                    app:layout_constraintBottom_toTopOf="@+id/imageViewBar2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline21"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewOutstandingCharges3"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

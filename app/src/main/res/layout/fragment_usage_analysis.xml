@@ -98,7 +98,7 @@
                     tools:text="@string/billStatus_title" />
 
                 <TextView
-                    android:id="@+id/textView22"
+                    android:id="@+id/displayBillStatus"
                     android:layout_width="143dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

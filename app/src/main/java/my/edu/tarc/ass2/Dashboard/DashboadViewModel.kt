@@ -9,31 +9,31 @@ import my.tarc.mycontact.Bill
 
 
 class DashboardViewModel(application: Application, private var databaseDao: databaseDao) : ViewModel() {
-    suspend fun getOverallUsage(accNo: Int, month: Int, year: Int) {
+    fun getOverallUsage(accNo: Long, month: Int, year: Int) {
         viewModelScope.launch { databaseDao.getOverallUsage(accNo, month, year)}
     }
 
-    suspend fun getBillStatus(accNo: Int, month: Int, year: Int) {
+    fun getBillStatus(accNo: Long, month: Int, year: Int) {
         viewModelScope.launch {databaseDao.getBillStatus(accNo, month, year)}
     }
 
-    suspend fun getPaymentDue(accNo: Int, month: Int, year: Int) {
+    fun getPaymentDue(accNo:Long, month: Int, year: Int) {
         viewModelScope.launch {databaseDao.getPaymentDue(accNo, month, year)}
     }
 
-    suspend fun getTotalAmount(accNo: Int, month: Int, year: Int) {
+    fun getTotalAmount(accNo: Long, month: Int, year: Int) {
         viewModelScope.launch {databaseDao.getTotalAmount(accNo, month, year)}
     }
 
-    suspend fun getCurrentCharges(accNo: Int, month: Int, year: Int){
+    fun getCurrentCharges(accNo: Long, month: Int, year: Int){
         viewModelScope.launch {databaseDao.getCurrentCharges(accNo, month, year)}
     }
 
-    suspend fun getOutstandingCharges(accNo: Int, month: Int, year: Int) {
+    fun getOutstandingCharges(accNo: Long, month: Int, year: Int) {
         viewModelScope.launch {databaseDao.getOutstandingCharges(accNo, month, year)}
     }
 
-    suspend fun setBillingDetails(Bill: Bill){
+    fun setBillingDetails(Bill: Bill){
         viewModelScope.launch {databaseDao.setBillingDetails(Bill)}
     }
 

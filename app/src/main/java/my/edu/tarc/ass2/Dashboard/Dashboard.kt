@@ -1,25 +1,25 @@
 package my.edu.tarc.ass2.Dashboard
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.room.Room
+import java.text.SimpleDateFormat
+import java.util.Date
 
 import my.edu.tarc.ass2.R
-import my.edu.tarc.ass2.databaseDao
 import my.edu.tarc.ass2.databinding.ActivityDashboardBinding
+import my.tarc.mycontact.Bill
+import java.time.format.DateTimeFormatter
 
 private lateinit var binding: ActivityDashboardBinding
 private lateinit var dashboardViewModel: DashboardViewModel
 class Dashboard : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -37,6 +37,10 @@ class Dashboard : AppCompatActivity() {
                 .addToBackStack(null)
                 .commit()
         }
+
+        //date formatter
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+
 
         binding.profilePic.setOnClickListener(){
             val navController = Navigation.findNavController(this, R.id.dashboard)
@@ -70,6 +74,30 @@ class Dashboard : AppCompatActivity() {
             }
         }
         onBackPressedDispatcher.addCallback(backPressedCallback)
+
+        //set bill details for 1 time for data retrieval afterwards
+        val newContact11 = Bill("001", 12, 2022, 90.00, dateFormat.parse("2022-12-01"), dateFormat.parse("2022-12-31"), "Paid", 400.00, 90.00,0.00,0.00,123412341111,"A001")
+        val newContact12 = Bill("002", 1, 2023,100.00, dateFormat.parse("2023-01-01"), dateFormat.parse("2023-01-31"), "Paid", 400.00, 100.00,0.00,0.00,123412341111,"A002")
+        val newContact13 = Bill("003", 2, 2023,110.00, dateFormat.parse("2023-02-01"), dateFormat.parse("2023-02-31"), "Paid", 400.00, 110.00,0.00,0.00,123412341111,"A003")
+        val newContact14 = Bill("004", 3, 2023,120.00, dateFormat.parse("2023-03-01"), dateFormat.parse("2023-03-31"), "Paid", 400.00, 120.00,0.00,0.00,123412341111,"A004")
+        val newContact15 = Bill("005", 4, 2023,120.00, dateFormat.parse("2023-04-01"), dateFormat.parse("2023-04-31"), "Unpaid", 400.00, 120.00,0.00,0.00,123412341111,"A005")
+        val newContact2 = Bill("001", 3, 2023,100.00, dateFormat.parse("2023-03-01"), dateFormat.parse("2023-03-31"), "Unpaid", 400.00, 100.00,0.00,0.00,123412341112,"A001")
+        val newContact2a = Bill("002", 4, 2023,220.00, dateFormat.parse("2023-04-01"), dateFormat.parse("2023-04-31"), "Unpaid", 400.00, 100.00,200.00,20.00,123412341112,"A002")
+
+        dashboardViewModel.setBillingDetails(newContact11)
+        dashboardViewModel.setBillingDetails(newContact12)
+        dashboardViewModel.setBillingDetails(newContact13)
+        dashboardViewModel.setBillingDetails(newContact14)
+        dashboardViewModel.setBillingDetails(newContact15)
+        dashboardViewModel.setBillingDetails(newContact2)
+        dashboardViewModel.setBillingDetails(newContact2a)
+
+        val getOverallUsage = dashboardViewModel.getOverallUsage(123412341111, 12, 2022)
+        binding.displayOverallUsage = getOverallUsage
+
+
+
+
 
     }
 }

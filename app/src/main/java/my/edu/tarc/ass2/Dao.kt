@@ -10,70 +10,70 @@ interface databaseDao {
 
     //BILL
     @Query("SELECT Bill.OverallUsage FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
-    suspend fun getOverallUsage(accNo: Int, month: Int,  year:Int):LiveData<Bill>
+    fun getOverallUsage(accNo: Long, month: Int,  year:Int):LiveData<Bill>
 
     @Query("SELECT Bill.BillStatus FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
-    suspend fun getBillStatus(accNo: Int, month: Int,  year:Int):LiveData<Bill>
+    fun getBillStatus(accNo: Long, month: Int,  year:Int):LiveData<Bill>
 
     @Query("SELECT Bill.DueDate FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
-    suspend fun getPaymentDue(accNo: Int, month: Int,  year:Int):LiveData<Bill>
+    fun getPaymentDue(accNo: Long, month: Int,  year:Int):LiveData<Bill>
 
     @Query("SELECT Bill.TotalAmount FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
-    suspend fun getTotalAmount(accNo: Int, month: Int , year:Int):LiveData<Bill>
+    fun getTotalAmount(accNo:Long, month: Int , year:Int):LiveData<Bill>
 
     //@Query("SELECT * FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo ORDER BY ")
-    //suspend fun getBillingHistory(accNo: Int ):LiveData<List<Bill>>
+    //suspend fun getBillingHistory(accNo: Long ):LiveData<List<Bill>>
 
     @Query("SELECT  Bill.CurrentCharges FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
-    suspend fun getCurrentCharges(accNo: Int,  month: Int,  year:Int):LiveData<Bill>
+    fun getCurrentCharges(accNo: Long,  month: Int,  year:Int):LiveData<Bill>
 
     @Query("SELECT Bill.OutstandingCharges FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
-    suspend fun getOutstandingCharges(accNo: Int,  month: Int,  year:Int):LiveData<Bill>
+    fun getOutstandingCharges(accNo: Long,  month: Int,  year:Int):LiveData<Bill>
 
     @Query("SELECT Bill.InvoiceDat FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
-    suspend fun getInvoiceDate(accNo: Int,  month: Int,  year:Int):LiveData<Bill>
+    fun getInvoiceDate(accNo: Long,  month: Int,  year:Int):LiveData<Bill>
 
     @Query("SELECT Bill.OverdueCharges FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
-    suspend fun getOverdueCharges(accNo: Int,  month: Int,  year:Int):LiveData<Bill>
+    fun getOverdueCharges(accNo: Long,  month: Int,  year:Int):LiveData<Bill>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun setBillingDetails(Bill:Bill)
+    fun setBillingDetails(Bill:Bill)
 
     @Query("UPDATE Bill SET BillStatus = 'Successful' ")
-    suspend fun updateBillStatus()
+    fun updateBillStatus()
 
 
     //USER
 
     //PAYMENT
     @Query("SELECT Payment.PaymentDate FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year ")
-    suspend fun getPaymentDate(accNo: Int,  month: Int,  year:Int):LiveData<Payment>
+    fun getPaymentDate(accNo: Long,  month: Int,  year:Int):LiveData<Payment>
 
     @Query("SELECT Payment.PaymentStatus FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
-    suspend fun getPaymentStatus(accNo: Int,  month: Int, year:Int):LiveData<Payment>
+    fun getPaymentStatus(accNo: Long,  month: Int, year:Int):LiveData<Payment>
 
     @Query("SELECT Payment.PaymentMethod FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo OAND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
-    suspend fun getPaymentMethod(accNo: Int,  month: Int,  year:Int):LiveData<Payment>
+    fun getPaymentMethod(accNo: Long,  month: Int,  year:Int):LiveData<Payment>
 
     @Query("UPDATE Payment SET PaymentStatus = 'Successful'")
-    suspend fun updatePaymentStatus()
+    fun updatePaymentStatus()
 
     //ELECTRICITYACC
     @Query("SELECT * FROM ElectricityAcc WHERE AccNumber = : accNo")
-    suspend fun getAccount(accNo: Int):LiveData<ElectricityAcc>
+    fun getAccount(accNo: Long):LiveData<ElectricityAcc>
 
     //APPLIANCES
     //get appliance details
     @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = : userEmail AND Appliances.AppliancesID= : appliancesID")
-    suspend fun getAppliancesName(userEmail: String, appliancesID: Int ):LiveData<Appliances>
+    fun getAppliancesName(userEmail: String, appliancesID: String ):LiveData<Appliances>
 
     //get the list of appliances
     @Query("SELECT Appliance.AppliancesType, Appliance.EstimatedUsage FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = : userEmail ")
-    suspend fun getEstimatedUsage(userEmail: String ):LiveData<List<Appliances>>
+    fun getEstimatedUsage(userEmail: String ):LiveData<List<Appliances>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun setAppliances(Appliances:Appliances)
+    fun setAppliances(Appliances:Appliances)
 
     @Delete
-    suspend fun deleteAppliances(Appliances:Appliances)
+    fun deleteAppliances(Appliances:Appliances)
 }

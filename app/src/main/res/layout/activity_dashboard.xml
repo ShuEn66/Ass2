@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Dashboard.Dashboard">
 
+
+
     <ImageView
         android:id="@+id/background"
         android:layout_width="589dp"
@@ -228,11 +230,11 @@
                                 tools:text="@string/overallUsage_title" />
 
                             <TextView
-                                android:id="@+id/textView18"
+                                android:id="@+id/displayOverallUsage"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                tools:text="DISPLAY" />
+                                tools:text="@{String.valueOf(user.getOverallUsage())}" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -268,7 +270,7 @@
                                 tools:text="@string/billStatus_title" />
 
                             <TextView
-                                android:id="@+id/textView22"
+                                android:id="@+id/displayBillStatus"
                                 android:layout_width="143dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"

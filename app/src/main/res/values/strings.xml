@@ -81,6 +81,8 @@
     <string name="billStatus_title">Bill Status:</string>
     <string name="budget_title">Budget:</string>
     <string name="address_title">Address</string>
+    <!-- Strings related to hotline -->
+    <string name="paymentSuccessful_title">  Payment Successful!</string>
 
 
     <!-- SHARABLE COMPONENTS -->

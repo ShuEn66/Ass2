@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.databaseDao
+import my.tarc.mycontact.Bill
 
 
 class DashboardViewModel(application: Application, private var databaseDao: databaseDao) : ViewModel() {
@@ -32,16 +33,8 @@ class DashboardViewModel(application: Application, private var databaseDao: data
         viewModelScope.launch {databaseDao.getOutstandingCharges(accNo, month, year)}
     }
 
-    suspend fun getInvoiceDate(accNo: Int, month: Int, year: Int){
-        viewModelScope.launch {databaseDao.getInvoiceDate(accNo, month, year)}
-    }
-
-    suspend fun getOverdueCharges(accNo: Int, month: Int, year: Int) {
-        viewModelScope.launch {databaseDao.getOverdueCharges(accNo, month, year)}
-    }
-
-    suspend fun updateBillStatus() {
-        databaseDao.updateBillStatus()
+    suspend fun setBillingDetails(Bill: Bill){
+        viewModelScope.launch {databaseDao.setBillingDetails(Bill)}
     }
 
     init {

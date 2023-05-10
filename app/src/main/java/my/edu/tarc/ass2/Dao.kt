@@ -36,8 +36,12 @@ interface databaseDao {
     @Query("SELECT Bill.OverdueCharges FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
     suspend fun getOverdueCharges(accNo: Int,  month: Int,  year:Int):LiveData<Bill>
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun setBillingDetails(Bill:Bill)
+
     @Query("UPDATE Bill SET BillStatus = 'Successful' ")
     suspend fun updateBillStatus()
+
 
     //USER
 
@@ -67,6 +71,9 @@ interface databaseDao {
     @Query("SELECT Appliance.AppliancesType, Appliance.EstimatedUsage FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = : userEmail ")
     suspend fun getEstimatedUsage(userEmail: String ):LiveData<List<Appliances>>
 
-    //@Delete
-    //suspend fun delete(contact: Contact)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun setAppliances(Appliances:Appliances)
+
+    @Delete
+    suspend fun deleteAppliances(Appliances:Appliances)
 }

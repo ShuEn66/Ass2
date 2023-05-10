@@ -17,6 +17,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    packagingOptions {
+        pickFirst 'mozilla/public-suffix-list.txt'
+        exclude 'kotlin/coroutines/coroutines.kotlin_builtins'    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -59,6 +63,11 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
     implementation 'androidx.activity:activity-ktx:1.7.0'
+
+    implementation('org.jetbrains.intellij.deps:trove4j:1.0.20181211') {
+        exclude group: 'org.jetbrains.trove4j', module: 'trove4j'
+    }
+
     //Room Dependency
     def room_version = "2.5.1"
     implementation "androidx.room:room-runtime:$room_version"

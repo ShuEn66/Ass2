@@ -33,7 +33,7 @@ data class Bill(@PrimaryKey val BillID: String, val BillingMonth: Int, val Billi
 }
 
 @Entity(tableName = "Appliances")
-data class Appliances (@PrimaryKey val AppliancesID: String,  val AppliancesName: String, val AppliancesType : String, val EstimatedUsage:Double, val AppliancesPower:Double, val UserName: String) {
+data class Appliances (@PrimaryKey val AppliancesName: String, val AppliancesType : String, val EstimatedUsage:Double, val AppliancesPower:Double, val UserName: String) {
     override fun toString(): String {
         return " $AppliancesName:  $AppliancesType: $EstimatedUsage: $AppliancesPower "
     }

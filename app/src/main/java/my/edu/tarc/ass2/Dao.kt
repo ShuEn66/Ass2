@@ -64,8 +64,8 @@ interface databaseDao {
 
     //APPLIANCES
     //get appliance details
-    @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = : userEmail AND Appliances.AppliancesID= : appliancesID")
-    fun getAppliancesName(userEmail: String, appliancesID: String ):LiveData<Appliances>
+    @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = : userEmail AND Appliances.AppliancesName= : appliancesName")
+    fun getAppliancesName(userEmail: String, appliancesName: String ):LiveData<Appliances>
 
     //get the list of appliances
     @Query("SELECT Appliance.AppliancesType, Appliance.EstimatedUsage FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = : userEmail ")

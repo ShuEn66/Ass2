@@ -92,8 +92,9 @@ class Dashboard : AppCompatActivity() {
         dashboardViewModel.setBillingDetails(newContact2)
         dashboardViewModel.setBillingDetails(newContact2a)
 
-        val getOverallUsage = dashboardViewModel.getOverallUsage(123412341111, 12, 2022)
-        binding.displayOverallUsage = getOverallUsage
+        val getOverallUsage= dashboardViewModel.getOverallUsage(123412341111, 12, 2022)
+        binding.displayOverallUsage.text = getOverallUsage.toString()
+
 
 
 

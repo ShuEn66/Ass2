@@ -2,10 +2,7 @@ package my.edu.tarc.ass2
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import my.tarc.mycontact.Appliances
-import my.tarc.mycontact.Bill
-import my.tarc.mycontact.Payment
-import my.tarc.mycontact.User
+import my.tarc.mycontact.*
 
 
 @Dao
@@ -57,7 +54,9 @@ interface databaseDao {
     @Query("UPDATE Payment SET PaymentStatus = 'Successful'")
     suspend fun updatePaymentStatus()
 
-    //ELECTRICITYACC - no queries
+    //ELECTRICITYACC
+    @Query("SELECT * FROM ElectricityAcc WHERE AccNumber = : accNo")
+    suspend fun getAccount(accNo: Int):LiveData<ElectricityAcc>
 
     //APPLIANCES
     //get appliance details

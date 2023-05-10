@@ -29,11 +29,6 @@ class Dashboard : AppCompatActivity() {
         //Initialize ViewModel
         dashboardViewModel= ViewModelProvider(this).get(DashboardViewModel::class.java)
 
-        //Connect database
-        val db = Room.databaseBuilder(this, AppDatabase::class.java, "my-database").build()
-        val databaseDao = db.databaseDao()
-      
-
         //onclicks
         binding.hotlinePic.setOnClickListener(){
             val fragment = HotlineFragment()

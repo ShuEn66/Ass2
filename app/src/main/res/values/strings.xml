@@ -76,14 +76,18 @@
     <string name="hotlineEmail">TNB (Email) :  tnbcareline@tnb.com.my</string>
     <!-- Strings related to usage analysis -->
     <string name="usageAnalysis_title">USAGE ANALSIS</string>
-    <string name="overallUsage_title">Overall Usage:</string>
+    <string name="overallUsage_title">Overall Usage (K:</string>
     <string name="optimumUsage_title">Optimum Usage:</string>
     <string name="billStatus_title">Bill Status:</string>
     <string name="budget_title">Budget:</string>
     <string name="address_title">Address</string>
     <!-- Strings related to hotline -->
     <string name="paymentSuccessful_title">  Payment Successful!</string>
-
+    <string name="amountPaid_title">Amount Paid:                       RM</string>
+    <string name="paymentDate_title">Date of Payment: </string>
+    <string name="paymentTime_title">Time of Payment: </string>
+    <string name="paymentMethod_title">Payment Method: </string>
+    <string name="paymentAccount_title">Account: </string>
 
     <!-- SHARABLE COMPONENTS -->
     <string name="doneButton">DONE</string>

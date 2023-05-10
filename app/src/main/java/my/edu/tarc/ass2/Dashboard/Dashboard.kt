@@ -12,7 +12,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.room.Room
-import my.edu.tarc.ass2.AppDatabase
+
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databaseDao
 import my.edu.tarc.ass2.databinding.ActivityDashboardBinding
@@ -32,8 +32,7 @@ class Dashboard : AppCompatActivity() {
         //Connect database
         val db = Room.databaseBuilder(this, AppDatabase::class.java, "my-database").build()
         val databaseDao = db.databaseDao()
-        viewModel = ViewModelProvider(this, ViewModelFactory(databaseDao)).get(DashboardViewModel::class.java)
-
+      
 
         //onclicks
         binding.hotlinePic.setOnClickListener(){

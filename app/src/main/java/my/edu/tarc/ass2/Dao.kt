@@ -2,7 +2,7 @@ package my.edu.tarc.ass2
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import my.tarc.mycontact.*
+
 
 
 @Dao
@@ -30,7 +30,7 @@ interface databaseDao {
     @Query("SELECT Bill.OutstandingCharges FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
     fun getOutstandingCharges(accNo: Long,  month: Int,  year:Int):LiveData<Bill>
 
-    @Query("SELECT Bill.InvoiceDat FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT Bill.InvoiceDate FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
     fun getInvoiceDate(accNo: Long,  month: Int,  year:Int):LiveData<Bill>
 
     @Query("SELECT Bill.OverdueCharges FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
@@ -52,23 +52,23 @@ interface databaseDao {
     @Query("SELECT Payment.PaymentStatus FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
     fun getPaymentStatus(accNo: Long,  month: Int, year:Int):LiveData<Payment>
 
-    @Query("SELECT Payment.PaymentMethod FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo OAND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT Payment.PaymentMethod FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
     fun getPaymentMethod(accNo: Long,  month: Int,  year:Int):LiveData<Payment>
 
     @Query("UPDATE Payment SET PaymentStatus = 'Successful'")
     fun updatePaymentStatus()
 
     //ELECTRICITYACC
-    @Query("SELECT * FROM ElectricityAcc WHERE AccNumber = : accNo")
+    @Query("SELECT * FROM ElectricityAcc WHERE AccNumber =:accNo")
     fun getAccount(accNo: Long):LiveData<ElectricityAcc>
 
     //APPLIANCES
     //get appliance details
-    @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = : userEmail AND Appliances.AppliancesName= : appliancesName")
+    @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail =:userEmail AND Appliances.AppliancesName= :appliancesName")
     fun getAppliancesName(userEmail: String, appliancesName: String ):LiveData<Appliances>
 
     //get the list of appliances
-    @Query("SELECT Appliance.AppliancesType, Appliance.EstimatedUsage FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = : userEmail ")
+    @Query("SELECT Appliances.AppliancesType, Appliances.EstimatedUsage FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = :userEmail ")
     fun getEstimatedUsage(userEmail: String ):LiveData<List<Appliances>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

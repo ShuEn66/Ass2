@@ -86,9 +86,7 @@ dependencies {
     //implementation('org.jetbrains.intellij.deps:trove4j:1.0.20181211') {
         //exclude module: 'trove4j'
     //}
-    implementation('com.sun.activation:javax.activation:1.2.0') {
-        exclude group: 'javax.activation', module: 'javax.activation-api'
-    }
+
 
     //Room Dependency
     def room_version = "2.5.1"

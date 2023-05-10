@@ -1,4 +1,4 @@
-package my.edu.tarc.ass2.Payment
+package my.edu.tarc.ass2.PaymentActivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

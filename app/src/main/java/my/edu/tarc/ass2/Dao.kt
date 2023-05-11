@@ -7,31 +7,31 @@ import androidx.room.*
 interface databaseDao {
 
     //BILL
-    @Query("SELECT Bill.OverallUsage FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT OverallUsage FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
     suspend fun getOverallUsage(accNo: Long, month: Int,  year:Int): Double
 
-    @Query("SELECT Bill.BillStatus FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT BillStatus FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
     suspend fun getBillStatus(accNo: Long, month: Int,  year:Int): String
 
-    @Query("SELECT Bill.DueDate FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT DueDate FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
     suspend fun getPaymentDue(accNo: Long, month: Int,  year:Int):String
 
-    @Query("SELECT Bill.TotalAmount FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT TotalAmount FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
     suspend fun getTotalAmount(accNo:Long, month: Int , year:Int): Double
 
     //@Query("SELECT * FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo ORDER BY ")
     //suspend fun getBillingHistory(accNo: Long ):LiveData<List<Bill>>
 
-    @Query("SELECT  Bill.CurrentCharges FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT CurrentCharges FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
     suspend fun getCurrentCharges(accNo: Long,  month: Int,  year:Int): Double
 
-    @Query("SELECT Bill.OutstandingCharges FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT OutstandingCharges FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
     suspend fun getOutstandingCharges(accNo: Long,  month: Int,  year:Int):Double
 
-    @Query("SELECT Bill.InvoiceDate FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT InvoiceDate FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
     suspend fun getInvoiceDate(accNo: Long,  month: Int,  year:Int): String
 
-    @Query("SELECT Bill.OverdueCharges FROM Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT OverdueCharges FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
     suspend fun getOverdueCharges(accNo: Long,  month: Int,  year:Int):Double
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -44,13 +44,13 @@ interface databaseDao {
     //USER
 
     //PAYMENT
-    @Query("SELECT Payment.PaymentDate FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year ")
+    @Query("SELECT Payment.PaymentDate FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNumber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year ")
     suspend fun getPaymentDate(accNo: Long,  month: Int,  year:Int):String
 
-    @Query("SELECT Payment.PaymentStatus FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT Payment.PaymentStatus FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNumber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
     suspend fun getPaymentStatus(accNo: Long,  month: Int, year:Int): String
 
-    @Query("SELECT Payment.PaymentMethod FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNUmber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT Payment.PaymentMethod FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNumber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
     suspend fun getPaymentMethod(accNo: Long,  month: Int,  year:Int): String
 
     @Query("UPDATE Payment SET PaymentStatus = 'Successful'")
@@ -60,7 +60,7 @@ interface databaseDao {
     @Query("SELECT * FROM ElectricityAcc WHERE AccNumber =:accNo")
     fun getAccount(accNo: Long):LiveData<List<ElectricityAcc>>
 
-    //APPLIANCES
+    //APPLIANCES (JIA XUAN PLS CHECK UR SQL I MIGHT WRONGGG)
     @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail =:userEmail AND Appliances.AppliancesName= :appliancesName")
     fun getAppliances(userEmail: String, appliancesName: String ):LiveData<Appliances>
 

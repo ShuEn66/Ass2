@@ -4,6 +4,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
@@ -11,15 +12,18 @@ import androidx.navigation.Navigation
 import my.edu.tarc.ass2.Bill
 import java.text.SimpleDateFormat
 import java.util.Date
+import my.edu.tarc.ass2.Dashboard.DashboardViewModel
 
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.ActivityDashboardBinding
 
 import java.time.format.DateTimeFormatter
 
-private lateinit var binding: ActivityDashboardBinding
-private lateinit var dashboardViewModel: DashboardViewModel
+
+
 class Dashboard : AppCompatActivity() {
+    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var binding: ActivityDashboardBinding
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
 

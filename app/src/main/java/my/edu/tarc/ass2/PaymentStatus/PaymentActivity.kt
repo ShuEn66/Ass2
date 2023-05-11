@@ -1,10 +1,10 @@
-package my.edu.tarc.ass2.PaymentActivity
+package my.edu.tarc.ass2.PaymentStatus
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import my.edu.tarc.ass2.R
 
-class Payment : AppCompatActivity() {
+class PaymentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)

@@ -12,7 +12,7 @@ data class User (@PrimaryKey val UserEmail: String, val UserName: String, val Us
 }
 
 @Entity(tableName = "Payment")
-data class Payment (@PrimaryKey val PaymentID: String, val PaymentDate: Date, val PaymentStatus: String, val PaymentMethod: String, val PayAmount: Double) {
+data class Payment (@PrimaryKey val PaymentID: String, val PaymentDate: String, val PaymentStatus: String, val PaymentMethod: String, val PayAmount: Double) {
     override fun toString(): String {
         return "$PaymentID : $PaymentDate:  $PaymentStatus: $PaymentMethod: $PayAmount"
     }
@@ -26,7 +26,7 @@ data class ElectricityAcc (@PrimaryKey val AccNumber:Long,  val AccAddress: Stri
 }
 
 @Entity(tableName = "Bill")
-data class Bill(@PrimaryKey val BillID: String, val BillingMonth: Int, val BillingYear: Int, val TotalAmount: Double, val InvoiceDate: Date, val DueDate: Date, val BillStatus: String, val OverallUsage:Double, val CurrentCharges: Double, val OutstandingCharges:Double, val OverDueCharges:Double, val AccNumber: Long, val PaymentID: String) {
+data class Bill(@PrimaryKey val BillID: String, val BillingMonth: Int, val BillingYear: Int, val TotalAmount: Double, val InvoiceDate: String, val DueDate: String, val BillStatus: String, val OverallUsage:Double, val CurrentCharges: Double, val OutstandingCharges:Double, val OverDueCharges:Double, val AccNumber: Long, val PaymentID: String) {
     override fun toString(): String {
         return "$BillID : $BillingMonth: $BillingYear: $TotalAmount: $InvoiceDate: $DueDate: $BillStatus: $OverallUsage: $CurrentCharges: $OutstandingCharges : $OverDueCharges: $AccNumber: $PaymentID"
     }

@@ -4,7 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import my.edu.tarc.ass2.AppDatabase
 import my.edu.tarc.ass2.Bill
 import my.edu.tarc.ass2.databaseDao
@@ -13,32 +15,61 @@ import my.edu.tarc.ass2.databaseDao
 class DashboardViewModel(application: Application) : AndroidViewModel(application) {
     private var databaseDao: databaseDao
 
-    fun getOverallUsage(accNo: Long, month: Int, year: Int) {
-        viewModelScope.launch { databaseDao.getOverallUsage(accNo, month, year)}
-    }
+    suspend fun getOverallUsage(accNo: Long, month: Int, year: Int):Double {
+             return withContext(Dispatchers.IO) {
+                val d= databaseDao.getOverallUsage(accNo, month, year)
+                d
+            }
+        }
+
+
 
     fun getBillStatus(accNo: Long, month: Int, year: Int) {
-        viewModelScope.launch {databaseDao.getBillStatus(accNo, month, year)}
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                databaseDao.getBillStatus(accNo, month, year)
+            }
+        }
     }
 
     fun getPaymentDue(accNo:Long, month: Int, year: Int) {
-        viewModelScope.launch {databaseDao.getPaymentDue(accNo, month, year)}
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                databaseDao.getPaymentDue(accNo, month, year)
+            }
+        }
     }
 
     fun getTotalAmount(accNo: Long, month: Int, year: Int) {
-        viewModelScope.launch {databaseDao.getTotalAmount(accNo, month, year)}
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                databaseDao.getTotalAmount(accNo, month, year)
+            }
+        }
     }
 
     fun getCurrentCharges(accNo: Long, month: Int, year: Int){
-        viewModelScope.launch {databaseDao.getCurrentCharges(accNo, month, year)}
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                databaseDao.getCurrentCharges(accNo, month, year)
+            }
+        }
     }
 
     fun getOutstandingCharges(accNo: Long, month: Int, year: Int) {
-        viewModelScope.launch {databaseDao.getOutstandingCharges(accNo, month, year)}
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                databaseDao.getOutstandingCharges(accNo, month, year)
+            }
+        }
     }
 
-    fun setBillingDetails(Bill: Bill){
-        viewModelScope.launch {databaseDao.setBillingDetails(Bill)}
+    suspend fun setBillingDetails(Bill: Bill){
+
+            withContext(Dispatchers.IO) {
+                databaseDao.setBillingDetails(Bill)
+
+        }
     }
 
     init {

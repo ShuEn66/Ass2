@@ -8,7 +8,9 @@ import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
+import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.Bill
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -22,7 +24,8 @@ import java.time.format.DateTimeFormatter
 
 
 class Dashboard : AppCompatActivity() {
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private val dashboardViewModel: DashboardViewModel by viewModels()
+    //private lateinit var dashboardViewModel: DashboardViewModel
     private lateinit var binding: ActivityDashboardBinding
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +35,7 @@ class Dashboard : AppCompatActivity() {
         setContentView(binding.root)
 
         //Initialize ViewModel
-        dashboardViewModel= ViewModelProvider(this).get(DashboardViewModel::class.java)
+        //dashboardViewModel= ViewModelProvider(this).get(DashboardViewModel::class.java)
 
         //onclicks
         binding.hotlinePic.setOnClickListener(){
@@ -81,14 +84,14 @@ class Dashboard : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(backPressedCallback)
 
         //set bill details for 1 time for data retrieval afterwards
-        val newContact11 = Bill("001", 12, 2022, 90.00, dateFormat.parse("2022-12-01"), dateFormat.parse("2022-12-31"), "Paid", 400.00, 90.00,0.00,0.00,123412341111,"A001")
-        val newContact12 = Bill("002", 1, 2023,100.00, dateFormat.parse("2023-01-01"), dateFormat.parse("2023-01-31"), "Paid", 400.00, 100.00,0.00,0.00,123412341111,"A002")
-        val newContact13 = Bill("003", 2, 2023,110.00, dateFormat.parse("2023-02-01"), dateFormat.parse("2023-02-31"), "Paid", 400.00, 110.00,0.00,0.00,123412341111,"A003")
-        val newContact14 = Bill("004", 3, 2023,120.00, dateFormat.parse("2023-03-01"), dateFormat.parse("2023-03-31"), "Paid", 400.00, 120.00,0.00,0.00,123412341111,"A004")
-        val newContact15 = Bill("005", 4, 2023,120.00, dateFormat.parse("2023-04-01"), dateFormat.parse("2023-04-31"), "Unpaid", 400.00, 120.00,0.00,0.00,123412341111,"A005")
-        val newContact2 = Bill("001", 3, 2023,100.00, dateFormat.parse("2023-03-01"), dateFormat.parse("2023-03-31"), "Unpaid", 400.00, 100.00,0.00,0.00,123412341112,"A001")
-        val newContact2a = Bill("002", 4, 2023,220.00, dateFormat.parse("2023-04-01"), dateFormat.parse("2023-04-31"), "Unpaid", 400.00, 100.00,200.00,20.00,123412341112,"A002")
-
+        val newContact11 = Bill("001", 12, 2022, 90.00, "2022-12-01","2022-12-31", "Paid", 400.00, 90.00,0.00,0.00,123412341111,"A001")
+        val newContact12 = Bill("002", 1, 2023,100.00, "2023-01-01", "2023-01-31", "Paid", 400.00, 100.00,0.00,0.00,123412341111,"A002")
+        val newContact13 = Bill("003", 2, 2023,110.00, "2023-02-01", "2023-02-31", "Paid", 400.00, 110.00,0.00,0.00,123412341111,"A003")
+        val newContact14 = Bill("004", 3, 2023,120.00, "2023-03-01", "2023-03-31", "Paid", 400.00, 120.00,0.00,0.00,123412341111,"A004")
+        val newContact15 = Bill("005", 4, 2023,120.00, "2023-04-01", "2023-04-31", "Unpaid", 400.00, 120.00,0.00,0.00,123412341111,"A005")
+        val newContact2 = Bill("001", 3, 2023,100.00, "2023-03-01","2023-03-31", "Unpaid", 400.00, 100.00,0.00,0.00,123412341112,"A001")
+        val newContact2a = Bill("002", 4, 2023,220.00, "2023-04-01", "2023-04-31", "Unpaid", 400.00, 100.00,200.00,20.00,123412341112,"A002")
+        lifecycleScope.launch {
         dashboardViewModel.setBillingDetails(newContact11)
         dashboardViewModel.setBillingDetails(newContact12)
         dashboardViewModel.setBillingDetails(newContact13)
@@ -97,13 +100,9 @@ class Dashboard : AppCompatActivity() {
         dashboardViewModel.setBillingDetails(newContact2)
         dashboardViewModel.setBillingDetails(newContact2a)
 
-        val getOverallUsage= dashboardViewModel.getOverallUsage(123412341111, 12, 2022)
-        binding.displayOverallUsage.text = getOverallUsage.toString()
 
-
-
-
-
-
+            val getOverallUsage = dashboardViewModel.getOverallUsage(123412341111, 12, 2022)
+            binding.displayOverallUsage.text = getOverallUsage.toString()
+        }
     }
 }

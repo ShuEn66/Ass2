@@ -10,8 +10,8 @@ import my.edu.tarc.ass2.Bill
 import my.edu.tarc.ass2.databaseDao
 
 
-
-class DashboardViewModel(application: Application, private var databaseDao: databaseDao) : AndroidViewModel(application) {
+class DashboardViewModel(application: Application) : AndroidViewModel(application) {
+    private var databaseDao: databaseDao
 
     fun getOverallUsage(accNo: Long, month: Int, year: Int) {
         viewModelScope.launch { databaseDao.getOverallUsage(accNo, month, year)}

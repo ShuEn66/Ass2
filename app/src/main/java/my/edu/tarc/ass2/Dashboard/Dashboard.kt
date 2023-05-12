@@ -1,12 +1,15 @@
 package my.edu.tarc.ass2.Dashboard
 
+import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import kotlinx.coroutines.launch
@@ -16,12 +19,17 @@ import my.edu.tarc.ass2.databinding.ActivityDashboardBinding
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Locale
+import androidx.viewpager.widget.ViewPager
+
 
 
 class Dashboard : AppCompatActivity() {
     private val dashboardViewModel: DashboardViewModel by viewModels()
     //private lateinit var dashboardViewModel: DashboardViewModel
     private lateinit var binding: ActivityDashboardBinding
+    lateinit var viewPager: ViewPager
+    lateinit var viewPagerAdapter: ViewPagerAdapter
+    lateinit var imageList: List<Int>
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -74,6 +82,27 @@ class Dashboard : AppCompatActivity() {
         }
         onBackPressedDispatcher.addCallback(backPressedCallback)
 
+        //slider
+        imageList = ArrayList<Int>()
+        imageList = imageList + R.drawable.about
+        imageList = imageList + R.drawable.developer
+        imageList = imageList + R.drawable.about
+
+        viewPagerAdapter = ViewPagerAdapter(this@Dashboard, imageList)
+        binding.idViewPager.adapter = viewPagerAdapter
+
+        //overlap button
+        val element1Rect = Rect()
+        val element2Rect = Rect()
+        val element3Rect = Rect()
+
+        binding.idViewPager.getGlobalVisibleRect(element1Rect)
+        binding.frameDashboard.getGlobalVisibleRect(element2Rect)
+        binding.scrollDashboard.getGlobalVisibleRect(element3Rect)
+
+        if (Rect.intersects(element1Rect, element3Rect) && !Rect.intersects(element1Rect, element2Rect)) {
+                binding.idViewPager.bringToFront()
+        }
 
         //show system date time
         val current = LocalDateTime.now()

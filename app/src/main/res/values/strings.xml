@@ -69,6 +69,7 @@
     <string name="viewBill_button">VIEW BILL</string>
     <string name="appliances_button">APPLIANCES</string>
     <string name="announcement_title">ANNOUNCEMENT</string>
+    <string name="descImageSlider">Image Slider</string>
     <!-- Strings related to hotline -->
     <string name="hotline_title">HOTLINE:</string>
     <string name="hotlinePhone_faulty">TNB (Faulty) : 15454</string>
@@ -81,13 +82,14 @@
     <string name="billStatus_title">Bill Status:</string>
     <string name="budget_title">Budget:</string>
     <string name="address_title">Address</string>
-    <!-- Strings related to hotline -->
+    <!-- Strings related to payment-->
     <string name="paymentSuccessful_title">  Payment Successful!</string>
     <string name="amountPaid_title">Amount Paid:                       RM</string>
     <string name="paymentDate_title">Date of Payment: </string>
     <string name="paymentTime_title">Time of Payment: </string>
     <string name="paymentMethod_title">Payment Method: </string>
     <string name="paymentAccount_title">Account: </string>
+
 
     <!-- SHARABLE COMPONENTS -->
     <string name="doneButton">DONE</string>

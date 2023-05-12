@@ -149,7 +149,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/announcement" />
 
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/idViewPager"
+        android:layout_width="303dp"
+        android:layout_height="122dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="404dp"
+        android:contentDescription="@string/descImageSlider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
+        android:id="@+id/scrollDashboard"
         android:layout_width="415dp"
         android:layout_height="700dp"
         android:layout_marginTop="150dp"
@@ -159,6 +173,7 @@
         app:layout_constraintTop_toTopOf="@+id/golLogo">
 
         <FrameLayout
+            android:id="@+id/frameDashboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:context=".Dashboard.UsageAnalysisFragment">
@@ -166,11 +181,11 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="400dp"
-                android:layout_gravity="bottom">
+                android:layout_gravity="bottom"
+                android:layout_marginTop="400dp">
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/dashboardGreen"
                     android:layout_width="536dp"
                     android:layout_height="583dp"
                     android:src="@drawable/dashboard_green"
@@ -202,7 +217,7 @@
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/imageView5">
+                    app:layout_constraintTop_toTopOf="@+id/dashboardGreen">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -275,7 +290,7 @@
                     android:layout_marginTop="190dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/imageView5"
+                    app:layout_constraintTop_toTopOf="@+id/dashboardGreen"
                     tools:layout_editor_absoluteX="40dp"
                     tools:layout_editor_absoluteY="301dp"
                     tools:src="@tools:sample/backgrounds/scenic" />

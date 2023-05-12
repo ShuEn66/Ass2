@@ -44,17 +44,20 @@ interface databaseDao {
     //USER
 
     //PAYMENT
-    @Query("SELECT Payment.PaymentDate FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNumber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year ")
+    @Query("SELECT Payment.PaymentDate FROM Payment, Bill WHERE Payment.PaymentID = Bill.PaymentID AND Bill.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year ")
     suspend fun getPaymentDate(accNo: Long,  month: Int,  year:Int):String
 
-    @Query("SELECT Payment.PaymentStatus FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNumber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT Payment.PaymentStatus FROM Payment, Bill  WHERE Payment.PaymentID = Bill.PaymentID AND Bill.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year ")
     suspend fun getPaymentStatus(accNo: Long,  month: Int, year:Int): String
 
-    @Query("SELECT Payment.PaymentMethod FROM Payment, Bill, ElectricityAcc WHERE ElectricityAcc.AccNumber = Bill.AccNumber AND Payment.PaymentID = Bill.PaymentID AND ElectricityAcc.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year")
+    @Query("SELECT Payment.PaymentMethod FROM Payment, Bill WHERE Payment.PaymentID = Bill.PaymentID AND Bill.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year ")
     suspend fun getPaymentMethod(accNo: Long,  month: Int,  year:Int): String
 
     @Query("UPDATE Payment SET PaymentStatus = 'Successful'")
     suspend fun updatePaymentStatus()
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun setPaymentDetails(Payment:Payment)
 
     //ELECTRICITYACC
     @Query("SELECT * FROM ElectricityAcc WHERE AccNumber =:accNo")

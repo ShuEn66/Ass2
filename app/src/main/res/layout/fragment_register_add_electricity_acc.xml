@@ -90,7 +90,7 @@
         app:layout_constraintTop_toTopOf="@+id/textViewAddAccAccNumTitle" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/displayTotalAmount"
         android:layout_width="0dp"
         android:layout_height="14dp"
         android:layout_marginStart="10dp"

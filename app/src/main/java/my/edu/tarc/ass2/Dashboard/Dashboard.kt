@@ -18,6 +18,8 @@ import my.edu.tarc.ass2.Dashboard.DashboardViewModel
 
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.ActivityDashboardBinding
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 import java.time.format.DateTimeFormatter
 
@@ -45,10 +47,6 @@ class Dashboard : AppCompatActivity() {
                 .addToBackStack(null)
                 .commit()
         }
-
-        //date formatter
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd")
-
 
         binding.profilePic.setOnClickListener(){
             val navController = Navigation.findNavController(this, R.id.dashboard)
@@ -82,29 +80,58 @@ class Dashboard : AppCompatActivity() {
             }
         }
         onBackPressedDispatcher.addCallback(backPressedCallback)
+
+        //date formatter
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+        //show system date time
+        val current = LocalDateTime.now()
+        val displayDateTime = current.format(formatter)
+        binding.displayDateTime.text = displayDateTime
+
+
+        val month =  current.monthValue
+        val year = current.year
+
+        binding.displayMonth.text = current.month.toString() + "  " + current.year
+
+        //binding with database
         lifecycleScope.launch {
-        //set bill details for 1 time for data retrieval afterwards
-        val newContact11 = Bill("001", 12, 2022, 90.00, "2022-12-01","2022-12-31", "Paid", 400.00, 90.00,0.00,0.00,123412341111,"A001")
-        val newContact12 = Bill("002", 1, 2023,100.00, "2023-01-01", "2023-01-31", "Paid", 400.00, 100.00,0.00,0.00,123412341111,"A002")
-        val newContact13 = Bill("003", 2, 2023,110.00, "2023-02-01", "2023-02-31", "Paid", 400.00, 110.00,0.00,0.00,123412341111,"A003")
-        val newContact14 = Bill("004", 3, 2023,120.00, "2023-03-01", "2023-03-31", "Paid", 400.00, 120.00,0.00,0.00,123412341111,"A004")
-        val newContact15 = Bill("005", 4, 2023,120.00, "2023-04-01", "2023-04-31", "Unpaid", 400.00, 120.00,0.00,0.00,123412341111,"A005")
-        val newContact2 = Bill("001", 3, 2023,100.00, "2023-03-01","2023-03-31", "Unpaid", 400.00, 100.00,0.00,0.00,123412341112,"A001")
-        val newContact2a = Bill("002", 4, 2023,220.00, "2023-04-01", "2023-04-31", "Unpaid", 400.00, 100.00,200.00,20.00,123412341112,"A002")
+            //set bill details for 1 time for data retrieval afterwards
+            val newContact11 = Bill("001", 12, 2022, 90.00, "2022-12-01","2022-12-31", "Paid", 400.00, 90.00,0.00,0.00,123412341111,"A001")
+            val newContact12 = Bill("002", 1, 2023,100.00, "2023-01-01", "2023-01-31", "Paid", 400.00, 100.00,0.00,0.00,123412341111,"A002")
+            val newContact13 = Bill("003", 2, 2023,110.00, "2023-02-01", "2023-02-31", "Paid", 400.00, 110.00,0.00,0.00,123412341111,"A003")
+            val newContact14 = Bill("004", 3, 2023,120.00, "2023-03-01", "2023-03-31", "Paid", 400.00, 120.00,0.00,0.00,123412341111,"A004")
+            val newContact15 = Bill("005", 4, 2023,120.00, "2023-04-01", "2023-04-31", "Unpaid", 400.00, 120.00,0.00,0.00,123412341111,"A005")
+            val newContact2 = Bill("001", 3, 2023,100.00, "2023-03-01","2023-03-31", "Unpaid", 400.00, 100.00,0.00,0.00,123412341112,"A001")
+            val newContact2a = Bill("002", 4, 2023,220.00, "2023-04-01", "2023-04-31", "Unpaid", 400.00, 100.00,200.00,20.00,123412341112,"A002")
 
 
-        dashboardViewModel.setBillingDetails(newContact11)
-        dashboardViewModel.setBillingDetails(newContact12)
-        dashboardViewModel.setBillingDetails(newContact13)
-        dashboardViewModel.setBillingDetails(newContact14)
-        dashboardViewModel.setBillingDetails(newContact15)
-        dashboardViewModel.setBillingDetails(newContact2)
-        dashboardViewModel.setBillingDetails(newContact2a)
+            dashboardViewModel.setBillingDetails(newContact11)
+            dashboardViewModel.setBillingDetails(newContact12)
+            dashboardViewModel.setBillingDetails(newContact13)
+            dashboardViewModel.setBillingDetails(newContact14)
+            dashboardViewModel.setBillingDetails(newContact15)
+            dashboardViewModel.setBillingDetails(newContact2)
+            dashboardViewModel.setBillingDetails(newContact2a)
 
 
-            val getOverallUsage = dashboardViewModel.getOverallUsage(123412341111,12,2022)
-            println(getOverallUsage)
-            binding.displayOverallUsage.text = getOverallUsage.toString()
+            //get user acc
+            //val getOverallUsage = dashboardViewModel.getOverallUsage(123412341111,current.monthValue,year)
+            //binding.displayOverallUsage.text = getOverallUsage.toString()
+
+
+            //val getBillStatus = dashboardViewModel.getBillStatus(123412341111,month,year)
+            //binding.displayBillStatus.text = getBillStatus
+
+            //val getPaymentDue = dashboardViewModel.getPaymentDue(123412341111,month,year)
+            //binding.displayPaymentDue.text = getPaymentDue
+
+
+            //val getTotalAmount = dashboardViewModel.getTotalAmount(123412341111,month,year)
+            //binding.displayTotalAmount.text = "RM" + getTotalAmount.toString()
+
+
+            // val getAddress = dashboardViewModel.getAddress()
         }
     }
 }

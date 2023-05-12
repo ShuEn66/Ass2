@@ -22,53 +22,32 @@ class DashboardViewModel(application: Application) : AndroidViewModel(applicatio
             }
         }
 
-
-
-    fun getBillStatus(accNo: Long, month: Int, year: Int) {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                databaseDao.getBillStatus(accNo, month, year)
+    suspend fun getBillStatus(accNo: Long, month: Int, year: Int): String {
+        return withContext(Dispatchers.IO) {
+            val d= databaseDao.getBillStatus(accNo, month, year)
+            d
             }
-        }
+
     }
 
-    fun getPaymentDue(accNo:Long, month: Int, year: Int) {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                databaseDao.getPaymentDue(accNo, month, year)
+    suspend fun getPaymentDue(accNo:Long, month: Int, year: Int): String {
+        return withContext(Dispatchers.IO) {
+            val d= databaseDao.getPaymentDue(accNo, month, year)
+            d
             }
         }
-    }
 
-    fun getTotalAmount(accNo: Long, month: Int, year: Int) {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                databaseDao.getTotalAmount(accNo, month, year)
-            }
-        }
-    }
 
-    fun getCurrentCharges(accNo: Long, month: Int, year: Int){
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                databaseDao.getCurrentCharges(accNo, month, year)
+    suspend fun getTotalAmount(accNo: Long, month: Int, year: Int): Double {
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getTotalAmount(accNo, month, year)
+            d
             }
         }
-    }
-
-    fun getOutstandingCharges(accNo: Long, month: Int, year: Int) {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                databaseDao.getOutstandingCharges(accNo, month, year)
-            }
-        }
-    }
 
     suspend fun setBillingDetails(Bill: Bill){
-
             withContext(Dispatchers.IO) {
                 databaseDao.setBillingDetails(Bill)
-
         }
     }
 

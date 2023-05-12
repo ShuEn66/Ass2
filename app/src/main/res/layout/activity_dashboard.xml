@@ -151,7 +151,7 @@
 
     <ScrollView
         android:layout_width="415dp"
-        android:layout_height="583dp"
+        android:layout_height="700dp"
         android:layout_marginTop="150dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -261,8 +261,7 @@
                             android:id="@+id/displayBillStatus"
                             android:layout_width="143dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="DISPLAY" />
+                            android:layout_weight="1" />
 
                     </LinearLayout>
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="650dp"
+    android:layout_height="583dp"
     android:layout_gravity="bottom"
     tools:context=".Dashboard.UsageAnalysisFragment">
 
@@ -15,18 +15,17 @@
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="497dp"
-            android:layout_height="643dp"
+            android:layout_height="match_parent"
             android:src="@drawable/dashboard_green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/displayUsageAnalysisTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -52,7 +51,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView13"
+                    android:id="@+id/displayOverallUsageTItle"
                     android:layout_width="134dp"
                     android:layout_height="wrap_content"
                     tools:text="@string/overallUsage_title" />
@@ -71,7 +70,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/displayOptimumUsageTitle"
                     android:layout_width="32dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -91,7 +90,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView21"
+                    android:id="@+id/displayBillStatusTitle"
                     android:layout_width="41dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

@@ -43,11 +43,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/displayHotlineTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
             android:layout_marginTop="268dp"
+            android:text="@string/hotline_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/hotline_title" />
@@ -63,27 +64,30 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/displayHotline1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/hotlinePhone_faulty"
                 tools:text="@string/hotlinePhone_faulty" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/hotlinePhone_billing"
                 tools:text="@string/hotlinePhone_billing" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/hotlineEmail"
                 tools:text="@string/hotlineEmail" />
 
         </LinearLayout>
 
         <Button
-            android:id="@+id/buttonDone"
+            android:id="@+id/buttonDoneHotline"
             android:layout_width="267dp"
             android:layout_height="48dp"
             android:layout_marginTop="380dp"

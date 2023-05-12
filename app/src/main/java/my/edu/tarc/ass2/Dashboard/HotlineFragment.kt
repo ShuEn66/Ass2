@@ -10,11 +10,6 @@ import androidx.navigation.fragment.findNavController
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.FragmentHotlineBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HotlineFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HotlineFragment : Fragment() {
 
     private var _binding: FragmentHotlineBinding? = null
@@ -26,17 +21,15 @@ class HotlineFragment : Fragment() {
     ): View? {
         _binding = FragmentHotlineBinding.inflate(inflater, container, false)
 
-        return binding.root
-
-        binding.buttonDone.setOnClickListener() {
+        binding.buttonDoneHotline.setOnClickListener() {
 
             val fragmentManager = requireActivity().supportFragmentManager
             val transaction = fragmentManager.beginTransaction()
             transaction.remove(this)
             transaction.commit()
 
-            findNavController().navigateUp()
         }
+        return binding.root
 
     }
 

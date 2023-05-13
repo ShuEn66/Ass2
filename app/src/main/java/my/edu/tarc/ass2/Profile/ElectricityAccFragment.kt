@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.FragmentElectricityAccBinding
 import my.edu.tarc.ass2.databinding.FragmentUserBinding
@@ -30,15 +31,15 @@ class ElectricityAccFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        binding.textViewUpdateUserName.setOnClickListener {
-//
-//        }
-//        binding.textViewUpdateUserEmail.setOnClickListener {
-//
-//        }
-//        binding.textViewUpdateUserMobile.setOnClickListener {
-//
-//        }
+        binding.textViewUpdateElectricityAccNickname.setOnClickListener {
+            findNavController().navigate(R.id.action_electricityAccFragment_to_editAccNameFragment)
+        }
+        binding.textViewUpdateNoOfResident.setOnClickListener {
+            findNavController().navigate(R.id.action_electricityAccFragment_to_editNoResidentFragment)
+        }
+        binding.textViewUpdateMonthlyIncome.setOnClickListener {
+            findNavController().navigate(R.id.action_electricityAccFragment_to_editMonthlyIncomeFragment)
+        }
     }
 
     override fun onDestroyView() {

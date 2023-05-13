@@ -38,7 +38,7 @@ class EditNameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonCancelEditUserName.setOnClickListener{
-            findNavController().navigate(R.id.action_userFragment_to_editNameFragment)
+            findNavController().navigate(R.id.action_editNameFragment_to_userFragment)
 
         }
 

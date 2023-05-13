@@ -130,7 +130,7 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textViewRM1"
+                    android:id="@+id/displayInvDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -145,7 +145,21 @@
                     app:layout_constraintVertical_bias="0.22" />
 
                 <TextView
-                    android:id="@+id/textViewRM1content3"
+                    android:id="@+id/displayDueDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/display"
+                    android:textColor="#020202"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewOutstandingCharges"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline17"
+                    app:layout_constraintTop_toTopOf="@+id/textViewOutstandingCharges" />
+
+                <TextView
+                    android:id="@+id/displayTot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/display"
@@ -173,50 +187,35 @@
                     app:layout_constraintVertical_bias="0.808" />
 
                 <TextView
-                    android:id="@+id/textViewRM2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="19dp"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/display"
-                    android:textColor="#020202"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewOutstandingCharges"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/guideline17"
-                    app:layout_constraintTop_toTopOf="@+id/textViewOutstandingCharges"
-                    app:layout_constraintVertical_bias="0.0" />
-
-                <TextView
-                    android:id="@+id/textViewRM4"
+                    android:id="@+id/displayCurrentBill"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:layout_marginStart="8dp"
                     android:text="@string/display"
                     android:textColor="#020202"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewRM"
+                    app:layout_constraintBottom_toBottomOf="@+id/displayPaymentStat"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.034"
-                    app:layout_constraintStart_toEndOf="@+id/textViewRM"
-                    app:layout_constraintTop_toTopOf="@+id/textViewRM" />
+                    app:layout_constraintStart_toEndOf="@+id/displayPaymentStat"
+                    app:layout_constraintTop_toTopOf="@+id/displayPaymentStat" />
 
                 <TextView
-                    android:id="@+id/textViewRM6"
+                    android:id="@+id/displayPrevDue"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:layout_marginStart="8dp"
                     android:text="@string/display"
                     android:textColor="#020202"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewRM5"
+                    app:layout_constraintBottom_toBottomOf="@+id/displayPaymentMethod"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.034"
-                    app:layout_constraintStart_toEndOf="@+id/textViewRM5"
-                    app:layout_constraintTop_toTopOf="@+id/textViewRM5" />
+                    app:layout_constraintStart_toEndOf="@+id/displayPaymentMethod"
+                    app:layout_constraintTop_toTopOf="@+id/displayPaymentMethod" />
 
                 <TextView
-                    android:id="@+id/textViewRM"
+                    android:id="@+id/displayPaymentStat"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:layout_marginStart="16dp"
@@ -230,7 +229,7 @@
                     app:layout_constraintTop_toTopOf="@+id/textViewOutstandingCharges2" />
 
                 <TextView
-                    android:id="@+id/textViewRM5"
+                    android:id="@+id/displayPaymentMethod"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:layout_marginStart="16dp"

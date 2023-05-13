@@ -47,6 +47,7 @@ class DeveloperInfoFragment : Fragment() {
         binding.buttonRateUs.setOnClickListener(){
             val popUp = RatingFragment()
             //popUp.show((activity as AppCompatActivity).supportFragmentManager, "popUp")
+
         }
     }
     companion object {

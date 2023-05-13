@@ -146,7 +146,7 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textViewRM1"
+                    android:id="@+id/displayInvDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -161,7 +161,7 @@
                     app:layout_constraintVertical_bias="0.22" />
 
                 <TextView
-                    android:id="@+id/textViewRM1content3"
+                    android:id="@+id/displayTot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/display"
@@ -189,7 +189,7 @@
                     app:layout_constraintVertical_bias="0.808" />
 
                 <TextView
-                    android:id="@+id/textViewRM2"
+                    android:id="@+id/displayPaymentDate"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:layout_marginStart="16dp"
@@ -204,7 +204,7 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textViewRM7"
+                    android:id="@+id/displayEnergy"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:layout_marginStart="16dp"
@@ -218,7 +218,7 @@
                     app:layout_constraintTop_toTopOf="@+id/textViewOutstandingCharges4" />
 
                 <TextView
-                    android:id="@+id/textViewRM"
+                    android:id="@+id/displayPaymentStat"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:layout_marginStart="16dp"
@@ -232,7 +232,7 @@
                     app:layout_constraintTop_toTopOf="@+id/textViewOutstandingCharges2" />
 
                 <TextView
-                    android:id="@+id/textViewRM5"
+                    android:id="@+id/displayPaymentMethod"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:layout_marginStart="16dp"

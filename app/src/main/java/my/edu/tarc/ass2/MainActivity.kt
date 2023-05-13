@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
        //go dashboard from main activity
-        //navController.navigate(R.id.dashboard)
+        navController.navigate(R.id.dashboard)
 
         navController.addOnDestinationChangedListener{
                 _,destination,_->
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 ||destination.id==R.id.accConfirmationFragment
                 ||destination.id==R.id.electricityAccInfoFragment
                 ||destination.id==R.id.loginFragment
-                ||destination.id==R.id.dialogEditNameFragment)
+                ||destination.id==R.id.EditNameFragment)
             {
                 supportActionBar!!.hide()
             }else if(destination.id==R.id.profileFragment ){

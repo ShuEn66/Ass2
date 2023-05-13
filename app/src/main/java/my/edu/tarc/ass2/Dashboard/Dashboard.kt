@@ -22,8 +22,10 @@ import java.time.format.DateTimeFormatter
 import java.util.Locale
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
+import java.sql.Connection
 import java.util.Timer
 import java.util.TimerTask
+import com.mysql.cj.jdbc.Driver
 
 
 class Dashboard : AppCompatActivity() {
@@ -33,6 +35,7 @@ class Dashboard : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
     private lateinit var timer: Timer
     lateinit var imageList: List<Int>
+    private lateinit var connection: Connection
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -114,9 +117,27 @@ class Dashboard : AppCompatActivity() {
         binding.displayMonth.text = current.month.toString() + "  " + current.year
 
 
-
         //binding with database
         lifecycleScope.launch {
+            //jdbc
+            val url = "jdbc:mysql://localhost:3306/id20710696_gol_database"
+            val username = "id20710696_gol"
+            val password = "7XWD]P7i^)OhI4~#"
+            val databaseManager = JDBCDatabase(url, username, password)
+            databaseManager.connect()
+            if (::connection.isInitialized) {
+                val getOverallUsage= databaseManager.performSelectQueryBill("OverallUsage", 1234123411 ,4 , 2023)
+                binding.displayOverallUsage.text = getOverallUsage.toString()
+
+            } else {
+                println("WTF")
+            }
+            databaseManager.disconnect()
+            //databaseManager.performInsertQuery()
+            //databaseManager.performUpdateQuery()
+            //databaseManager.performDeleteQuery()
+
+
             //set bill details for 1 time for data retrieval afterwards
             val newContact11 = Bill("001", 12, 2022, 90.00, "2022-12-01","2022-12-31", "Paid", 400.00, 90.00,0.00,0.00,123412341111,"A001")
             val newContact12 = Bill("002", 1, 2023,100.00, "2023-01-01", "2023-01-31", "Paid", 400.00, 100.00,0.00,0.00,123412341111,"A002")
@@ -137,8 +158,8 @@ class Dashboard : AppCompatActivity() {
             dashboardViewModel.setBillingDetails(newContact2a)
 
             //get user acc
-            val getOverallUsage = dashboardViewModel.getOverallUsage(123412341111 ,(monthDisplay-1),yearDisplay)
-            binding.displayOverallUsage.text = getOverallUsage.toString()
+            //val getOverallUsage = dashboardViewModel.getOverallUsage(123412341111 ,(monthDisplay-1),yearDisplay)
+            //binding.displayOverallUsage.text = getOverallUsage.toString()
 
 
             val getBillStatus = dashboardViewModel.getBillStatus(123412341111,(monthDisplay-1),yearDisplay)

@@ -31,7 +31,33 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
        //go dashboard from main activity
-        navController.navigate(R.id.dashboard)
+        //navController.navigate(R.id.dashboard)
+
+        navController.addOnDestinationChangedListener{
+                _,destination,_->
+            if(destination.id==R.id.userRegistrationFragment
+                ||destination.id==R.id.userInfoRegisterFragment
+                ||destination.id==R.id.registerAddElectricityAccFragment
+                ||destination.id==R.id.accConfirmationFragment
+                ||destination.id==R.id.electricityAccInfoFragment
+                ||destination.id==R.id.loginFragment)
+            {
+                supportActionBar!!.hide()
+            }else if(destination.id==R.id.profileFragment ){
+                supportActionBar!!.show()
+                supportActionBar!!.title =getString(R.string.ProfileTitle)
+            }
+            else if(destination.id==R.id.userFragment ){
+                supportActionBar!!.show()
+                supportActionBar!!.title =getString(R.string.userProfileTitle)
+            }
+            else if(destination.id==R.id.electricityAccFragment ){
+                supportActionBar!!.title =getString(R.string.ElectricityAccountProfileTitle)
+            }
+            else{
+                supportActionBar!!.title =getString(R.string.app_name)
+            }
+        }
 
 
 

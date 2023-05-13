@@ -4,52 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registration.registerAddElectricityAccFragment">
+    tools:context=".Registration.LoginFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-
     <ImageView
-        android:id="@+id/imageViewRegistrationLogo"
+        android:id="@+id/imageViewLoginLogo"
         android:layout_width="218dp"
         android:layout_height="118dp"
         android:layout_marginTop="48dp"
+        android:src="@drawable/gol_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gol_logo" />
-    <!--        android:layout_width="279dp"-->
-    <!--        android:layout_height="179dp"-->
-    <!--        android:layout_marginTop="30dp"-->
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageViewAddAccContainer"
+        android:id="@+id/imageViewLoginContainer"
         android:layout_width="320dp"
         android:layout_height="350dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="84dp"
         android:src="@drawable/rectangledeepcorner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewRegistrationLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLoginLogo" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="190dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="-45dp"
+        android:layout_width="178dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="-30dp"
         android:src="@drawable/rectanglenodeep"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewAddAccContainer"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="@+id/imageViewAddAccContainer"
-        app:layout_constraintTop_toTopOf="@+id/imageViewAddAccContainer" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewLoginContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewLoginContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewLoginContainer" />
 
     <TextView
-        android:id="@+id/textViewAddAccTitle"
-        android:layout_width="190dp"
-        android:layout_height="90dp"
-        android:text="@string/AddAccTitle"
+        android:id="@+id/textViewLoginTitle"
+        android:layout_width="155dp"
+        android:layout_height="30dp"
+        android:text="@string/LoginTitle"
         android:textAlignment="center"
-        android:textAllCaps="true"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
@@ -58,15 +52,15 @@
         app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <TextView
-        android:id="@+id/textViewAddAccAccNumTitle"
+        android:id="@+id/textViewLoginEmailTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:text="@string/ElectricityAccNum"
+        android:text="@string/UserEmail"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/imageViewAddAccContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewLoginContainer"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
@@ -77,8 +71,8 @@
         android:text="*"
         android:textColor="@color/design_default_color_error"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textViewAddAccAccNumTitle"
-        app:layout_constraintTop_toTopOf="@+id/textViewAddAccAccNumTitle" />
+        app:layout_constraintStart_toEndOf="@+id/textViewLoginEmailTitle"
+        app:layout_constraintTop_toTopOf="@+id/textViewLoginEmailTitle" />
 
     <TextView
         android:id="@+id/textView7"
@@ -88,51 +82,51 @@
         android:text="*"
         android:textColor="@color/design_default_color_error"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textViewAddAccAccNicknameTitle"
-        app:layout_constraintTop_toTopOf="@+id/textViewAddAccAccNicknameTitle" />
+        app:layout_constraintStart_toEndOf="@+id/textViewLoginPasswordTitle"
+        app:layout_constraintTop_toTopOf="@+id/textViewLoginPasswordTitle" />
 
     <ImageView
-        android:id="@+id/imageViewAccNumContainer"
+        android:id="@+id/imageViewEmailContainer"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:layout_marginTop="60dp"
         android:src="@drawable/rectanglenodeep"
-        app:layout_constraintStart_toStartOf="@+id/textViewAddAccAccNumTitle"
+        app:layout_constraintStart_toStartOf="@+id/textViewLoginEmailTitle"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <EditText
-        android:id="@+id/editTextTextAccNum"
+        android:id="@+id/editTextTextUserName"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:hint="@string/hintAccNum"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewAccNumContainer"
+        android:hint="@string/hintregisterEmail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewEmailContainer"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageViewAccNumContainer"
-        app:layout_constraintTop_toTopOf="@+id/imageViewAccNumContainer" />
+        app:layout_constraintStart_toStartOf="@+id/imageViewEmailContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewEmailContainer" />
 
     <TextView
-        android:id="@+id/textViewErrorAccNum"
+        android:id="@+id/textViewErrorEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="@string/ErrorAccNum"
+        android:text="@string/ErrorEmail"
         android:textColor="@color/design_default_color_error"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/imageViewAccNumContainer"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewAccNumContainer" />
+        app:layout_constraintStart_toStartOf="@+id/imageViewEmailContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewEmailContainer" />
 
     <TextView
-        android:id="@+id/textViewAddAccAccNicknameTitle"
+        android:id="@+id/textViewLoginPasswordTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="@string/ElectricityAccNickname"
+        android:text="@string/UserPassword"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewErrorAccNum"
-        app:layout_constraintTop_toBottomOf="@+id/textViewErrorAccNum" />
+        app:layout_constraintStart_toStartOf="@+id/textViewErrorEmail"
+        app:layout_constraintTop_toBottomOf="@+id/textViewErrorEmail" />
 
     <ImageView
         android:id="@+id/imageViewPropertyAccInfoContainer"
@@ -140,30 +134,53 @@
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/rectanglenodeep"
-        app:layout_constraintStart_toStartOf="@+id/textViewAddAccAccNicknameTitle"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAddAccAccNicknameTitle" />
+        app:layout_constraintStart_toStartOf="@+id/textViewLoginPasswordTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLoginPasswordTitle" />
 
     <EditText
-        android:id="@+id/editTextTextAccNickname"
+        android:id="@+id/editTextUserIC"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:hint="@string/hintNickname"
-        android:inputType="text"
+        android:hint="@string/UserPassword"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/imageViewPropertyAccInfoContainer"
         app:layout_constraintTop_toTopOf="@+id/imageViewPropertyAccInfoContainer" />
 
     <Button
-        android:id="@+id/buttonAddAcc"
+        android:id="@+id/buttonLogin"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/yellowButton"
+        android:text="@string/SignIn"
         android:textColor="@color/black"
-        android:text="@string/AddAccButton"
         app:layout_constraintEnd_toEndOf="@+id/imageViewPropertyAccInfoContainer"
         app:layout_constraintStart_toStartOf="@+id/imageViewPropertyAccInfoContainer"
         app:layout_constraintTop_toBottomOf="@+id/imageViewPropertyAccInfoContainer" />
+
+    <TextView
+        android:id="@+id/textViewHaventHaveAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/HaventHaveAcc"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="@+id/buttonLogin"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+
+    <TextView
+        android:id="@+id/textViewSignInToRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/Register"
+        android:textColor="@color/blue"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewHaventHaveAcc"
+        app:layout_constraintStart_toEndOf="@+id/textViewHaventHaveAcc"
+        app:layout_constraintTop_toTopOf="@+id/textViewHaventHaveAcc" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

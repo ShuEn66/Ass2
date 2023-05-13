@@ -1,5 +1,6 @@
 package my.edu.tarc.ass2.Dashboard
 
+import ImageSliderAdapter
 import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
@@ -20,15 +21,17 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 import androidx.viewpager.widget.ViewPager
-
+import androidx.viewpager2.widget.ViewPager2
+import java.util.Timer
+import java.util.TimerTask
 
 
 class Dashboard : AppCompatActivity() {
     private val dashboardViewModel: DashboardViewModel by viewModels()
     //private lateinit var dashboardViewModel: DashboardViewModel
     private lateinit var binding: ActivityDashboardBinding
-    lateinit var viewPager: ViewPager
-    lateinit var viewPagerAdapter: ViewPagerAdapter
+    private lateinit var viewPager: ViewPager2
+    private lateinit var timer: Timer
     lateinit var imageList: List<Int>
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +54,7 @@ class Dashboard : AppCompatActivity() {
 
         binding.profilePic.setOnClickListener(){
             val navController = Navigation.findNavController(this, R.id.dashboard)
-            navController.navigate(R.id.nav_ProfileFragment)
+            navController.navigate(R.id.profileFragment)
 
         }
 
@@ -67,6 +70,19 @@ class Dashboard : AppCompatActivity() {
 
         }
 
+
+        viewPager = findViewById(R.id.viewPager)
+
+        //announcement slider
+        imageList = ArrayList<Int>()
+        imageList = imageList + R.drawable.about
+        imageList = imageList + R.drawable.developer
+        imageList = imageList + R.drawable.about
+        val adapter = ImageSliderAdapter(imageList )
+        viewPager.adapter = adapter
+        timer = Timer()
+        timer.scheduleAtFixedRate(AutoScrollTask(adapter.itemCount), 4000, 4000)
+
         //back press
         val backPressedCallback = object: OnBackPressedCallback(true)
         {
@@ -81,28 +97,6 @@ class Dashboard : AppCompatActivity() {
             }
         }
         onBackPressedDispatcher.addCallback(backPressedCallback)
-
-        //slider
-        imageList = ArrayList<Int>()
-        imageList = imageList + R.drawable.about
-        imageList = imageList + R.drawable.developer
-        imageList = imageList + R.drawable.about
-
-        viewPagerAdapter = ViewPagerAdapter(this@Dashboard, imageList)
-        binding.idViewPager.adapter = viewPagerAdapter
-
-        //overlap button
-        val element1Rect = Rect()
-        val element2Rect = Rect()
-        val element3Rect = Rect()
-
-        binding.idViewPager.getGlobalVisibleRect(element1Rect)
-        binding.frameDashboard.getGlobalVisibleRect(element2Rect)
-        binding.scrollDashboard.getGlobalVisibleRect(element3Rect)
-
-        if (Rect.intersects(element1Rect, element3Rect) && !Rect.intersects(element1Rect, element2Rect)) {
-                binding.idViewPager.bringToFront()
-        }
 
         //show system date time
         val current = LocalDateTime.now()
@@ -123,9 +117,6 @@ class Dashboard : AppCompatActivity() {
 
         //binding with database
         lifecycleScope.launch {
-            //date formatter
-
-
             //set bill details for 1 time for data retrieval afterwards
             val newContact11 = Bill("001", 12, 2022, 90.00, "2022-12-01","2022-12-31", "Paid", 400.00, 90.00,0.00,0.00,123412341111,"A001")
             val newContact12 = Bill("002", 1, 2023,100.00, "2023-01-01", "2023-01-31", "Paid", 400.00, 100.00,0.00,0.00,123412341111,"A002")
@@ -162,6 +153,17 @@ class Dashboard : AppCompatActivity() {
 
 
             // val getAddress = dashboardViewModel.getAddress()
+        }
+
+
+    }
+    inner class AutoScrollTask(private val numPages: Int) : TimerTask() {
+        override fun run() {
+            runOnUiThread {
+                val currentItem = viewPager.currentItem
+                val nextPage = if (currentItem == numPages - 1) 0 else currentItem + 1
+                viewPager.setCurrentItem(nextPage, true)
+            }
         }
     }
 }

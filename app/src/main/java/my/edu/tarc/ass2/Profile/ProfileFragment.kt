@@ -28,21 +28,22 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
 
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.cardViewUserProfileTab.setOnClickListener{
-            findNavController().navigate(R.id.action_ProfileFragment_to_UserFragment)
+            findNavController().navigate(R.id.action_profileFragment_to_userFragment)
         }
 
         binding.cardViewElectricityAccProfileTab.setOnClickListener{
-            findNavController().navigate(R.id.action_ProfileFragment_to_electricityAccFragment)
+            findNavController().navigate(R.id.action_profileFragment_to_electricityAccFragment)
         }
 
         binding.cardViewAppSettingTab.setOnClickListener{
-            //write code navigate to appsetting
+            //navigate to app setting
         }
 
         binding.buttonLogOut.setOnClickListener {

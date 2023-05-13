@@ -1,14 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Registration.AccConfirmationFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/imageViewAccConfirmContainer"
+        android:layout_width="330dp"
+        android:layout_height="450dp"
+        android:src="@drawable/rectangledeepcorner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewAccConfirmTitle"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/AccConfirmTitle"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewAccConfirmContainer"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/imageViewAccConfirmContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewAccConfirmContainer" />
+
+    <TextView
+        android:id="@+id/textViewAddressAccConfirmTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/ElectricityAccAddress"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewAccConfirmContainer"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAccConfirmTitle" />
+
+    <ImageView
+        android:id="@+id/imageViewAddressAccConfirmContainer"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/rectanglenodeep"
+        app:layout_constraintStart_toStartOf="@+id/textViewAddressAccConfirmTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAddressAccConfirmTitle" />
+
+    <TextView
+        android:id="@+id/textViewPropertyTypeAccConfirmTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/PropertyType"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewAddressAccConfirmContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAddressAccConfirmContainer" />
+
+    <ImageView
+        android:id="@+id/imageViewPropertyAccConfirmContainer"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/rectanglenodeep"
+        app:layout_constraintStart_toStartOf="@+id/textViewPropertyTypeAccConfirmTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPropertyTypeAccConfirmTitle" />
+
+    <TextView
+        android:id="@+id/textViewOwnerAccConfirmTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/AccountOwner"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewPropertyAccConfirmContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPropertyAccConfirmContainer" />
+
+    <ImageView
+        android:id="@+id/imageViewOwnerAccConfirmContainer"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/rectanglenodeep"
+        app:layout_constraintStart_toStartOf="@+id/textViewOwnerAccConfirmTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOwnerAccConfirmTitle" />
+
+    <Button
+        android:id="@+id/buttonNoAccConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/yellowButton"
+        android:text="@string/NoButton"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/imageViewOwnerAccConfirmContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewOwnerAccConfirmContainer" />
+
+    <Button
+        android:id="@+id/buttonYesAccConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/yellowButton"
+        android:text="@string/Yesbutton"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewOwnerAccConfirmContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewOwnerAccConfirmContainer" />
+
+    <TextView
+        android:id="@+id/textViewAddressAccConfirmValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewAddressAccConfirmContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewAddressAccConfirmContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewAddressAccConfirmContainer" />
+
+    <TextView
+        android:id="@+id/textViewPropertyTypeAccConfirmValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewPropertyAccConfirmContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewPropertyAccConfirmContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewPropertyAccConfirmContainer" />
+
+    <TextView
+        android:id="@+id/textViewOwnerAccConfirmValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewOwnerAccConfirmContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewOwnerAccConfirmContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewOwnerAccConfirmContainer" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,247 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Registration.ElectricityAccInfoFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/imageViewAccInfoContainer"
+        android:layout_width="330dp"
+        android:layout_height="600dp"
+        android:src="@drawable/rectangledeepcorner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="178dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="-36dp"
+        android:src="@drawable/rectanglenodeep"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewAccInfoContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewAccInfoContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewAccInfoContainer" />
+
+    <TextView
+        android:id="@+id/textViewAccInfoitle"
+        android:layout_width="155dp"
+        android:layout_height="59dp"
+        android:text="@string/AccInfoTitle"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/textViewAddressAccInfoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/ElectricityAccAddress"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewAccInfoContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="10dp"
+        android:text="*"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewNoResidentAccInfoTitle"
+        app:layout_constraintTop_toTopOf="@+id/textViewNoResidentAccInfoTitle" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="0dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="10dp"
+        android:text="*"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewMonthlyIncomeAccInfoTitle"
+        app:layout_constraintTop_toTopOf="@+id/textViewMonthlyIncomeAccInfoTitle" />
+
+    <ImageView
+        android:id="@+id/imageViewAddressAccInfoContainer"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/rectanglenodeep"
+        app:layout_constraintStart_toStartOf="@+id/textViewAddressAccInfoTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAddressAccInfoTitle" />
+
+    <TextView
+        android:id="@+id/textViewPropertyTypeAccInfoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/PropertyType"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewAddressAccInfoContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAddressAccInfoContainer" />
+
+    <ImageView
+        android:id="@+id/imageViewPropertyAccInfoContainer"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/rectanglenodeep"
+        app:layout_constraintStart_toStartOf="@+id/textViewPropertyTypeAccInfoTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPropertyTypeAccInfoTitle" />
+
+    <TextView
+        android:id="@+id/textViewOwnerAccInfoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/AccountOwner"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewPropertyAccInfoContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPropertyAccInfoContainer" />
+
+    <TextView
+        android:id="@+id/textViewNoResidentAccInfoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/NoOfResident"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewOwnerAccInfoContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewOwnerAccInfoContainer" />
+
+    <TextView
+        android:id="@+id/textViewMonthlyIncomeAccInfoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/MonthlyIncome"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewNoResidentAccInfoContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewNoResidentAccInfoContainer" />
+
+    <ImageView
+        android:id="@+id/imageViewOwnerAccInfoContainer"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/rectanglenodeep"
+        app:layout_constraintStart_toStartOf="@+id/textViewOwnerAccInfoTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOwnerAccInfoTitle" />
+
+    <ImageView
+        android:id="@+id/imageViewNoResidentAccInfoContainer"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/rectanglenodeep"
+        app:layout_constraintStart_toStartOf="@+id/imageViewOwnerAccInfoContainer"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNoResidentAccInfoTitle" />
+
+    <ImageView
+        android:id="@+id/imageViewMonthlyIncomeAccInfoContainer"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="108dp"
+        android:src="@drawable/rectanglenodeep"
+        app:layout_constraintStart_toStartOf="@+id/imageViewOwnerAccInfoContainer"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNoResidentAccInfoTitle" />
+
+    <Button
+        android:id="@+id/buttonResetAccInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/yellowButton"
+        android:text="@string/resetButton"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewAccInfoContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewMonthlyIncomeAccInfoContainer" />
+
+    <Button
+        android:id="@+id/buttonConfirmAccInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/yellowButton"
+        android:text="@string/ConfirmButton"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewAccInfoContainer"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewMonthlyIncomeAccInfoContainer" />
+
+    <TextView
+        android:id="@+id/textViewAddressAccInfoValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewAddressAccInfoContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewAddressAccInfoContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewAddressAccInfoContainer" />
+
+    <TextView
+        android:id="@+id/textViewPropertyTypeAccInfoValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewPropertyAccInfoContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewPropertyAccInfoContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewPropertyAccInfoContainer" />
+
+    <TextView
+        android:id="@+id/textViewOwnerAccInfoValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewOwnerAccInfoContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewOwnerAccInfoContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewOwnerAccInfoContainer" />
+
+    <EditText
+        android:id="@+id/editTextNoResidentAccInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="@string/hintNoResident"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewNoResidentAccInfoContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewNoResidentAccInfoContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewNoResidentAccInfoContainer" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hintMonthlyIncome"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewMonthlyIncomeAccInfoContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewMonthlyIncomeAccInfoContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewMonthlyIncomeAccInfoContainer" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

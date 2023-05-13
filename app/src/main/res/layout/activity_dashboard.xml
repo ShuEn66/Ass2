@@ -150,7 +150,7 @@
         app:srcCompat="@drawable/announcement" />
 
 
-    <androidx.viewpager.widget.ViewPager
+    <!--<androidx.viewpager.widget.ViewPager
         android:id="@+id/idViewPager"
         android:layout_width="303dp"
         android:layout_height="122dp"
@@ -160,7 +160,16 @@
         android:contentDescription="@string/descImageSlider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" /> -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="303dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="404dp"
+        tools:layout_editor_absoluteY="568dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ScrollView
         android:id="@+id/scrollDashboard"

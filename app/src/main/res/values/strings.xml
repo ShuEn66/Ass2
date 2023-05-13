@@ -9,25 +9,25 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    //Profile page
+    //Profile-Profile page
     <string name="ProfileTitle">Profile</string>
     <string name="userProfileTitle">User Profile</string>
     <string name="arrow"> > </string>
     <string name="ElectricityAccountProfileTitle">Electricity Account Profile</string>
     <string name="AppSetting">App Setting</string>
     <string name="LogOutButton">Log Out</string>
-    //User profile page
+    //Profile-User profile page
     <string name="changePassword">Change Password</string>
     <string name="UserName">User Name</string>
     <string name="updateClickableText">Update</string>
     <string name="UserIC">Identity Card</string>
     <string name="UserEmail">Email Address</string>
     <string name="UserMobile">Mobile Number</string>
-    //Edit user profile page
+    //Profile-Edit user profile page
     <string name="cancel">Cancel</string>
     <string name="UpdateUserNameTitle">Update User Name</string>
     <string name="hintUpdateUserName">Name of user as in IC</string>
-    //Electricity Account page
+    //Profile-Electricity Account page
     <string name="deleteAccount">Delete Account</string>
     <string name="ElectricityAccNickname">Account Nickname</string>
     <string name="ElectricityAccNum">Account Number</string>
@@ -39,30 +39,37 @@
     <string name="AccountOwner">Account Owner</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <!-- Strings related to login -->
-    <!--    <string name="prompt_email">Email</string>-->
-    <!--    <string name="prompt_password">Password</string>-->
-    <!--    <string name="action_sign_in">Sign in or register</string>-->
-    <!--    <string name="action_sign_in_short">Sign in</string>-->
-    <!--    <string name="welcome">"Welcome!"</string>-->
-    <!--    <string name="invalid_username">Not a valid username</string>-->
-    <!--    <string name="invalid_password">Password must be >5 characters</string>-->
-    <!--    <string name="login_failed">"Login failed"</string>-->
-    //User Registration
+    //Registration-User registration page
     <string name="Registrationtitle">USER REGISTRATION</string>
     <string name="hintregisterEmail">abc@gmail.com</string>
     <string name="ErrorEmail">** Please enter a valid email address</string>
     <string name="UserPassword">Password</string>
     <string name="RegisterButton">Register</string>
-    <string name="AlreadyHaveAcc">Already have an account?</string>
+    <string name="AlreadyHaveAcc">Already have an account? </string>
     <string name="SignIn"><u>Sign In</u></string>
-
-    //Register-AddElectricity Account
+    //Registration-AddElectricity Account
     <string name="AddAccTitle">Activate Online Electricity Account</string>
     <string name="hintAccNum">**********</string>
     <string name="ErrorAccNum">** Please neter 10 digit number for this field</string>
     <string name="hintNickname">eg. house</string>
     <string name="AddAccButton">Add Account</string>
+    //Registration-Login
+    <string name="LoginTitle">USER LOGIN</string>
+    <string name="HaventHaveAcc">Did not have an account yet?</string>
+    <string name="Register"><u>Register</u></string>
+    <string name="userInfoTitle"><u>PERSONAL INFORMATION</u></string>
+    <string name="hintIC">xxxxxxxxxxxx</string>
+    <string name="hintMobile">xxx xxxxxxx</string>
+    //Registration-Account Confirmation
+    <string name="AccConfirmTitle" >Is This Your Account?</string>
+    <string name="resetButton">Reset</string>
+    <string name="ConfirmButton">Confirm</string>
+    <string name="NoButton">No</string>
+    <string name="Yesbutton">Yes</string>
+    //Registration-Electricity Account Info
+    <string name="AccInfoTitle" >ELECTRICITY ACCOUNT INFO</string>
+    <string name="hintNoResident">Number of Resident</string>
+    <string name="hintMonthlyIncome">Monthly Income in RM</string>
 
     <!-- Strings related to dashboard -->
     <string name="payment_due">Payment Due:</string>
@@ -171,6 +178,7 @@
     <string name="url_server">https://guardianoflighting.000webhostapp.com/</string>
     <string name="url_read">user/read.php</string>
     <string name="url_create">user/create.php</string>
+
 
     // 6edc224cb96fbcf5418fdc9473c43aa9d4200731
 

@@ -7,12 +7,12 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
     //Profile-Profile page
     <string name="ProfileTitle">Profile</string>
     <string name="userProfileTitle">User Profile</string>
-    <string name="arrow"> > </string>
+    <string name="arrow" translatable="false"> > </string>
     <string name="ElectricityAccountProfileTitle">Electricity Account Profile</string>
     <string name="AppSetting">App Setting</string>
     <string name="LogOutButton">Log Out</string>
@@ -28,6 +28,7 @@
     <string name="UpdateUserNameTitle">New User Name</string>
     <string name="hintUpdateUserName">Name of user as in IC</string>
     <string name="editBtn">Edit</string>
+    <string name="UpdateUserMobileTitle">New Mobile Number</string>
     //Profile-Electricity Account page
     <string name="deleteAccount">Delete Account</string>
     <string name="ElectricityAccNickname">Account Nickname</string>
@@ -39,10 +40,10 @@
     <string name="PropertyType">Property Type</string>
     <string name="AccountOwner">Account Owner</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     //Registration-User registration page
     <string name="Registrationtitle">USER REGISTRATION</string>
-    <string name="hintregisterEmail">abc@gmail.com</string>
+    <string name="hintregisterEmail" translatable="false">abc@gmail.com</string>
     <string name="ErrorEmail">** Please enter a valid email address</string>
     <string name="UserPassword">Password</string>
     <string name="RegisterButton">Register</string>
@@ -50,7 +51,7 @@
     <string name="SignIn"><u>Sign In</u></string>
     //Registration-AddElectricity Account
     <string name="AddAccTitle">Activate Online Electricity Account</string>
-    <string name="hintAccNum">**********</string>
+    <string name="hintAccNum" translatable="false">**********</string>
     <string name="ErrorAccNum">** Please neter 10 digit number for this field</string>
     <string name="hintNickname">eg. house</string>
     <string name="AddAccButton">Add Account</string>
@@ -59,8 +60,8 @@
     <string name="HaventHaveAcc">Did not have an account yet?</string>
     <string name="Register"><u>Register</u></string>
     <string name="userInfoTitle"><u>PERSONAL INFORMATION</u></string>
-    <string name="hintIC">xxxxxxxxxxxx</string>
-    <string name="hintMobile">xxx xxxxxxx</string>
+    <string name="hintIC" translatable="false">xxxxxxxxxxxx</string>
+    <string name="hintMobile" translatable="false">xxx xxxxxxx</string>
     //Registration-Account Confirmation
     <string name="AccConfirmTitle">Is This Your Account?</string>
     <string name="resetButton">Reset</string>
@@ -80,9 +81,9 @@
     <string name="descImageSlider">Image Slider</string>
     <!-- Strings related to hotline -->
     <string name="hotline_title">HOTLINE:</string>
-    <string name="hotlinePhone_faulty">TNB (Faulty) : 15454</string>
-    <string name="hotlinePhone_billing">TNB (Billing) : 1-300-88-5454</string>
-    <string name="hotlineEmail">TNB (Email) :  tnbcareline@tnb.com.my</string>
+    <string name="hotlinePhone_faulty" translatable="false">TNB (Faulty) : 15454</string>
+    <string name="hotlinePhone_billing" translatable="false">TNB (Billing) : 1-300-88-5454</string>
+    <string name="hotlineEmail" translatable="false">TNB (Email) :  tnbcareline@tnb.com.my</string>
     <!-- Strings related to usage analysis -->
     <string name="usageAnalysis_title">USAGE ANALSIS</string>
     <string name="overallUsage_title">Overall Usage (K:</string>
@@ -91,7 +92,7 @@
     <string name="budget_title">Budget:</string>
     <string name="address_title">Address</string>
     <!-- Strings related to payment-->
-    <string name="paymentSuccessful_title">  Payment Successful!</string>
+    <string name="paymentSuccessful_title">" Payment Successful!"</string>
     <string name="amountPaid_title">Amount Paid:                       RM</string>
     <string name="paymentDate_title">Date of Payment: </string>
     <string name="paymentTime_title">Time of Payment: </string>
@@ -107,10 +108,10 @@
     <string name="notificationName">Allow Notifications</string>
     <string name="changeLang">Change Language:</string>
     <string name="developerInfo">Developer Info:</string>
-    <string name="companyName">GOL Software Company</string>
-    <string name="developerEmail">golsoftware@gmail.com</string>
+    <string name="companyName" translatable="false">GOL Software Company</string>
+    <string name="developerEmail" translatable="false">golsoftware@gmail.com</string>
     <string name="about">About:</string>
-    <string name="appVer">App version 2.17.31</string>
+    <string name="appVer" translatable="false">App version 2.17.31</string>
     <string name="appSettings">App Settings</string>
     //Change Language
     <string name="english">English (United States)</string>
@@ -124,14 +125,14 @@
     <string name="developers">DEVELOPERS</string>
     <string name="teamMem">Team Member:</string>
     <string name="manager">Manager:</string>
-    <string name="keen">LAN KE EN</string>
-    <string name="keenEmail">kez@gmail.com</string>
-    <string name="jx">LEE JIA XUAN</string>
-    <string name="jxEmail">jx@gmail.com</string>
-    <string name="se">CHONG SHU EN</string>
-    <string name="seEmail">se@gmail.com</string>
-    <string name="cq">CHANG CHEE QIAN</string>
-    <string name="cqEmail">cq@gmail.com</string>
+    <string name="keen" translatable="false">LAN KE EN</string>
+    <string name="keenEmail" translatable="false">kez@gmail.com</string>
+    <string name="jx" translatable="false">LEE JIA XUAN</string>
+    <string name="jxEmail" translatable="false">jx@gmail.com</string>
+    <string name="se" translatable="false">CHONG SHU EN</string>
+    <string name="seEmail" translatable="false">se@gmail.com</string>
+    <string name="cq" translatable="false">CHANG CHEE QIAN</string>
+    <string name="cqEmail" translatable="false">cq@gmail.com</string>
     //Rate Us
     <string name="rateUs">RATE US</string>
     <string name="devInfo">Developer Info</string>
@@ -142,8 +143,8 @@
     <string name="currentBill">Current Bill</string>
     <string name="currentCharges">Current Charges</string>
     <string name="outstandingCharges">Outstanding Charges</string>
-    <string name="RM">RM</string>
-    <string name="display">DISPLAY</string>
+    <string name="RM" translatable="false">RM</string>
+    <string name="display" translatable="false">DISPLAY</string>
     <string name="totalAmountDue">Total Amount Due</string>
     <string name="billHistory">Billing History</string>
     <string name="month">Month</string>
@@ -243,18 +244,19 @@
 
     <string name="exit_message">Are you sure you wanna exit?</string>
     <string name="exit">Exit</string>
-    <string name="title_activity_dashboad_view_model">DashboadViewModel</string>
+    <string name="title_activity_dashboad_view_model" translatable="false">DashboadViewModel</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="title_activity_database">Database</string>
-    <string name="title_activity_dao">Dao</string>
-    <string name="title_activity_respository">Respository</string>
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="title_activity_database" translatable="false">Database</string>
+    <string name="title_activity_dao" translatable="false">Dao</string>
+    <string name="title_activity_respository" translatable="false">Respository</string>
 
     <!-- Strings used for fragments for navigation -->
-    <string name="url_server">https://guardianoflighting.000webhostapp.com/</string>
-    <string name="url_read">user/read.php</string>
-    <string name="url_create">user/create.php</string>
+    <string name="url_server" translatable="false">https://guardianoflighting.000webhostapp.com/</string>
+    <string name="url_read" translatable="false">user/read.php</string>
+    <string name="url_create" translatable="false">user/create.php</string>
+
 
 
     // 6edc224cb96fbcf5418fdc9473c43aa9d4200731

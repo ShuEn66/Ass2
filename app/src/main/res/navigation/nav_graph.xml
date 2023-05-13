@@ -26,8 +26,11 @@
             android:id="@+id/action_userFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
-            android:id="@+id/action_userFragment_to_EditNameFragment"
-            app:destination="@id/EditNameFragment" />
+            android:id="@+id/action_userFragment_to_editNameFragment"
+            app:destination="@id/editNameFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_editMobileFragment"
+            app:destination="@id/editMobileFragment" />
     </fragment>
     <fragment
         android:id="@+id/electricityAccFragment"
@@ -136,18 +139,27 @@
         android:label="@string/devInfo"
         tools:layout="@layout/fragment_developer_info" />
     <fragment
-        android:id="@+id/EditNameFragment"
+        android:id="@+id/editNameFragment"
         android:name="my.edu.tarc.ass2.Profile.EditNameFragment"
-        android:label="fragment_dialog_edit_name"
-        tools:layout="@layout/fragment_edit_name" >
+        android:label="fragment_edit_name"
+        tools:layout="@layout/fragment_edit_name">
         <action
-            android:id="@+id/action_EditNameFragment_to_userFragment"
+            android:id="@+id/action_editNameFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editMobileFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditMobileFragment"
+        android:label="fragment_edit_mobile"
+        tools:layout="@layout/fragment_edit_mobile" >
+        <action
+            android:id="@+id/action_editMobileFragment_to_userFragment"
             app:destination="@id/userFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/billingFragment"
-        android:name="my.edu.tarc.ass2.Billing.BillingFragment"
+        android:name="my.edu.tarc.ass2.AppSettings.ChangLanguageFragment"
         android:label="fragment_billing"
         tools:layout="@layout/fragment_billing" />
 
@@ -191,5 +203,8 @@
         android:name="my.edu.tarc.ass2.Appliance.CostCalculatorFragment"
         android:label="fragment_cost_calculator"
         tools:layout="@layout/fragment_cost_calculator" />
+
+
+
 
 </navigation>

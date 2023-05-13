@@ -7,12 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import my.edu.tarc.ass2.databinding.FragmentUserBinding
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
-import my.edu.tarc.ass2.User
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -44,13 +42,12 @@ class UserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.textViewUpdateUserName.setOnClickListener {
-            findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_EditNameFragment)
-        }
-        binding.textViewUpdateUserEmail.setOnClickListener {
+
+            findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_editNameFragment)
 
         }
         binding.textViewUpdateUserMobile.setOnClickListener {
-
+            findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_editMobileFragment)
         }
 
         //binding with database

@@ -120,9 +120,9 @@ class Dashboard : AppCompatActivity() {
         //binding with database
         lifecycleScope.launch {
             //jdbc
-            val url = "jdbc:mysql://localhost:3306/id20710696_gol_database"
-            val username = "id20710696_gol"
-            val password = "7XWD]P7i^)OhI4~#"
+            val url = "jdbc:mysql://files.000webhost.com:21/id20710696_gol_database?max_allowed_packet=16777216"
+            val username = "guardianoflighting"
+            val password = "Ipad5210*"
             val databaseManager = JDBCDatabase(url, username, password)
             databaseManager.connect()
             if (::connection.isInitialized) {

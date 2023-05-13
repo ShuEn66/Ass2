@@ -2,10 +2,12 @@ package my.edu.tarc.ass2.Profile
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import my.edu.tarc.ass2.AppDatabase
+import my.edu.tarc.ass2.ElectricityAcc
 import my.edu.tarc.ass2.User
 import my.edu.tarc.ass2.databaseDao
 
@@ -43,6 +45,19 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
     suspend fun getUserMobile(email:String):String{
         return withContext(Dispatchers.IO) {
             val d = databaseDao.getUserMobile(email)
+            d
+        }
+    }
+
+    suspend fun setAccDetails(ElectricityAcc: ElectricityAcc){
+        withContext(Dispatchers.IO) {
+            databaseDao.setAccDetails(ElectricityAcc)
+        }
+    }
+
+     suspend fun getAccount(accNo: Long): LiveData<List<ElectricityAcc>> {
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getAccount(accNo)
             d
         }
     }

@@ -59,6 +59,14 @@ class DashboardViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
+    suspend fun getBarData(accNo: Long): List<databaseDao.billBar>{
+        return withContext(Dispatchers.IO) {
+            val d =databaseDao.getBarData(accNo)
+            d
+        }
+    }
+
+
     init {
         val database = AppDatabase.getDatabase(application)
         databaseDao = database.databaseDao()

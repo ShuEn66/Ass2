@@ -104,7 +104,7 @@
         android:id="@+id/buttonAppliances"
         android:layout_width="142dp"
         android:layout_height="50dp"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="280dp"
         android:layout_marginEnd="60dp"
         android:backgroundTint="#FEDD59"
         android:text="@string/appliances_button"
@@ -117,7 +117,7 @@
         android:layout_width="142dp"
         android:layout_height="50dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="280dp"
         android:backgroundTint="#D8D8D8"
         android:text="@string/viewBill_button"
         android:textColor="#000000"
@@ -175,7 +175,7 @@
         android:id="@+id/scrollDashboard"
         android:layout_width="415dp"
         android:layout_height="700dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="220dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -191,7 +191,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"
-                android:layout_marginTop="400dp">
+                android:layout_marginTop="350dp">
 
                 <ImageView
                     android:id="@+id/dashboardGreen"
@@ -293,17 +293,42 @@
 
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/imageView6"
+<!--                <ImageView-->
+<!--                    android:id="@+id/imageView6"-->
+<!--                    android:layout_width="335dp"-->
+<!--                    android:layout_height="215dp"-->
+<!--                    android:layout_marginTop="190dp"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/dashboardGreen"-->
+<!--                    tools:layout_editor_absoluteX="40dp"-->
+<!--                    tools:layout_editor_absoluteY="301dp"-->
+<!--                    tools:src="@tools:sample/backgrounds/scenic" />-->
+
+<!--                <com.db.williamchart.view.BarChartView-->
+<!--                    android:id="@+id/barChart"-->
+<!--                    android:layout_width="335dp"-->
+<!--                    android:layout_height="215dp"-->
+<!--                    android:layout_marginTop="190dp"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/dashboardGreen"-->
+<!--                    app:chart_axis="x"-->
+<!--                    app:chart_barsColor="#fff"-->
+<!--                    app:chart_barsRadius="4dp"-->
+<!--                    app:chart_labelsColor="#0D47A1"-->
+<!--                    app:chart_labelsSize="10sp"-->
+<!--                    app:chart_spacing="15dp"-->
+<!--                   />-->
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChart"
                     android:layout_width="335dp"
                     android:layout_height="215dp"
                     android:layout_marginTop="190dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/dashboardGreen"
-                    tools:layout_editor_absoluteX="40dp"
-                    tools:layout_editor_absoluteY="301dp"
-                    tools:src="@tools:sample/backgrounds/scenic" />
+                    app:layout_constraintTop_toTopOf="@+id/dashboardGreen"/>
 
                 <TextView
                     android:id="@+id/textView26"

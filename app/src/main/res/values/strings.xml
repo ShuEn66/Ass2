@@ -86,7 +86,7 @@
     <string name="hotlineEmail" translatable="false">TNB (Email) :  tnbcareline@tnb.com.my</string>
     <!-- Strings related to usage analysis -->
     <string name="usageAnalysis_title">USAGE ANALSIS</string>
-    <string name="overallUsage_title">Overall Usage (K:</string>
+    <string name="overallUsage_title">Overall Usage (kW):</string>
     <string name="optimumUsage_title">Optimum Usage:</string>
     <string name="billStatus_title">Bill Status:</string>
     <string name="budget_title">Budget:</string>

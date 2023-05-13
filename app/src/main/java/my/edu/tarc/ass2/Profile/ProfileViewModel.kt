@@ -21,6 +21,13 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    suspend fun getUserName(email:String):String{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getUserName(email)
+            d
+        }
+    }
+
     init {
         val database = AppDatabase.getDatabase(application)
         databaseDao = database.databaseDao()

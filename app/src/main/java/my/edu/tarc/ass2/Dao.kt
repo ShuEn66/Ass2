@@ -45,6 +45,11 @@ interface databaseDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun setUserDetails(User:User)
 
+    @Query("SELECT UserName FROM User WHERE UserEmail = :email")
+    suspend fun getUserName(email: String): String
+
+
+
     //PAYMENT
     @Query("SELECT Payment.PaymentDate FROM Payment, Bill WHERE Payment.PaymentID = Bill.PaymentID AND Bill.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year ")
     suspend fun getPaymentDate(accNo: Long,  month: Int,  year:Int):String

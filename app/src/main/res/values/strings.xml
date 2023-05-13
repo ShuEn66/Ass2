@@ -62,13 +62,13 @@
     <string name="hintIC">xxxxxxxxxxxx</string>
     <string name="hintMobile">xxx xxxxxxx</string>
     //Registration-Account Confirmation
-    <string name="AccConfirmTitle" >Is This Your Account?</string>
+    <string name="AccConfirmTitle">Is This Your Account?</string>
     <string name="resetButton">Reset</string>
     <string name="ConfirmButton">Confirm</string>
     <string name="NoButton">No</string>
     <string name="Yesbutton">Yes</string>
     //Registration-Electricity Account Info
-    <string name="AccInfoTitle" >ELECTRICITY ACCOUNT INFO</string>
+    <string name="AccInfoTitle">ELECTRICITY ACCOUNT INFO</string>
     <string name="hintNoResident">Number of Resident</string>
     <string name="hintMonthlyIncome">Monthly Income in RM</string>
 
@@ -164,6 +164,82 @@
     <string name="paymentMethod">Payment Method:</string>
     <string name="energyConsumption">Energy Consumption (kWh):</string>
     <string name="amount">Amount:</string>
+
+    <!-- Strings used for fragments for appliances -->
+    <string name="appliances_main_fragment_title">Appliances Analysis</string>
+    <string name="appliances_main_fragment_view">View Appliances</string>
+    <string name="appliances_main_fragment_cal">Cost Calculator</string>
+    //Appliances Management
+    <string name="appliances_manage_title">Appliances Management</string>
+    <string name="appliances_manage_added">Added Appliances</string>
+    <string name="appliances_manage_delete">DELETE</string>
+    <string name="appliances_manage_addNew">ADD NEW</string>
+    //Appliances Details
+    <string name="appliances_manage_details">Appliances Details</string>
+    <string name="appliances_manage_name">Appliances Name</string>
+    <string name="appliances_manage_name_hint">Ex: Black Oven</string>
+    <string name="appliances_manage_type">Appliances Type</string>
+    <string name="appliances_manage_type_hint">Choose one</string>
+    <string-array name="appliances_type">
+        <item>Air conditioner</item>
+        <item>Clothes dryer</item>
+        <item>Electric kettle</item>
+        <item>Hair dryer</item>
+        <item>Microwave oven</item>
+        <item>Oven</item>
+        <item>Refrigerator</item>
+        <item>Washing machine</item>
+        <item>Water heater</item>
+        <item>Others</item>
+    </string-array>
+    <string name="appliances_manage_power">Power (W)</string>
+    <string name="appliances_manage_power_hint">Ex: 1000</string>
+    <string name="appliances_manage_estimate">Estimated Usage per month (hr)</string>
+    <string name="appliances_manage_estimate_hint">Ex: 3</string>
+    <string name="appliances_manage_cancel">CANCEL</string>
+    <string name="appliances_manage_save">SAVE</string>
+    //Add Appliances
+    <string name="appliances_manage_add_title">Add New Appliances</string>
+    <string name="appliances_manage_add">ADD</string>
+    //Delete Appliances
+    <string name="appliances_manage_delete_title">Delete Appliances</string>
+    <string name="appliances_manage_delete_confirm">Confirm Delete?</string>
+    <string name="appliances_manage_delete_select">Number of Appliance\nSelected:</string>
+    //Cost Calculator
+    <string name="appliances_cal_title">Cost Calculator</string>
+    <string name="appliances_cal_table_title">Estimated Cost</string>
+    <string-array name="calculatorPeriodical">
+        <item>Daily</item>
+        <item>Monthly</item>
+        <item>Yearly</item>
+    </string-array>
+    <string name="appliances_cal_app">Appliances</string>
+    <string name="appliances_cal_usage">Estimated Usage (hr)</string>
+    <string name="appliances_cal_cost">Estimated Cost (RM)</string>
+    <string name="appliances_cal_total">Grand Total</string>
+    <string name="appliances_cal_advice">ADVICE</string>
+    <string name="appliances_cal_ok">OK</string>
+    <string name="appliances_cal_help">This calculator will help you calculate the estimated cost of each appliances by month / day / year.\n\nThe calculation is done based on the added appliances.\n\nYou can add, edit and delete appliances in “View Appliances”.</string>
+    <string name="appliances_cal_advice_title">Advice</string>
+    <string-array name="advices_list_appliances">
+        <item>Set the AC temperature around 24 can save electricity.</item>
+        <item>Let the clothes run longer on low heat when using a clothes dryer.</item>
+        <item>Only boil the water you actually need when using a kettle.</item>
+        <item>Turning down the hair dryer heat can reduce the electric consumption.</item>
+        <item>Cover the food with a lid or wrap to shorten the heating time.</item>
+        <item>Cook several dishes at once when using a oven.</item>
+        <item>Avoid opening the fridge door frequently.</item>
+        <item>Letting the washing machine wash with cold water can save 80% of energy.</item>
+        <item>Turning down the water heater heat can reduce the electric consumption.</item>
+    </string-array>
+    <string-array name="advices_list_general">
+        <item>Remember to unplug or turn off the appliances that are not in used.</item>
+        <item>LED bulbs cost less energy.</item>
+        <item>Installing solar panel can save a lot of energy.</item>
+        <item>Replace old appliances with energy-saving models.</item>
+        <item>Reduce your reliance on appliances.</item>
+    </string-array>
+    <!--End of strings for appliances-->
 
     <string name="exit_message">Are you sure you wanna exit?</string>
     <string name="exit">Exit</string>

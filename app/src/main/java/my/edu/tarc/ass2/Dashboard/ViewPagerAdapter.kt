@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import my.edu.tarc.ass2.R
 
-class ImageSliderAdapter(private val imageUrls: List<String>) :
+class ImageSliderAdapter(private val imageUrls: List<Int>) :
     RecyclerView.Adapter<ImageSliderAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

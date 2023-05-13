@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import my.edu.tarc.ass2.databinding.FragmentUserBinding
 import androidx.fragment.app.viewModels
@@ -70,8 +71,6 @@ class UserFragment : Fragment() {
             binding.textViewUserMobileValue.text = getUserMobile
 
         }
-
-
 
     }
 

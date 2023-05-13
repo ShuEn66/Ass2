@@ -34,7 +34,7 @@
     <string name="ElectricityAccNickname">Account Nickname</string>
     <string name="ElectricityAccNum">Account Number</string>
     <string name="ElectricityAccAddress">Account Address</string>
-    <string name="AboutAccount">"About Account"</string>
+    <string name="AboutAccount">About Account</string>
     <string name="NoOfResident">No Of Resident</string>
     <string name="MonthlyIncome">Monthly Income</string>
     <string name="PropertyType">Property Type</string>

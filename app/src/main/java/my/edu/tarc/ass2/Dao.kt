@@ -57,6 +57,12 @@ interface databaseDao {
     @Query("SELECT UserMobile FROM User WHERE UserEmail = :email")
     suspend fun getUserMobile(email: String): String
 
+    @Query("SELECT AccNickName FROM User WHERE UserEmail = :email")
+    suspend fun getAccNickName(email: String): String
+
+//    @Query("SELECT AccNo FROM User WHERE UserEmail = :email")
+//    suspend fun getAccNickName(email: String): String
+
 
 
 
@@ -78,17 +84,25 @@ interface databaseDao {
     suspend fun setPaymentDetails(Payment:Payment)
 
     //ELECTRICITYACC
-    @Query("SELECT * FROM ElectricityAcc,User WHERE ElectricityAcc.AccNumber = User.AccNumber AND User.AccNumber =:accNo")
-    fun getAccount(accNo: Long):LiveData<List<ElectricityAcc>>
+    @Query("SELECT ElectricityAcc.AccNumber FROM ElectricityAcc,User WHERE ElectricityAcc.AccNumber = User.AccNumber AND User.UserEmail =:email")
+    fun getAccountNumber(email: String):Long
+
+    @Query("SELECT ElectricityAcc.AccPropertyType FROM ElectricityAcc,User WHERE ElectricityAcc.AccNumber = User.AccNumber AND User.UserEmail =:email")
+    fun getAccountProperty(email: String):String
+
+    @Query("SELECT ElectricityAcc.AccAddress FROM ElectricityAcc,User WHERE ElectricityAcc.AccNumber = User.AccNumber AND User.UserEmail =:email")
+    fun getAccountAddress(email: String):String
+
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun setAccDetails(ElectricityAcc:ElectricityAcc)
 
 
 
-
-
     //APPLIANCES
+
+    //APPLIANCES (JIA XUAN PLS CHECK UR SQL I MIGHT WRONGGG)
+
     @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail =:userEmail AND Appliances.AppliancesName= :appliancesName")
     fun getAppliances(userEmail: String, appliancesName: String ):LiveData<Appliances>
 

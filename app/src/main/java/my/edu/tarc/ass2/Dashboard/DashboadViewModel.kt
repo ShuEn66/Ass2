@@ -39,12 +39,6 @@ class DashboardViewModel(application: Application) : AndroidViewModel(applicatio
             }
         }
 
-    suspend fun getAccount(accNo: Long): LiveData<List<ElectricityAcc>>{
-        return withContext(Dispatchers.IO) {
-            val d= databaseDao.getAccount(accNo)
-            d
-        }
-    }
 
     suspend fun getTotalAmount(accNo: Long, month: Int, year: Int): Double {
         return withContext(Dispatchers.IO) {

@@ -26,8 +26,8 @@
             android:id="@+id/action_userFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
-            android:id="@+id/action_userFragment_to_dialogEditNameFragment"
-            app:destination="@id/dialogEditNameFragment" />
+            android:id="@+id/action_userFragment_to_EditNameFragment"
+            app:destination="@id/EditNameFragment" />
     </fragment>
     <fragment
         android:id="@+id/electricityAccFragment"
@@ -136,12 +136,12 @@
         android:label="@string/devInfo"
         tools:layout="@layout/fragment_developer_info" />
     <fragment
-        android:id="@+id/dialogEditNameFragment"
-        android:name="my.edu.tarc.ass2.Profile.DialogEditNameFragment"
+        android:id="@+id/EditNameFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditNameFragment"
         android:label="fragment_dialog_edit_name"
-        tools:layout="@layout/fragment_dialog_edit_name">
+        tools:layout="@layout/fragment_edit_name" >
         <action
-            android:id="@+id/action_dialogEditNameFragment_to_userFragment"
+            android:id="@+id/action_EditNameFragment_to_userFragment"
             app:destination="@id/userFragment" />
     </fragment>
     <fragment

@@ -44,7 +44,7 @@ class UserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.textViewUpdateUserName.setOnClickListener {
-            findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_dialogEditNameFragment)
+            findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_EditNameFragment)
         }
         binding.textViewUpdateUserEmail.setOnClickListener {
 
@@ -59,12 +59,19 @@ class UserFragment : Fragment() {
             //date formatter
 
             //set bill details for 1 time for data retrieval afterwards
-            val user1 = User("lily@gmail.com", "12345", "Lily", "010101010101","0123456789", "House", 1, 3000.00,3412341111)
-            val user2 = User("ali@gmail.com", "12345", "Lily", "010101010101","0123456789", "House", 1, 3000.00,3412341111)
-            profileViewModel.setUserDetails(user1)
 
-            val getUserName = profileViewModel.getUserName("lily@gmail.com")
+            val getUserEmail = profileViewModel.getUserEmail(3412341111)
+            binding.textViewUserEmailValue.text = getUserEmail
+
+            val getUserName = profileViewModel.getUserName(getUserEmail)
             binding.textViewUserNameValue.text = getUserName
+
+            val getUserIC = profileViewModel.getUserIC(getUserEmail)
+            binding.textViewUserICValue.text = getUserIC
+
+            val getUserMobile = profileViewModel.getUserMobile(getUserEmail)
+            binding.textViewUserMobileValue.text = getUserMobile
+
         }
 
 

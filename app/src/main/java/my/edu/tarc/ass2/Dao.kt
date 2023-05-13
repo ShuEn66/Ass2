@@ -45,8 +45,19 @@ interface databaseDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun setUserDetails(User:User)
 
+    @Query("SELECT UserEmail FROM User WHERE AccNumber = :accNo")
+    suspend fun getUserEmail(accNo: Long): String
+
     @Query("SELECT UserName FROM User WHERE UserEmail = :email")
     suspend fun getUserName(email: String): String
+
+    @Query("SELECT UserIC FROM User WHERE UserEmail = :email")
+    suspend fun getUserIC(email: String): String
+
+    @Query("SELECT UserMobile FROM User WHERE UserEmail = :email")
+    suspend fun getUserMobile(email: String): String
+
+
 
 
 

@@ -42,7 +42,7 @@ class UserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.textViewUpdateUserName.setOnClickListener {
-            findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_EditNameFragment)
+            findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_dialogEditNameFragment)
         }
         binding.textViewUpdateUserMobile.setOnClickListener {
             findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_editMobileFragment)

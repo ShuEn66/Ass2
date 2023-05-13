@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 ||destination.id==R.id.accConfirmationFragment
                 ||destination.id==R.id.electricityAccInfoFragment
                 ||destination.id==R.id.loginFragment
-                ||destination.id==R.id.EditNameFragment)
+                ||destination.id==R.id.editNameFragment)
             {
                 supportActionBar!!.hide()
             }else if(destination.id==R.id.profileFragment ){

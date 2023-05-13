@@ -78,8 +78,15 @@ interface databaseDao {
     suspend fun setPaymentDetails(Payment:Payment)
 
     //ELECTRICITYACC
-    @Query("SELECT * FROM ElectricityAcc WHERE AccNumber =:accNo")
+    @Query("SELECT * FROM ElectricityAcc,User WHERE ElectricityAcc.AccNumber = User.AccNumber AND User.AccNumber =:accNo")
     fun getAccount(accNo: Long):LiveData<List<ElectricityAcc>>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun setAccDetails(ElectricityAcc:ElectricityAcc)
+
+
+
+
 
     //APPLIANCES (JIA XUAN PLS CHECK UR SQL I MIGHT WRONGGG)
     @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail =:userEmail AND Appliances.AppliancesName= :appliancesName")

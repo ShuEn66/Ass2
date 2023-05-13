@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dashboard">
+    app:startDestination="@id/userRegistrationFragment">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -27,7 +27,10 @@
             app:destination="@id/profileFragment" />
         <action
             android:id="@+id/action_userFragment_to_dialogEditNameFragment"
-            app:destination="@id/dialogEditNameFragment" />
+            app:destination="@id/editNameFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_editMobileFragment"
+            app:destination="@id/editMobileFragment" />
     </fragment>
     <fragment
         android:id="@+id/electricityAccFragment"
@@ -136,12 +139,21 @@
         android:label="@string/devInfo"
         tools:layout="@layout/fragment_developer_info" />
     <fragment
-        android:id="@+id/dialogEditNameFragment"
-        android:name="my.edu.tarc.ass2.Profile.DialogEditNameFragment"
-        android:label="fragment_dialog_edit_name"
-        tools:layout="@layout/fragment_dialog_edit_name">
+        android:id="@+id/editNameFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditNameFragment"
+        android:label="fragment_edit_name"
+        tools:layout="@layout/fragment_edit_name">
         <action
             android:id="@+id/action_dialogEditNameFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editMobileFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditMobileFragment"
+        android:label="fragment_edit_mobile"
+        tools:layout="@layout/fragment_edit_mobile" >
+        <action
+            android:id="@+id/action_editMobileFragment_to_userFragment"
             app:destination="@id/userFragment" />
     </fragment>
     <fragment

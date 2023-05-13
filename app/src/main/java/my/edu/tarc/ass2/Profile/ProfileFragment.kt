@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
+import my.edu.tarc.ass2.ElectricityAcc
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.User
 import my.edu.tarc.ass2.databinding.FragmentProfileBinding
@@ -48,7 +49,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding.cardViewAppSettingTab.setOnClickListener{
-            findNavController().navigate(R.id.action_profileFragment_to_appSettingsFragment)
+            //findNavController().navigate(R.id.action_profileFragment_to_appSettingsFragment)
         }
 
         binding.buttonLogOut.setOnClickListener {
@@ -64,10 +65,16 @@ class ProfileFragment : Fragment() {
             profileViewModel.setUserDetails(user1)
             profileViewModel.setUserDetails(user2)
 
+            val acc1 = ElectricityAcc(3412341111,"No1,Jalan Besar,Kampung Kecil, 12345, WPKL","Apartment")
+            profileViewModel.setAccDetails(acc1)
+
             val getUserEmail = profileViewModel.getUserEmail(3412341111)
             binding.textViewUserEmailValue.text = getUserEmail
 
             val getUserName = profileViewModel.getUserName(getUserEmail)
+            binding.textViewUserNameValue.text = getUserName
+
+            val getAcc=profileViewModel.getAccount(3412341111)
             binding.textViewUserNameValue.text = getUserName
 
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ass2</string>
+    <string name="app_name">GOL</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="profile_fragment_label">Profile Fragment</string>

@@ -10,7 +10,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import my.edu.tarc.ass2.Appliance.AppManageAddedFragment
 import my.edu.tarc.ass2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -62,6 +64,14 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    }
+
+    //To display added appliances
+    private fun replaceFragment(homeFragment: Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.recyclerViewApp, homeFragment)
+        fragmentTransaction.commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

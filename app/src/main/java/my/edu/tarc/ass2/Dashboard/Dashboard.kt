@@ -25,7 +25,7 @@ import androidx.viewpager2.widget.ViewPager2
 import java.sql.Connection
 import java.util.Timer
 import java.util.TimerTask
-import com.mysql.cj.jdbc.Driver
+//import com.mysql.cj.jdbc.Driver
 
 
 class Dashboard : AppCompatActivity() {
@@ -119,20 +119,20 @@ class Dashboard : AppCompatActivity() {
 
         //binding with database
         lifecycleScope.launch {
-            //jdbc
-            val url = "jdbc:mysql://files.000webhost.com:21/id20710696_gol_database?max_allowed_packet=16777216"
-            val username = "guardianoflighting"
-            val password = "Ipad5210*"
-            val databaseManager = JDBCDatabase(url, username, password)
-            databaseManager.connect()
-            if (::connection.isInitialized) {
-                val getOverallUsage= databaseManager.performSelectQueryBill("OverallUsage", 1234123411 ,4 , 2023)
-                binding.displayOverallUsage.text = getOverallUsage.toString()
-
-            } else {
-                println("WTF")
-            }
-            databaseManager.disconnect()
+//            //jdbc
+//            val url = "jdbc:mysql://files.000webhost.com:21/id20710696_gol_database?max_allowed_packet=16777216"
+//            val username = "guardianoflighting"
+//            val password = "Ipad5210*"
+//            val databaseManager = JDBCDatabase(url, username, password)
+//            databaseManager.connect()
+//            if (::connection.isInitialized) {
+//                val getOverallUsage= databaseManager.performSelectQueryBill("OverallUsage", 1234123411 ,4 , 2023)
+//                binding.displayOverallUsage.text = getOverallUsage.toString()
+//
+//            } else {
+//                println("WTF")
+//            }
+//            databaseManager.disconnect()
             //databaseManager.performInsertQuery()
             //databaseManager.performUpdateQuery()
             //databaseManager.performDeleteQuery()

@@ -136,8 +136,8 @@
         android:text="@string/MonthlyIncome"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/spinnerNoResidentAccInfo"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerNoResidentAccInfo" />
+        app:layout_constraintStart_toStartOf="@+id/imageViewNoResidentAccInfoContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewNoResidentAccInfoContainer" />
 
     <ImageView
         android:id="@+id/imageViewOwnerAccInfoContainer"
@@ -147,6 +147,24 @@
         android:src="@drawable/rectanglenodeep"
         app:layout_constraintStart_toStartOf="@+id/textViewOwnerAccInfoTitle"
         app:layout_constraintTop_toBottomOf="@+id/textViewOwnerAccInfoTitle" />
+
+    <ImageView
+        android:id="@+id/imageViewNoResidentAccInfoContainer"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/rectanglenodeep"
+        app:layout_constraintStart_toStartOf="@+id/imageViewOwnerAccInfoContainer"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNoResidentAccInfoTitle" />
+
+    <ImageView
+        android:id="@+id/imageViewMonthlyIncomeAccInfoContainer"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="108dp"
+        android:src="@drawable/rectanglenodeep"
+        app:layout_constraintStart_toStartOf="@+id/imageViewOwnerAccInfoContainer"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNoResidentAccInfoTitle" />
 
     <Button
         android:id="@+id/buttonResetAccInfo"
@@ -158,7 +176,7 @@
         android:text="@string/resetButton"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewAccInfoContainer"
-        app:layout_constraintStart_toStartOf="@+id/spinnerMonthlyIncomeAccInfo" />
+        app:layout_constraintStart_toStartOf="@+id/imageViewMonthlyIncomeAccInfoContainer" />
 
     <Button
         android:id="@+id/buttonConfirmAccInfo"
@@ -170,7 +188,7 @@
         android:text="@string/ConfirmButton"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewAccInfoContainer"
-        app:layout_constraintEnd_toEndOf="@+id/spinnerMonthlyIncomeAccInfo" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewMonthlyIncomeAccInfoContainer" />
 
     <TextView
         android:id="@+id/textViewAddressAccInfoValue"
@@ -202,27 +220,28 @@
         app:layout_constraintStart_toStartOf="@+id/imageViewOwnerAccInfoContainer"
         app:layout_constraintTop_toTopOf="@+id/imageViewOwnerAccInfoContainer" />
 
-    <Spinner
-        android:id="@+id/spinnerNoResidentAccInfo"
-        android:layout_width="280dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/rectanglenodeep"
-        android:entries="@array/NoOfResident"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewOwnerAccInfoContainer"
-        app:layout_constraintStart_toStartOf="@+id/imageViewOwnerAccInfoContainer"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNoResidentAccInfoTitle" />
+    <EditText
+        android:id="@+id/editTextNoResidentAccInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="@string/hintNoResident"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewNoResidentAccInfoContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewNoResidentAccInfoContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewNoResidentAccInfoContainer" />
 
-    <Spinner
-        android:id="@+id/spinnerMonthlyIncomeAccInfo"
-        android:layout_width="280dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/rectanglenodeep"
-        android:entries="@array/MonthlyIncome"
-        app:layout_constraintEnd_toEndOf="@+id/spinnerNoResidentAccInfo"
-        app:layout_constraintStart_toStartOf="@+id/spinnerNoResidentAccInfo"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMonthlyIncomeAccInfoTitle" />
+    <EditText
+        android:id="@+id/editTextNumberDecimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hintMonthlyIncome"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewMonthlyIncomeAccInfoContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewMonthlyIncomeAccInfoContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewMonthlyIncomeAccInfoContainer" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

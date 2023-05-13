@@ -31,14 +31,7 @@ class UserFragment : Fragment() {
     ): View? {
 
         _binding = FragmentUserBinding.inflate(inflater, container, false)
-        lifecycleScope.launch {
-            //date formatter
 
-            //set bill details for 1 time for data retrieval afterwards
-            val user1 = User("lily@gmail.com", "12345", "Lily", "010101010101","0123456789", "House", 1, 3000.00,3412341111)
-
-            profileViewModel.setUserDetails(user1)
-        }
 
 
         return binding.root
@@ -61,6 +54,20 @@ class UserFragment : Fragment() {
         }
 
         //binding with database
+
+        lifecycleScope.launch {
+            //date formatter
+
+            //set bill details for 1 time for data retrieval afterwards
+            val user1 = User("lily@gmail.com", "12345", "Lily", "010101010101","0123456789", "House", 1, 3000.00,3412341111)
+            val user2 = User("ali@gmail.com", "12345", "Lily", "010101010101","0123456789", "House", 1, 3000.00,3412341111)
+            profileViewModel.setUserDetails(user1)
+
+            val getUserName = profileViewModel.getUserName("lily@gmail.com")
+            binding.textViewUserNameValue.text = getUserName
+        }
+
+
 
     }
 

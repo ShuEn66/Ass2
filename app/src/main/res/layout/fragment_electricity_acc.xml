@@ -10,6 +10,29 @@
 
         <!--if want to change button color after clicking-->
         <!--https://www.geeksforgeeks.org/how-to-change-the-background-color-of-button-in-android-using-colorstatelist/-->
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:id="@+id/appBarLayout2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="160dp"-->
+<!--        android:background="@drawable/background1"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar1"-->
+<!--            android:layout_width="610dp"-->
+<!--            android:layout_height="230dp"-->
+<!--            android:layout_marginStart="-52dp"-->
+<!--            android:background="@drawable/elipse"-->
+<!--            android:minHeight="?attr/actionBarSize"-->
+<!--            android:theme="?attr/actionBarTheme"-->
+<!--            android:translationX="-45dp"-->
+<!--            android:translationY="-70dp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
     <Button
         android:id="@+id/buttonDeleteAccount"
         android:layout_width="fill_parent"
@@ -340,4 +363,4 @@
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

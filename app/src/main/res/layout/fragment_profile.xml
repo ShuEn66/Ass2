@@ -24,6 +24,29 @@
 
         <!--if want to change button color after clicking-->
         <!--https://www.geeksforgeeks.org/how-to-change-the-background-color-of-button-in-android-using-colorstatelist/-->
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:id="@+id/appBarLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="160dp"-->
+<!--        android:background="@drawable/background1"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar1"-->
+<!--            android:layout_width="610dp"-->
+<!--            android:layout_height="230dp"-->
+<!--            android:layout_marginStart="-52dp"-->
+<!--            android:background="@drawable/elipse"-->
+<!--            android:minHeight="?attr/actionBarSize"-->
+<!--            android:theme="?attr/actionBarTheme"-->
+<!--            android:translationX="-45dp"-->
+<!--            android:translationY="-70dp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
 
     <LinearLayout
         android:id="@+id/linearLayoutProfileContent"
@@ -33,6 +56,7 @@
         app:layout_constraintBottom_toTopOf="@+id/toolbar3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <!--        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">-->
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_viewUserProfileTab"
@@ -237,10 +261,9 @@
         android:id="@+id/buttonLogOut"
         android:layout_width="240dp"
         android:layout_height="60dp"
-        android:background="@drawable/button_corner_yellow"
         android:backgroundTint="@color/yellowButton"
-        android:text="@string/LogOutButton"
         android:textColor="@color/black"
+        android:text="@string/LogOutButton"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

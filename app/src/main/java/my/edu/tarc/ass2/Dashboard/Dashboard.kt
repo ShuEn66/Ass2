@@ -54,7 +54,7 @@ class Dashboard : AppCompatActivity() {
 
         binding.profilePic.setOnClickListener(){
             val navController = Navigation.findNavController(this, R.id.dashboard)
-            navController.navigate(R.id.nav_ProfileFragment)
+            navController.navigate(R.id.profileFragment)
 
         }
 

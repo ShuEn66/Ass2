@@ -11,31 +11,20 @@
         android:layout_width="600dp"
         android:layout_height="900dp"
         android:src="@drawable/background1"
-        android:translationX="-100dp"
-        android:translationY="-20dp"
+        android:translationX="-45dp"
+        android:translationY="-70dp"
         tools:layout_editor_absoluteX="-16dp"
         tools:layout_editor_absoluteY="-420dp" />
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:background="@drawable/background1">
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="610dp"
-            android:layout_height="230dp"
-            android:layout_marginStart="-52dp"
-            android:background="@drawable/elipse"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/appbar1"
             android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            android:translationX="-45dp"
-            android:translationY="-70dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:popupTheme="@style/Theme.Ass2.PopupOverlay" />
 
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <include layout="@layout/content_main" />
+    <include layout="@layout/content_main"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

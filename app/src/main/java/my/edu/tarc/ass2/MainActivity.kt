@@ -41,11 +41,9 @@ class MainActivity : AppCompatActivity() {
                 ||destination.id==R.id.accConfirmationFragment
                 ||destination.id==R.id.electricityAccInfoFragment
                 ||destination.id==R.id.loginFragment
-<<<<<<< Updated upstream
                 ||destination.id==R.id.editNameFragment)
-=======
                 )
->>>>>>> Stashed changes
+
             {
                 supportActionBar!!.hide()
             }else if(destination.id==R.id.profileFragment ){

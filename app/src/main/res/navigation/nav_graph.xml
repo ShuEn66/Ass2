@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/billingFragment">
+    app:startDestination="@id/userRegistrationFragment">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -144,9 +144,37 @@
             android:id="@+id/action_EditNameFragment_to_userFragment"
             app:destination="@id/userFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/billingFragment"
         android:name="my.edu.tarc.ass2.Billing.BillingFragment"
         android:label="fragment_billing"
         tools:layout="@layout/fragment_billing" />
+
+    <activity
+        android:id="@+id/appliancesFragment"
+        android:name="my.edu.tarc.ass2.Appliance.AppliancesFragment"
+        android:label="fragment_appliances"
+        tools:layout="@layout/fragment_appliances" />
+    <fragment
+        android:id="@+id/appManageAddedFragment"
+        android:name="my.edu.tarc.ass2.Appliance.AppManageAddedFragment"
+        android:label="fragment_app_manage_added"
+        tools:layout="@layout/fragment_app_manage_added" />
+    <fragment
+        android:id="@+id/appManageAddNewFragment"
+        android:name="my.edu.tarc.ass2.Appliance.AppManageAddNewFragment"
+        android:label="fragment_app_manage_add_new"
+        tools:layout="@layout/fragment_app_manage_add_new" />
+    <fragment
+        android:id="@+id/appManageDeleteFragment"
+        android:name="my.edu.tarc.ass2.Appliance.AppManageDeleteFragment"
+        android:label="fragment_app_manage_delete"
+        tools:layout="@layout/fragment_app_manage_delete" />
+    <fragment
+        android:id="@+id/appManageDetailsFragment"
+        android:name="my.edu.tarc.ass2.Appliance.AppManageDetailsFragment"
+        android:label="fragment_app_manage_details"
+        tools:layout="@layout/fragment_app_manage_details" />
+
 </navigation>

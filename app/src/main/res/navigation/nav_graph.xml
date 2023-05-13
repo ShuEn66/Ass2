@@ -96,4 +96,26 @@
         android:name="my.edu.tarc.ass2.Dashboard.Dashboard"
         android:label="activity_dashboard"
         tools:layout="@layout/activity_dashboard" />
+    <fragment
+        android:id="@+id/appSettingsFragment"
+        android:name="my.edu.tarc.ass2.AppSettings.AppSettingsFragment"
+        android:label="@string/appSettings"
+        tools:layout="@layout/fragment_app_settings" >
+        <action
+            android:id="@+id/action_appSettingsFragment_to_changLanguageFragment"
+            app:destination="@id/changLanguageFragment" />
+        <action
+            android:id="@+id/action_appSettingsFragment_to_developerInfoFragment"
+            app:destination="@id/developerInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changLanguageFragment"
+        android:name="my.edu.tarc.ass2.AppSettings.ChangLanguageFragment"
+        android:label="@string/changelang"
+        tools:layout="@layout/fragment_chang_language" />
+    <fragment
+        android:id="@+id/developerInfoFragment"
+        android:name="my.edu.tarc.ass2.AppSettings.DeveloperInfoFragment"
+        android:label="@string/devInfo"
+        tools:layout="@layout/fragment_developer_info" />
 </navigation>

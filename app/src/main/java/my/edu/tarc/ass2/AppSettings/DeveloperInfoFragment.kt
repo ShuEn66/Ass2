@@ -5,7 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
+import my.edu.tarc.ass2.Dashboard.HotlineFragment
 import my.edu.tarc.ass2.R
+import my.edu.tarc.ass2.databinding.FragmentAppSettingsBinding
+import my.edu.tarc.ass2.databinding.FragmentDeveloperInfoBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,15 +23,13 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class DeveloperInfoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentDeveloperInfoBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -34,10 +37,18 @@ class DeveloperInfoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_developer_info, container, false)
+        _binding = FragmentDeveloperInfoBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.buttonRateUs.setOnClickListener(){
+            val popUp = RatingFragment()
+            //popUp.show((activity as AppCompatActivity).supportFragmentManager, "popUp")
+        }
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of

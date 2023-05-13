@@ -110,6 +110,7 @@
                     android:id="@+id/buttonSubmitRating"
                     android:layout_width="240dp"
                     android:layout_height="60dp"
+                    android:background="@drawable/button_corner_yellow"
                     android:text="@string/submit"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

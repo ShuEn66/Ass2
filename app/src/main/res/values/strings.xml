@@ -28,6 +28,7 @@
     <string name="UpdateUserNameTitle">New User Name</string>
     <string name="hintUpdateUserName">Name of user as in IC</string>
     <string name="editBtn">Edit</string>
+    <string name="UpdateUserMobileTitle">New Mobile Number</string>
     //Profile-Electricity Account page
     <string name="deleteAccount">Delete Account</string>
     <string name="ElectricityAccNickname">Account Nickname</string>
@@ -179,6 +180,7 @@
     <string name="url_server">https://guardianoflighting.000webhostapp.com/</string>
     <string name="url_read">user/read.php</string>
     <string name="url_create">user/create.php</string>
+
 
 
     // 6edc224cb96fbcf5418fdc9473c43aa9d4200731

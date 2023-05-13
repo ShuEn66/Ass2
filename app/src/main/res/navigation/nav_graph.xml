@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_profileFragment_to_electricityAccFragment"
             app:destination="@id/electricityAccFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_appSettingsFragment"
+            app:destination="@id/appSettingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -28,6 +31,9 @@
         <action
             android:id="@+id/action_userFragment_to_EditNameFragment"
             app:destination="@id/EditNameFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_editMobileFragment"
+            app:destination="@id/editMobileFragment" />
     </fragment>
     <fragment
         android:id="@+id/electricityAccFragment"
@@ -124,6 +130,9 @@
         <action
             android:id="@+id/action_appSettingsFragment_to_developerInfoFragment"
             app:destination="@id/developerInfoFragment" />
+        <action
+            android:id="@+id/action_appSettingsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/changLanguageFragment"
@@ -149,4 +158,13 @@
         android:name="my.edu.tarc.ass2.Billing.BillingFragment"
         android:label="fragment_billing"
         tools:layout="@layout/fragment_billing" />
+    <fragment
+        android:id="@+id/editMobileFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditMobileFragment"
+        android:label="fragment_edit_mobile"
+        tools:layout="@layout/fragment_edit_mobile" >
+        <action
+            android:id="@+id/action_editMobileFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
 </navigation>

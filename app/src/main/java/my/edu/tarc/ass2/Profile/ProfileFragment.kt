@@ -48,7 +48,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding.cardViewAppSettingTab.setOnClickListener{
-            //navigate to app setting
+            findNavController().navigate(R.id.action_profileFragment_to_appSettingsFragment)
         }
 
         binding.buttonLogOut.setOnClickListener {

@@ -1,29 +1,22 @@
 package my.edu.tarc.ass2.Profile
 
-import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
-import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.R
-import my.edu.tarc.ass2.User
-import my.edu.tarc.ass2.databinding.FragmentDialogEditNameBinding
-import my.edu.tarc.ass2.databinding.FragmentUserBinding
+import my.edu.tarc.ass2.databinding.FragmentEditNameBinding
 
 /**
  * A simple [Fragment] subclass.
- * Use the [DialogEditNameFragment.newInstance] factory method to
+ * Use the [EditNameFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class DialogEditNameFragment : DialogFragment() {
+class EditNameFragment : Fragment() {
 
-    private var _binding: FragmentDialogEditNameBinding? = null
+    private var _binding: FragmentEditNameBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -36,7 +29,7 @@ class DialogEditNameFragment : DialogFragment() {
             savedInstanceState: Bundle?
         ): View? {
 
-            _binding = FragmentDialogEditNameBinding.inflate(inflater, container, false)
+            _binding = FragmentEditNameBinding.inflate(inflater, container, false)
             return binding.root
 
         }
@@ -45,7 +38,7 @@ class DialogEditNameFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonCancelEditUserName.setOnClickListener{
-            findNavController().navigate(R.id.action_dialogEditNameFragment_to_userFragment)
+            findNavController().navigate(R.id.action_EditNameFragment_to_userFragment)
         }
 
         binding.buttonUpdateEditUserName.setOnClickListener{

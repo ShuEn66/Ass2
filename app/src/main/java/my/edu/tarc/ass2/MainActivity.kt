@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
        //go dashboard from main activity
-        //navController.navigate(R.id.dashboard)
+        navController.navigate(R.id.dashboard)
 
         navController.addOnDestinationChangedListener{
                 _,destination,_->
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 ||destination.id==R.id.accConfirmationFragment
                 ||destination.id==R.id.electricityAccInfoFragment
                 ||destination.id==R.id.loginFragment
-                ||destination.id==R.id.dialogEditNameFragment)
+                ||destination.id==R.id.EditNameFragment)
             {
                 supportActionBar!!.hide()
             }else if(destination.id==R.id.profileFragment ){
@@ -68,16 +68,6 @@ class MainActivity : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

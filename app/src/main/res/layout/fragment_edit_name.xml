@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile.EditNameFragment">
+
+    <ImageView
+        android:id="@+id/imageViewEditTextContainer"
+        android:layout_width="318dp"
+        android:layout_height="255dp"
+        android:src="@drawable/rectangledeepcorner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:src="@drawable/rectanglenodeep"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewEditTextContainer"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewEditTextContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewEditTextContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewEditTextContainer" />
+
+    <EditText
+        android:id="@+id/editTextEditNameValue"
+        android:layout_width="220dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/hintUpdateUserName"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView24"
+        app:layout_constraintEnd_toEndOf="@+id/imageView24"
+        app:layout_constraintStart_toStartOf="@+id/imageView24"
+        app:layout_constraintTop_toTopOf="@+id/imageView24" />
+
+    <Button
+        android:id="@+id/buttonCancelEditUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/button_corner_yellow"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewEditTextContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageView24"
+        app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+
+    <Button
+        android:id="@+id/buttonUpdateEditUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_corner_yellow"
+        android:text="@string/editBtn"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewEditTextContainer"
+        app:layout_constraintEnd_toEndOf="@+id/imageView24"
+        app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+
+    <TextView
+        android:id="@+id/textViewEditNewNameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/UpdateUserNameTitle"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView24"
+        app:layout_constraintStart_toStartOf="@+id/imageView24"
+        app:layout_constraintTop_toTopOf="@+id/imageViewEditTextContainer"
+        app:layout_constraintVertical_bias="0.472" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

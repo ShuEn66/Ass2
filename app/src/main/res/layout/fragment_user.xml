@@ -139,10 +139,11 @@
 
                 <LinearLayout
                     android:layout_width="330dp"
-                    android:layout_height="30dp"
+                    android:layout_height="60dp"
                     android:orientation="vertical">
 
                     <!--get user name from database-->
+
                     <TextView
                         android:id="@+id/UserEmail"
                         android:layout_width="match_parent"
@@ -160,7 +161,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:background="@drawable/rectanglenodeep"
-                        android:text="@string/UserEmail"
+                        android:text="TextView"
                         android:textAlignment="textStart"
                         android:textColor="@color/black"
                         android:textSize="16sp"
@@ -168,15 +169,6 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textViewUpdateUserEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/rectanglenodeep"
-                    android:clickable="true"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:text="@string/updateClickableText"
-                    android:textColor="@color/blue" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -195,7 +187,7 @@
 
                 <LinearLayout
                     android:layout_width="330dp"
-                    android:layout_height="30dp"
+                    android:layout_height="60dp"
                     android:orientation="vertical">
 
                     <!--get user name from database-->

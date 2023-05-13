@@ -48,7 +48,7 @@
     <LinearLayout
         android:id="@+id/linearLayoutElectricityAccProfileContent"
         android:layout_width="match_parent"
-        android:layout_height="330dp"
+        android:layout_height="360dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/buttonDeleteAccount"
         app:layout_constraintEnd_toEndOf="parent"
@@ -154,12 +154,12 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_viewElectricityAccAddress"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="90dp"
             android:src="@drawable/rectanglenodeep">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="90dp"
                 android:background="@drawable/rectanglenodeep"
                 android:orientation="vertical">
 
@@ -180,7 +180,7 @@
                 <TextView
                     android:id="@+id/textViewElectricityAccAddressValue"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="60dp"
                     android:alpha="0.6"
                     android:background="@drawable/rectanglenodeep"
                     android:text="TextView"

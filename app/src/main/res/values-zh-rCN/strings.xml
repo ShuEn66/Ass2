@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ass2</string>
+    <string name="app_name">GOL</string>
     <string name="action_settings">设置</string>
     <string name="profile_fragment_label">个人简介</string>
     <string name="user_fragment_label">用户</string>

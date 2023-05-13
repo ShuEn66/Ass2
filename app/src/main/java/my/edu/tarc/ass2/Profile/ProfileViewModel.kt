@@ -49,18 +49,48 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    suspend fun getAccNickName(email: String): String{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getAccNickName(email)
+            d
+        }
+    }
+
+    suspend fun getAccNoResident(email: String): String{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getAccNoResident(email)
+            d
+        }
+    }
+
     suspend fun setAccDetails(ElectricityAcc: ElectricityAcc){
         withContext(Dispatchers.IO) {
             databaseDao.setAccDetails(ElectricityAcc)
         }
     }
 
-     suspend fun getAccount(accNo: Long): LiveData<List<ElectricityAcc>> {
+     suspend fun getAccountNumber(email: String): Long{
         return withContext(Dispatchers.IO) {
-            val d = databaseDao.getAccount(accNo)
+            val d = databaseDao.getAccountNumber(email)
             d
         }
     }
+
+    suspend fun getAccountProperty(email: String): String{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getAccountProperty(email)
+            d
+        }
+    }
+
+    suspend fun getAccountAddress(email: String): String{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getAccountAddress(email)
+            d
+        }
+    }
+
+
 
 
 

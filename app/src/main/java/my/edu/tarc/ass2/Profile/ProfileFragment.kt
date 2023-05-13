@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -74,12 +76,13 @@ class ProfileFragment : Fragment() {
             val getUserName = profileViewModel.getUserName(getUserEmail)
             binding.textViewUserNameValue.text = getUserName
 
-            val getAcc=profileViewModel.getAccount(3412341111)
-            binding.textViewUserNameValue.text = getUserName
+            val getAccountNumber = profileViewModel.getAccountNumber(getUserEmail)
+            binding.textViewElectricityAccNumValue.text = getAccountNumber.toString()
 
 
 
         }
+
     }
 
     override fun onDestroyView() {

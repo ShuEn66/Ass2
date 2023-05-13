@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Appliance.AppManageAddedFragment">
 
+    <TextView
+        android:id="@+id/textViewCalTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="@string/appliances_manage_title"
+        android:textColor="#0B0A0A"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="352dp"
@@ -69,7 +82,7 @@
                 android:layout_height="62dp" >
 
                 <Button
-                    android:id="@+id/buttonAdvice"
+                    android:id="@+id/buttonDelete"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:background="@drawable/button_corner_yellow"
@@ -81,7 +94,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/buttonDelete"
+                    android:id="@+id/buttonAddNew"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:background="@drawable/button_corner_yellow"

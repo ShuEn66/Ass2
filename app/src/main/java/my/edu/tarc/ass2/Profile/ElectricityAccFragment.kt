@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import my.edu.tarc.ass2.R
+import my.edu.tarc.ass2.databinding.FragmentElectricityAccBinding
 import my.edu.tarc.ass2.databinding.FragmentUserBinding
 
 
 class ElectricityAccFragment : Fragment() {
 
-    private var _binding: FragmentUserBinding? = null
+    private var _binding: FragmentElectricityAccBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -21,7 +22,7 @@ class ElectricityAccFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentUserBinding.inflate(inflater, container, false)
+        _binding = FragmentElectricityAccBinding.inflate(inflater, container, false)
         return binding.root
 
     }

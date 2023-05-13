@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/billingFragment">
+    app:startDestination="@id/dashboard">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -146,7 +146,7 @@
     </fragment>
     <fragment
         android:id="@+id/billingFragment"
-        android:name="my.edu.tarc.ass2.Billing.BillingFragment"
+        android:name="my.edu.tarc.ass2.AppSettings.ChangLanguageFragment"
         android:label="fragment_billing"
-        tools:layout="@layout/fragment_billing" />
+        tools:layout="@layout/fragment_chang_language" />
 </navigation>

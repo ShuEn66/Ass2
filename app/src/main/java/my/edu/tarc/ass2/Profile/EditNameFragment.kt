@@ -38,11 +38,8 @@ class EditNameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonCancelEditUserName.setOnClickListener{
-<<<<<<< Updated upstream
-            findNavController().navigate(R.id.action_userFragment_to_dialogEditNameFragment)
-=======
-            //findNavController().navigate(R.id.action_EditNameFragment_to_userFragment)
->>>>>>> Stashed changes
+            findNavController().navigate(R.id.action_userFragment_to_editNameFragment)
+
         }
 
         binding.buttonUpdateEditUserName.setOnClickListener{

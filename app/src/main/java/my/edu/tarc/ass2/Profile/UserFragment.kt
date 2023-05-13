@@ -42,14 +42,12 @@ class UserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.textViewUpdateUserName.setOnClickListener {
-<<<<<<< Updated upstream
-            findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_dialogEditNameFragment)
-=======
-            //findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_EditNameFragment)
->>>>>>> Stashed changes
+
+            findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_editNameFragment)
+
         }
         binding.textViewUpdateUserMobile.setOnClickListener {
-            //findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_editMobileFragment)
+            findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_editMobileFragment)
         }
 
         //binding with database

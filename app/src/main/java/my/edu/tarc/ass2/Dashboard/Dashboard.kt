@@ -30,14 +30,9 @@ class Dashboard : AppCompatActivity() {
     private val dashboardViewModel: DashboardViewModel by viewModels()
     //private lateinit var dashboardViewModel: DashboardViewModel
     private lateinit var binding: ActivityDashboardBinding
-
-
     private lateinit var viewPager: ViewPager2
     private lateinit var timer: Timer
-    //view
-//    lateinit var viewPager: ViewPager
-//    lateinit var viewPagerAdapter: ViewPagerAdapter
-//    lateinit var imageList: List<Int>
+    lateinit var imageList: List<Int>
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -78,13 +73,12 @@ class Dashboard : AppCompatActivity() {
 
         viewPager = findViewById(R.id.viewPager)
 
-        // Set up the adapter and data for the ViewPager2
-        val imageUrls = listOf(
-            "https://example.com/image1.jpg",
-            "https://example.com/image2.jpg",
-            "https://example.com/image3.jpg"
-        )
-        val adapter = ImageSliderAdapter(imageUrls)
+        //announcement slider
+        imageList = ArrayList<Int>()
+        imageList = imageList + R.drawable.about
+        imageList = imageList + R.drawable.developer
+        imageList = imageList + R.drawable.about
+        val adapter = ImageSliderAdapter(imageList )
         viewPager.adapter = adapter
         timer = Timer()
         timer.scheduleAtFixedRate(AutoScrollTask(adapter.itemCount), 4000, 4000)
@@ -103,31 +97,6 @@ class Dashboard : AppCompatActivity() {
             }
         }
         onBackPressedDispatcher.addCallback(backPressedCallback)
-
-//        slider
-//        imageList = ArrayList<Int>()
-//        imageList = imageList + R.drawable.about
-//        imageList = imageList + R.drawable.developer
-//        imageList = imageList + R.drawable.about
-//
-//        viewPagerAdapter = ViewPagerAdapter(this@Dashboard, imageList)
-//        binding.idViewPager.adapter = viewPagerAdapter
-//
-//        overlap button
-//        val element1Rect = Rect()
-//        val element2Rect = Rect()
-//        val element3Rect = Rect()
-//
-//        binding.idViewPager.getGlobalVisibleRect(element1Rect)
-//        binding.frameDashboard.getGlobalVisibleRect(element2Rect)
-//        binding.scrollDashboard.getGlobalVisibleRect(element3Rect)
-//
-//        if (Rect.intersects(element1Rect, element3Rect) && !Rect.intersects(element1Rect, element2Rect)) {
-//                binding.idViewPager.bringToFront()
-//        }
-
-
-
 
         //show system date time
         val current = LocalDateTime.now()

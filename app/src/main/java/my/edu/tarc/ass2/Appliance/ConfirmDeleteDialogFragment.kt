@@ -1,18 +1,16 @@
 package my.edu.tarc.ass2.Appliance
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import my.edu.tarc.ass2.R
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import my.edu.tarc.ass2.databinding.FragmentAppManageAddedBinding
 import my.edu.tarc.ass2.databinding.FragmentAppliancesBinding
+import my.edu.tarc.ass2.databinding.FragmentConfirmDeleteDialogBinding
 
-class AppliancesFragment : Fragment() {
-
-    private var _binding: FragmentAppliancesBinding? = null
+class ConfirmDeleteDialogFragment : Fragment() {
+    private var _binding: FragmentConfirmDeleteDialogBinding? = null
 
     private val binding get() = _binding!!
 
@@ -20,8 +18,7 @@ class AppliancesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAppliancesBinding.inflate(inflater, container, false)
+        _binding = FragmentConfirmDeleteDialogBinding.inflate(inflater, container, false)
         return binding.root
     }
-
 }

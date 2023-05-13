@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Appliance.AppManageDeleteFragment">
 
+    <TextView
+        android:id="@+id/textViewCalTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="@string/appliances_manage_title"
+        android:textColor="#0B0A0A"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="352dp"
@@ -29,10 +42,9 @@
                 android:id="@+id/textCostCalculator"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
-                android:text="TextView"
+                android:text="@string/appliances_manage_delete_title"
                 android:textColor="#0B0A0A"
-                android:textSize="24sp"
-                tools:text="@string/appliances_manage_delete_title" />
+                android:textSize="24sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

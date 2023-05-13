@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/userRegistrationFragment">
+    app:startDestination="@id/calAdviceDialogFragment">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -172,16 +172,21 @@
         android:label="fragment_billing"
         tools:layout="@layout/fragment_billing" />
 
-    <activity
-        android:id="@+id/appliancesFragment"
-        android:name="my.edu.tarc.ass2.Appliance.AppliancesFragment"
-        android:label="fragment_appliances"
-        tools:layout="@layout/fragment_appliances" />
     <fragment
         android:id="@+id/appManageAddedFragment"
         android:name="my.edu.tarc.ass2.Appliance.AppManageAddedFragment"
         android:label="fragment_app_manage_added"
-        tools:layout="@layout/fragment_app_manage_added" />
+        tools:layout="@layout/fragment_app_manage_added" >
+        <action
+            android:id="@+id/action_appManageAddedFragment_to_appManageAddNewFragment"
+            app:destination="@id/appManageAddNewFragment" />
+        <action
+            android:id="@+id/action_appManageAddedFragment_to_appManageDeleteFragment"
+            app:destination="@id/appManageDeleteFragment" />
+        <action
+            android:id="@+id/action_appManageAddedFragment_to_appManageDetailsFragment"
+            app:destination="@id/appManageDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/appManageAddNewFragment"
         android:name="my.edu.tarc.ass2.Appliance.AppManageAddNewFragment"
@@ -191,7 +196,11 @@
         android:id="@+id/appManageDeleteFragment"
         android:name="my.edu.tarc.ass2.Appliance.AppManageDeleteFragment"
         android:label="fragment_app_manage_delete"
-        tools:layout="@layout/fragment_app_manage_delete" />
+        tools:layout="@layout/fragment_app_manage_delete" >
+        <action
+            android:id="@+id/action_appManageDeleteFragment_to_confirmDeleteDialogFragment"
+            app:destination="@id/confirmDeleteDialogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/appManageDetailsFragment"
         android:name="my.edu.tarc.ass2.Appliance.AppManageDetailsFragment"
@@ -211,7 +220,14 @@
         android:id="@+id/costCalculatorFragment"
         android:name="my.edu.tarc.ass2.Appliance.CostCalculatorFragment"
         android:label="fragment_cost_calculator"
-        tools:layout="@layout/fragment_cost_calculator" />
+        tools:layout="@layout/fragment_cost_calculator" >
+        <action
+            android:id="@+id/action_costCalculatorFragment_to_calHelpDialogFragment"
+            app:destination="@id/calHelpDialogFragment" />
+        <action
+            android:id="@+id/action_costCalculatorFragment_to_calAdviceDialogFragment"
+            app:destination="@id/calAdviceDialogFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/editAccNameFragment"
@@ -240,5 +256,21 @@
             android:id="@+id/action_editMonthlyIncomeFragment_to_electricityAccFragment"
             app:destination="@id/electricityAccFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/appliancesFragment"
+        android:name="my.edu.tarc.ass2.Appliance.AppliancesFragment"
+        android:label="fragment_appliances"
+        tools:layout="@layout/fragment_appliances" >
+        <action
+            android:id="@+id/action_appliancesFragment3_to_appManageAddedFragment"
+            app:destination="@id/appManageAddedFragment" />
+        <action
+            android:id="@+id/action_appliancesFragment3_to_costCalculatorFragment"
+            app:destination="@id/costCalculatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calAdviceDialogFragment"
+        android:name="my.edu.tarc.ass2.Appliance.CalAdviceDialogFragment"
+        android:label="CalAdviceDialogFragment" />
 
 </navigation>

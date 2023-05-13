@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Appliance.AppManageAddNewFragment">
 
+    <TextView
+        android:id="@+id/textViewCalTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="@string/appliances_manage_title"
+        android:textColor="#0B0A0A"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="352dp"
@@ -29,10 +42,9 @@
                 android:id="@+id/textCostCalculator"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
-                android:text="TextView"
+                android:text="@string/appliances_manage_add_title"
                 android:textColor="#0B0A0A"
-                android:textSize="24sp"
-                tools:text="@string/appliances_manage_add_title" />
+                android:textSize="24sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -44,12 +56,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:text="TextView"
-                    android:textSize="18dp"
+                    android:text="@string/appliances_manage_name"
                     android:textColor="@color/black"
+                    android:textSize="18dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="@string/appliances_manage_name" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/editTextDetailsName"
@@ -59,10 +70,10 @@
                     android:layout_marginEnd="16dp"
                     android:background="@color/white"
                     android:ems="10"
+                    android:hint="@string/appliances_manage_name_hint"
                     android:inputType="text"
-                    android:text="@string/appliances_manage_name_hint"
-                    android:textColor="#544E4E"
                     android:paddingLeft="10dp"
+                    android:textColor="#544E4E"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewDetailsName" />
@@ -73,12 +84,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:text="TextView"
+                    android:text="@string/appliances_manage_type"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextDetailsName"
-                    tools:text="@string/appliances_manage_type" />
+                    app:layout_constraintTop_toBottomOf="@+id/editTextDetailsName" />
 
                 <Spinner
                     android:id="@+id/spinnerDetailsType"
@@ -100,12 +110,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:text="TextView"
+                    android:text="@string/appliances_manage_power"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/spinnerDetailsType"
-                    tools:text="@string/appliances_manage_power" />
+                    app:layout_constraintTop_toBottomOf="@+id/spinnerDetailsType" />
 
                 <EditText
                     android:id="@+id/editTextDetailsPower"
@@ -115,9 +124,10 @@
                     android:layout_marginEnd="16dp"
                     android:background="@color/white"
                     android:ems="10"
+                    android:hint="@string/appliances_manage_power_hint"
                     android:inputType="number"
-                    android:textColor="#544E4E"
                     android:paddingLeft="10dp"
+                    android:textColor="#544E4E"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewDetailsPower"
@@ -131,6 +141,7 @@
                     android:layout_marginEnd="16dp"
                     android:background="@color/white"
                     android:ems="10"
+                    android:hint="@string/appliances_manage_estimate_hint"
                     android:inputType="number"
                     android:paddingLeft="10dp"
                     android:textColor="#544E4E"
@@ -146,12 +157,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:text="TextView"
+                    android:text="@string/appliances_manage_estimate"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextDetailsPower"
-                    tools:text="@string/appliances_manage_estimate" />
+                    app:layout_constraintTop_toBottomOf="@+id/editTextDetailsPower" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

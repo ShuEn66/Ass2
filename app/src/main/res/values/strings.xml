@@ -256,7 +256,9 @@
     <string name="url_server" translatable="false">https://guardianoflighting.000webhostapp.com/</string>
     <string name="url_read" translatable="false">user/read.php</string>
     <string name="url_create" translatable="false">user/create.php</string>
-
+    <string name="UpdateAccNameTitle">New Account Nickname</string>
+    <string name="UpdateNoResidentTitle">New No of Residents</string>
+    <string name="UpdateMonthlyIncomeTitle">New Monthly Income</string>
 
 
     // 6edc224cb96fbcf5418fdc9473c43aa9d4200731

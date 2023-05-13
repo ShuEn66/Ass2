@@ -40,6 +40,15 @@
         <action
             android:id="@+id/action_electricityAccFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_electricityAccFragment_to_editAccNameFragment"
+            app:destination="@id/editAccNameFragment" />
+        <action
+            android:id="@+id/action_electricityAccFragment_to_editNoResidentFragment"
+            app:destination="@id/editNoResidentFragment" />
+        <action
+            android:id="@+id/action_electricityAccFragment_to_editMonthlyIncomeFragment"
+            app:destination="@id/editMonthlyIncomeFragment" />
     </fragment>
 
     <fragment
@@ -204,7 +213,32 @@
         android:label="fragment_cost_calculator"
         tools:layout="@layout/fragment_cost_calculator" />
 
-
-
+    <fragment
+        android:id="@+id/editAccNameFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditAccNameFragment"
+        android:label="fragment_edit_acc_name"
+        tools:layout="@layout/fragment_edit_acc_name" >
+        <action
+            android:id="@+id/action_editAccNameFragment_to_electricityAccFragment"
+            app:destination="@id/electricityAccFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editNoResidentFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditNoResidentFragment"
+        android:label="fragment_edit_no_resident"
+        tools:layout="@layout/fragment_edit_no_resident" >
+        <action
+            android:id="@+id/action_editNoResidentFragment_to_electricityAccFragment"
+            app:destination="@id/electricityAccFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editMonthlyIncomeFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditMonthlyIncomeFragment"
+        android:label="fragment_edit_monthly_income"
+        tools:layout="@layout/fragment_edit_monthly_income" >
+        <action
+            android:id="@+id/action_editMonthlyIncomeFragment_to_electricityAccFragment"
+            app:destination="@id/electricityAccFragment" />
+    </fragment>
 
 </navigation>

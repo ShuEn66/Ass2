@@ -88,7 +88,7 @@ interface databaseDao {
 
 
 
-    //APPLIANCES (JIA XUAN PLS CHECK UR SQL I MIGHT WRONGGG)
+    //APPLIANCES
     @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail =:userEmail AND Appliances.AppliancesName= :appliancesName")
     fun getAppliances(userEmail: String, appliancesName: String ):LiveData<Appliances>
 
@@ -103,4 +103,17 @@ interface databaseDao {
 
     @Delete
     suspend fun deleteAppliances(Appliances:Appliances)
+
+    //Setting attributes 1 by 1
+    @Query("UPDATE Appliances SET AppliancesName =:appliancesName")
+    suspend fun setAppName(appliancesName: String)
+
+    @Query("UPDATE Appliances SET AppliancesType =:appliancesType")
+    suspend fun setAppType(appliancesType: String)
+
+    @Query("UPDATE Appliances SET EstimatedUsage =:estimatedUsage")
+    suspend fun setEstimatedUsage(estimatedUsage: Double)
+
+    @Query("UPDATE Appliances SET AppliancesPower =:appPower")
+    suspend fun setAppPower(appPower: Double)
 }

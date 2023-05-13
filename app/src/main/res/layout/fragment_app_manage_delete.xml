@@ -102,7 +102,7 @@
                 android:layout_height="62dp" >
 
                 <Button
-                    android:id="@+id/buttonAdvice"
+                    android:id="@+id/buttonCancel"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:background="@drawable/button_corner_yellow"

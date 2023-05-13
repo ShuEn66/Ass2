@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.FragmentAppManageAddNewBinding
 
@@ -24,5 +25,12 @@ class AppManageAddNewFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.buttonCancel.setOnClickListener{
+            findNavController().navigate(R.id.action_appManageAddNewFragment_to_appManageAddedFragment)
+        }
+    }
 
 }

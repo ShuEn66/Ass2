@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/calAdviceDialogFragment">
+    app:startDestination="@id/appliancesFragment">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -191,7 +191,11 @@
         android:id="@+id/appManageAddNewFragment"
         android:name="my.edu.tarc.ass2.Appliance.AppManageAddNewFragment"
         android:label="fragment_app_manage_add_new"
-        tools:layout="@layout/fragment_app_manage_add_new" />
+        tools:layout="@layout/fragment_app_manage_add_new" >
+        <action
+            android:id="@+id/action_appManageAddNewFragment_to_appManageAddedFragment"
+            app:destination="@id/appManageAddedFragment" />
+    </fragment>
     <fragment
         android:id="@+id/appManageDeleteFragment"
         android:name="my.edu.tarc.ass2.Appliance.AppManageDeleteFragment"
@@ -200,22 +204,37 @@
         <action
             android:id="@+id/action_appManageDeleteFragment_to_confirmDeleteDialogFragment"
             app:destination="@id/confirmDeleteDialogFragment" />
+        <action
+            android:id="@+id/action_appManageDeleteFragment_to_appManageAddedFragment"
+            app:destination="@id/appManageAddedFragment" />
     </fragment>
     <fragment
         android:id="@+id/appManageDetailsFragment"
         android:name="my.edu.tarc.ass2.Appliance.AppManageDetailsFragment"
         android:label="fragment_app_manage_details"
-        tools:layout="@layout/fragment_app_manage_details" />
+        tools:layout="@layout/fragment_app_manage_details" >
+        <action
+            android:id="@+id/action_appManageDetailsFragment_to_appManageAddedFragment"
+            app:destination="@id/appManageAddedFragment" />
+    </fragment>
     <fragment
         android:id="@+id/calHelpDialogFragment"
         android:name="my.edu.tarc.ass2.Appliance.CalHelpDialogFragment"
         android:label="fragment_cal_help_dialog"
-        tools:layout="@layout/fragment_cal_help_dialog" />
+        tools:layout="@layout/fragment_cal_help_dialog" >
+        <action
+            android:id="@+id/action_calHelpDialogFragment_to_costCalculatorFragment"
+            app:destination="@id/costCalculatorFragment" />
+    </fragment>
     <fragment
         android:id="@+id/confirmDeleteDialogFragment"
         android:name="my.edu.tarc.ass2.Appliance.ConfirmDeleteDialogFragment"
         android:label="fragment_confirm_delete_dialog"
-        tools:layout="@layout/fragment_confirm_delete_dialog" />
+        tools:layout="@layout/fragment_confirm_delete_dialog" >
+        <action
+            android:id="@+id/action_confirmDeleteDialogFragment_to_appManageDeleteFragment"
+            app:destination="@id/appManageDeleteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/costCalculatorFragment"
         android:name="my.edu.tarc.ass2.Appliance.CostCalculatorFragment"
@@ -271,6 +290,10 @@
     <fragment
         android:id="@+id/calAdviceDialogFragment"
         android:name="my.edu.tarc.ass2.Appliance.CalAdviceDialogFragment"
-        android:label="CalAdviceDialogFragment" />
+        android:label="CalAdviceDialogFragment" >
+        <action
+            android:id="@+id/action_calAdviceDialogFragment_to_costCalculatorFragment"
+            app:destination="@id/costCalculatorFragment" />
+    </fragment>
 
 </navigation>

@@ -39,7 +39,7 @@ class EditMobileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonCancelEditUserMobile.setOnClickListener{
-            findNavController().navigate(R.id.action_editMobileFragment_to_userFragment)
+            //findNavController().navigate(R.id.action_editMobileFragment_to_userFragment)
         }
 
         binding.buttonUpdateEditUserMobile.setOnClickListener{

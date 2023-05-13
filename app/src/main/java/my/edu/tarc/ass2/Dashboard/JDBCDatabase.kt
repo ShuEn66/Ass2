@@ -18,21 +18,26 @@ class JDBCDatabase(private val url: String, private val username: String, privat
         }
     }
 
-    fun connect() {
-        try {
-            connection = DriverManager.getConnection(url, username, password)
-        } catch (e: SQLException) {
-            e.printStackTrace()
+    suspend fun connect() {
+        withContext(Dispatchers.IO) {
+            try {
+                connection = DriverManager.getConnection(url, username, password)
+            } catch (e: SQLException) {
+                e.printStackTrace()
+            }
         }
     }
 
-    fun disconnect() {
-        try {
-            if (::connection.isInitialized && !connection.isClosed) {
-                connection.close()
+
+    suspend fun disconnect() {
+        withContext(Dispatchers.IO) {
+            try {
+                if (::connection.isInitialized && !connection.isClosed) {
+                    connection.close()
+                }
+            } catch (e: SQLException) {
+                e.printStackTrace()
             }
-        } catch (e: SQLException) {
-            e.printStackTrace()
         }
     }
 
@@ -41,7 +46,7 @@ class JDBCDatabase(private val url: String, private val username: String, privat
             var results: Any? = null
             connect()
             //val statement = connection.createStatement()
-            val query = "SELECT ? FROM Bill WHERE AccNumber = ? AND BillingMonth = ? AND BillingYear = ?"
+            val query = "SELECT ? FROM Bill WHERE AccNumber = ? AND BillingMonth = ? AND BillingYear = ?;"
             val preparedStatement = connection.prepareStatement(query)
             preparedStatement.setString(1, column)
             preparedStatement.setLong(2, accNo)

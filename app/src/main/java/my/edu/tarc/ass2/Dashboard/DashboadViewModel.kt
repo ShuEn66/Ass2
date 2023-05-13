@@ -2,6 +2,7 @@ package my.edu.tarc.ass2.Dashboard
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
@@ -9,6 +10,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import my.edu.tarc.ass2.AppDatabase
 import my.edu.tarc.ass2.Bill
+import my.edu.tarc.ass2.ElectricityAcc
 import my.edu.tarc.ass2.databaseDao
 
 
@@ -37,6 +39,12 @@ class DashboardViewModel(application: Application) : AndroidViewModel(applicatio
             }
         }
 
+    suspend fun getAccount(accNo: Long): LiveData<List<ElectricityAcc>>{
+        return withContext(Dispatchers.IO) {
+            val d= databaseDao.getAccount(accNo)
+            d
+        }
+    }
 
     suspend fun getTotalAmount(accNo: Long, month: Int, year: Int): Double {
         return withContext(Dispatchers.IO) {

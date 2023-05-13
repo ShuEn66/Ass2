@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
                 ||destination.id==R.id.registerAddElectricityAccFragment
                 ||destination.id==R.id.accConfirmationFragment
                 ||destination.id==R.id.electricityAccInfoFragment
-                ||destination.id==R.id.loginFragment)
+                ||destination.id==R.id.loginFragment
+                ||destination.id==R.id.dialogEditNameFragment)
             {
                 supportActionBar!!.hide()
             }else if(destination.id==R.id.profileFragment ){

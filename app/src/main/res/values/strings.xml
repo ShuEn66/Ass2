@@ -25,8 +25,9 @@
     <string name="UserMobile">Mobile Number</string>
     //Profile-Edit user profile page
     <string name="cancel">Cancel</string>
-    <string name="UpdateUserNameTitle">Update User Name</string>
+    <string name="UpdateUserNameTitle">New User Name</string>
     <string name="hintUpdateUserName">Name of user as in IC</string>
+    <string name="editBtn">Edit</string>
     //Profile-Electricity Account page
     <string name="deleteAccount">Delete Account</string>
     <string name="ElectricityAccNickname">Account Nickname</string>

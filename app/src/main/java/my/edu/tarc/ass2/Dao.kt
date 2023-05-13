@@ -42,6 +42,8 @@ interface databaseDao {
 
 
     //USER
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun setUserDetails(User:User)
 
     //PAYMENT
     @Query("SELECT Payment.PaymentDate FROM Payment, Bill WHERE Payment.PaymentID = Bill.PaymentID AND Bill.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year ")

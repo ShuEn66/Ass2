@@ -5,9 +5,9 @@ import androidx.room.PrimaryKey
 import java.util.Date
 
 @Entity(tableName = "User")
-data class User (@PrimaryKey val UserEmail: String, val UserName: String, val UserAddress: String, val UserIC: Long, val UserMobile: Long, val AccNickName: String, val NoOfResident: Int, val MonthlyIncome: Double, val AccNumber:Long) {
+data class User (@PrimaryKey val UserEmail: String, val UserPassword: String,val UserName: String, val UserIC: String, val UserMobile: String, val AccNickName: String, val NoOfResident: Int, val MonthlyIncome: Double, val AccNumber:Long) {
     override fun toString(): String {
-        return "$UserEmail : $UserName: $UserAddress: $UserIC: $UserMobile: $AccNickName: $NoOfResident: $MonthlyIncome: $AccNumber"
+        return "$UserEmail :$UserPassword: $UserName: $UserIC: $UserMobile: $AccNickName: $NoOfResident: $MonthlyIncome: $AccNumber"
     }
 }
 

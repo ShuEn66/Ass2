@@ -6,30 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Billing.BillingFragment">
 
-    <ImageView
-        android:id="@+id/background4"
-        android:layout_width="589dp"
-        android:layout_height="1125dp"
-        android:layout_marginBottom="8dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497"
-        app:srcCompat="@drawable/background1" />
-
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="523dp"
-        android:layout_height="185dp"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/elipse"
-        app:layout_constraintBottom_toTopOf="@+id/layoutBillInfo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/textViewBilling"
         android:layout_width="wrap_content"
@@ -44,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/displayDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -68,15 +44,13 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/displayPaymentDue2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView15"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPaymentDue"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPaymentDue" />
 
     <LinearLayout
         android:id="@+id/layoutBillInfo"
@@ -182,7 +156,7 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textViewRM1"
+                    android:id="@+id/displayInvDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -197,36 +171,36 @@
                     app:layout_constraintVertical_bias="0.22" />
 
                 <TextView
-                    android:id="@+id/textViewRM1content"
+                    android:id="@+id/displayCurrentCharges"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:text="@string/display"
                     android:textColor="#020202"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewRM1"
+                    app:layout_constraintBottom_toBottomOf="@+id/displayInvDate"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/textViewRM1"
-                    app:layout_constraintTop_toTopOf="@+id/textViewRM1"
+                    app:layout_constraintStart_toEndOf="@+id/displayInvDate"
+                    app:layout_constraintTop_toTopOf="@+id/displayInvDate"
                     app:layout_constraintVertical_bias="0.22" />
 
                 <TextView
-                    android:id="@+id/textViewRM1content2"
+                    android:id="@+id/displayOutstanding"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:text="@string/display"
                     android:textColor="#020202"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewRM2"
+                    app:layout_constraintBottom_toBottomOf="@+id/displayPaymentDate"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/textViewRM2"
-                    app:layout_constraintTop_toTopOf="@+id/textViewRM2" />
+                    app:layout_constraintStart_toEndOf="@+id/displayPaymentDate"
+                    app:layout_constraintTop_toTopOf="@+id/displayPaymentDate" />
 
                 <TextView
-                    android:id="@+id/textViewRM1content3"
+                    android:id="@+id/displayTot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/display"
@@ -254,7 +228,7 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textViewRM2"
+                    android:id="@+id/displayPaymentDate"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:layout_marginStart="16dp"

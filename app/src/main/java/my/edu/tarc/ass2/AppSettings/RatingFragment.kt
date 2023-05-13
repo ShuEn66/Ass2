@@ -40,6 +40,11 @@ class RatingFragment : Fragment() {
 
         return binding.root
 
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.buttonSubmitRating.setOnClickListener(){
             Toast.makeText(context,"Thanks for submitting!",Toast.LENGTH_LONG).show()
         }

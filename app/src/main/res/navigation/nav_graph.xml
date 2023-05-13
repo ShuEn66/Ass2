@@ -176,5 +176,20 @@
         android:name="my.edu.tarc.ass2.Appliance.AppManageDetailsFragment"
         android:label="fragment_app_manage_details"
         tools:layout="@layout/fragment_app_manage_details" />
+    <fragment
+        android:id="@+id/calHelpDialogFragment"
+        android:name="my.edu.tarc.ass2.Appliance.CalHelpDialogFragment"
+        android:label="fragment_cal_help_dialog"
+        tools:layout="@layout/fragment_cal_help_dialog" />
+    <fragment
+        android:id="@+id/confirmDeleteDialogFragment"
+        android:name="my.edu.tarc.ass2.Appliance.ConfirmDeleteDialogFragment"
+        android:label="fragment_confirm_delete_dialog"
+        tools:layout="@layout/fragment_confirm_delete_dialog" />
+    <fragment
+        android:id="@+id/costCalculatorFragment"
+        android:name="my.edu.tarc.ass2.Appliance.CostCalculatorFragment"
+        android:label="fragment_cost_calculator"
+        tools:layout="@layout/fragment_cost_calculator" />
 
 </navigation>

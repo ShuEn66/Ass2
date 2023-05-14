@@ -15,6 +15,12 @@ import my.edu.tarc.ass2.databaseDao
 class BillViewModel(application: Application) : AndroidViewModel(application) {
     private var databaseDao: databaseDao
 
+    suspend fun getBillStatus(accNo: Long, month: Int, year: Int): String {
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getBillStatus(accNo, month, year)
+            d
+        }
+    }
     suspend fun getPaymentDue(accNo:Long, month: Int, year: Int): String {
         return withContext(Dispatchers.IO) {
             val d= databaseDao.getPaymentDue(accNo, month, year)

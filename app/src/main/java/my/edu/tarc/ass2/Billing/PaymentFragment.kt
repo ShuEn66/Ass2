@@ -50,12 +50,10 @@ class PaymentFragment : Fragment() {
                 yearDisplay -= 1
             }
             val output = ldt.format(formatter)
-            val getTotalAmount =
-                billViewModel.getTotalAmount(123412341111, (monthDisplay - 1), yearDisplay)
+            val getTotalAmount = billViewModel.getTotalAmount(123412341111, (monthDisplay - 1), yearDisplay)
             binding.displayAmountPaid.text = getTotalAmount.toString()
 
-            val newPayment1 =
-                Payment("111111111111111", output, "Successful", "Online Banking", getTotalAmount)
+            val newPayment1 = Payment("111111111111111", output, "Successful", "Online Banking", getTotalAmount)
             billViewModel.setPaymentDetails(newPayment1)
             val getPaymentDate = billViewModel.getPaymentDate(111111111111111)
             binding.displayPaymentDate2.text = getPaymentDate

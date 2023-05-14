@@ -183,8 +183,8 @@ interface databaseDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun setAppliances(Appliances:Appliances)
 
-    @Delete
-    suspend fun deleteAppliances(Appliances:Appliances)
+    @Query("DELETE FROM Appliances WHERE AppliancesName =:appliancesName")
+    suspend fun deleteAppliances(appliancesName: String)
 
     //Setting attributes 1 by 1
     @Query("UPDATE Appliances SET AppliancesName =:appliancesName")

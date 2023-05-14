@@ -3,7 +3,6 @@ package my.edu.tarc.ass2.Appliance
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,9 +19,10 @@ import my.edu.tarc.ass2.AddedAppliance
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.Registration.MyAdapter
 import my.edu.tarc.ass2.databinding.FragmentAppManageAddedBinding
-import androidx.lifecycle.observe
+import my.edu.tarc.ass2.databinding.FragmentAppManageInputDeleteBinding
 
-class AppManageAddedFragment : Fragment() {
+
+class AppManageInputDeleteFragment : Fragment() {
 
     //View model
     private val appliancesViewModel: AppliancesViewModel by viewModels()
@@ -38,22 +38,14 @@ class AppManageAddedFragment : Fragment() {
     lateinit var applianceName : Array<String>
     lateinit var appliances : Array<String>
 
-    //Button
-    private val onButtonClickListener = object : MyAdapter.onButtonClickListener {
-        override fun onButtonClick(position: Int) {
-            // Handle button click here
-        }
-    }
-
-    private var _binding: FragmentAppManageAddedBinding? = null
-
+    private var _binding: FragmentAppManageInputDeleteBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAppManageAddedBinding.inflate(inflater, container, false)
+        _binding = FragmentAppManageInputDeleteBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -65,11 +57,21 @@ class AppManageAddedFragment : Fragment() {
 
 
         binding.buttonDelete.setOnClickListener{
-            findNavController().navigate(R.id.action_appManageAddedFragment_to_appManageInputDeleteFragment)
+            lifecycleScope.launch {
+                if (binding.editTextDelete.text.toString().isEmpty()){
+                    Toast.makeText(context,"Invalid delete", Toast.LENGTH_SHORT).show()
+                } else {
+                    appliancesViewModel.deleteAppliances(binding.editTextDelete.text.toString())
+                    Toast.makeText(context,"Appliance deleted", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_appManageInputDeleteFragment_to_appManageAddedFragment)
+                }
+            }
+
+
         }
 
-        binding.buttonAddNew.setOnClickListener{
-            findNavController().navigate(R.id.action_appManageAddedFragment_to_appManageAddNewFragment)
+        binding.buttonCancel.setOnClickListener{
+            findNavController().navigate(R.id.action_appManageInputDeleteFragment_to_appManageAddedFragment)
         }
 
         //To display added appliances
@@ -82,30 +84,11 @@ class AppManageAddedFragment : Fragment() {
         adapter = MyAdapter(appliancesArrayList, findNavController())
         recyclerView.adapter = adapter
 
-        //Button action
-        val onButtonClickListener = object : MyAdapter.onButtonClickListener {
-            override fun onButtonClick(position: Int) {
-                // Handle button click here
-                //Toast.makeText(context,"Clicked", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.action_appManageAddedFragment_to_appManageDetailsFragment)
-            }
-        }
-
-        //Button
-        // Set the onButtonClickListener to the adapter
-        adapter = MyAdapter(appliancesArrayList, findNavController())
-        adapter.setOnButtonClickListener(onButtonClickListener)
-        recyclerView.adapter = adapter
-
-
     }
 
     //To display appliances
     private fun dataInitializer(){
         appliancesArrayList = arrayListOf<AddedAppliance>()
-
-        //Current user
-
 
         //Get data list
         lifecycleScope.launch {
@@ -124,7 +107,6 @@ class AppManageAddedFragment : Fragment() {
 
             })
         }
-
 
     }
 

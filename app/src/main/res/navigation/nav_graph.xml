@@ -173,6 +173,9 @@
         <action
             android:id="@+id/action_appManageAddedFragment_to_appliancesFragment"
             app:destination="@id/appliancesFragment" />
+        <action
+            android:id="@+id/action_appManageAddedFragment_to_appManageInputDeleteFragment"
+            app:destination="@id/appManageInputDeleteFragment" />
     </fragment>
     <fragment
         android:id="@+id/appManageAddNewFragment"
@@ -393,7 +396,15 @@
             android:id="@+id/action_hotlineFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment" />
     </fragment>
-
+    <fragment
+        android:id="@+id/appManageInputDeleteFragment"
+        android:name="my.edu.tarc.ass2.Appliance.AppManageInputDeleteFragment"
+        android:label="fragment_app_manage_input_delete"
+        tools:layout="@layout/fragment_app_manage_input_delete" >
+        <action
+            android:id="@+id/action_appManageInputDeleteFragment_to_appManageAddedFragment"
+            app:destination="@id/appManageAddedFragment" />
+    </fragment>
 
 
 </navigation>

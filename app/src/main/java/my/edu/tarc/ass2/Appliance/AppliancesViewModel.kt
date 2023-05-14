@@ -17,6 +17,13 @@ class AppliancesViewModel(application: Application) : AndroidViewModel(applicati
 
     private lateinit var databaseDao: databaseDao
 
+    suspend fun deleteAppliances(appliancesName: String){
+        return withContext(Dispatchers.IO) {
+            val d= databaseDao.deleteAppliances(appliancesName)
+            d
+        }
+    }
+
     suspend fun getAppliances(userEmail: String, appliancesName: String): LiveData<Appliances> {
         return withContext(Dispatchers.IO) {
             val d= databaseDao.getAppliances(userEmail, appliancesName)

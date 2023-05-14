@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Appliance.AppManageAddedFragment">
+    tools:context=".Appliance.AppManageInputDeleteFragment">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -29,26 +30,48 @@
                 android:id="@+id/textCostCalculator"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
-                android:text="@string/appliances_manage_added"
+                android:text="@string/appliances_manage_delete_title"
                 android:textColor="#0B0A0A"
                 android:textSize="24sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="350dp" >
+                android:layout_height="290dp">
 
                 <!--TO BE EDIT-->
                 <!--Display added appliances-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewApp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="290dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:listitem="@layout/list_app_added" />
 
+
+
                 <!--END-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <EditText
+                    android:id="@+id/editTextDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:hint="@string/appliances_manage_name"
+                    android:inputType="text"
+                    android:paddingLeft="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -69,11 +92,11 @@
                 android:layout_height="62dp" >
 
                 <Button
-                    android:id="@+id/buttonDelete"
+                    android:id="@+id/buttonCancel"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:background="@drawable/button_corner_yellow"
-                    android:text="@string/appliances_manage_delete"
+                    android:text="@string/appliances_manage_cancel"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -81,11 +104,11 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/buttonAddNew"
+                    android:id="@+id/buttonDelete"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:background="@drawable/button_corner_yellow"
-                    android:text="@string/appliances_manage_addNew"
+                    android:text="@string/appliances_manage_delete"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"

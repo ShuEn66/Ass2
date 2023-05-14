@@ -307,21 +307,24 @@
     <fragment
         android:id="@+id/ratingFragment"
         android:name="my.edu.tarc.ass2.AppSettings.RatingFragment"
-        android:label="fragment_rating"
+        android:label="@string/rateUs"
         tools:layout="@layout/fragment_rating" />
     <fragment
         android:id="@+id/billingFragment"
         android:name="my.edu.tarc.ass2.Billing.BillingFragment"
-        android:label="fragment_billing"
+        android:label="@string/billing"
         tools:layout="@layout/fragment_billing">
         <action
             android:id="@+id/action_billingFragment_to_billInfoFragment"
             app:destination="@id/billInfoFragment" />
+        <action
+            android:id="@+id/action_billingFragment_to_billHistoryFragment"
+            app:destination="@id/billHistoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/billInfoFragment"
         android:name="my.edu.tarc.ass2.Billing.BillInfoFragment"
-        android:label="fragment_bill_info"
+        android:label="@string/billInfo"
         tools:layout="@layout/fragment_bill_info">
         <action
             android:id="@+id/action_billInfoFragment_to_paymentFragment"
@@ -330,7 +333,7 @@
     <fragment
         android:id="@+id/paymentFragment"
         android:name="my.edu.tarc.ass2.Billing.PaymentFragment"
-        android:label="fragment_payment"
+        android:label="@string/paymentSuccessful_title"
         tools:layout="@layout/fragment_payment">
         <action
             android:id="@+id/action_paymentFragment_to_billingFragment"
@@ -350,5 +353,11 @@
             android:id="@+id/action_deleteAccFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/billHistoryFragment"
+        android:name="my.edu.tarc.ass2.Billing.BillHistoryFragment"
+        android:label="@string/billHistoryTitle"
+        tools:layout="@layout/fragment_bill_history" />
+
 
 </navigation>

@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
        //go dashboard from main activity
-        navController.navigate(R.id.dashboard)
+        //navController.navigate(R.id.dashboard)
 
         lifecycleScope.launch {
             //set bill details for 1 time for data retrieval afterwards

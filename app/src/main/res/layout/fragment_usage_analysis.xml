@@ -118,7 +118,7 @@
             tools:src="@tools:sample/backgrounds/scenic" />
 
         <TextView
-            android:id="@+id/textView26"
+            android:id="@+id/addressTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="440dp"
@@ -128,7 +128,7 @@
             tools:text="@string/address_title" />
 
         <TextView
-            android:id="@+id/textView25"
+            android:id="@+id/displayAddress"
             android:layout_width="149dp"
             android:layout_height="96dp"
             android:layout_marginTop="460dp"

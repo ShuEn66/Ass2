@@ -38,7 +38,7 @@ class EditMonthlyIncomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonCancelEditMonthlyIncome.setOnClickListener{
-            findNavController().navigate(R.id.action_editMonthlyIncomeFragment_to_electricityAccFragment)
+            findNavController().navigateUp()
 
         }
 

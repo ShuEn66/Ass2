@@ -40,7 +40,7 @@ class EditAccNameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonCancelEditAccName.setOnClickListener{
-            findNavController().navigate(R.id.action_editAccNameFragment_to_electricityAccFragment)
+            findNavController().navigateUp()
         }
 
         binding.buttonUpdateEditAccName.setOnClickListener{

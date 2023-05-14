@@ -33,6 +33,18 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    suspend fun updateUserMobile(email:String,newMobile:String){
+        withContext(Dispatchers.IO) {
+            databaseDao.updateUserMobile(email,newMobile)
+        }
+    }
+
+    suspend fun updateUserPassword(email:String,newPassword:String){
+        withContext(Dispatchers.IO) {
+            databaseDao.updateUserPassword(email,newPassword)
+        }
+    }
+
     suspend fun updateAccName(email:String,newNickName:String){
         withContext(Dispatchers.IO) {
             databaseDao.updateAccName(email,newNickName)
@@ -45,11 +57,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    suspend fun updateUserMobile(email:String,newMobile:String){
-        withContext(Dispatchers.IO) {
-            databaseDao.updateUserName(email,newMobile)
-        }
-    }
+
 
     suspend fun updateNoResident(email:String,newNo:Int){
         withContext(Dispatchers.IO) {

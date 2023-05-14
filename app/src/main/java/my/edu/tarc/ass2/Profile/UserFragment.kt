@@ -66,9 +66,15 @@ class UserFragment : Fragment() {
             val getUserMobile = loginEmail?.let { profileViewModel.getUserMobile(it) }
             binding.textViewUserMobileValue.text = getUserMobile
 
+            binding.buttonChangePassword.setOnClickListener {
+                findNavController().navigate(my.edu.tarc.ass2.R.id.action_userFragment_to_editPasswordFragment)
+            }
+
         }
 
     }
+
+
 
 
     override fun onDestroyView() {

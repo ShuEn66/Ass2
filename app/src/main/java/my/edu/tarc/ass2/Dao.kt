@@ -58,8 +58,35 @@ interface databaseDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun setUserDetails(User:User)
 
+    @Query("UPDATE User SET UserName = :newName WHERE UserEmail =:email ")
+    suspend fun updateUserName(email:String,newName:String)
+
+    @Query("UPDATE User SET UserIC = :newIC WHERE UserEmail =:email ")
+    suspend fun updateUserIC(email:String,newIC:String)
+
+    @Query("UPDATE User SET UserMobile = :newMobile WHERE UserEmail =:email ")
+    suspend fun updateUserMobile(email:String,newMobile:String)
+
+    @Query("UPDATE User SET AccNickName = :newNickName WHERE UserEmail =:email ")
+    suspend fun updateAccName(email:String,newNickName:String)
+
+    @Query("UPDATE User SET AccNumber = :newAccNumber WHERE UserEmail =:email ")
+    suspend fun updateAccNum(email:String,newAccNumber:Long)
+
+    @Query("UPDATE User SET NoOfResident = :newNo WHERE UserEmail =:email ")
+    suspend fun updateNoResident(email:String,newNo:Int)
+
+    @Query("UPDATE User SET MonthlyIncome = :newIncome WHERE UserEmail =:email ")
+    suspend fun updateMonthlyIncome(email:String,newIncome:Double)
+
+    @Query("SELECT * FROM User WHERE UserEmail = :email")
+    suspend fun getUserbyEmail(email: String): User
+
     @Query("SELECT UserEmail FROM User WHERE AccNumber = :accNo")
     suspend fun getUserEmail(accNo: Long): String
+
+    @Query("SELECT UserPassword FROM User WHERE UserEmail = :email")
+    suspend fun getUserPassword(email: String): String
 
     @Query("SELECT UserName FROM User WHERE UserEmail = :email")
     suspend fun getUserName(email: String): String
@@ -73,8 +100,14 @@ interface databaseDao {
     @Query("SELECT AccNickName FROM User WHERE UserEmail = :email")
     suspend fun getAccNickName(email: String): String
 
-//    @Query("SELECT AccNo FROM User WHERE UserEmail = :email")
-//    suspend fun getAccNickName(email: String): String
+    @Query("SELECT NoOfResident FROM User WHERE UserEmail = :email")
+    suspend fun getNoResident(email: String): Int
+
+    @Query("SELECT MonthlyIncome FROM User WHERE UserEmail = :email")
+    suspend fun getMonthlyIncome(email: String): Double
+
+    @Query("SELECT AccNumber FROM User WHERE UserEmail = :email")
+    suspend fun getAccNumber(email: String): Long
 
 
 
@@ -97,14 +130,18 @@ interface databaseDao {
     suspend fun setPaymentDetails(Payment:Payment)
 
     //ELECTRICITYACC
-    @Query("SELECT ElectricityAcc.AccNumber FROM ElectricityAcc,User WHERE ElectricityAcc.AccNumber = User.AccNumber AND User.UserEmail =:email")
-    fun getAccountNumber(email: String):Long
 
-    @Query("SELECT ElectricityAcc.AccPropertyType FROM ElectricityAcc,User WHERE ElectricityAcc.AccNumber = User.AccNumber AND User.UserEmail =:email")
-    fun getAccountProperty(email: String):String
+    @Query("SELECT AccPropertyType FROM ElectricityAcc WHERE AccNumber = :accNo")
+    suspend fun getAccountProperty(accNo: Long):String
 
-    @Query("SELECT ElectricityAcc.AccAddress FROM ElectricityAcc,User WHERE ElectricityAcc.AccNumber = User.AccNumber AND User.UserEmail =:email")
-    fun getAccountAddress(email: String):String
+    @Query("SELECT AccAddress FROM ElectricityAcc WHERE AccNumber = :accNo")
+    suspend fun getAccountAddress(accNo: Long):String
+
+    @Query("SELECT * FROM ElectricityAcc WHERE AccNumber = :accNo")
+    suspend fun getAccount(accNo: Long):ElectricityAcc
+
+    @Query("SELECT AccOwner FROM ElectricityAcc WHERE AccNumber = :accNo")
+    suspend fun getAccountOwner(accNo: Long):String
 
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

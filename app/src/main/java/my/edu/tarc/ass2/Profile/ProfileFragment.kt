@@ -1,5 +1,7 @@
 package my.edu.tarc.ass2.Profile
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,6 +25,7 @@ class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val profileViewModel: ProfileViewModel by viewModels()
+    private lateinit var sharedPre: SharedPreferences
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -41,6 +44,7 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
 
         binding.cardViewUserProfileTab.setOnClickListener{
             findNavController().navigate(R.id.action_profileFragment_to_userFragment)
@@ -58,28 +62,19 @@ class ProfileFragment : Fragment() {
             //write log out function
         }
 
+
+
         lifecycleScope.launch {
-            //date formatter
 
-            //set bill details for 1 time for data retrieval afterwards
-            val user1 = User("lily@gmail.com", "12345", "Lily", "010101010101","0123456789", "House", 1, 3000.00,3412341111)
-            val user2 = User("ali@gmail.com", "54321", "Ali", "101010101010","0987654321", "Home", 3, 8000.00,1234500000)
-            profileViewModel.setUserDetails(user1)
-            profileViewModel.setUserDetails(user2)
+            val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")
 
-            val acc1 = ElectricityAcc(3412341111,"No1,Jalan Besar,Kampung Kecil, 12345, WPKL","Apartment")
-            profileViewModel.setAccDetails(acc1)
+            binding.textViewUserEmailValue.text = loginEmail
 
-            val getUserEmail = profileViewModel.getUserEmail(3412341111)
-            binding.textViewUserEmailValue.text = getUserEmail
-
-            val getUserName = profileViewModel.getUserName(getUserEmail)
+            val getUserName = loginEmail?.let { profileViewModel.getUserName(it) }
             binding.textViewUserNameValue.text = getUserName
 
-            val getAccountNumber = profileViewModel.getAccountNumber(getUserEmail)
+            val getAccountNumber = loginEmail?.let { profileViewModel.getAccNumber(it) }
             binding.textViewElectricityAccNumValue.text = getAccountNumber.toString()
-
-
 
         }
 

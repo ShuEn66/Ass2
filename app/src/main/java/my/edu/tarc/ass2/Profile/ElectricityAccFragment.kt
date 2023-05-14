@@ -50,21 +50,20 @@ class ElectricityAccFragment : Fragment() {
 
             //set bill details for 1 time for data retrieval afterwards
 
-            val getAccountNumber = profileViewModel.getAccountNumber("lily@gmail.com")
-            binding.textViewElectricityAccNumValue.text = getAccountNumber.toString()
-
-            val getAccountProperty = profileViewModel.getAccountProperty("lily@gmail.com")
-            binding.textViewPropertyTypeValue.text = getAccountProperty
-
-            val getAccountAddress = profileViewModel.getAccountAddress("lily@gmail.com")
-            binding.textViewElectricityAccAddressValue.text = getAccountAddress
-
-            val getAccNickName = profileViewModel.getAccNickName("lily@gmail.com")
-            binding.textViewElectricityAccAddressValue.text = getAccNickName
-
-
-
-
+//            val getAccountProperty = profileViewModel.getAccountProperty("lily@gmail.com")
+//            binding.textViewPropertyTypeValue.text = getAccountProperty
+//
+//            val getAccountAddress = profileViewModel.getAccountAddress("lily@gmail.com")
+//            binding.textViewElectricityAccAddressValue.text = getAccountAddress
+//
+//            val getAccNickName = profileViewModel.getAccNickName("lily@gmail.com")
+//            binding.textViewElectricityAccNicknameValue.text = getAccNickName
+//
+//            val getNoResident = profileViewModel.getNoResident("lily@gmail.com")
+//            binding.textViewNoOfResidentValue.text = getNoResident.toString()
+//
+//            val getMonthlyIncome = profileViewModel.getMonthlyIncome("lily@gmail.com")
+//            binding.textViewMonthlyIncomeValue.text = getMonthlyIncome.toString()
 
         }
     }

@@ -21,9 +21,65 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    suspend fun updateUserName(email:String,newName:String){
+        withContext(Dispatchers.IO) {
+            databaseDao.updateUserName(email,newName)
+        }
+    }
+
+    suspend fun updateUserIC(email:String,newIC:String){
+        withContext(Dispatchers.IO) {
+            databaseDao.updateUserIC(email,newIC)
+        }
+    }
+
+    suspend fun updateAccName(email:String,newNickName:String){
+        withContext(Dispatchers.IO) {
+            databaseDao.updateAccName(email,newNickName)
+        }
+    }
+
+    suspend fun updateAccNum(email:String,newAccNumber:Long){
+        withContext(Dispatchers.IO) {
+            databaseDao.updateAccNum(email,newAccNumber)
+        }
+    }
+
+    suspend fun updateUserMobile(email:String,newMobile:String){
+        withContext(Dispatchers.IO) {
+            databaseDao.updateUserName(email,newMobile)
+        }
+    }
+
+    suspend fun updateNoResident(email:String,newNo:Int){
+        withContext(Dispatchers.IO) {
+            databaseDao.updateNoResident(email,newNo)
+        }
+    }
+
+    suspend fun updateMonthlyIncome(email:String,newIncome:Double){
+        withContext(Dispatchers.IO) {
+            databaseDao.updateMonthlyIncome(email,newIncome)
+        }
+    }
+
+    suspend fun getUserbyEmail(email:String):User{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getUserbyEmail(email)
+            d
+        }
+    }
+
     suspend fun getUserEmail(accNo:Long):String{
         return withContext(Dispatchers.IO) {
             val d = databaseDao.getUserEmail(accNo)
+            d
+        }
+    }
+
+    suspend fun getUserPassword(email:String):String{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getUserPassword(email)
             d
         }
     }
@@ -56,9 +112,23 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    suspend fun getAccNoResident(email: String): String{
+    suspend fun getNoResident(email: String): Int{
         return withContext(Dispatchers.IO) {
-            val d = databaseDao.getAccNoResident(email)
+            val d = databaseDao.getNoResident(email)
+            d
+        }
+    }
+
+    suspend fun getMonthlyIncome(email: String): Double{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getMonthlyIncome(email)
+            d
+        }
+    }
+
+    suspend fun getAccNumber(email: String): Long{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getAccNumber(email)
             d
         }
     }
@@ -69,23 +139,31 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-     suspend fun getAccountNumber(email: String): Long{
+
+    suspend fun getAccountProperty(accNo: Long): String{
         return withContext(Dispatchers.IO) {
-            val d = databaseDao.getAccountNumber(email)
+            val d = databaseDao.getAccountProperty(accNo)
             d
         }
     }
 
-    suspend fun getAccountProperty(email: String): String{
+    suspend fun getAccountAddress(accNo: Long): String{
         return withContext(Dispatchers.IO) {
-            val d = databaseDao.getAccountProperty(email)
+            val d = databaseDao.getAccountAddress(accNo)
             d
         }
     }
 
-    suspend fun getAccountAddress(email: String): String{
+    suspend fun getAccountOwner(accNo: Long): String{
         return withContext(Dispatchers.IO) {
-            val d = databaseDao.getAccountAddress(email)
+            val d = databaseDao.getAccountOwner(accNo)
+            d
+        }
+    }
+
+    suspend fun getAccount(accNo: Long): ElectricityAcc{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getAccount(accNo)
             d
         }
     }

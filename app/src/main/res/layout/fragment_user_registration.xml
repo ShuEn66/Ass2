@@ -96,8 +96,8 @@
         android:text="*"
         android:textColor="@color/design_default_color_error"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textViewPropertyTypeAccInfoTitle"
-        app:layout_constraintTop_toTopOf="@+id/textViewPropertyTypeAccInfoTitle" />
+        app:layout_constraintStart_toEndOf="@+id/textViewRegisterPasswordTitle"
+        app:layout_constraintTop_toTopOf="@+id/textViewRegisterPasswordTitle" />
 
     <ImageView
         android:id="@+id/imageViewEmailContainer"
@@ -109,7 +109,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <EditText
-        android:id="@+id/editTextTextUserName"
+        android:id="@+id/editTextTextUserEmail"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -128,11 +128,12 @@
         android:text="@string/ErrorEmail"
         android:textColor="@color/design_default_color_error"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/imageViewEmailContainer"
         app:layout_constraintTop_toBottomOf="@+id/imageViewEmailContainer" />
 
     <TextView
-        android:id="@+id/textViewPropertyTypeAccInfoTitle"
+        android:id="@+id/textViewRegisterPasswordTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -143,23 +144,23 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewErrorEmail" />
 
     <ImageView
-        android:id="@+id/imageViewPropertyAccInfoContainer"
+        android:id="@+id/imageViewRegisterPasswordContainer"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/rectanglenodeep"
-        app:layout_constraintStart_toStartOf="@+id/textViewPropertyTypeAccInfoTitle"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPropertyTypeAccInfoTitle" />
+        app:layout_constraintStart_toStartOf="@+id/textViewRegisterPasswordTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRegisterPasswordTitle" />
 
     <EditText
-        android:id="@+id/editTextUserIC"
+        android:id="@+id/editTextUserPassword"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="@string/UserPassword"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/imageViewPropertyAccInfoContainer"
-        app:layout_constraintTop_toTopOf="@+id/imageViewPropertyAccInfoContainer" />
+        app:layout_constraintStart_toStartOf="@+id/imageViewRegisterPasswordContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewRegisterPasswordContainer" />
 
     <Button
         android:id="@+id/buttonRegister"
@@ -169,9 +170,9 @@
         android:backgroundTint="@color/yellowButton"
         android:textColor="@color/black"
         android:text="@string/RegisterButton"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewPropertyAccInfoContainer"
-        app:layout_constraintStart_toStartOf="@+id/imageViewPropertyAccInfoContainer"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewPropertyAccInfoContainer" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewRegisterPasswordContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewRegisterPasswordContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewRegisterPasswordContainer" />
 
     <TextView
         android:id="@+id/textViewAlreadyHaveAcc"

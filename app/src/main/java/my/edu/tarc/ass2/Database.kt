@@ -19,9 +19,9 @@ data class Payment (@PrimaryKey val PaymentID: String, val PaymentDate: String, 
 }
 
 @Entity(tableName = "ElectricityAcc")
-data class ElectricityAcc (@PrimaryKey val AccNumber:Long,  val AccAddress: String, val AccPropertyType: String) {
+data class ElectricityAcc (@PrimaryKey val AccNumber:Long,  val AccAddress: String, val AccPropertyType: String,  val AccOwner: String) {
     override fun toString(): String {
-        return "$AccNumber : $AccAddress: $AccPropertyType"
+        return "$AccNumber : $AccAddress: $AccPropertyType: $AccOwner"
     }
 }
 

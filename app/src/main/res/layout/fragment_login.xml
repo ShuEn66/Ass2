@@ -95,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <EditText
-        android:id="@+id/editTextTextUserName"
+        android:id="@+id/editTextLoginEmail"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -114,6 +114,7 @@
         android:text="@string/ErrorEmail"
         android:textColor="@color/design_default_color_error"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/imageViewEmailContainer"
         app:layout_constraintTop_toBottomOf="@+id/imageViewEmailContainer" />
 
@@ -129,7 +130,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewErrorEmail" />
 
     <ImageView
-        android:id="@+id/imageViewPropertyAccInfoContainer"
+        android:id="@+id/imageViewLoginPasswordContainer"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -138,14 +139,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewLoginPasswordTitle" />
 
     <EditText
-        android:id="@+id/editTextUserIC"
+        android:id="@+id/editTextLoginPassword"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="@string/UserPassword"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/imageViewPropertyAccInfoContainer"
-        app:layout_constraintTop_toTopOf="@+id/imageViewPropertyAccInfoContainer" />
+        app:layout_constraintStart_toStartOf="@+id/imageViewLoginPasswordContainer"
+        app:layout_constraintTop_toTopOf="@+id/imageViewLoginPasswordContainer" />
 
     <Button
         android:id="@+id/buttonLogin"
@@ -155,9 +156,9 @@
         android:backgroundTint="@color/yellowButton"
         android:text="@string/SignIn"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewPropertyAccInfoContainer"
-        app:layout_constraintStart_toStartOf="@+id/imageViewPropertyAccInfoContainer"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewPropertyAccInfoContainer" />
+        app:layout_constraintEnd_toEndOf="@+id/imageViewLoginPasswordContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageViewLoginPasswordContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLoginPasswordContainer" />
 
     <TextView
         android:id="@+id/textViewHaventHaveAcc"

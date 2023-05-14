@@ -141,12 +141,12 @@
         android:id="@+id/textViewMobileUserInfoTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="@string/UserMobile"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/imageViewICUserInfoContainer"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewICUserInfoContainer" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewErrorIC" />
 
     <ImageView
         android:id="@+id/imageViewMobileUserInfoContainer"
@@ -190,6 +190,18 @@
         android:text="@string/ConfirmButton"
         app:layout_constraintEnd_toEndOf="@+id/imageViewMobileUserInfoContainer"
         app:layout_constraintTop_toBottomOf="@+id/imageViewMobileUserInfoContainer" />
+
+    <TextView
+        android:id="@+id/textViewErrorIC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/ErrorIC"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="12sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/imageViewICUserInfoContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewICUserInfoContainer" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

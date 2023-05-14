@@ -12,6 +12,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import my.edu.tarc.ass2.Appliance.AppManageAddedFragment
 import my.edu.tarc.ass2.databinding.ActivityMainBinding
 
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
        //go dashboard from main activity
-        navController.navigate(R.id.dashboard)
+        ///navController.navigate(R.id.dashboard)
 
         navController.addOnDestinationChangedListener{
                 _,destination,_->
@@ -117,5 +118,23 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed() {
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        val currentDestination = navController.currentDestination
+
+        // Check if the current destination is the login fragment
+        if (currentDestination?.id == R.id.loginFragment) {
+            navController.navigate(R.id.action_loginFragment_to_userRegistrationFragment)
+        }
+        else if(currentDestination?.id == R.id.loginFragment){
+
+        }
+        else {
+            // If the current destination is not the login fragment,
+            // perform the default back button behavior
+
+        }
     }
 }

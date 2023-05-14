@@ -109,6 +109,9 @@ interface databaseDao {
     @Query("SELECT * FROM User WHERE AccNumber = :accNo")
     suspend fun getUser(accNo: Long): User
 
+    @Query("DELETE FROM User WHERE UserEmail = :email")
+    suspend fun deleteUser(email: String)
+
 
     //PAYMENT
     @Query("SELECT PaymentDate FROM Payment WHERE PaymentID = :paymentId")

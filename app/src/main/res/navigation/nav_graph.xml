@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/appManageAddedFragment">
+    app:startDestination="@id/userRegistrationFragment">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -35,9 +35,6 @@
             android:id="@+id/action_userFragment_to_editNameFragment"
             app:destination="@id/editNameFragment" />
         <action
-            android:id="@+id/action_userFragment_to_editPasswordFragment"
-            app:destination="@id/editPasswordFragment" />
-        <action
             android:id="@+id/action_userFragment_to_editMobileFragment"
             app:destination="@id/editMobileFragment" />
         <action
@@ -61,6 +58,9 @@
         <action
             android:id="@+id/action_electricityAccFragment_to_editMonthlyIncomeFragment"
             app:destination="@id/editMonthlyIncomeFragment" />
+        <action
+            android:id="@+id/action_electricityAccFragment_to_deleteAccFragment"
+            app:destination="@id/deleteAccFragment" />
 
     </fragment>
 
@@ -126,9 +126,6 @@
         android:name="my.edu.tarc.ass2.Registration.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/action_loginFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
         <action
             android:id="@+id/action_loginFragment_to_userRegistrationFragment"
             app:destination="@id/userRegistrationFragment" />
@@ -344,5 +341,14 @@
         android:name="my.edu.tarc.ass2.Profile.EditPasswordFragment"
         android:label="fragment_edit_password"
         tools:layout="@layout/fragment_edit_password" />
+    <fragment
+        android:id="@+id/deleteAccFragment"
+        android:name="my.edu.tarc.ass2.Profile.DeleteAccFragment"
+        android:label="fragment_delete_acc"
+        tools:layout="@layout/fragment_delete_acc" >
+        <action
+            android:id="@+id/action_deleteAccFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 
 </navigation>

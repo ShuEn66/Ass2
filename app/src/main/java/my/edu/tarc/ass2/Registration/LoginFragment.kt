@@ -11,7 +11,9 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.Profile.ProfileViewModel
 import my.edu.tarc.ass2.R
@@ -40,6 +42,7 @@ class LoginFragment : Fragment() {
     ): View? {
 
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+
         return binding.root
 
 
@@ -58,6 +61,8 @@ class LoginFragment : Fragment() {
             lifecycleScope.launch {
                 val existingUser = profileViewModel.getUserbyEmail(email)
                 val correctPassword = profileViewModel.getUserPassword(email)
+                val navController = findNavController()
+
                 if (existingUser == null) {
                     Toast.makeText(requireContext(), "Account does not exist, please register an account", Toast.LENGTH_SHORT).show()
                 }else{
@@ -70,7 +75,7 @@ class LoginFragment : Fragment() {
                                 }
                                 Toast.makeText(context,getString(R.string.loginSuccessful)
                                     , Toast.LENGTH_SHORT).show()
-                            findNavController().navigate(R.id.action_loginFragment_to_profileFragment)}
+                                navController.navigate(R.id.dashboard)}
                             else{
                                 Toast.makeText(context,getString(R.string.WrongPassword)
                                     , Toast.LENGTH_SHORT).show()
@@ -91,6 +96,9 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_userRegistrationFragment)
         }
     }
+
+
+
 
     fun isEmailValid(email: String): Boolean {
         val pattern = Regex("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")

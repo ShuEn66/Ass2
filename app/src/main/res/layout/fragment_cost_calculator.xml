@@ -48,12 +48,22 @@
                     android:text="@string/appliances_cal_table_title"
                     android:textColor="#0B0A0A"
                     android:textSize="24sp" />
-                <Spinner
+
+                <TextView
+                    android:id="@+id/textCostCalculator2"
+                    android:layout_width="100dp"
+                    android:layout_height="38dp"
+                    android:paddingLeft="10dp"
+                    android:text="Montly"
+                    android:textColor="#0B0A0A"
+                    android:textSize="20sp" />
+
+                <!--<Spinner
                     android:id="@+id/spinnerPeriodical"
                     android:layout_width="100dp"
                     android:layout_height="48dp"
                     android:entries="@array/calculatorPeriodical"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent" />-->
             </LinearLayout>
             <!--End of page title-->
 

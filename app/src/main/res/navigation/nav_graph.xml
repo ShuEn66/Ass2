@@ -16,6 +16,12 @@
         <action
             android:id="@+id/action_profileFragment_to_electricityAccFragment"
             app:destination="@id/electricityAccFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_appSettingsFragment"
+            app:destination="@id/appSettingsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"

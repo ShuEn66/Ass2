@@ -1,10 +1,12 @@
 package my.edu.tarc.ass2.Profile
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.FragmentEditNameBinding
@@ -21,6 +23,8 @@ class EditNameFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private val profileViewModel: ProfileViewModel by viewModels()
+    private lateinit var sharedPre: SharedPreferences
 
         /** The system calls this to get the DialogFragment's layout, regardless
         of whether it's being displayed as a dialog or an embedded fragment. */
@@ -39,7 +43,6 @@ class EditNameFragment : Fragment() {
 
         binding.buttonCancelEditUserName.setOnClickListener{
             findNavController().navigate(R.id.action_editNameFragment_to_userFragment)
-
         }
 
         binding.buttonUpdateEditUserName.setOnClickListener{

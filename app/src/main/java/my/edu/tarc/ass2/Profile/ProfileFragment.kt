@@ -55,11 +55,11 @@ class ProfileFragment : Fragment() {
         }
 
         binding.cardViewAppSettingTab.setOnClickListener{
-            //findNavController().navigate(R.id.action_profileFragment_to_appSettingsFragment)
+            findNavController().navigate(R.id.action_profileFragment_to_appSettingsFragment)
         }
 
         binding.buttonLogOut.setOnClickListener {
-            //write log out function
+            findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
         }
 
         lifecycleScope.launch {

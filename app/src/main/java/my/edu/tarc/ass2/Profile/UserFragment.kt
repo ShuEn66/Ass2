@@ -1,6 +1,8 @@
 package my.edu.tarc.ass2.Profile
 
 import android.R
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +21,7 @@ import kotlinx.coroutines.launch
 class UserFragment : Fragment() {
     private val profileViewModel: ProfileViewModel by viewModels()
     private var _binding: FragmentUserBinding? = null
+    private lateinit var sharedPre: SharedPreferences
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -28,19 +31,16 @@ class UserFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentUserBinding.inflate(inflater, container, false)
 
-
-
         return binding.root
-
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
+
+        val loginEmail = sharedPre.getString(getString(my.edu.tarc.ass2.R.string.LoginEmail),"")
 
         binding.textViewUpdateUserName.setOnClickListener {
 
@@ -54,20 +54,16 @@ class UserFragment : Fragment() {
         //binding with database
 
         lifecycleScope.launch {
-            //date formatter
 
-            //set bill details for 1 time for data retrieval afterwards
+            binding.textViewUserEmailValue.text = loginEmail
 
-            val getUserEmail = profileViewModel.getUserEmail(3412341111)
-            binding.textViewUserEmailValue.text = getUserEmail
-
-            val getUserName = profileViewModel.getUserName(getUserEmail)
+            val getUserName = loginEmail?.let { profileViewModel.getUserName(it) }
             binding.textViewUserNameValue.text = getUserName
 
-            val getUserIC = profileViewModel.getUserIC(getUserEmail)
+            val getUserIC = loginEmail?.let { profileViewModel.getUserIC(it) }
             binding.textViewUserICValue.text = getUserIC
 
-            val getUserMobile = profileViewModel.getUserMobile(getUserEmail)
+            val getUserMobile = loginEmail?.let { profileViewModel.getUserMobile(it) }
             binding.textViewUserMobileValue.text = getUserMobile
 
         }

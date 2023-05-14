@@ -133,6 +133,13 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    suspend fun getUser(accNo: Long): User{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getUser(accNo)
+            d
+        }
+    }
+
     suspend fun setAccDetails(ElectricityAcc: ElectricityAcc){
         withContext(Dispatchers.IO) {
             databaseDao.setAccDetails(ElectricityAcc)

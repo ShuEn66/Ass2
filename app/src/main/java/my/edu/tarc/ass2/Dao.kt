@@ -109,6 +109,9 @@ interface databaseDao {
     @Query("SELECT AccNumber FROM User WHERE UserEmail = :email")
     suspend fun getAccNumber(email: String): Long
 
+    @Query("SELECT * FROM User WHERE AccNumber = :accNo")
+    suspend fun getUser(accNo: Long): User
+
 
 
 

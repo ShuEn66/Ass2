@@ -64,8 +64,8 @@ class userRegistrationFragment : Fragment() {
                 profileViewModel.setUserDetails(user2)
 
                 val acc1 = ElectricityAcc(3412341111,"No1,Jalan Besar,Kampung Kecil, 12345, WPKL","Apartment","Lily")
-                val acc2 = ElectricityAcc(1234500000,"balabala","hostel","abu")
-                val acc3 = ElectricityAcc(1020304050,"balabala3","hostel3","abuali")
+                val acc2 = ElectricityAcc(1234500000,"No2,Jalan Besar,Kampung Kecil, 12345, WPKL","hostel","abu")
+                val acc3 = ElectricityAcc(1020304050,"No3,Jalan Besar,Kampung Kecil, 12345, WPKL","hostel3","abuali")
 
                 profileViewModel.setAccDetails(acc1)
                 profileViewModel.setAccDetails(acc2)

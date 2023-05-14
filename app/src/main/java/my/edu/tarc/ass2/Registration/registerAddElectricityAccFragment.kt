@@ -54,21 +54,26 @@ class registerAddElectricityAccFragment : Fragment() {
             lifecycleScope.launch {
 
                 val existingAcc = profileViewModel.getAccount(accNo.toLong())
-                if(existingAcc != null) {
-                    if (name != "" && accNo != "") {
-                        with(sharedPre.edit()){
-                            putLong(getString(R.string.ElectricityAccNum),accNo.toLong())
-                            putString(getString(R.string.ElectricityAccNickname),name)
-                            apply()
+                val existingUser = profileViewModel.getUser(accNo.toLong())
+                if(existingAcc != null ) {
+                    if(existingUser ==null){
+                        if (name != "" && accNo != "") {
+                            with(sharedPre.edit()){
+                                putLong(getString(R.string.ElectricityAccNum),accNo.toLong())
+                                putString(getString(R.string.ElectricityAccNickname),name)
+                                apply()
+                            }
+                            Toast.makeText(
+                                context, getString(R.string.UpdateSuccessful), Toast.LENGTH_SHORT
+                            ).show()
+                            findNavController().navigate(R.id.action_registerAddElectricityAccFragment_to_accConfirmationFragment)
+                        } else {
+                            Toast.makeText(
+                                context, getString(R.string.registerUnSuccessful), Toast.LENGTH_SHORT
+                            ).show()
                         }
-                        Toast.makeText(
-                            context, getString(R.string.UpdateSuccessful), Toast.LENGTH_SHORT
-                        ).show()
-                        findNavController().navigate(R.id.action_registerAddElectricityAccFragment_to_accConfirmationFragment)
-                    } else {
-                        Toast.makeText(
-                            context, getString(R.string.registerUnSuccessful), Toast.LENGTH_SHORT
-                        ).show()
+                    }else{
+                        Toast.makeText(requireContext(), "Account already registered by other user, please try again", Toast.LENGTH_SHORT).show()
                     }
                 }else{
                     Toast.makeText(requireContext(), "Account does not exists, please try again", Toast.LENGTH_SHORT).show()

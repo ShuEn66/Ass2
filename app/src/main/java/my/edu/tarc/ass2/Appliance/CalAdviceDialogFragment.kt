@@ -26,7 +26,7 @@ class CalAdviceDialogFragment : Fragment() {
         val random = (1..8).random()
         binding.textViewAdvice1.text = stringArray2[random]
         binding.textViewAdvice2.text = stringArray[2]
-        binding.textViewAdvice2.text = stringArray[3]
+        binding.textViewAdvice3.text = stringArray[3]
         return binding.root
     }
 

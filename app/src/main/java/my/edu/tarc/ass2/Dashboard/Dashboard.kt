@@ -17,7 +17,10 @@ import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.github.mikephil.charting.formatter.ValueFormatter
 import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.Bill
 import my.edu.tarc.ass2.Profile.ProfileFragment
@@ -64,14 +67,8 @@ class Dashboard : AppCompatActivity() {
         }
 
         binding.profilePic.setOnClickListener(){
-            //val navController =  Navigation.findNavController(this, R.id.dashboard)
-            //navController.navigate(R.id.action_loginFragment_to_profileFragment)
-
-            val fragment = ProfileFragment()
-            supportFragmentManager.beginTransaction()
-                .add(android.R.id.content, fragment)//add(R.id.overlapped_container, overlappedFragment)
-                .addToBackStack(null)
-                .commit()
+            val navController =  findNavController(R.id.nav_host_fragment_content_main)
+            navController.navigate(R.id.profileFragment)
 
         }
 
@@ -135,38 +132,46 @@ class Dashboard : AppCompatActivity() {
         //binding with database
         lifecycleScope.launch {
             //bar chart
-//            val barChart: BarChart= binding.barChart
-//            val labels = mutableListOf<String>()
-//            val values = mutableListOf<Double>()
-//            val dataEntryList: List<databaseDao.billBar> =  dashboardViewModel.getBarData(123412341111)
-//
-//            for (dataEntry in dataEntryList) {
-//                labels.add(dataEntry.BillingMonth.toString())
-//                values.add(dataEntry.OverallUsage)
-//            }
-//            val entries = mutableListOf<BarEntry>()
-//            for (i in values.indices) {
-//                entries.add(BarEntry(i.toFloat(), values[i].toFloat()))
-//            }
-//
-//            val dataSet = BarDataSet(entries, "Overall Usage (kW)")
-//            val barData = BarData(dataSet)
-//            barData.barWidth = 0.5f
-//            barChart.data = barData
-//            barChart.getDescription().setEnabled(false)
-//            barChart.setDrawGridBackground(false)
-//            barChart.setPinchZoom(false)
-//            val xAxis = barChart.xAxis
-//            xAxis.valueFormatter = IndexAxisValueFormatter(labels)
-//
-//            val yAxisLeft = barChart.axisLeft
-//            yAxisLeft.setDrawGridLines(false)
-//            yAxisLeft.setDrawLabels(false)
-//            val yAxisRight = barChart.axisRight
-//            yAxisRight.setDrawGridLines(false)
-//            yAxisRight.setDrawLabels(false)
-//
-//            barChart.invalidate()
+            val barChart: BarChart= binding.barChart
+            val labels = mutableListOf<String>()
+            val values = mutableListOf<Double>()
+            val dataEntryList: List<Int> =  dashboardViewModel.getBarMonth(123412341111)
+            val dataEntryList1: List<Double> =  dashboardViewModel.getBarOverallUsage(123412341111)
+
+            val pairs = mutableListOf<Pair<Int, Double>>()
+            for (i in dataEntryList.indices) {
+                val pair = Pair(dataEntryList[i], dataEntryList1[i])
+                pairs.add(pair)
+            }
+
+            for (i in pairs) {
+                labels.add(i.first.toString())
+                values.add(i.second)
+            }
+
+            val entries = mutableListOf<BarEntry>()
+            for (i in values.indices) {
+                entries.add(BarEntry(labels[i].toFloat(), values[i].toFloat()))
+            }
+            println( entries)
+
+            val dataSet = BarDataSet(entries, "Overall Usage (kW)")
+            val barData = BarData(dataSet)
+            //barData.barWidth = 0.5f
+            barChart.data = barData
+            barChart.getDescription().setEnabled(false)
+            val xAxis =barChart.xAxis
+            xAxis.valueFormatter = OriginalXAxisValueFormatter(labels)
+            barChart.setDrawGridBackground(false)
+            barChart.setPinchZoom(false)
+            val yAxisLeft = barChart.axisLeft
+            yAxisLeft.setDrawGridLines(false)
+            yAxisLeft.setDrawLabels(false)
+            val yAxisRight = barChart.axisRight
+            yAxisRight.setDrawGridLines(false)
+            yAxisRight.setDrawLabels(false)
+            barChart.invalidate()
+
 
 //            //jdbc
 //            val url = "jdbc:mysql://files.000webhost.com:21/id20710696_gol_database?max_allowed_packet=16777216"
@@ -179,7 +184,7 @@ class Dashboard : AppCompatActivity() {
 //                binding.displayOverallUsage.text = getOverallUsage.toString()
 //
 //            } else {
-//                println("WTF")
+//                println("ENDED")
 //            }
 //            databaseManager.disconnect()
             //databaseManager.performInsertQuery()
@@ -187,11 +192,11 @@ class Dashboard : AppCompatActivity() {
             //databaseManager.performDeleteQuery()
 
             //set bill details for 1 time for data retrieval afterwards
-            val newContact11 = Bill("001", 1, 2023,110.00, "2023-01-01", "2023-01-31", "Paid", 400.00, 110.00,0.00,0.00,123412341111,"A001")
-            val newContact12 = Bill("002", 2, 2023,110.00, "2023-02-01", "2023-02-28", "Paid", 400.00, 110.00,0.00,0.00,123412341111,"A002")
-            val newContact13 = Bill("003", 3, 2023,120.00, "2023-03-01", "2023-03-31", "Paid", 400.00, 120.00,0.00,0.00,123412341111,"A003")
+            val newContact11 = Bill("001", 1, 2023,110.00, "2023-01-01", "2023-01-31", "Paid", 100.00, 110.00,0.00,0.00,123412341111,"A001")
+            val newContact12 = Bill("002", 2, 2023,110.00, "2023-02-01", "2023-02-28", "Paid", 200.00, 110.00,0.00,0.00,123412341111,"A002")
+            val newContact13 = Bill("003", 3, 2023,120.00, "2023-03-01", "2023-03-31", "Paid", 300.00, 120.00,0.00,0.00,123412341111,"A003")
             val newContact14 = Bill("004", 4, 2023,120.00, "2023-04-01", "2023-04-30", "Unpaid", 400.00, 120.00,0.00,0.00,123412341111,"A004")
-            val newContact15 = Bill("005", 5, 2023,111.00, "2023-05-01", "2023-05-31", "Unpaid", 400.00, 230.00,0.00,0.00,123412341111,"A005")
+            val newContact15 = Bill("005", 5, 2023,111.00, "2023-05-01", "2023-05-31", "Unpaid", 500.00, 230.00,0.00,0.00,123412341111,"A005")
             val newContact2 = Bill("001", 3, 2023,100.00, "2023-03-01","2023-03-31", "Unpaid", 400.00, 100.00,0.00,0.00,123412341112,"A001")
             val newContact2a = Bill("002", 4, 2023,220.00, "2023-04-01", "2023-04-30", "Unpaid", 400.00, 100.00,200.00,20.00,123412341112,"A002")
 
@@ -213,7 +218,6 @@ class Dashboard : AppCompatActivity() {
             val getPaymentDue = dashboardViewModel.getPaymentDue(123412341111,(monthDisplay-1),yearDisplay)
             binding.displayPaymentDue.text = getPaymentDue
 
-
             val getTotalAmount = dashboardViewModel.getTotalAmount(123412341111,(monthDisplay-1),yearDisplay)
             val formattedNumber = decimalFormat.format(getTotalAmount)
             binding.displayTotalAmount.text = "RM" + formattedNumber.toString()
@@ -230,6 +234,17 @@ class Dashboard : AppCompatActivity() {
                 val currentItem = viewPager.currentItem
                 val nextPage = if (currentItem == numPages - 1) 0 else currentItem + 1
                 viewPager.setCurrentItem(nextPage, true)
+            }
+        }
+    }
+
+    class OriginalXAxisValueFormatter(private val labels: List<String>) : ValueFormatter() {
+        override fun getFormattedValue(value: Float): String {
+            val index = value.toInt()
+            return if (index >= 0 && index < labels.size) {
+                labels[index]
+            } else {
+                ""
             }
         }
     }

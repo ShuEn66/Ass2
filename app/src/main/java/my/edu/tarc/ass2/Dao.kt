@@ -6,15 +6,6 @@ import androidx.room.*
 @Dao
 interface databaseDao {
 
-//    class billBar(){
-//        var OverallUsage: Double = 0.0
-//        var BillingMonth: Int = 0
-//
-//        constructor( OverallUsage: Double,  BillingMonth: Int) : this() {
-//            this.OverallUsage = OverallUsage
-//            this. BillingMonth=  BillingMonth
-//        }
-//    }
 
     //BILL
     @Query("SELECT OverallUsage FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
@@ -44,8 +35,11 @@ interface databaseDao {
     @Query("SELECT OverdueCharges FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
     suspend fun getOverdueCharges(accNo: Long,  month: Int,  year:Int):Double
 
-    //@Query("SELECT OverallUsage, BillingMonth FROM Bill WHERE AccNumber = :accNo")
-    //suspend fun getBarData(accNo: Long):List<billBar>
+    @Query("SELECT BillingMonth FROM Bill WHERE AccNumber = :accNo ")
+    suspend fun getBarMonth(accNo: Long):List<Int>
+
+    @Query("SELECT OverallUsage FROM Bill WHERE AccNumber = :accNo ")
+    suspend fun getBarOverallUsage(accNo: Long):List<Double>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun setBillingDetails(Bill:Bill)

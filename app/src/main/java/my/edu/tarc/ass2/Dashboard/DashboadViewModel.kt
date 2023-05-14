@@ -46,24 +46,26 @@ class DashboardViewModel(application: Application) : AndroidViewModel(applicatio
             }
         }
 
+    suspend fun  getBarMonth(accNo: Long): List<Int>{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao. getBarMonth(accNo)
+            d
+        }
+    }
+
+    suspend fun getBarOverallUsage(accNo: Long): List<Double>{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao. getBarOverallUsage(accNo)
+            d
+        }
+    }
+
     suspend fun setBillingDetails(Bill: Bill){
             withContext(Dispatchers.IO) {
                 databaseDao.setBillingDetails(Bill)
         }
     }
 
-    suspend fun getCurrentCharges(accNo: Long, month: Int, year: Int): Double {
-        return withContext(Dispatchers.IO) {
-            val d = databaseDao.getCurrentCharges(accNo, month, year)
-            d
-        }
-    }
-//    suspend fun getBarData(accNo: Long): List<databaseDao.billBar>{
-//        return withContext(Dispatchers.IO) {
-//            val d =databaseDao.getBarData(accNo)
-//            d
-//        }
-//    }
 
 
     init {

@@ -27,6 +27,7 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.ValueFormatter
 import kotlinx.coroutines.launch
+import my.edu.tarc.ass2.Bill
 import my.edu.tarc.ass2.Profile.ProfileViewModel
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.ActivityDashboardBinding
@@ -71,6 +72,7 @@ class DashboardFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
         //Initialize ViewModel
         //dashboardViewModel= ViewModelProvider(this).get(DashboardViewModel::class.java)
         val handler = Handler(Looper.getMainLooper())
@@ -144,8 +146,9 @@ class DashboardFragment : Fragment() {
         //binding with database
         lifecycleScope.launch {
             val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")
-            sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
             val accNo = loginEmail.let { profileViewModel.getAccNumber(it.toString()) }
+
+            println(accNo)
 
             //bar chart
             val barChart: BarChart = binding.barChart
@@ -153,8 +156,8 @@ class DashboardFragment : Fragment() {
             val values = mutableListOf<Double>()
             val dataEntryList: List<Int> =  dashboardViewModel.getBarMonth(accNo)
             val dataEntryList1: List<Double> =  dashboardViewModel.getBarOverallUsage(accNo)
-            binding.startingMonth.text = dataEntryList[0].toString()
-            binding.endingMonth.text = dataEntryList[dataEntryList.size-1].toString()
+            //binding.startingMonth.text = dataEntryList[0].toString()
+            //binding.endingMonth.text = dataEntryList[dataEntryList.size-1].toString()
 
             val pairs = mutableListOf<Pair<Int, Double>>()
             for (i in dataEntryList.indices) {
@@ -210,7 +213,119 @@ class DashboardFragment : Fragment() {
             //databaseManager.performUpdateQuery()
             //databaseManager.performDeleteQuery()
 
+            val newContact11 = Bill(
+                "001",
+                1,
+                2023,
+                110.00,
+                "2023-01-01",
+                "2023-01-31",
+                "Paid",
+                100.00,
+                110.00,
+                0.00,
+                0.00,
+                1020304050,
+                "A001"
+            )
+            val newContact12 = Bill(
+                "002",
+                2,
+                2023,
+                110.00,
+                "2023-02-01",
+                "2023-02-28",
+                "Paid",
+                200.00,
+                110.00,
+                0.00,
+                0.00,
+                1020304050,
+                "A002"
+            )
+            val newContact13 = Bill(
+                "003",
+                3,
+                2023,
+                120.00,
+                "2023-03-01",
+                "2023-03-31",
+                "Paid",
+                300.00,
+                120.00,
+                0.00,
+                0.00,
+                1020304050,
+                "A003"
+            )
+            val newContact14 = Bill(
+                "004",
+                4,
+                2023,
+                120.00,
+                "2023-04-01",
+                "2023-04-30",
+                "Unpaid",
+                400.00,
+                120.00,
+                0.00,
+                0.00,
+                1020304050,
+                "A004"
+            )
+            val newContact15 = Bill(
+                "005",
+                5,
+                2023,
+                111.00,
+                "2023-05-01",
+                "2023-05-31",
+                "Unpaid",
+                500.00,
+                230.00,
+                0.00,
+                0.00,
+                1020304050,
+                "A005"
+            )
+            val newContact2 = Bill(
+                "001",
+                3,
+                2023,
+                100.00,
+                "2023-03-01",
+                "2023-03-31",
+                "Unpaid",
+                400.00,
+                100.00,
+                0.00,
+                0.00,
+                1030507090,
+                "A001"
+            )
+            val newContact2a = Bill(
+                "001",
+                4,
+                2023,
+                220.00,
+                "2023-04-01",
+                "2023-04-30",
+                "Unpaid",
+                400.00,
+                100.00,
+                200.00,
+                20.00,
+                3412341111,
+                "A001"
+            )
 
+            dashboardViewModel.setBillingDetails(newContact11)
+            dashboardViewModel.setBillingDetails(newContact12)
+            dashboardViewModel.setBillingDetails(newContact13)
+            dashboardViewModel.setBillingDetails(newContact14)
+            dashboardViewModel.setBillingDetails(newContact15)
+            dashboardViewModel.setBillingDetails(newContact2)
+            dashboardViewModel.setBillingDetails(newContact2a)
 
             //get user acc
             val getOverallUsage = dashboardViewModel.getOverallUsage(accNo ,(monthDisplay-1),yearDisplay)

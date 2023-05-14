@@ -62,7 +62,7 @@ class AppManageAddedFragment : Fragment() {
 
         //Get user email
         sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
-        val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")
+
 
         binding.buttonDelete.setOnClickListener{
             findNavController().navigate(R.id.action_appManageAddedFragment_to_appliancesFragment)
@@ -105,10 +105,11 @@ class AppManageAddedFragment : Fragment() {
         appliancesArrayList = arrayListOf<AddedAppliance>()
 
         //Current user
-        val userEmail = "123412341111"
+
 
         //Get data list
         lifecycleScope.launch {
+            val userEmail = sharedPre.getString(getString(R.string.LoginEmail),"").toString()
             appliancesViewModel.getAllAppliances(userEmail).observe(viewLifecycleOwner, Observer { appliancesList ->
 
                 //Display 1 by 1

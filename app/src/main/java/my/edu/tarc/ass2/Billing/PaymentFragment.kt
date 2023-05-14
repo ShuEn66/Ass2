@@ -1,5 +1,7 @@
 package my.edu.tarc.ass2.Billing
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,6 +17,7 @@ import androidx.room.Query
 import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.Bill
 import my.edu.tarc.ass2.Payment
+import my.edu.tarc.ass2.Profile.ProfileViewModel
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.FragmentBillHistoryBinding
 import my.edu.tarc.ass2.databinding.FragmentPaymentBinding
@@ -27,6 +30,8 @@ import java.util.Date
 class PaymentFragment : Fragment() {
     private val billViewModel: BillViewModel by viewModels()
     private var _binding: FragmentPaymentBinding? = null
+    private val profileViewModel: ProfileViewModel by viewModels()
+    private lateinit var sharedPre: SharedPreferences
     private val binding get() = _binding!!
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -41,6 +46,8 @@ class PaymentFragment : Fragment() {
 
 
         lifecycleScope.launch {
+            val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")
+            val accNo = loginEmail.let { profileViewModel.getAccNumber(it.toString()) }
             val current = LocalDateTime.now()
             val ldt = LocalDateTime.parse(current.toString())
             val formatter = DateTimeFormatter.ofPattern("dd.MM.uuuu", Locale.ENGLISH)
@@ -51,7 +58,7 @@ class PaymentFragment : Fragment() {
                 yearDisplay -= 1
             }
             val output = ldt.format(formatter)
-            val getTotalAmount = billViewModel.getTotalAmount(123412341111, (monthDisplay - 1), yearDisplay)
+            val getTotalAmount = billViewModel.getTotalAmount(accNo , (monthDisplay - 1), yearDisplay)
             binding.displayAmountPaid.text = getTotalAmount.toString()
 
             val newPayment1 = Payment("111111111111111", output, "Successful", "Online Banking", getTotalAmount)
@@ -79,6 +86,7 @@ class PaymentFragment : Fragment() {
 
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
+            sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
             binding.buttonDone.setOnClickListener(){
                 Toast.makeText(context,R.string.donePayment, Toast.LENGTH_LONG).show()
                 findNavController().navigate(R.id.action_paymentFragment_to_billingFragment)

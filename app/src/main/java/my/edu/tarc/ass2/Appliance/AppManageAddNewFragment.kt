@@ -57,8 +57,7 @@ class AppManageAddNewFragment : Fragment() {
         }
 
         //Get user email
-        val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"").toString()
-        val userEmail = "123412341111"
+
 
         //Add new appliance to database
         binding.buttonAddNew.setOnClickListener {
@@ -68,18 +67,21 @@ class AppManageAddNewFragment : Fragment() {
                 Toast.makeText(context,"Fields cannot be empty",Toast.LENGTH_SHORT).show()
             }
             else{
-                val estimateUsage : Double = binding.editTextDetailsEstimate.text.toString().toDouble()
-                val power : Double = binding.editTextDetailsPower.text.toString().toDouble()
-                val newAppliance = Appliances(binding.editTextDetailsName.text.toString(),
-                    binding.spinnerDetailsType.selectedItem.toString(),
-                    estimateUsage,
-                    power,
-                    //Logged in user email
-                    userEmail)
+                lifecycleScope.launch {
+                    val userEmail = sharedPre.getString(getString(R.string.LoginEmail),"").toString()
+                    val estimateUsage : Double = binding.editTextDetailsEstimate.text.toString().toDouble()
+                    val power : Double = binding.editTextDetailsPower.text.toString().toDouble()
+                    val newAppliance = Appliances(binding.editTextDetailsName.text.toString(),
+                        binding.spinnerDetailsType.selectedItem.toString(),
+                        estimateUsage,
+                        power,
+                        //Logged in user email
+                        userEmail)
 
                 //Binding with database
-                lifecycleScope.launch {
+
                     //Insert into database
+
                     appliancesViewModel.setAppliances(newAppliance)
                 }
 

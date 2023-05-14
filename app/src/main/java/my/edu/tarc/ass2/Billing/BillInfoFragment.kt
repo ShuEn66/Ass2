@@ -1,5 +1,7 @@
 package my.edu.tarc.ass2.Billing
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
+import my.edu.tarc.ass2.Profile.ProfileViewModel
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.FragmentBillInfoBinding
 import my.edu.tarc.ass2.databinding.FragmentBillingBinding
@@ -20,6 +23,8 @@ import java.util.*
 
 class BillInfoFragment : Fragment() {
     private val billViewModel: BillViewModel by viewModels()
+    private val profileViewModel: ProfileViewModel by viewModels()
+    private lateinit var sharedPre: SharedPreferences
     private var _binding: FragmentBillInfoBinding? = null
     private val binding get() = _binding!!
 
@@ -45,20 +50,21 @@ class BillInfoFragment : Fragment() {
         }
 
         lifecycleScope.launch {
-
-            val getInvoiceDate = billViewModel.getInvoiceDate(123412341111,(monthDisplay-1),yearDisplay)
+            val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")
+            val accNo = loginEmail.let { profileViewModel.getAccNumber(it.toString()) }
+            val getInvoiceDate = billViewModel.getInvoiceDate(accNo,(monthDisplay-1),yearDisplay)
             binding.displayInvDate.text = getInvoiceDate
 
-            val getPaymentDue = billViewModel.getPaymentDue(123412341111,(monthDisplay-1),yearDisplay)
+            val getPaymentDue = billViewModel.getPaymentDue(accNo,(monthDisplay-1),yearDisplay)
             binding.displayDueDate.text = getPaymentDue
 
-            val getTotalAmount = billViewModel.getTotalAmount(123412341111,(monthDisplay-1),yearDisplay)
+            val getTotalAmount = billViewModel.getTotalAmount(accNo,(monthDisplay-1),yearDisplay)
             binding.displayTot.text = getTotalAmount.toString()
 
-            val getCurrentCharges = billViewModel.getCurrentCharges(123412341111,(monthDisplay-1),yearDisplay)
+            val getCurrentCharges = billViewModel.getCurrentCharges(accNo,(monthDisplay-1),yearDisplay)
             binding.displayCurrentBill.text = getCurrentCharges.toString()
 
-            val getOverdueCharges = billViewModel.getOverdueCharges(123412341111,(monthDisplay-1),yearDisplay)
+            val getOverdueCharges = billViewModel.getOverdueCharges(accNo,(monthDisplay-1),yearDisplay)
             binding.displayPrevDue.text = getOverdueCharges.toString()
 
         }
@@ -68,6 +74,7 @@ class BillInfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
         binding.buttonPayBill.setOnClickListener(){
             findNavController().navigate(R.id.action_billInfoFragment_to_paymentFragment)
 

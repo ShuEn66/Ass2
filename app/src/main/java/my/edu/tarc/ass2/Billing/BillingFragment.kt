@@ -1,5 +1,7 @@
 package my.edu.tarc.ass2.Billing
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -26,8 +28,10 @@ import java.util.*
 
 class BillingFragment : Fragment() {
     private val billViewModel: BillViewModel by viewModels()
+    private val profileViewModel: ProfileViewModel by viewModels()
     private var _binding: FragmentBillingBinding? = null
     private val binding get() = _binding!!
+    private lateinit var sharedPre: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,28 +57,31 @@ class BillingFragment : Fragment() {
         }
 
         lifecycleScope.launch {
-            if(billViewModel.getBillStatus(123412341111,(monthDisplay-1),yearDisplay)=="Successful"){
+            val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")
+            val accNo = loginEmail.let { profileViewModel.getAccNumber(it.toString()) }
+
+            if(billViewModel.getBillStatus(accNo,(monthDisplay-1),yearDisplay)=="Successful"){
                 binding.buttonCheckBill.isEnabled=false
-                val getCurrentCharges = billViewModel.getCurrentCharges(123412341111,(monthDisplay-1),yearDisplay)
+                val getCurrentCharges = billViewModel.getCurrentCharges(accNo,(monthDisplay-1),yearDisplay)
                 binding.displayCurrentCharges.text = getCurrentCharges.toString()
-                val getOutstandingCharges = billViewModel.getOutstandingCharges(123412341111,(monthDisplay-1),yearDisplay)
+                val getOutstandingCharges = billViewModel.getOutstandingCharges(accNo,(monthDisplay-1),yearDisplay)
                 binding.displayOutstanding.text = getOutstandingCharges.toString()
-                val getTotalAmount = billViewModel.getTotalAmount(123412341111,(monthDisplay-1),yearDisplay)
+                val getTotalAmount = billViewModel.getTotalAmount(accNo,(monthDisplay-1),yearDisplay)
                 binding.displayTot1.text = getTotalAmount.toString()
             }
             else {
                 binding.buttonCheckBill.isEnabled=true
 
-                val getPaymentDue = billViewModel.getPaymentDue(123412341111,(monthDisplay-1),yearDisplay)
+                val getPaymentDue = billViewModel.getPaymentDue(accNo,(monthDisplay-1),yearDisplay)
                 binding.displayPaymentDue2.text = getPaymentDue
 
-                val getTotalAmount = billViewModel.getTotalAmount(123412341111,(monthDisplay-1),yearDisplay)
+                val getTotalAmount = billViewModel.getTotalAmount(accNo,(monthDisplay-1),yearDisplay)
                 binding.displayTot1.text = getTotalAmount.toString()
 
-                val getCurrentCharges = billViewModel.getCurrentCharges(123412341111,(monthDisplay-1),yearDisplay)
+                val getCurrentCharges = billViewModel.getCurrentCharges(accNo,(monthDisplay-1),yearDisplay)
                 binding.displayCurrentCharges.text = getCurrentCharges.toString()
 
-                val getOutstandingCharges = billViewModel.getOutstandingCharges(123412341111,(monthDisplay-1),yearDisplay)
+                val getOutstandingCharges = billViewModel.getOutstandingCharges(accNo,(monthDisplay-1),yearDisplay)
                 binding.displayOutstanding.text = getOutstandingCharges.toString()
             }
 
@@ -85,6 +92,7 @@ class BillingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
         binding.buttonCheckBill.setOnClickListener(){
             findNavController().navigate(R.id.action_billingFragment_to_billInfoFragment)
         }

@@ -1,5 +1,7 @@
 package my.edu.tarc.ass2.Appliance
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -32,6 +34,8 @@ class CostCalculatorFragment : Fragment() {
     private lateinit var appliancesArrayList: ArrayList<AddedAppliance>
     lateinit var applianceName : Array<String>
     lateinit var appliances : Array<String>
+    private val profileViewModel: AppliancesViewModel by viewModels()
+    private lateinit var sharedPre: SharedPreferences
 
     private val binding get() = _binding!!
 
@@ -45,7 +49,7 @@ class CostCalculatorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
         binding.imageViewHelpButton.setOnClickListener{
             findNavController().navigate(R.id.action_costCalculatorFragment_to_calHelpDialogFragment)
         }
@@ -71,10 +75,11 @@ class CostCalculatorFragment : Fragment() {
         appliancesArrayList = arrayListOf<AddedAppliance>()
 
         //Current user
-        val userEmail = "123412341111"
+
 
         //Get data list
         lifecycleScope.launch {
+            val userEmail = sharedPre.getString(getString(R.string.LoginEmail),"").toString()
             appliancesViewModel.getAllAppliances(userEmail).observe(viewLifecycleOwner, Observer { appliancesList ->
 
                 var totalkwh = 0.0

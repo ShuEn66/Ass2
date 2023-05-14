@@ -121,30 +121,32 @@
 
     <RadioGroup
         android:id="@+id/radioGroupLang"
-        android:layout_width="100dp"
+        android:layout_width="140dp"
         android:layout_height="269dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="228dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/linearLayout3"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3">
 
         <RadioButton
             android:id="@+id/radioButtonEng"
             android:layout_width="match_parent"
             android:layout_height="90dp"
-            android:checked="true" />
+            android:background="@drawable/rectanglenodeep" />
 
         <RadioButton
             android:id="@+id/radioButtonMalay"
             android:layout_width="match_parent"
-            android:layout_height="90dp" />
+            android:layout_height="90dp"
+            android:background="@drawable/rectangledeep" />
 
         <RadioButton
             android:id="@+id/radioButtonChi"
             android:layout_width="match_parent"
-            android:layout_height="90dp" />
+            android:layout_height="90dp"
+            android:background="@drawable/rectanglenodeep" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,28 +30,28 @@ class AppliancesViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
-    suspend fun getAppliancesName(userEmail: String){
+    suspend fun getAppliancesName(userEmail: String): String{
         return withContext(Dispatchers.IO) {
             val d= databaseDao.getAppliancesName(userEmail)
             d
         }
     }
 
-    suspend fun getAppliancesType(userEmail: String){
+    suspend fun getAppliancesType(userEmail: String): String{
         return withContext(Dispatchers.IO) {
             val d= databaseDao.getAppliancesType(userEmail)
             d
         }
     }
 
-    suspend fun getEstimatedUsage(userEmail: String){
+    suspend fun getEstimatedUsage(userEmail: String): Double{
         return withContext(Dispatchers.IO) {
             val d= databaseDao.getEstimatedUsage(userEmail)
             d
         }
     }
 
-    suspend fun getAppliancesPower(userEmail: String){
+    suspend fun getAppliancesPower(userEmail: String): Double{
         return withContext(Dispatchers.IO) {
             val d= databaseDao.getAppliancesPower(userEmail)
             d

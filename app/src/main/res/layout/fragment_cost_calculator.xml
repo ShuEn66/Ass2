@@ -54,7 +54,7 @@
                     android:layout_width="100dp"
                     android:layout_height="38dp"
                     android:paddingLeft="10dp"
-                    android:text="Montly"
+                    android:text=""
                     android:textColor="#0B0A0A"
                     android:textSize="20sp" />
 

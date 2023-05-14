@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
        //go dashboard from main activity
-        //navController.navigate(R.id.dashboard)
+        navController.navigate(R.id.dashboard)
 
         navController.addOnDestinationChangedListener{
                 _,destination,_->
@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
             else if(destination.id==R.id.electricityAccFragment ){
                 supportActionBar!!.title =getString(R.string.ElectricityAccountProfileTitle)
             }
+
             else if(destination.id==R.id.appSettingsFragment ){
                 supportActionBar!!.title =getString(R.string.appSettings)
             }
@@ -69,6 +70,7 @@ class MainActivity : AppCompatActivity() {
             }
             else if(destination.id==R.id.developerInfoFragment ){
                 supportActionBar!!.title =getString(R.string.devInfo)
+
             }
             else{
                 supportActionBar!!.title =getString(R.string.app_name)

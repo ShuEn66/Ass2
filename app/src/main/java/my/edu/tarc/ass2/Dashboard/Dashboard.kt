@@ -1,37 +1,35 @@
 package my.edu.tarc.ass2.Dashboard
 
 import ImageSliderAdapter
-import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
-import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
-import kotlinx.coroutines.launch
-import my.edu.tarc.ass2.Bill
-import my.edu.tarc.ass2.R
-import my.edu.tarc.ass2.databinding.ActivityDashboardBinding
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.util.Locale
-import androidx.viewpager.widget.ViewPager
+import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager2.widget.ViewPager2
-import java.sql.Connection
-import java.util.Timer
-import java.util.TimerTask
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import kotlinx.coroutines.launch
+import my.edu.tarc.ass2.Bill
+import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databaseDao
+import my.edu.tarc.ass2.databinding.ActivityDashboardBinding
+import java.sql.Connection
 import java.text.DecimalFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.Locale
+import java.util.Timer
+import java.util.TimerTask
+
 
 //import com.mysql.cj.jdbc.Driver
 
@@ -64,8 +62,14 @@ class Dashboard : AppCompatActivity() {
         }
 
         binding.profilePic.setOnClickListener(){
-            val navController = Navigation.findNavController(this, R.id.dashboard)
+            //val navController =  Navigation.findNavController(this, R.id.dashboard)
+            //navController.navigate(R.id.action_loginFragment_to_profileFragment)
+
+            val navHostFragment = supportFragmentManager
+                .findFragmentById(R.id.dashboard) as NavHostFragment?
+            val navController = navHostFragment!!.navController
             navController.navigate(R.id.profileFragment)
+
 
         }
 

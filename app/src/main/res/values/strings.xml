@@ -279,7 +279,8 @@
     <string name="checkBill">Check Bill</string>
     <string name="payBill">Pay Bill</string>
     <string name="donePayment">Done Payment</string>
-
+    <string name="deleteAccTitle">Confirm Delete Account?</string>
+    <string name="deleteBtn">Delete</string>
 
     // 6edc224cb96fbcf5418fdc9473c43aa9d4200731
 

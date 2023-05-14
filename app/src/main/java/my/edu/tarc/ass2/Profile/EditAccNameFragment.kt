@@ -1,11 +1,17 @@
 package my.edu.tarc.ass2.Profile
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.FragmentEditAccNameBinding
 import my.edu.tarc.ass2.databinding.FragmentEditMobileBinding
@@ -19,6 +25,8 @@ import my.edu.tarc.ass2.databinding.FragmentEditMobileBinding
 class EditAccNameFragment : Fragment() {
 
     private var _binding: FragmentEditAccNameBinding? = null
+    private val profileViewModel: ProfileViewModel by viewModels()
+    private lateinit var sharedPre: SharedPreferences
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -38,13 +46,33 @@ class EditAccNameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        sharedPre = requireActivity().getPreferences(Context.MODE_PRIVATE)
 
         binding.buttonCancelEditAccName.setOnClickListener{
             findNavController().navigateUp()
         }
 
         binding.buttonUpdateEditAccName.setOnClickListener{
-            //update
+            val newAccName = binding.editTextEditAccNameValue.text.toString()
+            val loginEmail = sharedPre.getString(getString(my.edu.tarc.ass2.R.string.LoginEmail),"")
+            lifecycleScope.launch {
+                val oriAccName = loginEmail?.let { it1 -> profileViewModel.getAccNickName(it1) }
+                if(newAccName !=null){
+                    if(oriAccName==newAccName){
+                        Toast.makeText(context,getString(R.string.SameInformation)
+                            , Toast.LENGTH_SHORT).show()
+                    }else{
+                        if (loginEmail != null) {
+                            profileViewModel.updateAccName(loginEmail,newAccName)
+                        }
+                        Toast.makeText(context,getString(R.string.UpdateSuccessful)
+                            , Toast.LENGTH_SHORT).show()
+                    }
+                }else{
+                    Toast.makeText(context,getString(R.string.registerUnSuccessful)
+                        , Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
     }

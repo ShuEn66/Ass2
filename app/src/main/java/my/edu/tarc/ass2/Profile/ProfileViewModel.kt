@@ -2,7 +2,6 @@ package my.edu.tarc.ass2.Profile
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -144,6 +143,13 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
     suspend fun getUser(accNo: Long): User{
         return withContext(Dispatchers.IO) {
             val d = databaseDao.getUser(accNo)
+            d
+        }
+    }
+
+    suspend fun deleteUser(email: String){
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.deleteUser(email)
             d
         }
     }

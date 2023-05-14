@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/appManageAddedFragment">
+    app:startDestination="@id/userRegistrationFragment">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -35,9 +35,6 @@
             android:id="@+id/action_userFragment_to_editNameFragment"
             app:destination="@id/editNameFragment" />
         <action
-            android:id="@+id/action_userFragment_to_editPasswordFragment"
-            app:destination="@id/editPasswordFragment" />
-        <action
             android:id="@+id/action_userFragment_to_editMobileFragment"
             app:destination="@id/editMobileFragment" />
         <action
@@ -61,6 +58,9 @@
         <action
             android:id="@+id/action_electricityAccFragment_to_editMonthlyIncomeFragment"
             app:destination="@id/editMonthlyIncomeFragment" />
+        <action
+            android:id="@+id/action_electricityAccFragment_to_deleteAccFragment"
+            app:destination="@id/deleteAccFragment" />
 
     </fragment>
 
@@ -127,11 +127,11 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_loginFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_userRegistrationFragment"
             app:destination="@id/userRegistrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <activity
         android:id="@+id/dashboard"
@@ -310,21 +310,24 @@
     <fragment
         android:id="@+id/ratingFragment"
         android:name="my.edu.tarc.ass2.AppSettings.RatingFragment"
-        android:label="fragment_rating"
+        android:label="@string/rateUs"
         tools:layout="@layout/fragment_rating" />
     <fragment
         android:id="@+id/billingFragment"
         android:name="my.edu.tarc.ass2.Billing.BillingFragment"
-        android:label="fragment_billing"
+        android:label="@string/billing"
         tools:layout="@layout/fragment_billing">
         <action
             android:id="@+id/action_billingFragment_to_billInfoFragment"
             app:destination="@id/billInfoFragment" />
+        <action
+            android:id="@+id/action_billingFragment_to_billHistoryFragment"
+            app:destination="@id/billHistoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/billInfoFragment"
         android:name="my.edu.tarc.ass2.Billing.BillInfoFragment"
-        android:label="fragment_bill_info"
+        android:label="@string/billInfo"
         tools:layout="@layout/fragment_bill_info">
         <action
             android:id="@+id/action_billInfoFragment_to_paymentFragment"
@@ -333,7 +336,7 @@
     <fragment
         android:id="@+id/paymentFragment"
         android:name="my.edu.tarc.ass2.Billing.PaymentFragment"
-        android:label="fragment_payment"
+        android:label="@string/paymentSuccessful_title"
         tools:layout="@layout/fragment_payment">
         <action
             android:id="@+id/action_paymentFragment_to_billingFragment"
@@ -344,5 +347,20 @@
         android:name="my.edu.tarc.ass2.Profile.EditPasswordFragment"
         android:label="fragment_edit_password"
         tools:layout="@layout/fragment_edit_password" />
+    <fragment
+        android:id="@+id/deleteAccFragment"
+        android:name="my.edu.tarc.ass2.Profile.DeleteAccFragment"
+        android:label="fragment_delete_acc"
+        tools:layout="@layout/fragment_delete_acc" >
+        <action
+            android:id="@+id/action_deleteAccFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/billHistoryFragment"
+        android:name="my.edu.tarc.ass2.Billing.BillHistoryFragment"
+        android:label="@string/billHistoryTitle"
+        tools:layout="@layout/fragment_bill_history" />
+
 
 </navigation>

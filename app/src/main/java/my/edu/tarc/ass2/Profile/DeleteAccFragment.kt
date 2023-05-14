@@ -8,27 +8,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.R
-import my.edu.tarc.ass2.databinding.FragmentEditNoResidentBinding
+import my.edu.tarc.ass2.databinding.FragmentDeleteAccBinding
+import my.edu.tarc.ass2.databinding.FragmentEditMobileBinding
+
 
 /**
  * A simple [Fragment] subclass.
  * Use the [EditNameFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class EditNoResidentFragment : Fragment() {
+class DeleteAccFragment : Fragment() {
 
-    private var _binding: FragmentEditNoResidentBinding? = null
-    private val profileViewModel: ProfileViewModel by viewModels()
-    private lateinit var sharedPre: SharedPreferences
+    private var _binding: FragmentDeleteAccBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private val profileViewModel: ProfileViewModel by viewModels()
+    private lateinit var sharedPre: SharedPreferences
 
     /** The system calls this to get the DialogFragment's layout, regardless
     of whether it's being displayed as a dialog or an embedded fragment. */
@@ -37,7 +40,7 @@ class EditNoResidentFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentEditNoResidentBinding.inflate(inflater, container, false)
+        _binding = FragmentDeleteAccBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -46,29 +49,16 @@ class EditNoResidentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         sharedPre = requireActivity().getPreferences(Context.MODE_PRIVATE)
 
-        binding.buttonCancelEditNoResident.setOnClickListener{
+        binding.buttonCancelDeleteAcc.setOnClickListener{
             findNavController().navigateUp()
         }
 
-        binding.buttonUpdateEditNoResident.setOnClickListener{
-            val newNo = binding.editTextEditNoResidentValue.text.toString().toInt()
+        binding.buttonDeleteAcc.setOnClickListener{
             val loginEmail = sharedPre.getString(getString(my.edu.tarc.ass2.R.string.LoginEmail),"")
             lifecycleScope.launch {
-                val oriNo = loginEmail?.let { it1 -> profileViewModel.getNoResident(it1) }
-                if(newNo !=0){
-                    if(oriNo==newNo){
-                        Toast.makeText(context,getString(R.string.SameInformation)
-                            , Toast.LENGTH_SHORT).show()
-                    }else{
-                        if (loginEmail != null) {
-                            profileViewModel.updateNoResident(loginEmail,newNo)
-                        }
-                        Toast.makeText(context,getString(R.string.UpdateSuccessful)
-                            , Toast.LENGTH_SHORT).show()
-                    }
-                }else{
-                    Toast.makeText(context,getString(R.string.registerUnSuccessful)
-                        , Toast.LENGTH_SHORT).show()
+                if (loginEmail != null) {
+                    profileViewModel.deleteUser(loginEmail)
+                    findNavController().navigate(R.id.action_deleteAccFragment_to_loginFragment)
                 }
             }
         }

@@ -1,3 +1,4 @@
+
 //package my.edu.tarc.ass2.Dashboard
 //
 //import ImageSliderAdapter
@@ -249,6 +250,7 @@
 //
 //            return if (index >= -1 && index < labels.size) {
 //                labels[index]
+
 //
 //            } else {
 //                ""

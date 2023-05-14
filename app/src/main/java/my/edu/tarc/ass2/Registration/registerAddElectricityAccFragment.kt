@@ -14,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.Profile.ProfileViewModel
 import my.edu.tarc.ass2.R
-import my.edu.tarc.ass2.databinding.FragmentProfileBinding
 import my.edu.tarc.ass2.databinding.FragmentRegisterAddElectricityAccBinding
 
 

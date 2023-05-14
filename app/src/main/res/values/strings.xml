@@ -52,6 +52,7 @@
     <string name="RegisterButton">Register</string>
     <string name="AlreadyHaveAcc">Already have an account? </string>
     <string name="SignIn"><u>Sign In</u></string>
+    <string name="ErrorIC">"Please enter a valid Identity card number "</string>
     <string name="registerSuccessful">Register Successfully</string>
     <string name="registerUnSuccessful">Please fill in the required field in valid format</string>
 
@@ -264,14 +265,10 @@
     <string name="url_server" translatable="false">https://guardianoflighting.000webhostapp.com/</string>
     <string name="url_read" translatable="false">user/read.php</string>
     <string name="url_create" translatable="false">user/create.php</string>
-    <string name="UpdateSuccessful">New Information Updated</string>
-    <string name="ErrorIC">"Please enter a valid Identity card number "</string>
-    <string name="LoginEmail">Login Email Address</string>
-    <string name="WrongPassword">Wrong Password</string>
-    <string name="UpdateAccNameTitle">New Account Nickname</string>
-    <string name="UpdateNoResidentTitle">New No of Residents</string>
-    <string name="UpdateMonthlyIncomeTitle">New Monthly Income</string>
     <string name="thanks">Thanks for submitting!</string>
+    <string name="LoginEmail">Login Email Address</string>
+    <string name="UpdateSuccessful">New Information updated</string>
+    <string name="WrongPassword">Wrong Password</string>
 
 
     // 6edc224cb96fbcf5418fdc9473c43aa9d4200731

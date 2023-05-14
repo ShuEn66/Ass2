@@ -38,7 +38,7 @@ class EditNoResidentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonCancelEditNoResident.setOnClickListener{
-            findNavController().navigate(R.id.action_editNoResidentFragment_to_electricityAccFragment)
+            findNavController().navigateUp()
 
         }
 

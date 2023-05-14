@@ -61,6 +61,9 @@ interface databaseDao {
     @Query("UPDATE User SET UserMobile = :newMobile WHERE UserEmail =:email ")
     suspend fun updateUserMobile(email:String,newMobile:String)
 
+    @Query("UPDATE User SET UserPassword = :newPassword WHERE UserEmail =:email ")
+    suspend fun updateUserPassword(email:String,newPassword:String)
+
     @Query("UPDATE User SET AccNickName = :newNickName WHERE UserEmail =:email ")
     suspend fun updateAccName(email:String,newNickName:String)
 

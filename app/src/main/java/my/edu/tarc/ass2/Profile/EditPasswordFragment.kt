@@ -13,16 +13,19 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.R
-import my.edu.tarc.ass2.databinding.FragmentEditNameBinding
+import my.edu.tarc.ass2.databinding.FragmentEditAccNameBinding
+import my.edu.tarc.ass2.databinding.FragmentEditMobileBinding
+import my.edu.tarc.ass2.databinding.FragmentEditPasswordBinding
+
 
 /**
  * A simple [Fragment] subclass.
  * Use the [EditNameFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class EditNameFragment : Fragment() {
+class EditPasswordFragment : Fragment() {
 
-    private var _binding: FragmentEditNameBinding? = null
+    private var _binding: FragmentEditPasswordBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -30,38 +33,38 @@ class EditNameFragment : Fragment() {
     private val profileViewModel: ProfileViewModel by viewModels()
     private lateinit var sharedPre: SharedPreferences
 
-        /** The system calls this to get the DialogFragment's layout, regardless
-        of whether it's being displayed as a dialog or an embedded fragment. */
-        override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
-        ): View? {
+    /** The system calls this to get the DialogFragment's layout, regardless
+    of whether it's being displayed as a dialog or an embedded fragment. */
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-            _binding = FragmentEditNameBinding.inflate(inflater, container, false)
-            return binding.root
+        _binding = FragmentEditPasswordBinding.inflate(inflater, container, false)
+        return binding.root
 
-        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sharedPre = requireActivity().getPreferences(Context.MODE_PRIVATE)
 
-        binding.buttonCancelEditUserName.setOnClickListener{
+        binding.buttonCancelEditPassword.setOnClickListener{
             findNavController().navigateUp()
         }
 
-        binding.buttonUpdateEditUserName.setOnClickListener{
-            val newName = binding.editTextEditNameValue.text.toString()
+        binding.buttonUpdateEditPassword.setOnClickListener{
+            val newPassword = binding.editTextEditPasswordValue.text.toString()
             val loginEmail = sharedPre.getString(getString(my.edu.tarc.ass2.R.string.LoginEmail),"")
             lifecycleScope.launch {
-                val oriName = loginEmail?.let { it1 -> profileViewModel.getUserName(it1) }
-                if(newName !=null){
-                    if(oriName==newName){
+                val oriPassword= loginEmail?.let { it1 -> profileViewModel.getUserPassword(it1) }
+                if(newPassword !=null){
+                    if(oriPassword==newPassword){
                         Toast.makeText(context,getString(R.string.SameInformation)
                             , Toast.LENGTH_SHORT).show()
                     }else{
                         if (loginEmail != null) {
-                            profileViewModel.updateUserName(loginEmail,newName)
+                            profileViewModel.updateUserPassword(loginEmail,newPassword)
                         }
                         Toast.makeText(context,getString(R.string.UpdateSuccessful)
                             , Toast.LENGTH_SHORT).show()

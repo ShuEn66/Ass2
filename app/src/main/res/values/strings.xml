@@ -271,6 +271,9 @@
     <string name="LoginEmail">Login Email Address</string>
     <string name="UpdateSuccessful">New Information updated</string>
     <string name="WrongPassword">Wrong Password</string>
+    <string name="SameInformation">The new information is cannot be same with the original information</string>
+    <string name="LogoutSuccessful">Logout Successfully</string>
+    <string name="UpdatePasswordTitle" >New Password</string>
 
 
     // 6edc224cb96fbcf5418fdc9473c43aa9d4200731

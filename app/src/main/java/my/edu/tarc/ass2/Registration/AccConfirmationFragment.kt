@@ -54,7 +54,7 @@ class AccConfirmationFragment : Fragment() {
         }
 
         binding.buttonNoAccConfirm.setOnClickListener{
-            findNavController().navigate(R.id.action_accConfirmationFragment_to_registerAddElectricityAccFragment)
+            findNavController().navigateUp()
         }
 
         binding.buttonYesAccConfirm.setOnClickListener{

@@ -24,8 +24,6 @@ class AppliancesViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
-
-
     suspend fun getAllAppliances(userEmail: String):LiveData<List<Appliances>>{
         return withContext(Dispatchers.IO) {
             val d= databaseDao.getAllAppliances(userEmail)

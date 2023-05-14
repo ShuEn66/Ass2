@@ -21,6 +21,10 @@ class CalAdviceDialogFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentCalAdviceDialogBinding.inflate(inflater, container, false)
+        val stringArray = resources.getStringArray(R.array.advices_list_general)
+        binding.textViewAdvice1.text = stringArray[0]
+        binding.textViewAdvice2.text = stringArray[1]
+        binding.textViewAdvice2.text = stringArray[3]
         return binding.root
     }
 

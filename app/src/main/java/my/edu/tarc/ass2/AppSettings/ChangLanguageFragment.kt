@@ -40,7 +40,7 @@ class ChangLanguageFragment : Fragment() {
         val config = Configuration()
         config.setLocale(locale)
         resources.updateConfiguration(config, resources.displayMetrics)
-        binding.radioGroupLang.setOnCheckedChangeListener{ group, checkedId ->
+        binding.radioGroupLang.setOnCheckedChangeListener{ _, checkedId ->
             val locale = when (checkedId){
                 binding.radioButtonEng.id -> Locale("en")
                 binding.radioButtonChi.id -> Locale("zh")

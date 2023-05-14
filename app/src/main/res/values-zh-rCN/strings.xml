@@ -148,7 +148,7 @@
     <string name="appliances_cal_advice">建议</string>
     <string name="appliances_cal_help">这个计算器将帮助您计算</string>
     <string name="appliances_cal_advice_title">建议</string>
-    <string name="UpdateAccNameTitle">-</string>
-    <string name="UpdateNoResidentTitle">-</string>
-    <string name="UpdateMonthlyIncomeTitle">-</string>
+    <string name="UpdateAccNameTitle">新户口昵称</string>
+    <string name="UpdateNoResidentTitle">新住户人数</string>
+    <string name="UpdateMonthlyIncomeTitle">新月收入</string>
 </resources>

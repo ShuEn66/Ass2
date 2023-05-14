@@ -283,11 +283,19 @@
         android:id="@+id/changLanguageFragment"
         android:name="my.edu.tarc.ass2.AppSettings.ChangLanguageFragment"
         android:label="@string/changelang"
-        tools:layout="@layout/fragment_chang_language" />
+        tools:layout="@layout/fragment_chang_language" >
+        <action
+            android:id="@+id/action_changLanguageFragment_to_appSettingsFragment"
+            app:destination="@id/appSettingsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/developerInfoFragment"
         android:name="my.edu.tarc.ass2.AppSettings.DeveloperInfoFragment"
         android:label="@string/devInfo"
-        tools:layout="@layout/fragment_developer_info" />
+        tools:layout="@layout/fragment_developer_info" >
+        <action
+            android:id="@+id/action_developerInfoFragment_to_appSettingsFragment"
+            app:destination="@id/appSettingsFragment" />
+    </fragment>
 
 </navigation>

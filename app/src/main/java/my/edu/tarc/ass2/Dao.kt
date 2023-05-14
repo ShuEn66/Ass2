@@ -148,23 +148,23 @@ interface databaseDao {
 
     //APPLIANCES
 
-    @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail =:userEmail AND Appliances.AppliancesName= :appliancesName")
+    @Query("SELECT * FROM Appliances WHERE UserEmail =:userEmail AND AppliancesName =:appliancesName")
     fun getAppliances(userEmail: String, appliancesName: String ):LiveData<Appliances>
 
-    @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail =:userEmail")
+    @Query("SELECT * FROM Appliances WHERE UserEmail =:userEmail")
     fun getAllAppliances(userEmail: String):LiveData<List<Appliances>>
 
-    @Query("SELECT Appliances.EstimatedUsage FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = :userEmail ")
-    suspend fun getEstimatedUsage(userEmail: String ):Double
+    @Query("SELECT EstimatedUsage FROM Appliances WHERE UserEmail =:userEmail AND AppliancesName =:appliancesName")
+    suspend fun getEstimatedUsage(userEmail: String, appliancesName: String ):Double
 
-    @Query("SELECT Appliances.AppliancesPower FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = :userEmail ")
-    suspend fun getAppliancesPower(userEmail: String ):Double
+    @Query("SELECT AppliancesPower FROM Appliances WHERE UserEmail =:userEmail AND AppliancesName =:appliancesName")
+    suspend fun getAppliancesPower(userEmail: String, appliancesName: String ):Double
 
-    @Query("SELECT Appliances.AppliancesName FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = :userEmail ")
+    @Query("SELECT AppliancesName FROM Appliances WHERE UserEmail =:userEmail")
     suspend fun getAppliancesName(userEmail: String ):String
 
-    @Query("SELECT Appliances.AppliancesType FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = :userEmail ")
-    suspend fun getAppliancesType(userEmail: String ):String
+    @Query("SELECT AppliancesType FROM Appliances WHERE UserEmail =:userEmail AND AppliancesName =:appliancesName")
+    suspend fun getAppliancesType(userEmail: String, appliancesName: String ):String
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun setAppliances(Appliances:Appliances)

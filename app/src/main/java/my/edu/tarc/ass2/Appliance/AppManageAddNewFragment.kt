@@ -60,6 +60,7 @@ class AppManageAddNewFragment : Fragment() {
                     binding.spinnerDetailsType.selectedItem.toString(),
                     estimateUsage,
                     power,
+                    //Get logged in user email
                     "123412341111")
 
                 //Binding with database

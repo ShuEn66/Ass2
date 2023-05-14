@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.Dispatchers
@@ -16,19 +17,22 @@ class AppliancesViewModel(application: Application) : AndroidViewModel(applicati
 
     private lateinit var databaseDao: databaseDao
 
-    suspend fun getAppliances(userEmail: String, appliancesName: String){
+    suspend fun getAppliances(userEmail: String, appliancesName: String): LiveData<Appliances> {
         return withContext(Dispatchers.IO) {
             val d= databaseDao.getAppliances(userEmail, appliancesName)
             d
         }
     }
 
-    suspend fun getAllAppliances(userEmail: String){
+
+
+    suspend fun getAllAppliances(userEmail: String):LiveData<List<Appliances>>{
         return withContext(Dispatchers.IO) {
             val d= databaseDao.getAllAppliances(userEmail)
             d
         }
     }
+
 
     suspend fun getAppliancesName(userEmail: String): String{
         return withContext(Dispatchers.IO) {
@@ -37,23 +41,23 @@ class AppliancesViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
-    suspend fun getAppliancesType(userEmail: String): String{
+    suspend fun getAppliancesType(userEmail: String, appliancesName: String): String{
         return withContext(Dispatchers.IO) {
-            val d= databaseDao.getAppliancesType(userEmail)
+            val d= databaseDao.getAppliancesType(userEmail, appliancesName)
             d
         }
     }
 
-    suspend fun getEstimatedUsage(userEmail: String): Double{
+    suspend fun getEstimatedUsage(userEmail: String, appliancesName: String): Double{
         return withContext(Dispatchers.IO) {
-            val d= databaseDao.getEstimatedUsage(userEmail)
+            val d= databaseDao.getEstimatedUsage(userEmail, appliancesName)
             d
         }
     }
 
-    suspend fun getAppliancesPower(userEmail: String): Double{
+    suspend fun getAppliancesPower(userEmail: String, appliancesName: String): Double{
         return withContext(Dispatchers.IO) {
-            val d= databaseDao.getAppliancesPower(userEmail)
+            val d= databaseDao.getAppliancesPower(userEmail, appliancesName)
             d
         }
     }

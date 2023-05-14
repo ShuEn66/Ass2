@@ -58,8 +58,33 @@ class MainActivity : AppCompatActivity() {
                 supportActionBar!!.show()
                 supportActionBar!!.title =getString(R.string.userProfileTitle)
             }
+            else if(destination.id==R.id.appliancesFragment
+                ||destination.id==R.id.appManageAddedFragment
+                ||destination.id==R.id.appManageAddNewFragment
+                ||destination.id==R.id.appManageDeleteFragment
+                ||destination.id==R.id.appManageDetailsFragment){
+                supportActionBar!!.show()
+                supportActionBar!!.title =getString(R.string.appliances_main_fragment_title)
+            }
+            else if (destination.id==R.id.costCalculatorFragment
+                ||destination.id==R.id.calAdviceDialogFragment
+                ||destination.id==R.id.calHelpDialogFragment){
+                supportActionBar!!.show()
+                supportActionBar!!.title =getString(R.string.appliances_cal_title)
+            }
             else if(destination.id==R.id.electricityAccFragment ){
                 supportActionBar!!.title =getString(R.string.ElectricityAccountProfileTitle)
+            }
+
+            else if(destination.id==R.id.appSettingsFragment ){
+                supportActionBar!!.title =getString(R.string.appSettings)
+            }
+            else if(destination.id==R.id.changLanguageFragment ){
+                supportActionBar!!.title =getString(R.string.changeLang)
+            }
+            else if(destination.id==R.id.developerInfoFragment ){
+                supportActionBar!!.title =getString(R.string.devInfo)
+
             }
             else{
                 supportActionBar!!.title =getString(R.string.app_name)

@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutApp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AppSettings.AppSettingsFragment">
@@ -10,7 +11,7 @@
         android:id="@+id/linearLayoutSettings"
         android:layout_width="match_parent"
         android:layout_height="360dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="180dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +100,7 @@
                     android:id="@+id/textViewChangeLang"
                     android:layout_width="wrap_content"
                     android:layout_height="22.5dp"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="32dp"
                     android:text="@string/changeLang"
                     android:textColor="#000000"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -108,19 +109,6 @@
                     app:layout_constraintStart_toStartOf="@+id/guideline7"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.021" />
-
-                <TextView
-                    android:id="@+id/textViewLang"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22.5dp"
-                    android:text="TextView"
-                    android:textColor="#0C0C0C"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/guideline7"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewChangeLang"
-                    app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
                     android:id="@+id/imageViewArrow"

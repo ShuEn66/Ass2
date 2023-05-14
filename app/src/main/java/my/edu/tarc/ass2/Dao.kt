@@ -6,15 +6,15 @@ import androidx.room.*
 @Dao
 interface databaseDao {
 
-    class billBar(){
-        var OverallUsage: Double = 0.0
-        var BillingMonth: Int = 0
-
-        constructor( OverallUsage: Double,  BillingMonth: Int) : this() {
-            this.OverallUsage = OverallUsage
-            this. BillingMonth=  BillingMonth
-        }
-    }
+//    class billBar(){
+//        var OverallUsage: Double = 0.0
+//        var BillingMonth: Int = 0
+//
+//        constructor( OverallUsage: Double,  BillingMonth: Int) : this() {
+//            this.OverallUsage = OverallUsage
+//            this. BillingMonth=  BillingMonth
+//        }
+//    }
 
     //BILL
     @Query("SELECT OverallUsage FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
@@ -44,8 +44,8 @@ interface databaseDao {
     @Query("SELECT OverdueCharges FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
     suspend fun getOverdueCharges(accNo: Long,  month: Int,  year:Int):Double
 
-    @Query("SELECT OverallUsage, BillingMonth FROM Bill WHERE AccNumber = :accNo")
-    suspend fun getBarData(accNo: Long):List<billBar>
+    //@Query("SELECT OverallUsage, BillingMonth FROM Bill WHERE AccNumber = :accNo")
+    //suspend fun getBarData(accNo: Long):List<billBar>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun setBillingDetails(Bill:Bill)
@@ -151,16 +151,23 @@ interface databaseDao {
 
     //APPLIANCES
 
-    //APPLIANCES (JIA XUAN PLS CHECK UR SQL I MIGHT WRONGGG)
-
     @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail =:userEmail AND Appliances.AppliancesName= :appliancesName")
     fun getAppliances(userEmail: String, appliancesName: String ):LiveData<Appliances>
+
+    @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail =:userEmail")
+    fun getAllAppliances(userEmail: String):LiveData<List<Appliances>>
 
     @Query("SELECT Appliances.EstimatedUsage FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = :userEmail ")
     suspend fun getEstimatedUsage(userEmail: String ):Double
 
+    @Query("SELECT Appliances.AppliancesPower FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = :userEmail ")
+    suspend fun getAppliancesPower(userEmail: String ):Double
+
     @Query("SELECT Appliances.AppliancesName FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = :userEmail ")
     suspend fun getAppliancesName(userEmail: String ):String
+
+    @Query("SELECT Appliances.AppliancesType FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = :userEmail ")
+    suspend fun getAppliancesType(userEmail: String ):String
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun setAppliances(Appliances:Appliances)

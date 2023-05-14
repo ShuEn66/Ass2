@@ -45,9 +45,7 @@ class DeveloperInfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonRateUs.setOnClickListener(){
-            val popUp = RatingFragment()
-            //popUp.show((activity as AppCompatActivity).supportFragmentManager, "popUp")
-
+            findNavController().navigate(R.id.action_developerInfoFragment_to_ratingFragment)
         }
     }
     companion object {

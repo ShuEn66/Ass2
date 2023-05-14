@@ -29,7 +29,6 @@ class DashboardViewModel(application: Application) : AndroidViewModel(applicatio
             val d= databaseDao.getBillStatus(accNo, month, year)
             d
             }
-
     }
 
     suspend fun getPaymentDue(accNo:Long, month: Int, year: Int): String {
@@ -53,12 +52,18 @@ class DashboardViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    suspend fun getBarData(accNo: Long): List<databaseDao.billBar>{
+    suspend fun getCurrentCharges(accNo: Long, month: Int, year: Int): Double {
         return withContext(Dispatchers.IO) {
-            val d =databaseDao.getBarData(accNo)
+            val d = databaseDao.getCurrentCharges(accNo, month, year)
             d
         }
     }
+//    suspend fun getBarData(accNo: Long): List<databaseDao.billBar>{
+//        return withContext(Dispatchers.IO) {
+//            val d =databaseDao.getBarData(accNo)
+//            d
+//        }
+//    }
 
 
     init {

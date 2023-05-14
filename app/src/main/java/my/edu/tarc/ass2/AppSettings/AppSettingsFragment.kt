@@ -28,12 +28,17 @@ class AppSettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.cardViewLang.setOnClickListener(){
             findNavController().navigate(R.id.action_appSettingsFragment_to_changLanguageFragment)
+
         }
 
         binding.cardViewDeveloper.setOnClickListener(){
             findNavController().navigate(R.id.action_appSettingsFragment_to_developerInfoFragment)
         }
 
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

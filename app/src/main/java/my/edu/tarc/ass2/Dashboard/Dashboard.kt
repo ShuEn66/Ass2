@@ -1,37 +1,37 @@
 package my.edu.tarc.ass2.Dashboard
 
 import ImageSliderAdapter
-import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
-import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
-import kotlinx.coroutines.launch
-import my.edu.tarc.ass2.Bill
-import my.edu.tarc.ass2.R
-import my.edu.tarc.ass2.databinding.ActivityDashboardBinding
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.util.Locale
-import androidx.viewpager.widget.ViewPager
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager2.widget.ViewPager2
-import java.sql.Connection
-import java.util.Timer
-import java.util.TimerTask
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import kotlinx.coroutines.launch
+import my.edu.tarc.ass2.Bill
+import my.edu.tarc.ass2.Profile.ProfileFragment
+import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databaseDao
+import my.edu.tarc.ass2.databinding.ActivityDashboardBinding
+import java.sql.Connection
 import java.text.DecimalFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.Locale
+import java.util.Timer
+import java.util.TimerTask
+
 
 //import com.mysql.cj.jdbc.Driver
 
@@ -64,8 +64,14 @@ class Dashboard : AppCompatActivity() {
         }
 
         binding.profilePic.setOnClickListener(){
-            val navController = Navigation.findNavController(this, R.id.dashboard)
-            navController.navigate(R.id.profileFragment)
+            //val navController =  Navigation.findNavController(this, R.id.dashboard)
+            //navController.navigate(R.id.action_loginFragment_to_profileFragment)
+
+            val fragment = ProfileFragment()
+            supportFragmentManager.beginTransaction()
+                .add(android.R.id.content, fragment)//add(R.id.overlapped_container, overlappedFragment)
+                .addToBackStack(null)
+                .commit()
 
         }
 
@@ -129,38 +135,38 @@ class Dashboard : AppCompatActivity() {
         //binding with database
         lifecycleScope.launch {
             //bar chart
-            val barChart: BarChart= binding.barChart
-            val labels = mutableListOf<String>()
-            val values = mutableListOf<Double>()
-            val dataEntryList: List<databaseDao.billBar> =  dashboardViewModel.getBarData(123412341111 )
-
-            for (dataEntry in dataEntryList) {
-                labels.add(dataEntry.BillingMonth.toString())
-                values.add(dataEntry.OverallUsage)
-            }
-            val entries = mutableListOf<BarEntry>()
-            for (i in values.indices) {
-                entries.add(BarEntry(i.toFloat(), values[i].toFloat()))
-            }
-
-            val dataSet = BarDataSet(entries, "Overall Usage (kW)")
-            val barData = BarData(dataSet)
-            barData.barWidth = 0.5f
-            barChart.data = barData
-            barChart.getDescription().setEnabled(false)
-            barChart.setDrawGridBackground(false)
-            barChart.setPinchZoom(false)
-            val xAxis = barChart.xAxis
-            xAxis.valueFormatter = IndexAxisValueFormatter(labels)
-
-            val yAxisLeft = barChart.axisLeft
-            yAxisLeft.setDrawGridLines(false)
-            yAxisLeft.setDrawLabels(false)
-            val yAxisRight = barChart.axisRight
-            yAxisRight.setDrawGridLines(false)
-            yAxisRight.setDrawLabels(false)
-
-            barChart.invalidate()
+//            val barChart: BarChart= binding.barChart
+//            val labels = mutableListOf<String>()
+//            val values = mutableListOf<Double>()
+//            val dataEntryList: List<databaseDao.billBar> =  dashboardViewModel.getBarData(123412341111)
+//
+//            for (dataEntry in dataEntryList) {
+//                labels.add(dataEntry.BillingMonth.toString())
+//                values.add(dataEntry.OverallUsage)
+//            }
+//            val entries = mutableListOf<BarEntry>()
+//            for (i in values.indices) {
+//                entries.add(BarEntry(i.toFloat(), values[i].toFloat()))
+//            }
+//
+//            val dataSet = BarDataSet(entries, "Overall Usage (kW)")
+//            val barData = BarData(dataSet)
+//            barData.barWidth = 0.5f
+//            barChart.data = barData
+//            barChart.getDescription().setEnabled(false)
+//            barChart.setDrawGridBackground(false)
+//            barChart.setPinchZoom(false)
+//            val xAxis = barChart.xAxis
+//            xAxis.valueFormatter = IndexAxisValueFormatter(labels)
+//
+//            val yAxisLeft = barChart.axisLeft
+//            yAxisLeft.setDrawGridLines(false)
+//            yAxisLeft.setDrawLabels(false)
+//            val yAxisRight = barChart.axisRight
+//            yAxisRight.setDrawGridLines(false)
+//            yAxisRight.setDrawLabels(false)
+//
+//            barChart.invalidate()
 
 //            //jdbc
 //            val url = "jdbc:mysql://files.000webhost.com:21/id20710696_gol_database?max_allowed_packet=16777216"
@@ -182,10 +188,10 @@ class Dashboard : AppCompatActivity() {
 
             //set bill details for 1 time for data retrieval afterwards
             val newContact11 = Bill("001", 1, 2023,110.00, "2023-01-01", "2023-01-31", "Paid", 400.00, 110.00,0.00,0.00,123412341111,"A001")
-            val newContact12 = Bill("001", 2, 2023,110.00, "2023-02-01", "2023-02-28", "Paid", 400.00, 110.00,0.00,0.00,123412341111,"A002")
-            val newContact13 = Bill("002", 3, 2023,120.00, "2023-03-01", "2023-03-31", "Paid", 400.00, 120.00,0.00,0.00,123412341111,"A003")
-            val newContact14 = Bill("003", 4, 2023,120.00, "2023-04-01", "2023-04-30", "Unpaid", 400.00, 120.00,0.00,0.00,123412341111,"A004")
-            val newContact15 = Bill("004", 5, 2023,111.00, "2023-05-01", "2023-05-31", "Unpaid", 400.00, 230.00,0.00,0.00,123412341111,"A005")
+            val newContact12 = Bill("002", 2, 2023,110.00, "2023-02-01", "2023-02-28", "Paid", 400.00, 110.00,0.00,0.00,123412341111,"A002")
+            val newContact13 = Bill("003", 3, 2023,120.00, "2023-03-01", "2023-03-31", "Paid", 400.00, 120.00,0.00,0.00,123412341111,"A003")
+            val newContact14 = Bill("004", 4, 2023,120.00, "2023-04-01", "2023-04-30", "Unpaid", 400.00, 120.00,0.00,0.00,123412341111,"A004")
+            val newContact15 = Bill("005", 5, 2023,111.00, "2023-05-01", "2023-05-31", "Unpaid", 400.00, 230.00,0.00,0.00,123412341111,"A005")
             val newContact2 = Bill("001", 3, 2023,100.00, "2023-03-01","2023-03-31", "Unpaid", 400.00, 100.00,0.00,0.00,123412341112,"A001")
             val newContact2a = Bill("002", 4, 2023,220.00, "2023-04-01", "2023-04-30", "Unpaid", 400.00, 100.00,200.00,20.00,123412341112,"A002")
 
@@ -200,7 +206,6 @@ class Dashboard : AppCompatActivity() {
             //get user acc
             val getOverallUsage = dashboardViewModel.getOverallUsage(123412341111 ,(monthDisplay-1),yearDisplay)
             binding.displayOverallUsage.text = getOverallUsage.toString()
-
 
             val getBillStatus = dashboardViewModel.getBillStatus(123412341111,(monthDisplay-1),yearDisplay)
             binding.displayBillStatus.text = getBillStatus

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/billingFragment">
+    app:startDestination="@id/appManageAddedFragment">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -16,6 +16,12 @@
         <action
             android:id="@+id/action_profileFragment_to_electricityAccFragment"
             app:destination="@id/electricityAccFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_appSettingsFragment"
+            app:destination="@id/appSettingsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -31,6 +37,9 @@
         <action
             android:id="@+id/action_userFragment_to_editMobileFragment"
             app:destination="@id/editMobileFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_editPasswordFragment"
+            app:destination="@id/editPasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/electricityAccFragment"
@@ -49,6 +58,7 @@
         <action
             android:id="@+id/action_electricityAccFragment_to_editMonthlyIncomeFragment"
             app:destination="@id/editMonthlyIncomeFragment" />
+
     </fragment>
 
     <fragment
@@ -301,7 +311,7 @@
     <fragment
         android:id="@+id/billingFragment"
         android:name="my.edu.tarc.ass2.Billing.BillingFragment"
-        android:label="@string/billing"
+        android:label="fragment_billing"
         tools:layout="@layout/fragment_billing">
         <action
             android:id="@+id/action_billingFragment_to_billInfoFragment"
@@ -320,10 +330,15 @@
         android:id="@+id/paymentFragment"
         android:name="my.edu.tarc.ass2.Billing.PaymentFragment"
         android:label="fragment_payment"
-        tools:layout="@layout/fragment_payment" >
+        tools:layout="@layout/fragment_payment">
         <action
             android:id="@+id/action_paymentFragment_to_billingFragment"
             app:destination="@id/billingFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/editPasswordFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditPasswordFragment"
+        android:label="fragment_edit_password"
+        tools:layout="@layout/fragment_edit_password" />
 
 </navigation>

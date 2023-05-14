@@ -142,7 +142,7 @@ class Dashboard : AppCompatActivity() {
             val dataEntryList1: List<Double> =  dashboardViewModel.getBarOverallUsage(123412341111)
 
             binding.startingMonth.text = dataEntryList[0].toString()
-            binding.startingMonth.text = dataEntryList[dataEntryList.size-1].toString()
+            binding.endingMonth.text = dataEntryList[dataEntryList.size-1].toString()
 
             val pairs = mutableListOf<Pair<Int, Double>>()
             for (i in dataEntryList.indices) {

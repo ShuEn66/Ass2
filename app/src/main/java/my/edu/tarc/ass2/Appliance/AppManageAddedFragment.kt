@@ -1,10 +1,12 @@
 package my.edu.tarc.ass2.Appliance
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -29,6 +31,13 @@ class AppManageAddedFragment : Fragment() {
     private lateinit var appliancesArrayList: ArrayList<AddedAppliance>
     lateinit var applianceName : Array<String>
     lateinit var appliances : Array<String>
+
+    //Button
+    private val onButtonClickListener = object : MyAdapter.onButtonClickListener {
+        override fun onButtonClick(position: Int) {
+            // Handle button click here
+        }
+    }
 
     private var _binding: FragmentAppManageAddedBinding? = null
 
@@ -60,8 +69,25 @@ class AppManageAddedFragment : Fragment() {
         recyclerView = binding.recyclerViewApp
         recyclerView.layoutManager = layoutManager
         recyclerView.setHasFixedSize(true)
-        adapter = MyAdapter(appliancesArrayList)
+        adapter = MyAdapter(appliancesArrayList, findNavController())
         recyclerView.adapter = adapter
+
+        //Button action
+        val onButtonClickListener = object : MyAdapter.onButtonClickListener {
+            override fun onButtonClick(position: Int) {
+                // Handle button click here
+                //Toast.makeText(context,"Clicked", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_appManageAddedFragment_to_appManageDetailsFragment)
+            }
+        }
+
+        //Button
+        // Set the onButtonClickListener to the adapter
+        adapter = MyAdapter(appliancesArrayList, findNavController())
+        adapter.setOnButtonClickListener(onButtonClickListener)
+        recyclerView.adapter = adapter
+
+
     }
 
     //To display appliances
@@ -80,9 +106,9 @@ class AppManageAddedFragment : Fragment() {
                     val appliances = AddedAppliance(appliancesList[i].AppliancesName)
                     appliancesArrayList.add(appliances)
                 }
-                
+
                 // Set the adapter after the data is fetched
-                adapter = MyAdapter(appliancesArrayList)
+                adapter = MyAdapter(appliancesArrayList, findNavController())
                 recyclerView.adapter = adapter
 
             })

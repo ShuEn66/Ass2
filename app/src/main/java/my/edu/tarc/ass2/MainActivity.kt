@@ -81,6 +81,7 @@ class MainActivity : AppCompatActivity() {
                 ||destination.id==R.id.appManageAddNewFragment
                 ||destination.id==R.id.appManageDeleteFragment
                 ||destination.id==R.id.appManageDetailsFragment
+                ||destination.id==R.id.appManageInputDeleteFragment
                  ){
                 supportActionBar!!.show()
                 supportActionBar!!.title =getString(R.string.appliances_main_fragment_title)

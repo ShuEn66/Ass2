@@ -75,7 +75,7 @@ class LoginFragment : Fragment() {
                                 }
                                 Toast.makeText(context,getString(R.string.loginSuccessful)
                                     , Toast.LENGTH_SHORT).show()
-                                findNavController().navigate(R.id.action_loginFragment_to_profileFragment)}
+                                findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)}
 //                                navController.navigate(R.id.dashboard)}
                             else{
                                 Toast.makeText(context,getString(R.string.WrongPassword)

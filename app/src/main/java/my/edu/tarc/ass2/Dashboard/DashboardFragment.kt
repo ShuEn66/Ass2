@@ -85,24 +85,24 @@ class DashboardFragment : Fragment() {
         }
 
         binding.profilePic.setOnClickListener(){
-
+            findNavController().navigate(R.id.action_dashboardFragment_to_profileFragment)
         }
 
         binding.buttonAppliances.setOnClickListener(){
-            findNavController().navigate(R.id.appliancesFragment)
+            findNavController().navigate(R.id.action_dashboardFragment_to_appliancesFragment)
         }
 
         binding.buttonViewBill.setOnClickListener(){
-            findNavController().navigate(R.id.billingFragment)
+            findNavController().navigate(R.id.action_dashboardFragment_to_billingFragment)
         }
 
         viewPager = binding.viewPager
 
         //announcement slider
         imageList = ArrayList<Int>()
-        imageList = imageList + R.drawable.about
-        imageList = imageList + R.drawable.developer
-        imageList = imageList + R.drawable.about
+        imageList = imageList + R.drawable.a1
+        imageList = imageList + R.drawable.a2
+        imageList = imageList + R.drawable.a3
         val adapter = ImageSliderAdapter(imageList )
         viewPager.adapter = adapter
         timer = Timer()

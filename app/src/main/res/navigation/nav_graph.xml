@@ -19,9 +19,6 @@
         <action
             android:id="@+id/action_profileFragment_to_appSettingsFragment"
             app:destination="@id/appSettingsFragment" />
-        <action
-            android:id="@+id/action_profileFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -132,6 +129,9 @@
         <action
             android:id="@+id/action_loginFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
     </fragment>
     <activity
         android:id="@+id/dashboard"
@@ -361,6 +361,21 @@
         android:name="my.edu.tarc.ass2.Billing.BillHistoryFragment"
         android:label="@string/billHistoryTitle"
         tools:layout="@layout/fragment_bill_history" />
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="my.edu.tarc.ass2.Dashboard.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_billingFragment"
+            app:destination="@id/billingFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_appliancesFragment"
+            app:destination="@id/appliancesFragment" />
+    </fragment>
 
 
 </navigation>

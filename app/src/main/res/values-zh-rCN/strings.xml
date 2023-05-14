@@ -151,4 +151,5 @@
     <string name="UpdateAccNameTitle">新户口昵称</string>
     <string name="UpdateNoResidentTitle">新住户人数</string>
     <string name="UpdateMonthlyIncomeTitle">新月收入</string>
+    <string name="thanks">谢谢点评！</string>
 </resources>

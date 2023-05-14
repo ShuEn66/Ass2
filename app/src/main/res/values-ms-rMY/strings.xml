@@ -152,4 +152,20 @@
     <string name="UpdateNoResidentTitle">Bilangan Penduduk Baru</string>
     <string name="UpdateMonthlyIncomeTitle">Gaji Bulanan Baru</string>
     <string name="thanks">Terima Kasih Kadaran Anda!</string>
+    <string name="checkBill">-</string>
+    <string name="payBill">-</string>
+    <string name="donePayment">-</string>
+    <string name="ErrorIC">-</string>
+    <string name="registerSuccessful">-</string>
+    <string name="registerUnSuccessful">-</string>
+    <string name="loginSuccessful">-</string>
+    <string name="loginFailed">-</string>
+    <string name="startingMonth">-</string>
+    <string name="endingMonth">-</string>
+    <string name="LoginEmail">-</string>
+    <string name="UpdateSuccessful">-</string>
+    <string name="WrongPassword">-</string>
+    <string name="SameInformation">-</string>
+    <string name="LogoutSuccessful">-</string>
+    <string name="UpdatePasswordTitle">-</string>
 </resources>

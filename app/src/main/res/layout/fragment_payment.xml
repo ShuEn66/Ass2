@@ -4,93 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Payment.Payment">
-
-    <ImageView
-        android:id="@+id/background5"
-        android:layout_width="589dp"
-        android:layout_height="1125dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497"
-        app:srcCompat="@drawable/background1" />
-
-    <ImageView
-        android:id="@+id/imageView21"
-        android:layout_width="532dp"
-        android:layout_height="239dp"
-        android:layout_marginBottom="544dp"
-        android:src="@drawable/elipse"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView38"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.813"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView37" />
-
-    <TextView
-        android:id="@+id/textView37"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="24dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/payment_due" />
-
-    <ImageView
-        android:id="@+id/imageViewArrow4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:src="@drawable/baseline_arrow_back_ios_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewAppSettings3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:text="@string/billing"
-        android:textColor="#0B0A0A"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent" />
+    tools:context=".Billing.PaymentFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="352dp"
         android:layout_height="486dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="180dp"
         android:background="@drawable/rectangledeep"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +29,7 @@
                 android:id="@+id/textView14"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="TextView"
+                android:text="@string/paymentSuccessful_title"
                 android:textSize="24sp"
                 tools:text="@string/paymentSuccessful_title" />
 
@@ -136,14 +56,14 @@
 
                 <TextView
                     android:id="@+id/textView17"
-                    android:layout_width="118dp"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/amountPaid_title"
                     tools:text="@string/amountPaid_title" />
 
                 <TextView
-                    android:id="@+id/textView27"
+                    android:id="@+id/displayAmountPaid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -160,11 +80,11 @@
                     android:layout_width="185dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/paymentDate_title"
                     tools:text="@string/paymentDate_title" />
 
                 <TextView
-                    android:id="@+id/textView29"
+                    android:id="@+id/displayPaymentDate2"
                     android:layout_width="186dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -181,11 +101,11 @@
                     android:layout_width="176dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/paymentTime_title"
                     tools:text="@string/paymentTime_title" />
 
                 <TextView
-                    android:id="@+id/textView32"
+                    android:id="@+id/displayTimePayment"
                     android:layout_width="176dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -202,11 +122,11 @@
                     android:layout_width="175dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/paymentMethod"
                     tools:text="@string/paymentMethod_title" />
 
                 <TextView
-                    android:id="@+id/textView33"
+                    android:id="@+id/displayPM"
                     android:layout_width="175dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -223,11 +143,11 @@
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView"
-                    tools:text="@string/paymentAccount_title" />
+                    android:text="@string/paymentStatus"
+                    tools:text="@string/paymentStatus" />
 
                 <TextView
-                    android:id="@+id/textView36"
+                    android:id="@+id/displayStatus"
                     android:layout_width="169dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -236,14 +156,14 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="57dp"/>
+                android:layout_height="57dp" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/buttonDone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FEDD59"
-                android:text="Button"
+                android:text="@string/doneButton"
                 android:textColor="#130F0F"
                 tools:text="@string/doneButton" />
 
@@ -252,10 +172,9 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline22"
+        android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="206dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

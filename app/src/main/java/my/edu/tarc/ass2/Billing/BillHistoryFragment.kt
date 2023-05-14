@@ -50,14 +50,14 @@ class BillHistoryFragment : Fragment() {
             val getInvoiceDate = billViewModel.getInvoiceDate(123412341111, (monthDisplay - 1), yearDisplay)
             binding.displayInvDate.text = getInvoiceDate
 
-            val getPaymentDate = billViewModel.getPaymentDate(123412341111, (monthDisplay - 1), yearDisplay)
+            /*val getPaymentDate = billViewModel.getPaymentDate(123412341111, (monthDisplay - 1), yearDisplay)
             binding.displayPaymentDate.text = getPaymentDate
 
             val getPaymentStatus = billViewModel.getPaymentStatus(123412341111, (monthDisplay - 1), yearDisplay)
             binding.displayPaymentStat.text = getPaymentStatus
 
             val getPaymentMethod = billViewModel.getPaymentMethod(123412341111, (monthDisplay - 1), yearDisplay)
-            binding.displayPaymentMethod.text = getPaymentMethod
+            binding.displayPaymentMethod.text = getPaymentMethod*/
 
             val getOverallUsage = billViewModel.getOverallUsage(123412341111, (monthDisplay - 1), yearDisplay)
             binding.displayEnergy.text = getOverallUsage.toString()

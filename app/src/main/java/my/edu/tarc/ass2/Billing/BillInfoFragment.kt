@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.FragmentBillInfoBinding
@@ -65,5 +66,12 @@ class BillInfoFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.buttonPayBill.setOnClickListener(){
+            findNavController().navigate(R.id.action_billInfoFragment_to_paymentFragment)
 
+        }
+
+    }
 }

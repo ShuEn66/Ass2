@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/appliancesFragment">
+    app:startDestination="@id/billingFragment">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -16,12 +16,6 @@
         <action
             android:id="@+id/action_profileFragment_to_electricityAccFragment"
             app:destination="@id/electricityAccFragment" />
-        <action
-            android:id="@+id/action_profileFragment_to_appSettingsFragment"
-            app:destination="@id/appSettingsFragment" />
-        <action
-            android:id="@+id/action_profileFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -29,20 +23,23 @@
         android:label="fragment_user"
         tools:layout="@layout/fragment_user">
         <action
+            android:id="@+id/action_userFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
             android:id="@+id/action_userFragment_to_editNameFragment"
             app:destination="@id/editNameFragment" />
         <action
             android:id="@+id/action_userFragment_to_editMobileFragment"
             app:destination="@id/editMobileFragment" />
-        <action
-            android:id="@+id/action_userFragment_to_editPasswordFragment"
-            app:destination="@id/editPasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/electricityAccFragment"
         android:name="my.edu.tarc.ass2.Profile.ElectricityAccFragment"
         android:label="fragment_electricity_acc"
         tools:layout="@layout/fragment_electricity_acc">
+        <action
+            android:id="@+id/action_electricityAccFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
         <action
             android:id="@+id/action_electricityAccFragment_to_editAccNameFragment"
             app:destination="@id/editAccNameFragment" />
@@ -74,6 +71,9 @@
         <action
             android:id="@+id/action_electricityAccInfoFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_electricityAccInfoFragment_to_accConfirmationFragment"
+            app:destination="@id/accConfirmationFragment" />
     </fragment>
     <fragment
         android:id="@+id/userInfoRegisterFragment"
@@ -83,6 +83,9 @@
         <action
             android:id="@+id/action_userInfoRegisterFragment_to_registerAddElectricityAccFragment"
             app:destination="@id/registerAddElectricityAccFragment" />
+        <action
+            android:id="@+id/action_userInfoRegisterFragment_to_userRegistrationFragment"
+            app:destination="@id/userRegistrationFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerAddElectricityAccFragment"
@@ -98,6 +101,9 @@
         android:name="my.edu.tarc.ass2.Registration.AccConfirmationFragment"
         android:label="fragment_acc_confirmation"
         tools:layout="@layout/fragment_acc_confirmation">
+        <action
+            android:id="@+id/action_accConfirmationFragment_to_registerAddElectricityAccFragment"
+            app:destination="@id/registerAddElectricityAccFragment" />
         <action
             android:id="@+id/action_accConfirmationFragment_to_electricityAccInfoFragment"
             app:destination="@id/electricityAccInfoFragment" />
@@ -123,12 +129,20 @@
         android:id="@+id/editNameFragment"
         android:name="my.edu.tarc.ass2.Profile.EditNameFragment"
         android:label="fragment_edit_name"
-        tools:layout="@layout/fragment_edit_name"/>
+        tools:layout="@layout/fragment_edit_name">
+        <action
+            android:id="@+id/action_editNameFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editMobileFragment"
         android:name="my.edu.tarc.ass2.Profile.EditMobileFragment"
         android:label="fragment_edit_mobile"
-        tools:layout="@layout/fragment_edit_mobile"/>
+        tools:layout="@layout/fragment_edit_mobile">
+        <action
+            android:id="@+id/action_editMobileFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/appManageAddedFragment"
@@ -210,17 +224,29 @@
         android:id="@+id/editAccNameFragment"
         android:name="my.edu.tarc.ass2.Profile.EditAccNameFragment"
         android:label="fragment_edit_acc_name"
-        tools:layout="@layout/fragment_edit_acc_name"/>
+        tools:layout="@layout/fragment_edit_acc_name">
+        <action
+            android:id="@+id/action_editAccNameFragment_to_electricityAccFragment"
+            app:destination="@id/electricityAccFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editNoResidentFragment"
         android:name="my.edu.tarc.ass2.Profile.EditNoResidentFragment"
         android:label="fragment_edit_no_resident"
-        tools:layout="@layout/fragment_edit_no_resident"/>
+        tools:layout="@layout/fragment_edit_no_resident">
+        <action
+            android:id="@+id/action_editNoResidentFragment_to_electricityAccFragment"
+            app:destination="@id/electricityAccFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editMonthlyIncomeFragment"
         android:name="my.edu.tarc.ass2.Profile.EditMonthlyIncomeFragment"
         android:label="fragment_edit_monthly_income"
-        tools:layout="@layout/fragment_edit_monthly_income"/>
+        tools:layout="@layout/fragment_edit_monthly_income">
+        <action
+            android:id="@+id/action_editMonthlyIncomeFragment_to_electricityAccFragment"
+            app:destination="@id/electricityAccFragment" />
+    </fragment>
     <fragment
         android:id="@+id/appliancesFragment"
         android:name="my.edu.tarc.ass2.Appliance.AppliancesFragment"
@@ -262,7 +288,7 @@
         android:id="@+id/developerInfoFragment"
         android:name="my.edu.tarc.ass2.AppSettings.DeveloperInfoFragment"
         android:label="@string/devInfo"
-        tools:layout="@layout/fragment_developer_info" >
+        tools:layout="@layout/fragment_developer_info">
         <action
             android:id="@+id/action_developerInfoFragment_to_ratingFragment"
             app:destination="@id/ratingFragment" />
@@ -273,9 +299,31 @@
         android:label="fragment_rating"
         tools:layout="@layout/fragment_rating" />
     <fragment
-        android:id="@+id/editPasswordFragment"
-        android:name="my.edu.tarc.ass2.Profile.EditPasswordFragment"
-        android:label="fragment_edit_password"
-        tools:layout="@layout/fragment_edit_password" />
+        android:id="@+id/billingFragment"
+        android:name="my.edu.tarc.ass2.Billing.BillingFragment"
+        android:label="@string/billing"
+        tools:layout="@layout/fragment_billing">
+        <action
+            android:id="@+id/action_billingFragment_to_billInfoFragment"
+            app:destination="@id/billInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/billInfoFragment"
+        android:name="my.edu.tarc.ass2.Billing.BillInfoFragment"
+        android:label="fragment_bill_info"
+        tools:layout="@layout/fragment_bill_info">
+        <action
+            android:id="@+id/action_billInfoFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="my.edu.tarc.ass2.Billing.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_billingFragment"
+            app:destination="@id/billingFragment" />
+    </fragment>
 
 </navigation>

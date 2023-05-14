@@ -111,14 +111,14 @@ interface databaseDao {
 
 
     //PAYMENT
-    @Query("SELECT Payment.PaymentDate FROM Payment, Bill WHERE Payment.PaymentID = Bill.PaymentID AND Bill.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year ")
-    suspend fun getPaymentDate(accNo: Long,  month: Int,  year:Int):String
+    @Query("SELECT PaymentDate FROM Payment WHERE PaymentID = :paymentId")
+    suspend fun getPaymentDate(paymentId: Long):String
 
-    @Query("SELECT Payment.PaymentStatus FROM Payment, Bill  WHERE Payment.PaymentID = Bill.PaymentID AND Bill.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year ")
-    suspend fun getPaymentStatus(accNo: Long,  month: Int, year:Int): String
+    @Query("SELECT PaymentStatus FROM Payment WHERE PaymentID = :paymentId")
+    suspend fun getPaymentStatus(paymentId: Long): String
 
-    @Query("SELECT Payment.PaymentMethod FROM Payment, Bill WHERE Payment.PaymentID = Bill.PaymentID AND Bill.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year ")
-    suspend fun getPaymentMethod(accNo: Long,  month: Int,  year:Int): String
+    @Query("SELECT PaymentMethod FROM Payment WHERE PaymentID = :paymentId")
+    suspend fun getPaymentMethod(paymentId: Long): String
 
     @Query("UPDATE Payment SET PaymentStatus = 'Successful'")
     suspend fun updatePaymentStatus()

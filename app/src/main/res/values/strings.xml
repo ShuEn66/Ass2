@@ -268,12 +268,18 @@
     <string name="url_read" translatable="false">user/read.php</string>
     <string name="url_create" translatable="false">user/create.php</string>
     <string name="thanks">Thanks for submitting!</string>
+
     <string name="LoginEmail">Login Email Address</string>
     <string name="UpdateSuccessful">New Information updated</string>
     <string name="WrongPassword">Wrong Password</string>
     <string name="SameInformation">The new information is cannot be same with the original information</string>
     <string name="LogoutSuccessful">Logout Successfully</string>
     <string name="UpdatePasswordTitle" >New Password</string>
+
+    <string name="checkBill">Check Bill</string>
+    <string name="payBill">Pay Bill</string>
+    <string name="donePayment">Done Payment</string>
+
 
 
     // 6edc224cb96fbcf5418fdc9473c43aa9d4200731

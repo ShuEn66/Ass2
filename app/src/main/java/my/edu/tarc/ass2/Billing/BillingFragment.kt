@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.Bill
 import my.edu.tarc.ass2.Dashboard.DashboardViewModel
@@ -44,7 +45,7 @@ class BillingFragment : Fragment() {
         val formatter = DateTimeFormatter.ofPattern("dd.MM.uuuu", Locale.ENGLISH)
         val output = ldt.format(formatter)
         binding.displayDate.text = output.toString()
-        val monthDisplay =  current.monthValue
+        val monthDisplay = current.monthValue
         var yearDisplay =  current.year
         if (monthDisplay == 1){
             yearDisplay -= 1
@@ -71,6 +72,10 @@ class BillingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.buttonCheckBill.setOnClickListener(){
+            findNavController().navigate(R.id.action_billingFragment_to_billInfoFragment)
+
+        }
 
     }
 

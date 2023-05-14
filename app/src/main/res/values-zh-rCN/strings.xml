@@ -152,4 +152,20 @@
     <string name="UpdateNoResidentTitle">新住户人数</string>
     <string name="UpdateMonthlyIncomeTitle">新月收入</string>
     <string name="thanks">谢谢点评！</string>
+    <string name="checkBill">-</string>
+    <string name="payBill">-</string>
+    <string name="donePayment">-</string>
+    <string name="ErrorIC">-</string>
+    <string name="registerSuccessful">-</string>
+    <string name="registerUnSuccessful">-</string>
+    <string name="loginSuccessful">-</string>
+    <string name="loginFailed">-</string>
+    <string name="startingMonth">-</string>
+    <string name="endingMonth">-</string>
+    <string name="LoginEmail">-</string>
+    <string name="UpdateSuccessful">-</string>
+    <string name="WrongPassword">-</string>
+    <string name="SameInformation">-</string>
+    <string name="LogoutSuccessful">-</string>
+    <string name="UpdatePasswordTitle">-</string>
 </resources>

@@ -160,19 +160,6 @@
                     app:layout_constraintTop_toTopOf="@+id/textViewCurrentCharges"
                     app:layout_constraintVertical_bias="0.22" />
 
-                <TextView
-                    android:id="@+id/displayTot"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/display"
-                    android:textColor="#020202"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewRM3"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.083"
-                    app:layout_constraintStart_toEndOf="@+id/textViewRM3"
-                    app:layout_constraintTop_toTopOf="@+id/textViewRM3" />
-
                 <ImageView
                     android:id="@+id/imageViewBar2"
                     android:layout_width="match_parent"
@@ -258,6 +245,16 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/guideline17"
                     app:layout_constraintTop_toTopOf="@+id/textViewCurrentBill3" />
+
+                <TextView
+                    android:id="@+id/displayTot3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewRM3"
+                    app:layout_constraintStart_toEndOf="@+id/textViewRM3"
+                    app:layout_constraintTop_toTopOf="@+id/textViewRM3" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

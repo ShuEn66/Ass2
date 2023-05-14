@@ -63,7 +63,7 @@ class BillHistoryFragment : Fragment() {
             binding.displayEnergy.text = getOverallUsage.toString()
 
             val getTotalAmount = billViewModel.getTotalAmount(123412341111,(monthDisplay-1),yearDisplay)
-            binding.displayTot.text = getTotalAmount.toString()
+            binding.displayTot3.text = getTotalAmount.toString()
 
         }
         return binding.root

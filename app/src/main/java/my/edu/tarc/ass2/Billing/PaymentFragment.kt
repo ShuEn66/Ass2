@@ -11,6 +11,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.room.Query
 import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.Bill
 import my.edu.tarc.ass2.Payment
@@ -67,6 +68,9 @@ class PaymentFragment : Fragment() {
             val getPaymentMethod = billViewModel.getPaymentMethod(111111111111111)
             binding.displayPM.text = getPaymentMethod
 
+            billViewModel.updateCurrentChanges()
+            billViewModel.updateOutstandingChanges()
+            billViewModel.updateTotalAmount()
 
         }
 

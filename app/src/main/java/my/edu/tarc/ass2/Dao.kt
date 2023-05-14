@@ -47,6 +47,14 @@ interface databaseDao {
     @Query("UPDATE Bill SET BillStatus = 'Successful' ")
     suspend fun updateBillStatus()
 
+    @Query("UPDATE Bill SET CurrentCharges = 0.0")
+    suspend fun updateCurrentChanges()
+
+    @Query("UPDATE Bill SET OutstandingCharges = 0.0")
+    suspend fun updateOutstandingChanges()
+
+    @Query("UPDATE Bill SET TotalAmount = 0.0")
+    suspend fun updateTotalAmount()
 
     //USER
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -122,6 +130,9 @@ interface databaseDao {
 
     @Query("SELECT PaymentMethod FROM Payment WHERE PaymentID = :paymentId")
     suspend fun getPaymentMethod(paymentId: Long): String
+
+    @Query("SELECT PayAmount FROM Payment WHERE PaymentID = :paymentId")
+    suspend fun getPayAmount(paymentId: Long): Double
 
     @Query("UPDATE Payment SET PaymentStatus = 'Successful'")
     suspend fun updatePaymentStatus()

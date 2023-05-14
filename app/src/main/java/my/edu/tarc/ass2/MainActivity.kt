@@ -22,6 +22,7 @@ import androidx.navigation.fragment.findNavController
 import my.edu.tarc.ass2.Appliance.AppManageAddedFragment
 import my.edu.tarc.ass2.Dashboard.DashboardViewModel
 import my.edu.tarc.ass2.databinding.ActivityMainBinding
+import my.edu.tarc.ass2.databinding.FragmentDashboardBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -60,7 +61,11 @@ class MainActivity : AppCompatActivity() {
                 ||destination.id==R.id.editMonthlyIncomeFragment
                 ||destination.id==R.id.editNoResidentFragment
                 ||destination.id==R.id.deleteAccFragment
-                ||destination.id==R.id.editPasswordFragment)
+                ||destination.id==R.id.editPasswordFragment
+                ||destination.id == R.id.billingFragment
+                ||destination.id==R.id.billInfoFragment
+                || destination.id==R.id.billHistoryFragment
+                ||destination.id == R.id.paymentFragment)
             {
                 supportActionBar!!.hide()
             }else if(destination.id==R.id.profileFragment ){
@@ -75,7 +80,8 @@ class MainActivity : AppCompatActivity() {
                 ||destination.id==R.id.appManageAddedFragment
                 ||destination.id==R.id.appManageAddNewFragment
                 ||destination.id==R.id.appManageDeleteFragment
-                ||destination.id==R.id.appManageDetailsFragment){
+                ||destination.id==R.id.appManageDetailsFragment
+                 ){
                 supportActionBar!!.show()
                 supportActionBar!!.title =getString(R.string.appliances_main_fragment_title)
             }
@@ -102,6 +108,12 @@ class MainActivity : AppCompatActivity() {
             }
             else if(destination.id==R.id.billingFragment ){
                 supportActionBar!!.title =getString(R.string.billing)
+            }
+            else if(destination.id==R.id.billInfoFragment){
+                supportActionBar!!.title =getString(R.string.billInfo)
+            }
+            else if(destination.id==R.id.billHistoryFragment ){
+                supportActionBar!!.title =getString(R.string.billHistoryTitle)
             }
             else{
                 supportActionBar!!.title =getString(R.string.app_name)
@@ -132,21 +144,5 @@ class MainActivity : AppCompatActivity() {
                 || super.onSupportNavigateUp()
     }
 
-    override fun onBackPressed() {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        val currentDestination = navController.currentDestination
 
-        // Check if the current destination is the login fragment
-        if (currentDestination?.id == R.id.loginFragment) {
-            navController.navigate(R.id.action_loginFragment_to_userRegistrationFragment)
-        }
-        else if(currentDestination?.id == R.id.loginFragment){
-
-        }
-        else {
-            // If the current destination is not the login fragment,
-            // perform the default back button behavior
-
-        }
-    }
 }

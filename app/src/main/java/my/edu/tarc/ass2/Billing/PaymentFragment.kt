@@ -86,9 +86,7 @@ class PaymentFragment : Fragment() {
                 val getPaymentMethod = billViewModel.getPaymentMethod(111111111111111)
                 binding.displayPM.text = getPaymentMethod
 
-                billViewModel.updateCurrentChanges()
-                billViewModel.updateOutstandingChanges()
-                billViewModel.updateTotalAmount()
+
 
             }
 

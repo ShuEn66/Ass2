@@ -79,11 +79,13 @@ class DashboardFragment : Fragment() {
         //val autoScrollTask = AutoScrollTask(numPages, handler)
         //onclicks
         binding.hotlinePic.setOnClickListener(){
-            val fragment = HotlineFragment()
-            childFragmentManager.beginTransaction()
-                .add(android.R.id.content, fragment)//add(R.id.overlapped_container, overlappedFragment)
-                .addToBackStack(null)
-                .commit()
+//            val fragment = HotlineFragment()
+//            childFragmentManager.beginTransaction()
+//                .add(android.R.id.content, fragment)//add(R.id.overlapped_container, overlappedFragment)
+//                .addToBackStack(null)
+//                .commit()
+            findNavController().navigate(R.id.action_dashboardFragment_to_hotlineFragment)
+
         }
 
         binding.profilePic.setOnClickListener(){

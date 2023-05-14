@@ -33,6 +33,7 @@ class BillingFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var sharedPre: SharedPreferences
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)

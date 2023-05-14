@@ -1,5 +1,7 @@
 package my.edu.tarc.ass2.Billing
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +12,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
+import my.edu.tarc.ass2.Profile.ProfileViewModel
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.FragmentBillHistoryBinding
 import my.edu.tarc.ass2.databinding.FragmentBillInfoBinding
@@ -19,19 +22,15 @@ import java.util.*
 
 class BillHistoryFragment : Fragment() {
     private val billViewModel: BillViewModel by viewModels()
+    private val profileViewModel: ProfileViewModel by viewModels()
+    private lateinit var sharedPre: SharedPreferences
     private var _binding: FragmentBillHistoryBinding? = null
     private val binding get() = _binding!!
 
-
-
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentBillHistoryBinding.inflate(inflater, container, false)
-
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
         val current = LocalDateTime.now()
         val monthDisplay =  current.monthValue
         var yearDisplay =  current.year
@@ -40,8 +39,9 @@ class BillHistoryFragment : Fragment() {
         }
 
         lifecycleScope.launch {
-
-            val getInvoiceDate = billViewModel.getInvoiceDate(123412341111, (monthDisplay - 1), yearDisplay)
+            val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")
+            val accNo = loginEmail.let { profileViewModel.getAccNumber(it.toString()) }
+            val getInvoiceDate = billViewModel.getInvoiceDate(accNo, (monthDisplay - 1), yearDisplay)
             binding.displayInvDate.text = getInvoiceDate
 
             val getPaymentDate = billViewModel.getPaymentDate(111111111111111)
@@ -53,13 +53,23 @@ class BillHistoryFragment : Fragment() {
             val getPaymentMethod = billViewModel.getPaymentMethod(111111111111111)
             binding.displayPaymentMethod.text = getPaymentMethod
 
-            val getOverallUsage = billViewModel.getOverallUsage(123412341111, (monthDisplay - 1), yearDisplay)
+            val getOverallUsage = billViewModel.getOverallUsage(accNo, (monthDisplay - 1), yearDisplay)
             binding.displayEnergy.text = getOverallUsage.toString()
 
-            val getTotalAmount = billViewModel.getTotalAmount(123412341111,(monthDisplay-1),yearDisplay)
+            val getTotalAmount = billViewModel.getTotalAmount(accNo,(monthDisplay-1),yearDisplay)
             binding.displayTot3.text = getTotalAmount.toString()
 
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentBillHistoryBinding.inflate(inflater, container, false)
+
+
         return binding.root
     }
 

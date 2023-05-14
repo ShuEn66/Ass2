@@ -377,7 +377,23 @@
         <action
             android:id="@+id/action_dashboardFragment_to_appliancesFragment"
             app:destination="@id/appliancesFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_hotlineFragment"
+            app:destination="@id/hotlineFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/hotlineFragment"
+        android:name="my.edu.tarc.ass2.Dashboard.HotlineFragment"
+        android:label="fragment_hotline"
+        tools:layout="@layout/fragment_hotline" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_hotlineFragment"
+            app:destination="@id/hotlineFragment" />
+        <action
+            android:id="@+id/action_hotlineFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+
 
 
 </navigation>

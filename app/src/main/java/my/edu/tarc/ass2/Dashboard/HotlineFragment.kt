@@ -23,10 +23,12 @@ class HotlineFragment : Fragment() {
 
         binding.buttonDoneHotline.setOnClickListener() {
 
-            val fragmentManager = requireActivity().supportFragmentManager
-            val transaction = fragmentManager.beginTransaction()
-            transaction.remove(this)
-            transaction.commit()
+//            val fragmentManager = requireActivity().supportFragmentManager
+//            val transaction = fragmentManager.beginTransaction()
+//            transaction.remove(this)
+//            transaction.commit()
+
+            findNavController().navigate(R.id.action_hotlineFragment_to_dashboardFragment)
 
         }
         return binding.root

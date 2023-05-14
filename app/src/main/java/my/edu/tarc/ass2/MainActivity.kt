@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
        //go dashboard from main activity
         //navController.navigate(R.id.dashboard)
 
-        /*navController.addOnDestinationChangedListener{
+        navController.addOnDestinationChangedListener{
                 _,destination,_->
             if(destination.id==R.id.userRegistrationFragment
                 ||destination.id==R.id.userInfoRegisterFragment
@@ -61,10 +61,19 @@ class MainActivity : AppCompatActivity() {
             else if(destination.id==R.id.electricityAccFragment ){
                 supportActionBar!!.title =getString(R.string.ElectricityAccountProfileTitle)
             }
+            else if(destination.id==R.id.appSettingsFragment ){
+                supportActionBar!!.title =getString(R.string.appSettings)
+            }
+            else if(destination.id==R.id.changLanguageFragment ){
+                supportActionBar!!.title =getString(R.string.changeLang)
+            }
+            else if(destination.id==R.id.developerInfoFragment ){
+                supportActionBar!!.title =getString(R.string.devInfo)
+            }
             else{
                 supportActionBar!!.title =getString(R.string.app_name)
             }
-        }*/
+        }
 
 
 

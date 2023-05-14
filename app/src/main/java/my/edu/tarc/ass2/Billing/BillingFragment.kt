@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -52,18 +53,30 @@ class BillingFragment : Fragment() {
         }
 
         lifecycleScope.launch {
+            if(billViewModel.getBillStatus(123412341111,(monthDisplay-1),yearDisplay)=="Successful"){
+                binding.buttonCheckBill.isEnabled=false
+                val getCurrentCharges = billViewModel.getCurrentCharges(123412341111,(monthDisplay-1),yearDisplay)
+                binding.displayCurrentCharges.text = getCurrentCharges.toString()
+                val getOutstandingCharges = billViewModel.getOutstandingCharges(123412341111,(monthDisplay-1),yearDisplay)
+                binding.displayOutstanding.text = getOutstandingCharges.toString()
+                val getTotalAmount = billViewModel.getTotalAmount(123412341111,(monthDisplay-1),yearDisplay)
+                binding.displayTot1.text = getTotalAmount.toString()
+            }
+            else {
+                binding.buttonCheckBill.isEnabled=true
 
-            val getPaymentDue = billViewModel.getPaymentDue(123412341111,(monthDisplay-1),yearDisplay)
-            binding.displayPaymentDue2.text = getPaymentDue
+                val getPaymentDue = billViewModel.getPaymentDue(123412341111,(monthDisplay-1),yearDisplay)
+                binding.displayPaymentDue2.text = getPaymentDue
 
-            val getTotalAmount = billViewModel.getTotalAmount(123412341111,(monthDisplay-1),yearDisplay)
-            binding.displayTot.text = getTotalAmount.toString()
+                val getTotalAmount = billViewModel.getTotalAmount(123412341111,(monthDisplay-1),yearDisplay)
+                binding.displayTot1.text = getTotalAmount.toString()
 
-            val getCurrentCharges = billViewModel.getCurrentCharges(123412341111,(monthDisplay-1),yearDisplay)
-            binding.displayCurrentCharges.text = getCurrentCharges.toString()
+                val getCurrentCharges = billViewModel.getCurrentCharges(123412341111,(monthDisplay-1),yearDisplay)
+                binding.displayCurrentCharges.text = getCurrentCharges.toString()
 
-            val getOutstandingCharges = billViewModel.getOutstandingCharges(123412341111,(monthDisplay-1),yearDisplay)
-            binding.displayOutstanding.text = getOutstandingCharges.toString()
+                val getOutstandingCharges = billViewModel.getOutstandingCharges(123412341111,(monthDisplay-1),yearDisplay)
+                binding.displayOutstanding.text = getOutstandingCharges.toString()
+            }
 
         }
 
@@ -74,7 +87,10 @@ class BillingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonCheckBill.setOnClickListener(){
             findNavController().navigate(R.id.action_billingFragment_to_billInfoFragment)
+        }
 
+        binding.buttonBillH.setOnClickListener(){
+            findNavController().navigate(R.id.action_billingFragment_to_billHistoryFragment)
         }
 
     }

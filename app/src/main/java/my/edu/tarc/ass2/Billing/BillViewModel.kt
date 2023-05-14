@@ -104,6 +104,24 @@ class BillViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    suspend fun updateCurrentChanges(){
+        withContext(Dispatchers.IO) {
+            databaseDao.updateCurrentChanges()
+        }
+    }
+
+    suspend fun updateOutstandingChanges(){
+        withContext(Dispatchers.IO) {
+            databaseDao.updateOutstandingChanges()
+        }
+    }
+
+    suspend fun updateTotalAmount(){
+        withContext(Dispatchers.IO) {
+            databaseDao.updateTotalAmount()
+        }
+    }
+
     init {
         val database = AppDatabase.getDatabase(application)
         databaseDao = database.databaseDao()

@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.github.mikephil.charting.charts.BarChart
@@ -53,14 +54,8 @@ class DashboardFragment : Fragment() {
     private val binding get() = _binding!!
 
 
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -75,6 +70,7 @@ class DashboardFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         //Initialize ViewModel
         //dashboardViewModel= ViewModelProvider(this).get(DashboardViewModel::class.java)
         val handler = Handler(Looper.getMainLooper())
@@ -90,17 +86,14 @@ class DashboardFragment : Fragment() {
 
         binding.profilePic.setOnClickListener(){
 
-//
         }
 
         binding.buttonAppliances.setOnClickListener(){
-
+            findNavController().navigate(R.id.appliancesFragment)
         }
 
         binding.buttonViewBill.setOnClickListener(){
-            //val navController = Navigation.findNavController( R.id.dashboard)
-            //navController.navigate(R.id.)
-
+            findNavController().navigate(R.id.billingFragment)
         }
 
         viewPager = binding.viewPager
@@ -230,9 +223,6 @@ class DashboardFragment : Fragment() {
 
             val getPaymentDue = dashboardViewModel.getPaymentDue(accNo,(monthDisplay-1),yearDisplay)
             binding.displayPaymentDue.text = getPaymentDue
-
-            val getOptimumUsage = "adf"
-            binding.displayOptimumUsage.text = getOptimumUsage
 
             val getTotalAmount = dashboardViewModel.getTotalAmount(accNo,(monthDisplay-1),yearDisplay)
             val formattedNumber = decimalFormat.format(getTotalAmount)

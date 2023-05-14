@@ -65,7 +65,7 @@ class AppManageAddedFragment : Fragment() {
         val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")
 
         binding.buttonDelete.setOnClickListener{
-            findNavController().navigate(R.id.action_appManageAddedFragment_to_appManageDeleteFragment)
+            findNavController().navigate(R.id.action_appManageAddedFragment_to_appliancesFragment)
         }
 
         binding.buttonAddNew.setOnClickListener{

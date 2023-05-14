@@ -73,7 +73,7 @@
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:background="@drawable/button_corner_yellow"
-                    android:text="@string/appliances_manage_delete"
+                    android:text="@string/appliances_manage_cancel"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"

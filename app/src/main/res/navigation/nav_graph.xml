@@ -171,6 +171,9 @@
         <action
             android:id="@+id/action_appManageAddedFragment_to_appManageDetailsFragment"
             app:destination="@id/appManageDetailsFragment" />
+        <action
+            android:id="@+id/action_appManageAddedFragment_to_appliancesFragment"
+            app:destination="@id/appliancesFragment" />
     </fragment>
     <fragment
         android:id="@+id/appManageAddNewFragment"

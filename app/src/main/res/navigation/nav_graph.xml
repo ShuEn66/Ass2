@@ -129,6 +129,9 @@
         <action
             android:id="@+id/action_loginFragment_to_userRegistrationFragment"
             app:destination="@id/userRegistrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <activity
         android:id="@+id/dashboard"

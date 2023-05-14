@@ -61,7 +61,7 @@ class LoginFragment : Fragment() {
             lifecycleScope.launch {
                 val existingUser = profileViewModel.getUserbyEmail(email)
                 val correctPassword = profileViewModel.getUserPassword(email)
-                val navController = findNavController()
+//                val navController = findNavController()
 
                 if (existingUser == null) {
                     Toast.makeText(requireContext(), "Account does not exist, please register an account", Toast.LENGTH_SHORT).show()
@@ -75,7 +75,8 @@ class LoginFragment : Fragment() {
                                 }
                                 Toast.makeText(context,getString(R.string.loginSuccessful)
                                     , Toast.LENGTH_SHORT).show()
-                                navController.navigate(R.id.dashboard)}
+                                findNavController().navigate(R.id.action_loginFragment_to_profileFragment)}
+//                                navController.navigate(R.id.dashboard)}
                             else{
                                 Toast.makeText(context,getString(R.string.WrongPassword)
                                     , Toast.LENGTH_SHORT).show()

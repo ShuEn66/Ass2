@@ -22,8 +22,10 @@ class CalAdviceDialogFragment : Fragment() {
     ): View? {
         _binding = FragmentCalAdviceDialogBinding.inflate(inflater, container, false)
         val stringArray = resources.getStringArray(R.array.advices_list_general)
-        binding.textViewAdvice1.text = stringArray[0]
-        binding.textViewAdvice2.text = stringArray[1]
+        val stringArray2 = resources.getStringArray(R.array.advices_list_appliances)
+        val random = (1..8).random()
+        binding.textViewAdvice1.text = stringArray2[random]
+        binding.textViewAdvice2.text = stringArray[2]
         binding.textViewAdvice2.text = stringArray[3]
         return binding.root
     }

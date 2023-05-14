@@ -54,6 +54,9 @@ class CostCalculatorFragment : Fragment() {
             findNavController().navigate(R.id.action_costCalculatorFragment_to_calAdviceDialogFragment)
         }
 
+        val stringArray = resources.getStringArray(R.array.calculatorPeriodical)
+        binding.textCostCalculator2.text = stringArray[1]
+
         //To display added appliances
         dataInitializer()
         val layoutManager = LinearLayoutManager(context)

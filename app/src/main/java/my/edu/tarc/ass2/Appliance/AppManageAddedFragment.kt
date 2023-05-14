@@ -5,15 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.AddedAppliance
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.Registration.MyAdapter
 import my.edu.tarc.ass2.databinding.FragmentAppManageAddedBinding
+import androidx.lifecycle.observe
 
 class AppManageAddedFragment : Fragment() {
+
+    //View model
+    private val appliancesViewModel: AppliancesViewModel by viewModels()
 
     //RecyclerView for added appliances
     private lateinit var adapter: MyAdapter
@@ -45,7 +52,9 @@ class AppManageAddedFragment : Fragment() {
             findNavController().navigate(R.id.action_appManageAddedFragment_to_appManageAddNewFragment)
         }
 
+        //Old code
         //To display added appliances
+
         dataInitializer()
         val layoutManager = LinearLayoutManager(context)
         recyclerView = view.findViewById(R.id.recyclerViewApp)
@@ -53,11 +62,35 @@ class AppManageAddedFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         adapter = MyAdapter(appliancesArrayList)
         recyclerView.adapter = adapter
+
+
+
+
+        /*
+        dataInitializer()
+        val layoutManager = LinearLayoutManager(context)
+        recyclerView = view.findViewById(R.id.recyclerViewApp)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.setHasFixedSize(true)
+         */
     }
 
     //To display appliances
     private fun dataInitializer(){
         appliancesArrayList = arrayListOf<AddedAppliance>()
+
+        //Binding with database
+        /*lifecycleScope.launch {
+
+
+
+            // Set the adapter for the RecyclerView
+            adapter = MyAdapter(appliancesArrayList)
+            recyclerView.adapter = adapter
+        }
+         */
+
+        //Old code
         //Get string name
         applianceName = arrayOf(
             getString(R.string.appliances_cal_ok),
@@ -72,6 +105,7 @@ class AppManageAddedFragment : Fragment() {
             val appliances = AddedAppliance(applianceName[i])
             appliancesArrayList.add(appliances)
         }
+
     }
 
 }

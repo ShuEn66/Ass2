@@ -114,16 +114,23 @@ interface databaseDao {
 
     //APPLIANCES
 
-    //APPLIANCES (JIA XUAN PLS CHECK UR SQL I MIGHT WRONGGG)
-
     @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail =:userEmail AND Appliances.AppliancesName= :appliancesName")
     fun getAppliances(userEmail: String, appliancesName: String ):LiveData<Appliances>
+
+    @Query("SELECT * FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail =:userEmail")
+    fun getAllAppliances(userEmail: String):LiveData<List<Appliances>>
 
     @Query("SELECT Appliances.EstimatedUsage FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = :userEmail ")
     suspend fun getEstimatedUsage(userEmail: String ):Double
 
+    @Query("SELECT Appliances.AppliancesPower FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = :userEmail ")
+    suspend fun getAppliancesPower(userEmail: String ):Double
+
     @Query("SELECT Appliances.AppliancesName FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = :userEmail ")
     suspend fun getAppliancesName(userEmail: String ):String
+
+    @Query("SELECT Appliances.AppliancesType FROM Appliances, User WHERE Appliances.UserEmail = User.UserEmail AND User.UserEmail = :userEmail ")
+    suspend fun getAppliancesType(userEmail: String ):String
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun setAppliances(Appliances:Appliances)

@@ -28,12 +28,6 @@ class BillInfoFragment : Fragment() {
     private var _binding: FragmentBillInfoBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -42,6 +36,16 @@ class BillInfoFragment : Fragment() {
     ): View? {
         _binding = FragmentBillInfoBinding.inflate(inflater, container, false)
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
+        binding.buttonPayBill.setOnClickListener(){
+            findNavController().navigate(R.id.action_billInfoFragment_to_paymentFragment)
+
+        }
         val current = LocalDateTime.now()
         val monthDisplay =  current.monthValue
         var yearDisplay =  current.year
@@ -69,16 +73,6 @@ class BillInfoFragment : Fragment() {
 
         }
 
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
-        binding.buttonPayBill.setOnClickListener(){
-            findNavController().navigate(R.id.action_billInfoFragment_to_paymentFragment)
-
-        }
 
     }
 }

@@ -33,18 +33,16 @@ class BillingFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var sharedPre: SharedPreferences
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
+        binding.buttonCheckBill.setOnClickListener(){
+            findNavController().navigate(R.id.action_billingFragment_to_billInfoFragment)
         }
-    }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        _binding = FragmentBillingBinding.inflate(inflater, container, false)
-
+        binding.buttonBillH.setOnClickListener(){
+            findNavController().navigate(R.id.action_billingFragment_to_billHistoryFragment)
+        }
         val current = LocalDateTime.now()
         val ldt = LocalDateTime.parse(current.toString() )
         val formatter = DateTimeFormatter.ofPattern("dd.MM.uuuu", Locale.ENGLISH)
@@ -87,20 +85,16 @@ class BillingFragment : Fragment() {
 
         }
 
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        _binding = FragmentBillingBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
-        binding.buttonCheckBill.setOnClickListener(){
-            findNavController().navigate(R.id.action_billingFragment_to_billInfoFragment)
-        }
 
-        binding.buttonBillH.setOnClickListener(){
-            findNavController().navigate(R.id.action_billingFragment_to_billHistoryFragment)
-        }
-
-    }
 
 }

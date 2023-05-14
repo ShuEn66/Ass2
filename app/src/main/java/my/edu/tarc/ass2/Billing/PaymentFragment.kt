@@ -43,47 +43,10 @@ class PaymentFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentPaymentBinding.inflate(inflater, container, false)
 
-
-
-        lifecycleScope.launch {
-            val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")
-            val accNo = loginEmail.let { profileViewModel.getAccNumber(it.toString()) }
-            val current = LocalDateTime.now()
-            val ldt = LocalDateTime.parse(current.toString())
-            val formatter = DateTimeFormatter.ofPattern("dd.MM.uuuu", Locale.ENGLISH)
-            val monthDisplay = current.monthValue
-            var yearDisplay = current.year
-            val timeDisplay = current.toLocalTime()
-            if (monthDisplay == 1) {
-                yearDisplay -= 1
-            }
-            val output = ldt.format(formatter)
-            val getTotalAmount = billViewModel.getTotalAmount(accNo , (monthDisplay - 1), yearDisplay)
-            binding.displayAmountPaid.text = getTotalAmount.toString()
-
-            val newPayment1 = Payment("111111111111111", output, "Successful", "Online Banking", getTotalAmount)
-            billViewModel.setPaymentDetails(newPayment1)
-            val getPaymentDate = billViewModel.getPaymentDate(111111111111111)
-            binding.displayPaymentDate2.text = getPaymentDate
-
-            binding.displayTimePayment.text = timeDisplay.toString()
-            billViewModel.updateBillStatus()
-
-            val getPaymentStatus = billViewModel.getPaymentStatus(111111111111111)
-            binding.displayStatus.text = getPaymentStatus
-
-            val getPaymentMethod = billViewModel.getPaymentMethod(111111111111111)
-            binding.displayPM.text = getPaymentMethod
-
-            billViewModel.updateCurrentChanges()
-            billViewModel.updateOutstandingChanges()
-            billViewModel.updateTotalAmount()
-
-        }
-
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
             sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
@@ -92,6 +55,43 @@ class PaymentFragment : Fragment() {
                 findNavController().navigate(R.id.action_paymentFragment_to_billingFragment)
 
             }
+
+            lifecycleScope.launch {
+                val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")
+                val accNo = loginEmail.let { profileViewModel.getAccNumber(it.toString()) }
+                val current = LocalDateTime.now()
+                val ldt = LocalDateTime.parse(current.toString())
+                val formatter = DateTimeFormatter.ofPattern("dd.MM.uuuu", Locale.ENGLISH)
+                val monthDisplay = current.monthValue
+                var yearDisplay = current.year
+                val timeDisplay = current.toLocalTime()
+                if (monthDisplay == 1) {
+                    yearDisplay -= 1
+                }
+                val output = ldt.format(formatter)
+                val getTotalAmount = billViewModel.getTotalAmount(accNo , (monthDisplay - 1), yearDisplay)
+                binding.displayAmountPaid.text = getTotalAmount.toString()
+
+                val newPayment1 = Payment("111111111111111", output, "Successful", "Online Banking", getTotalAmount)
+                billViewModel.setPaymentDetails(newPayment1)
+                val getPaymentDate = billViewModel.getPaymentDate(111111111111111)
+                binding.displayPaymentDate2.text = getPaymentDate
+
+                binding.displayTimePayment.text = timeDisplay.toString()
+                billViewModel.updateBillStatus()
+
+                val getPaymentStatus = billViewModel.getPaymentStatus(111111111111111)
+                binding.displayStatus.text = getPaymentStatus
+
+                val getPaymentMethod = billViewModel.getPaymentMethod(111111111111111)
+                binding.displayPM.text = getPaymentMethod
+
+                billViewModel.updateCurrentChanges()
+                billViewModel.updateOutstandingChanges()
+                billViewModel.updateTotalAmount()
+
+            }
+
 
         }
 

@@ -75,7 +75,7 @@ class DashboardFragment : Fragment() {
         sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
         //Initialize ViewModel
         //dashboardViewModel= ViewModelProvider(this).get(DashboardViewModel::class.java)
-        val handler = Handler(Looper.getMainLooper())
+        //val handler = Handler(Looper.getMainLooper())
         //val autoScrollTask = AutoScrollTask(numPages, handler)
         //onclicks
         binding.hotlinePic.setOnClickListener(){

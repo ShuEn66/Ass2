@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,47 +53,44 @@ class AppManageAddedFragment : Fragment() {
             findNavController().navigate(R.id.action_appManageAddedFragment_to_appManageAddNewFragment)
         }
 
-        //Old code
         //To display added appliances
-
         dataInitializer()
+
         val layoutManager = LinearLayoutManager(context)
-        recyclerView = view.findViewById(R.id.recyclerViewApp)
+        recyclerView = binding.recyclerViewApp
         recyclerView.layoutManager = layoutManager
         recyclerView.setHasFixedSize(true)
         adapter = MyAdapter(appliancesArrayList)
         recyclerView.adapter = adapter
-
-
-
-
-        /*
-        dataInitializer()
-        val layoutManager = LinearLayoutManager(context)
-        recyclerView = view.findViewById(R.id.recyclerViewApp)
-        recyclerView.layoutManager = layoutManager
-        recyclerView.setHasFixedSize(true)
-         */
     }
 
     //To display appliances
     private fun dataInitializer(){
         appliancesArrayList = arrayListOf<AddedAppliance>()
 
-        //Binding with database
-        /*lifecycleScope.launch {
+        //Current user
+        val userEmail = "123412341111"
 
+        //Get data list
+        lifecycleScope.launch {
+            appliancesViewModel.getAllAppliances(userEmail).observe(viewLifecycleOwner, Observer { appliancesList ->
 
+                //Display 1 by 1
+                for (i in appliancesList.indices) {
+                    val appliances = AddedAppliance(appliancesList[i].AppliancesName)
+                    appliancesArrayList.add(appliances)
+                }
+                
+                // Set the adapter after the data is fetched
+                adapter = MyAdapter(appliancesArrayList)
+                recyclerView.adapter = adapter
 
-            // Set the adapter for the RecyclerView
-            adapter = MyAdapter(appliancesArrayList)
-            recyclerView.adapter = adapter
+            })
         }
-         */
 
         //Old code
         //Get string name
-        applianceName = arrayOf(
+        /*applianceName = arrayOf(
             getString(R.string.appliances_cal_ok),
             getString(R.string.appliances_cal_ok),
             getString(R.string.appliances_cal_ok),
@@ -104,8 +102,7 @@ class AppManageAddedFragment : Fragment() {
         for (i in applianceName.indices){
             val appliances = AddedAppliance(applianceName[i])
             appliancesArrayList.add(appliances)
-        }
-
+        }*/
     }
 
 }

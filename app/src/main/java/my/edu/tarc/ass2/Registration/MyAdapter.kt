@@ -21,7 +21,7 @@ class MyAdapter(private val appliancesList : ArrayList<AddedAppliance>, private 
     }
     private var buttonClickListener: onButtonClickListener? = null
     fun setOnButtonClickListener(listener: onButtonClickListener) {
-        this.buttonClickListener = listener
+        buttonClickListener = listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

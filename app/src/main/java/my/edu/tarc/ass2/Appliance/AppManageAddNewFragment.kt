@@ -1,5 +1,7 @@
 package my.edu.tarc.ass2.Appliance
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
@@ -19,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import my.edu.tarc.ass2.Profile.ProfileViewModel
 
 
 class AppManageAddNewFragment : Fragment() {
@@ -27,6 +30,10 @@ class AppManageAddNewFragment : Fragment() {
     private val appliancesViewModel: AppliancesViewModel by viewModels()
 
     private var _binding: FragmentAppManageAddNewBinding? = null
+
+    //To get user email
+    private val profileViewModel: AppliancesViewModel by viewModels()
+    private lateinit var sharedPre: SharedPreferences
 
     private val binding get() = _binding!!
 
@@ -42,9 +49,16 @@ class AppManageAddNewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //To get user email
+        sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
+
         binding.buttonCancel.setOnClickListener{
             findNavController().navigate(R.id.action_appManageAddNewFragment_to_appManageAddedFragment)
         }
+
+        //Get user email
+        val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"").toString()
+        val userEmail = "123412341111"
 
         //Add new appliance to database
         binding.buttonAddNew.setOnClickListener {
@@ -60,8 +74,8 @@ class AppManageAddNewFragment : Fragment() {
                     binding.spinnerDetailsType.selectedItem.toString(),
                     estimateUsage,
                     power,
-                    //Get logged in user email
-                    "123412341111")
+                    //Logged in user email
+                    userEmail)
 
                 //Binding with database
                 lifecycleScope.launch {

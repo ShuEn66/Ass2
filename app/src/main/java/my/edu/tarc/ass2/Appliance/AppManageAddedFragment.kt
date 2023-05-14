@@ -1,5 +1,7 @@
 package my.edu.tarc.ass2.Appliance
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -24,6 +26,10 @@ class AppManageAddedFragment : Fragment() {
 
     //View model
     private val appliancesViewModel: AppliancesViewModel by viewModels()
+
+    //To get user email
+    private val profileViewModel: AppliancesViewModel by viewModels()
+    private lateinit var sharedPre: SharedPreferences
 
     //RecyclerView for added appliances
     private lateinit var adapter: MyAdapter
@@ -53,6 +59,10 @@ class AppManageAddedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //Get user email
+        sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")
 
         binding.buttonDelete.setOnClickListener{
             findNavController().navigate(R.id.action_appManageAddedFragment_to_appManageDeleteFragment)

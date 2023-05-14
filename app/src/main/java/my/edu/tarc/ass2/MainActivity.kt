@@ -10,15 +10,20 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
+import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.Appliance.AppManageAddedFragment
+import my.edu.tarc.ass2.Dashboard.DashboardViewModel
 import my.edu.tarc.ass2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private val dashboardViewModel: DashboardViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +39,124 @@ class MainActivity : AppCompatActivity() {
 
        //go dashboard from main activity
         navController.navigate(R.id.dashboard)
+
+        lifecycleScope.launch {
+            //set bill details for 1 time for data retrieval afterwards
+            val newContact11 = Bill(
+                "001",
+                1,
+                2023,
+                110.00,
+                "2023-01-01",
+                "2023-01-31",
+                "Paid",
+                100.00,
+                110.00,
+                0.00,
+                0.00,
+                123412341111,
+                "A001"
+            )
+            val newContact12 = Bill(
+                "002",
+                2,
+                2023,
+                110.00,
+                "2023-02-01",
+                "2023-02-28",
+                "Paid",
+                200.00,
+                110.00,
+                0.00,
+                0.00,
+                123412341111,
+                "A002"
+            )
+            val newContact13 = Bill(
+                "003",
+                3,
+                2023,
+                120.00,
+                "2023-03-01",
+                "2023-03-31",
+                "Paid",
+                300.00,
+                120.00,
+                0.00,
+                0.00,
+                123412341111,
+                "A003"
+            )
+            val newContact14 = Bill(
+                "004",
+                4,
+                2023,
+                120.00,
+                "2023-04-01",
+                "2023-04-30",
+                "Unpaid",
+                400.00,
+                120.00,
+                0.00,
+                0.00,
+                123412341111,
+                "A004"
+            )
+            val newContact15 = Bill(
+                "005",
+                5,
+                2023,
+                111.00,
+                "2023-05-01",
+                "2023-05-31",
+                "Unpaid",
+                500.00,
+                230.00,
+                0.00,
+                0.00,
+                123412341111,
+                "A005"
+            )
+            val newContact2 = Bill(
+                "001",
+                3,
+                2023,
+                100.00,
+                "2023-03-01",
+                "2023-03-31",
+                "Unpaid",
+                400.00,
+                100.00,
+                0.00,
+                0.00,
+                123412341112,
+                "A001"
+            )
+            val newContact2a = Bill(
+                "002",
+                4,
+                2023,
+                220.00,
+                "2023-04-01",
+                "2023-04-30",
+                "Unpaid",
+                400.00,
+                100.00,
+                200.00,
+                20.00,
+                123412341112,
+                "A002"
+            )
+
+            dashboardViewModel.setBillingDetails(newContact11)
+            dashboardViewModel.setBillingDetails(newContact12)
+            dashboardViewModel.setBillingDetails(newContact13)
+            dashboardViewModel.setBillingDetails(newContact14)
+            dashboardViewModel.setBillingDetails(newContact15)
+            dashboardViewModel.setBillingDetails(newContact2)
+            dashboardViewModel.setBillingDetails(newContact2a)
+        }
+
 
         navController.addOnDestinationChangedListener{
                 _,destination,_->

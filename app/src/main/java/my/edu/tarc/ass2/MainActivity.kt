@@ -33,9 +33,9 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
        //go dashboard from main activity
-        navController.navigate(R.id.dashboard)
+        //navController.navigate(R.id.dashboard)
 
-        navController.addOnDestinationChangedListener{
+        /*navController.addOnDestinationChangedListener{
                 _,destination,_->
             if(destination.id==R.id.userRegistrationFragment
                 ||destination.id==R.id.userInfoRegisterFragment
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             else{
                 supportActionBar!!.title =getString(R.string.app_name)
             }
-        }
+        }*/
 
 
 

@@ -56,12 +56,12 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    suspend fun getAccNoResident(email: String): String{
+    /*suspend fun getAccNoResident(email: String): String{
         return withContext(Dispatchers.IO) {
             val d = databaseDao.getAccNoResident(email)
             d
         }
-    }
+    }*/
 
     suspend fun setAccDetails(ElectricityAcc: ElectricityAcc){
         withContext(Dispatchers.IO) {

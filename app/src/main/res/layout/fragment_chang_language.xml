@@ -120,7 +120,7 @@
 
     <RadioGroup
         android:id="@+id/radioGroupLang"
-        android:layout_width="46dp"
+        android:layout_width="100dp"
         android:layout_height="269dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="228dp"
@@ -131,16 +131,20 @@
 
         <RadioButton
             android:id="@+id/radioButtonEng"
+            style="@style/Widget.MaterialComponents.CompoundButton.RadioButton"
             android:layout_width="match_parent"
-            android:layout_height="90dp" />
+            android:layout_height="90dp"
+            android:checked="false" />
 
         <RadioButton
             android:id="@+id/radioButtonMalay"
+            style="@style/Widget.MaterialComponents.CompoundButton.RadioButton"
             android:layout_width="match_parent"
             android:layout_height="90dp" />
 
         <RadioButton
             android:id="@+id/radioButtonChi"
+            style="@style/Widget.MaterialComponents.CompoundButton.RadioButton"
             android:layout_width="match_parent"
             android:layout_height="90dp" />
     </RadioGroup>

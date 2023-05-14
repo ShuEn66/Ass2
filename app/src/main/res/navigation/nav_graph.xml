@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/appliancesFragment">
+    app:startDestination="@id/appSettingsFragment">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -126,6 +126,148 @@
         android:label="activity_dashboard"
         tools:layout="@layout/activity_dashboard" />
     <fragment
+        android:id="@+id/editNameFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditNameFragment"
+        android:label="fragment_edit_name"
+        tools:layout="@layout/fragment_edit_name">
+        <action
+            android:id="@+id/action_editNameFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editMobileFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditMobileFragment"
+        android:label="fragment_edit_mobile"
+        tools:layout="@layout/fragment_edit_mobile">
+        <action
+            android:id="@+id/action_editMobileFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/appManageAddedFragment"
+        android:name="my.edu.tarc.ass2.Appliance.AppManageAddedFragment"
+        android:label="fragment_app_manage_added"
+        tools:layout="@layout/fragment_app_manage_added">
+        <action
+            android:id="@+id/action_appManageAddedFragment_to_appManageAddNewFragment"
+            app:destination="@id/appManageAddNewFragment" />
+        <action
+            android:id="@+id/action_appManageAddedFragment_to_appManageDeleteFragment"
+            app:destination="@id/appManageDeleteFragment" />
+        <action
+            android:id="@+id/action_appManageAddedFragment_to_appManageDetailsFragment"
+            app:destination="@id/appManageDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/appManageAddNewFragment"
+        android:name="my.edu.tarc.ass2.Appliance.AppManageAddNewFragment"
+        android:label="fragment_app_manage_add_new"
+        tools:layout="@layout/fragment_app_manage_add_new">
+        <action
+            android:id="@+id/action_appManageAddNewFragment_to_appManageAddedFragment"
+            app:destination="@id/appManageAddedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/appManageDeleteFragment"
+        android:name="my.edu.tarc.ass2.Appliance.AppManageDeleteFragment"
+        android:label="fragment_app_manage_delete"
+        tools:layout="@layout/fragment_app_manage_delete">
+        <action
+            android:id="@+id/action_appManageDeleteFragment_to_confirmDeleteDialogFragment"
+            app:destination="@id/confirmDeleteDialogFragment" />
+        <action
+            android:id="@+id/action_appManageDeleteFragment_to_appManageAddedFragment"
+            app:destination="@id/appManageAddedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/appManageDetailsFragment"
+        android:name="my.edu.tarc.ass2.Appliance.AppManageDetailsFragment"
+        android:label="fragment_app_manage_details"
+        tools:layout="@layout/fragment_app_manage_details">
+        <action
+            android:id="@+id/action_appManageDetailsFragment_to_appManageAddedFragment"
+            app:destination="@id/appManageAddedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calHelpDialogFragment"
+        android:name="my.edu.tarc.ass2.Appliance.CalHelpDialogFragment"
+        android:label="fragment_cal_help_dialog"
+        tools:layout="@layout/fragment_cal_help_dialog">
+        <action
+            android:id="@+id/action_calHelpDialogFragment_to_costCalculatorFragment"
+            app:destination="@id/costCalculatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmDeleteDialogFragment"
+        android:name="my.edu.tarc.ass2.Appliance.ConfirmDeleteDialogFragment"
+        android:label="fragment_confirm_delete_dialog"
+        tools:layout="@layout/fragment_confirm_delete_dialog">
+        <action
+            android:id="@+id/action_confirmDeleteDialogFragment_to_appManageDeleteFragment"
+            app:destination="@id/appManageDeleteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/costCalculatorFragment"
+        android:name="my.edu.tarc.ass2.Appliance.CostCalculatorFragment"
+        android:label="fragment_cost_calculator"
+        tools:layout="@layout/fragment_cost_calculator">
+        <action
+            android:id="@+id/action_costCalculatorFragment_to_calHelpDialogFragment"
+            app:destination="@id/calHelpDialogFragment" />
+        <action
+            android:id="@+id/action_costCalculatorFragment_to_calAdviceDialogFragment"
+            app:destination="@id/calAdviceDialogFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editAccNameFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditAccNameFragment"
+        android:label="fragment_edit_acc_name"
+        tools:layout="@layout/fragment_edit_acc_name">
+        <action
+            android:id="@+id/action_editAccNameFragment_to_electricityAccFragment"
+            app:destination="@id/electricityAccFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editNoResidentFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditNoResidentFragment"
+        android:label="fragment_edit_no_resident"
+        tools:layout="@layout/fragment_edit_no_resident">
+        <action
+            android:id="@+id/action_editNoResidentFragment_to_electricityAccFragment"
+            app:destination="@id/electricityAccFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editMonthlyIncomeFragment"
+        android:name="my.edu.tarc.ass2.Profile.EditMonthlyIncomeFragment"
+        android:label="fragment_edit_monthly_income"
+        tools:layout="@layout/fragment_edit_monthly_income">
+        <action
+            android:id="@+id/action_editMonthlyIncomeFragment_to_electricityAccFragment"
+            app:destination="@id/electricityAccFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/appliancesFragment"
+        android:name="my.edu.tarc.ass2.Appliance.AppliancesFragment"
+        android:label="fragment_appliances"
+        tools:layout="@layout/fragment_appliances">
+        <action
+            android:id="@+id/action_appliancesFragment3_to_appManageAddedFragment"
+            app:destination="@id/appManageAddedFragment" />
+        <action
+            android:id="@+id/action_appliancesFragment3_to_costCalculatorFragment"
+            app:destination="@id/costCalculatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calAdviceDialogFragment"
+        android:name="my.edu.tarc.ass2.Appliance.CalAdviceDialogFragment"
+        android:label="CalAdviceDialogFragment">
+        <action
+            android:id="@+id/action_calAdviceDialogFragment_to_costCalculatorFragment"
+            app:destination="@id/costCalculatorFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/appSettingsFragment"
         android:name="my.edu.tarc.ass2.AppSettings.AppSettingsFragment"
         android:label="@string/appSettings"
@@ -147,153 +289,5 @@
         android:name="my.edu.tarc.ass2.AppSettings.DeveloperInfoFragment"
         android:label="@string/devInfo"
         tools:layout="@layout/fragment_developer_info" />
-    <fragment
-        android:id="@+id/editNameFragment"
-        android:name="my.edu.tarc.ass2.Profile.EditNameFragment"
-        android:label="fragment_edit_name"
-        tools:layout="@layout/fragment_edit_name">
-        <action
-            android:id="@+id/action_editNameFragment_to_userFragment"
-            app:destination="@id/userFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/editMobileFragment"
-        android:name="my.edu.tarc.ass2.Profile.EditMobileFragment"
-        android:label="fragment_edit_mobile"
-        tools:layout="@layout/fragment_edit_mobile" >
-        <action
-            android:id="@+id/action_editMobileFragment_to_userFragment"
-            app:destination="@id/userFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/billingFragment"
-        android:name="my.edu.tarc.ass2.AppSettings.ChangLanguageFragment"
-        android:label="fragment_billing"
-        tools:layout="@layout/fragment_billing" />
-
-    <fragment
-        android:id="@+id/appManageAddedFragment"
-        android:name="my.edu.tarc.ass2.Appliance.AppManageAddedFragment"
-        android:label="fragment_app_manage_added"
-        tools:layout="@layout/fragment_app_manage_added" >
-        <action
-            android:id="@+id/action_appManageAddedFragment_to_appManageAddNewFragment"
-            app:destination="@id/appManageAddNewFragment" />
-        <action
-            android:id="@+id/action_appManageAddedFragment_to_appManageDeleteFragment"
-            app:destination="@id/appManageDeleteFragment" />
-        <action
-            android:id="@+id/action_appManageAddedFragment_to_appManageDetailsFragment"
-            app:destination="@id/appManageDetailsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/appManageAddNewFragment"
-        android:name="my.edu.tarc.ass2.Appliance.AppManageAddNewFragment"
-        android:label="fragment_app_manage_add_new"
-        tools:layout="@layout/fragment_app_manage_add_new" >
-        <action
-            android:id="@+id/action_appManageAddNewFragment_to_appManageAddedFragment"
-            app:destination="@id/appManageAddedFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/appManageDeleteFragment"
-        android:name="my.edu.tarc.ass2.Appliance.AppManageDeleteFragment"
-        android:label="fragment_app_manage_delete"
-        tools:layout="@layout/fragment_app_manage_delete" >
-        <action
-            android:id="@+id/action_appManageDeleteFragment_to_confirmDeleteDialogFragment"
-            app:destination="@id/confirmDeleteDialogFragment" />
-        <action
-            android:id="@+id/action_appManageDeleteFragment_to_appManageAddedFragment"
-            app:destination="@id/appManageAddedFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/appManageDetailsFragment"
-        android:name="my.edu.tarc.ass2.Appliance.AppManageDetailsFragment"
-        android:label="fragment_app_manage_details"
-        tools:layout="@layout/fragment_app_manage_details" >
-        <action
-            android:id="@+id/action_appManageDetailsFragment_to_appManageAddedFragment"
-            app:destination="@id/appManageAddedFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/calHelpDialogFragment"
-        android:name="my.edu.tarc.ass2.Appliance.CalHelpDialogFragment"
-        android:label="fragment_cal_help_dialog"
-        tools:layout="@layout/fragment_cal_help_dialog" >
-        <action
-            android:id="@+id/action_calHelpDialogFragment_to_costCalculatorFragment"
-            app:destination="@id/costCalculatorFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/confirmDeleteDialogFragment"
-        android:name="my.edu.tarc.ass2.Appliance.ConfirmDeleteDialogFragment"
-        android:label="fragment_confirm_delete_dialog"
-        tools:layout="@layout/fragment_confirm_delete_dialog" >
-        <action
-            android:id="@+id/action_confirmDeleteDialogFragment_to_appManageDeleteFragment"
-            app:destination="@id/appManageDeleteFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/costCalculatorFragment"
-        android:name="my.edu.tarc.ass2.Appliance.CostCalculatorFragment"
-        android:label="fragment_cost_calculator"
-        tools:layout="@layout/fragment_cost_calculator" >
-        <action
-            android:id="@+id/action_costCalculatorFragment_to_calHelpDialogFragment"
-            app:destination="@id/calHelpDialogFragment" />
-        <action
-            android:id="@+id/action_costCalculatorFragment_to_calAdviceDialogFragment"
-            app:destination="@id/calAdviceDialogFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/editAccNameFragment"
-        android:name="my.edu.tarc.ass2.Profile.EditAccNameFragment"
-        android:label="fragment_edit_acc_name"
-        tools:layout="@layout/fragment_edit_acc_name" >
-        <action
-            android:id="@+id/action_editAccNameFragment_to_electricityAccFragment"
-            app:destination="@id/electricityAccFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/editNoResidentFragment"
-        android:name="my.edu.tarc.ass2.Profile.EditNoResidentFragment"
-        android:label="fragment_edit_no_resident"
-        tools:layout="@layout/fragment_edit_no_resident" >
-        <action
-            android:id="@+id/action_editNoResidentFragment_to_electricityAccFragment"
-            app:destination="@id/electricityAccFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/editMonthlyIncomeFragment"
-        android:name="my.edu.tarc.ass2.Profile.EditMonthlyIncomeFragment"
-        android:label="fragment_edit_monthly_income"
-        tools:layout="@layout/fragment_edit_monthly_income" >
-        <action
-            android:id="@+id/action_editMonthlyIncomeFragment_to_electricityAccFragment"
-            app:destination="@id/electricityAccFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/appliancesFragment"
-        android:name="my.edu.tarc.ass2.Appliance.AppliancesFragment"
-        android:label="fragment_appliances"
-        tools:layout="@layout/fragment_appliances" >
-        <action
-            android:id="@+id/action_appliancesFragment3_to_appManageAddedFragment"
-            app:destination="@id/appManageAddedFragment" />
-        <action
-            android:id="@+id/action_appliancesFragment3_to_costCalculatorFragment"
-            app:destination="@id/costCalculatorFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/calAdviceDialogFragment"
-        android:name="my.edu.tarc.ass2.Appliance.CalAdviceDialogFragment"
-        android:label="CalAdviceDialogFragment" >
-        <action
-            android:id="@+id/action_calAdviceDialogFragment_to_costCalculatorFragment"
-            app:destination="@id/costCalculatorFragment" />
-    </fragment>
 
 </navigation>

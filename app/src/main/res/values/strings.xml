@@ -219,7 +219,7 @@
     <string name="appliances_cal_cost">Estimated Cost (RM)</string>
     <string name="appliances_cal_total">Grand Total</string>
     <string name="appliances_cal_advice">ADVICE</string>
-    <string name="appliances_cal_ok">OK</string>
+    <string name="appliances_cal_ok" translatable="false">OK</string>
     <string name="appliances_cal_help">This calculator will help you calculate the estimated cost of each appliances by month / day / year.\n\nThe calculation is done based on the added appliances.\n\nYou can add, edit and delete appliances in “View Appliances”.</string>
     <string name="appliances_cal_advice_title">Advice</string>
     <string-array name="advices_list_appliances">

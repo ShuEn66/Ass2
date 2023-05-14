@@ -10,7 +10,7 @@
         android:id="@+id/imageView17"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="200dp"
         android:src="@drawable/announcement_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

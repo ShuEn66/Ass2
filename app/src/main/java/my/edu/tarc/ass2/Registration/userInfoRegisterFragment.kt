@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.Profile.ProfileViewModel
 import my.edu.tarc.ass2.R
+import my.edu.tarc.ass2.User
 import my.edu.tarc.ass2.databinding.FragmentUserInfoRegisterBinding
 import my.edu.tarc.ass2.databinding.FragmentUserRegistrationBinding
 
@@ -56,18 +57,18 @@ class userInfoRegisterFragment : Fragment() {
             val ic = binding.editTextUserIC.text.toString()
             val mobile = binding.editTextUserMobile.text.toString()
             val storedEmail = sharedPre.getString(getString(R.string.UserEmail), "")
+            val storedPassword = sharedPre.getString(getString(R.string.UserPassword), "")
 
             lifecycleScope.launch {
                 if(isICValid(ic)){
                     if(name!=""&&ic!=""&&mobile!=""){
-                        if (storedEmail != null) {
-                            profileViewModel.updateUserName(storedEmail,name)
-                            profileViewModel.updateUserIC(storedEmail,ic)
-                            profileViewModel.updateUserMobile(storedEmail,mobile)
+                        if (storedEmail != null&&storedPassword!=null) {
+                            val newUser= User(storedEmail,storedPassword,name,ic,mobile,"",0,0.0,0)
+                            profileViewModel.setUserDetails(newUser)
+                            Toast.makeText(context,getString(R.string.registerSuccessful)
+                                , Toast.LENGTH_SHORT).show()
+                            findNavController().navigate(R.id.action_userInfoRegisterFragment_to_registerAddElectricityAccFragment)
                         }
-                        Toast.makeText(context,getString(R.string.UpdateSuccessful)
-                            , Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.action_userInfoRegisterFragment_to_registerAddElectricityAccFragment)
                     }else{
                         Toast.makeText(context,getString(R.string.registerUnSuccessful)
                             , Toast.LENGTH_SHORT).show()

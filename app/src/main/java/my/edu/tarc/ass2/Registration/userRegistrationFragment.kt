@@ -64,12 +64,24 @@ class userRegistrationFragment : Fragment() {
                 profileViewModel.setUserDetails(user2)
 
                 val acc1 = ElectricityAcc(3412341111,"No1,Jalan Besar,Kampung Kecil, 12345, WPKL","Apartment","Lily")
-                val acc2 = ElectricityAcc(1234500000,"No2,Jalan Besar,Kampung Kecil, 12345, WPKL","hostel","abu")
-                val acc3 = ElectricityAcc(1020304050,"No3,Jalan Besar,Kampung Kecil, 12345, WPKL","hostel3","abuali")
+                val acc2 = ElectricityAcc(1234500000,"No2,Jalan Besar,Kampung Kecil, 12345, WPKL","hostel","Ali")
+                val acc3 = ElectricityAcc(1020304050,"No3,Jalan Besar,Kampung Kecil, 12345, WPKL","terrace","Abu")
+                val acc4 = ElectricityAcc(6789000000,"No4,Jalan Besar,Kampung Kecil, 12345, WPKL","Apartment","John")
+                val acc5 = ElectricityAcc(6070809000,"No5,Jalan Besar,Kampung Kecil, 12345, WPKL","hostel","Jane")
+                val acc6 = ElectricityAcc(1357900000,"No6,Jalan Besar,Kampung Kecil, 12345, WPKL","terrace","Peter")
+                val acc7 = ElectricityAcc(2468000000,"No7,Jalan Besar,Kampung Kecil, 12345, WPKL","terrace","Muthu")
+                val acc8 = ElectricityAcc(1030507090,"No8,Jalan Besar,Kampung Kecil, 12345, WPKL","Apartment","Sandy")
+                val acc9 = ElectricityAcc(2040608000,"No9,Jalan Besar,Kampung Kecil, 12345, WPKL","Apartment","Candy")
 
                 profileViewModel.setAccDetails(acc1)
                 profileViewModel.setAccDetails(acc2)
                 profileViewModel.setAccDetails(acc3)
+                profileViewModel.setAccDetails(acc4)
+                profileViewModel.setAccDetails(acc5)
+                profileViewModel.setAccDetails(acc6)
+                profileViewModel.setAccDetails(acc7)
+                profileViewModel.setAccDetails(acc8)
+                profileViewModel.setAccDetails(acc9)
 
                 val existingUser = profileViewModel.getUserbyEmail(email)
                 if (existingUser != null) {
@@ -82,10 +94,7 @@ class userRegistrationFragment : Fragment() {
                                 putString(getString(R.string.UserPassword),password)
                                 apply()
                             }
-                            val newUser=User(email,password,"","","","",0,0.0,0)
-                            profileViewModel.setUserDetails(newUser)
-                            Toast.makeText(context,getString(R.string.registerSuccessful)
-                                , Toast.LENGTH_SHORT).show()
+
                             findNavController().navigate(R.id.action_userRegistrationFragment_to_userInfoRegisterFragment)
                         }else{
                             Toast.makeText(context,getString(R.string.registerUnSuccessful)

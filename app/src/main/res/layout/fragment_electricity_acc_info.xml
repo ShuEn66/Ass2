@@ -80,7 +80,7 @@
     <ImageView
         android:id="@+id/imageViewAddressAccInfoContainer"
         android:layout_width="280dp"
-        android:layout_height="40dp"
+        android:layout_height="70dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/rectanglenodeep"
         app:layout_constraintStart_toStartOf="@+id/textViewAddressAccInfoTitle"
@@ -192,7 +192,7 @@
 
     <TextView
         android:id="@+id/textViewAddressAccInfoValue"
-        android:layout_width="wrap_content"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="TextView"

@@ -50,8 +50,6 @@ class ElectricityAccInfoFragment : Fragment() {
         lifecycleScope.launch {
             val storedAccNum: Long = sharedPre.getLong(getString(R.string.ElectricityAccNum),0)
 
-
-
                 binding.textViewAddressAccInfoValue.text=profileViewModel.getAccountAddress(storedAccNum)
                 binding.textViewOwnerAccInfoValue.text=profileViewModel.getAccountOwner(storedAccNum)
                 binding.textViewPropertyTypeAccInfoValue.text=profileViewModel.getAccountProperty(storedAccNum)
@@ -63,7 +61,7 @@ class ElectricityAccInfoFragment : Fragment() {
             val monthlyIncome = binding.editTextMonthlyIncomeAccInfo.text.toString().toDouble()
             val storedEmail = sharedPre.getString(getString(R.string.UserEmail), "")
             lifecycleScope.launch {
-                if(storedEmail!=null&&noResident!=0&&monthlyIncome!=0.0){
+                if(storedEmail != null && noResident!=0 && monthlyIncome!=0.0){
                     profileViewModel.updateNoResident(storedEmail,noResident)
                     profileViewModel.updateMonthlyIncome(storedEmail,monthlyIncome)
                     Toast.makeText(context, getString(R.string.UpdateSuccessful), Toast.LENGTH_SHORT).show()

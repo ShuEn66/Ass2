@@ -62,8 +62,6 @@ class ProfileFragment : Fragment() {
             //write log out function
         }
 
-
-
         lifecycleScope.launch {
 
             val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")

@@ -113,7 +113,6 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
     }
 
     suspend fun getNoResident(email: String): Int{
-    /*suspend fun getAccNoResident(email: String): String{
         return withContext(Dispatchers.IO) {
             val d = databaseDao.getNoResident(email)
             d
@@ -132,7 +131,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
             val d = databaseDao.getAccNumber(email)
             d
         }
-    }*/
+    }
 
     suspend fun setAccDetails(ElectricityAcc: ElectricityAcc){
         withContext(Dispatchers.IO) {

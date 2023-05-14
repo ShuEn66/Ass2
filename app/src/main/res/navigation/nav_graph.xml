@@ -35,6 +35,9 @@
             android:id="@+id/action_userFragment_to_editNameFragment"
             app:destination="@id/editNameFragment" />
         <action
+            android:id="@+id/action_userFragment_to_editPasswordFragment"
+            app:destination="@id/editPasswordFragment" />
+        <action
             android:id="@+id/action_userFragment_to_editMobileFragment"
             app:destination="@id/editMobileFragment" />
         <action
@@ -277,6 +280,7 @@
             android:id="@+id/action_calAdviceDialogFragment_to_costCalculatorFragment"
             app:destination="@id/costCalculatorFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/appSettingsFragment"
         android:name="my.edu.tarc.ass2.AppSettings.AppSettingsFragment"

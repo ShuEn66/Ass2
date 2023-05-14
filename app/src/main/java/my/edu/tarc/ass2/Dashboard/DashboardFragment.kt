@@ -153,10 +153,8 @@ class DashboardFragment : Fragment() {
             val values = mutableListOf<Double>()
             val dataEntryList: List<Int> =  dashboardViewModel.getBarMonth(accNo)
             val dataEntryList1: List<Double> =  dashboardViewModel.getBarOverallUsage(accNo)
-
-
-            /*binding.startingMonth.text = dataEntryList[0].toString()
-            binding.endingMonth.text = dataEntryList[dataEntryList.size-1].toString()*/
+            binding.startingMonth.text = dataEntryList[0].toString()
+            binding.endingMonth.text = dataEntryList[dataEntryList.size-1].toString()
 
             val pairs = mutableListOf<Pair<Int, Double>>()
             for (i in dataEntryList.indices) {

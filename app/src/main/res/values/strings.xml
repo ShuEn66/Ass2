@@ -100,6 +100,8 @@
     <string name="billStatus_title">Bill Status:</string>
     <string name="budget_title">Budget:</string>
     <string name="address_title">Address</string>
+    <string name="startingMonth">Starting Month:</string>
+    <string name="endingMonth">Latest Month:</string>
     <!-- Strings related to payment-->
     <string name="paymentSuccessful_title">" Payment Successful!"</string>
     <string name="amountPaid_title">Amount Paid:                       RM</string>

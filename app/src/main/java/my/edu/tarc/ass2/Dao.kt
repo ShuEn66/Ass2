@@ -107,9 +107,6 @@ interface databaseDao {
     suspend fun getUser(accNo: Long): User
 
 
-
-
-
     //PAYMENT
     @Query("SELECT Payment.PaymentDate FROM Payment, Bill WHERE Payment.PaymentID = Bill.PaymentID AND Bill.AccNumber = :accNo AND Bill.BillingMonth = :month AND Bill.BillingYear = :year ")
     suspend fun getPaymentDate(accNo: Long,  month: Int,  year:Int):String

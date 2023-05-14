@@ -129,6 +129,9 @@ class Dashboard : AppCompatActivity() {
         binding.displayMonth.text = current.month.toString() + "  " + current.year
 
 
+
+
+
         //binding with database
         lifecycleScope.launch {
             //bar chart
@@ -137,6 +140,9 @@ class Dashboard : AppCompatActivity() {
             val values = mutableListOf<Double>()
             val dataEntryList: List<Int> =  dashboardViewModel.getBarMonth(123412341111)
             val dataEntryList1: List<Double> =  dashboardViewModel.getBarOverallUsage(123412341111)
+
+            binding.startingMonth.text = dataEntryList[0].toString()
+            binding.startingMonth.text = dataEntryList[dataEntryList.size-1].toString()
 
             val pairs = mutableListOf<Pair<Int, Double>>()
             for (i in dataEntryList.indices) {
@@ -154,7 +160,6 @@ class Dashboard : AppCompatActivity() {
                 entries.add(BarEntry(labels[i].toFloat(), values[i].toFloat()))
             }
             println( entries)
-
             val dataSet = BarDataSet(entries, "Overall Usage (kW)")
             val barData = BarData(dataSet)
             //barData.barWidth = 0.5f
@@ -164,6 +169,8 @@ class Dashboard : AppCompatActivity() {
             xAxis.valueFormatter = OriginalXAxisValueFormatter(labels)
             barChart.setDrawGridBackground(false)
             barChart.setPinchZoom(false)
+            xAxis.setDrawGridLines(false)
+            xAxis.setDrawLabels(false)
             val yAxisLeft = barChart.axisLeft
             yAxisLeft.setDrawGridLines(false)
             yAxisLeft.setDrawLabels(false)
@@ -196,7 +203,7 @@ class Dashboard : AppCompatActivity() {
             val newContact12 = Bill("002", 2, 2023,110.00, "2023-02-01", "2023-02-28", "Paid", 200.00, 110.00,0.00,0.00,123412341111,"A002")
             val newContact13 = Bill("003", 3, 2023,120.00, "2023-03-01", "2023-03-31", "Paid", 300.00, 120.00,0.00,0.00,123412341111,"A003")
             val newContact14 = Bill("004", 4, 2023,120.00, "2023-04-01", "2023-04-30", "Unpaid", 400.00, 120.00,0.00,0.00,123412341111,"A004")
-            val newContact15 = Bill("005", 5, 2023,111.00, "2023-05-01", "2023-05-31", "Unpaid", 500.00, 230.00,0.00,0.00,123412341111,"A005")
+            //val newContact15 = Bill("005", 5, 2023,111.00, "2023-05-01", "2023-05-31", "Unpaid", 500.00, 230.00,0.00,0.00,123412341111,"A005")
             val newContact2 = Bill("001", 3, 2023,100.00, "2023-03-01","2023-03-31", "Unpaid", 400.00, 100.00,0.00,0.00,123412341112,"A001")
             val newContact2a = Bill("002", 4, 2023,220.00, "2023-04-01", "2023-04-30", "Unpaid", 400.00, 100.00,200.00,20.00,123412341112,"A002")
 
@@ -204,7 +211,7 @@ class Dashboard : AppCompatActivity() {
             dashboardViewModel.setBillingDetails(newContact12)
             dashboardViewModel.setBillingDetails(newContact13)
             dashboardViewModel.setBillingDetails(newContact14)
-            dashboardViewModel.setBillingDetails(newContact15)
+            //dashboardViewModel.setBillingDetails(newContact15)
             dashboardViewModel.setBillingDetails(newContact2)
             dashboardViewModel.setBillingDetails(newContact2a)
 
@@ -241,8 +248,10 @@ class Dashboard : AppCompatActivity() {
     class OriginalXAxisValueFormatter(private val labels: List<String>) : ValueFormatter() {
         override fun getFormattedValue(value: Float): String {
             val index = value.toInt()
-            return if (index >= 0 && index < labels.size) {
+
+            return if (index >= -1 && index < labels.size) {
                 labels[index]
+
             } else {
                 ""
             }

@@ -152,6 +152,8 @@
     <string name="UpdateNoResidentTitle">Bilangan Penduduk Baru</string>
     <string name="UpdateMonthlyIncomeTitle">Gaji Bulanan Baru</string>
     <string name="thanks">Terima Kasih Kadaran Anda!</string>
+    <string name="deleteAccTitle">Adakah Anda Pasti Padam Akaun?</string>
+    <string name="deleteBtn">Padam</string>
     <string name="checkBill">Semak Bil</string>
     <string name="payBill">Bayar Bil</string>
     <string name="donePayment">Selesai Bayaran</string>

@@ -59,7 +59,7 @@
     //Registration-AddElectricity Account
     <string name="AddAccTitle">Activate Online Electricity Account</string>
     <string name="hintAccNum" translatable="false">**********</string>
-    <string name="ErrorAccNum">** Please neter 10 digit number for this field</string>
+    <string name="ErrorAccNum">** Please enter 10 digit number for this field</string>
     <string name="hintNickname">eg. house</string>
     <string name="AddAccButton">Add Account</string>
     //Registration-Login
@@ -269,18 +269,21 @@
     <string name="url_create" translatable="false">user/create.php</string>
     <string name="thanks">Thanks for submitting!</string>
 
+    //Message Used in toast
     <string name="LoginEmail">Login Email Address</string>
     <string name="UpdateSuccessful">New Information updated</string>
     <string name="WrongPassword">Wrong Password</string>
     <string name="SameInformation">The new information is cannot be same with the original information</string>
     <string name="LogoutSuccessful">Logout Successfully</string>
     <string name="UpdatePasswordTitle">New Password</string>
+    //delete account
+    <string name="deleteAccTitle">Confirm Delete Account?</string>
+    <string name="deleteBtn">Delete</string>
 
     <string name="checkBill">Check Bill</string>
     <string name="payBill">Pay Bill</string>
     <string name="donePayment">Done Payment</string>
-    <string name="deleteAccTitle">Confirm Delete Account?</string>
-    <string name="deleteBtn">Delete</string>
+
 
     // 6edc224cb96fbcf5418fdc9473c43aa9d4200731
 

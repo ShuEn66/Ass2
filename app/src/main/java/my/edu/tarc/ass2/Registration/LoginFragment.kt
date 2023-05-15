@@ -15,6 +15,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import kotlinx.coroutines.launch
+import my.edu.tarc.ass2.CurrentUser
 import my.edu.tarc.ass2.Profile.ProfileViewModel
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.User
@@ -73,6 +74,9 @@ class LoginFragment : Fragment() {
                                     putString(getString(R.string.LoginEmail),email)
                                     apply()
                                 }
+                                val user=CurrentUser(1,profileViewModel.getAccNumber(email),email)
+                                profileViewModel.InitializeCurrent(user)
+                                profileViewModel.setCurrentEmail(email)
                                 Toast.makeText(context,getString(R.string.loginSuccessful)
                                     , Toast.LENGTH_SHORT).show()
                                 findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)}

@@ -204,4 +204,19 @@ interface databaseDao {
 
     @Query("UPDATE Appliances SET AppliancesPower =:appPower")
     suspend fun setAppPower(appPower: Double)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun InitializeCurrent(CurrentUser:CurrentUser)
+
+    @Query("UPDATE CurrentUser SET AccNumber =:accNo AND currentEmail =:email WHERE no=1" )
+    suspend fun setCurrentUser(accNo: Long,email: String)
+
+    @Query("UPDATE CurrentUser SET currentEmail =:email WHERE no=1" )
+    suspend fun setCurrentEmail(email: String)
+
+    @Query("SELECT * FROM CurrentUser WHERE no=1")
+    suspend fun getCurrentUser():CurrentUser
+
+    @Query("SELECT currentEmail FROM CurrentUser WHERE no=1")
+    suspend fun getCurrentEmail():String
 }

@@ -291,7 +291,7 @@ class DashboardFragment : Fragment() {
                 "A005"
             )
             val newContact2 = Bill(
-                "001",
+                "020",
                 3,
                 2023,
                 100.00,
@@ -306,7 +306,7 @@ class DashboardFragment : Fragment() {
                 "A001"
             )
             val newContact2a = Bill(
-                "001",
+                "010",
                 4,
                 2023,
                 220.00,

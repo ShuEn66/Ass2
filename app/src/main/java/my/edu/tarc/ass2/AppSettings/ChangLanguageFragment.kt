@@ -1,11 +1,15 @@
 package my.edu.tarc.ass2.AppSettings
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import my.edu.tarc.ass2.R
 import my.edu.tarc.ass2.databinding.FragmentChangLanguageBinding
 import my.edu.tarc.ass2.databinding.FragmentRatingBinding
@@ -14,13 +18,7 @@ import java.util.*
 class ChangLanguageFragment : Fragment() {
     private var _binding: FragmentChangLanguageBinding? = null
     private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
+    private lateinit var sharedPre: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,10 +51,6 @@ class ChangLanguageFragment : Fragment() {
             resources.updateConfiguration(config, resources.displayMetrics)
 
         }
-    }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
 }

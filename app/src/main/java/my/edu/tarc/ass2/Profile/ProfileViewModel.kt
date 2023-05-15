@@ -5,10 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import my.edu.tarc.ass2.AppDatabase
-import my.edu.tarc.ass2.ElectricityAcc
-import my.edu.tarc.ass2.User
-import my.edu.tarc.ass2.databaseDao
+import my.edu.tarc.ass2.*
 
 
 class ProfileViewModel(application: Application) : AndroidViewModel(application) {
@@ -189,9 +186,37 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    suspend fun InitializeCurrent(CurrentUser:CurrentUser){
+        withContext(Dispatchers.IO) {
+            databaseDao.InitializeCurrent(CurrentUser)
+        }
+    }
 
+    suspend fun setCurrentUser(accNo: Long,email: String){
+        withContext(Dispatchers.IO) {
+            databaseDao.setCurrentUser(accNo,email)
+        }
+    }
 
+    suspend fun setCurrentEmail(email: String){
+        withContext(Dispatchers.IO) {
+            databaseDao.setCurrentEmail(email)
+        }
+    }
 
+    suspend fun getCurrentUser(): CurrentUser{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getCurrentUser()
+            d
+        }
+    }
+
+    suspend fun getCurrentEmail(): String{
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getCurrentEmail()
+            d
+        }
+    }
 
     init {
         val database = AppDatabase.getDatabase(application)

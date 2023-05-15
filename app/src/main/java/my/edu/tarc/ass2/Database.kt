@@ -39,3 +39,10 @@ data class Appliances (@PrimaryKey val AppliancesName: String, val AppliancesTyp
     }
 }
 
+@Entity(tableName = "CurrentUser")
+data class CurrentUser (@PrimaryKey val no:Int, val AccNumber: Long, val currentEmail : String) {
+    override fun toString(): String {
+        return " $no: $AccNumber:  $currentEmail "
+    }
+}
+

@@ -41,10 +41,6 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
 
-
-
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -69,6 +65,10 @@ class ProfileFragment : Fragment() {
         }
 
         lifecycleScope.launch {
+            with(sharedPre.edit()){
+                putString(getString(R.string.LoginEmail),profileViewModel.getCurrentUser().currentEmail)
+                apply()
+            }
 
             val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")
 

@@ -16,13 +16,6 @@ class RatingFragment : Fragment() {
     private var _binding: FragmentRatingBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,7 +23,6 @@ class RatingFragment : Fragment() {
         _binding = FragmentRatingBinding.inflate(inflater, container, false)
 
         return binding.root
-
 
     }
 
@@ -40,6 +32,7 @@ class RatingFragment : Fragment() {
             Toast.makeText(context,R.string.thanks,Toast.LENGTH_LONG).show()
         }
     }
+
 
 
 }

@@ -35,7 +35,8 @@ class CalAdviceDialogFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonAdviceOk.setOnClickListener{
-            findNavController().navigate(R.id.action_calAdviceDialogFragment_to_costCalculatorFragment)
+            //findNavController().navigate(R.id.action_calAdviceDialogFragment_to_costCalculatorFragment)
+            findNavController().popBackStack()
         }
     }
 }

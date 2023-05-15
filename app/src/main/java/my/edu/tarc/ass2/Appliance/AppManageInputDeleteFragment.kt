@@ -82,7 +82,8 @@ class AppManageInputDeleteFragment : Fragment() {
         }
 
         binding.buttonCancel.setOnClickListener{
-            findNavController().navigate(R.id.action_appManageInputDeleteFragment_to_appManageAddedFragment)
+            //findNavController().navigate(R.id.action_appManageInputDeleteFragment_to_appManageAddedFragment)
+            findNavController().popBackStack()
         }
 
         //To display added appliances

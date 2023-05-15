@@ -27,7 +27,8 @@ class CalHelpDialogFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonHelpOk.setOnClickListener{
-            findNavController().navigate(R.id.action_calHelpDialogFragment_to_costCalculatorFragment)
+            //findNavController().navigate(R.id.action_calHelpDialogFragment_to_costCalculatorFragment)
+            findNavController().popBackStack()
         }
     }
 

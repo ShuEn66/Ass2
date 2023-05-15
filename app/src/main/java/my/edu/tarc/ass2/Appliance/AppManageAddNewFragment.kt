@@ -53,7 +53,8 @@ class AppManageAddNewFragment : Fragment() {
         sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
 
         binding.buttonCancel.setOnClickListener{
-            findNavController().navigate(R.id.action_appManageAddNewFragment_to_appManageAddedFragment)
+            //findNavController().navigate(R.id.action_appManageAddNewFragment_to_appManageAddedFragment)
+            findNavController().popBackStack()
         }
 
         //Get user email

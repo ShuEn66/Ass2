@@ -152,6 +152,8 @@
     <string name="UpdateNoResidentTitle">新住户人数</string>
     <string name="UpdateMonthlyIncomeTitle">新月收入</string>
     <string name="thanks">谢谢点评！</string>
+    <string name="deleteAccTitle">确定删除账户？</string>
+    <string name="deleteBtn">删除</string>
     <string name="checkBill">查询账单</string>
     <string name="payBill">付账单</string>
     <string name="donePayment">完成付款</string>

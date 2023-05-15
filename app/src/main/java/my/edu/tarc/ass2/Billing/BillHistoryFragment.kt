@@ -39,25 +39,14 @@ class BillHistoryFragment : Fragment() {
         }
 
         lifecycleScope.launch {
+
             val loginEmail = sharedPre.getString(getString(R.string.LoginEmail),"")
             val accNo = loginEmail.let { profileViewModel.getAccNumber(it.toString()) }
             val getInvoiceDate = billViewModel.getInvoiceDate(accNo, (monthDisplay - 1), yearDisplay)
             binding.displayInvDate.text = getInvoiceDate
+            binding.displayPaymentStat.text = "Paid"
+            binding.displayPaymentMethod.text = "Online Banking"
 
-            val getPaymentDate = billViewModel.getPaymentDate(111111111111111)
-            binding.displayPaymentDate.text = getPaymentDate
-
-            val getPaymentStatus = billViewModel.getPaymentStatus(111111111111111)
-            binding.displayPaymentStat.text = getPaymentStatus
-
-            val getPaymentMethod = billViewModel.getPaymentMethod(111111111111111)
-            binding.displayPaymentMethod.text = getPaymentMethod
-
-            val getOverallUsage = billViewModel.getOverallUsage(accNo, (monthDisplay - 1), yearDisplay)
-            binding.displayEnergy.text = getOverallUsage.toString()
-
-            val getTotalAmount = billViewModel.getTotalAmount(accNo,(monthDisplay-1),yearDisplay)
-            binding.displayTot3.text = getTotalAmount.toString()
 
         }
     }

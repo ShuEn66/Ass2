@@ -72,13 +72,14 @@ class PaymentFragment : Fragment() {
                 val getTotalAmount = billViewModel.getTotalAmount(accNo , (monthDisplay - 1), yearDisplay)
                 binding.displayAmountPaid.text = getTotalAmount.toString()
 
-                val newPayment1 = Payment("111111111111111", output, "Successful", "Online Banking", getTotalAmount)
+                val newPayment1 = Payment("111111111111111", output, "Paid", "Online Banking", getTotalAmount)
                 billViewModel.setPaymentDetails(newPayment1)
                 val getPaymentDate = billViewModel.getPaymentDate(111111111111111)
                 binding.displayPaymentDate2.text = getPaymentDate
 
                 binding.displayTimePayment.text = timeDisplay.toString()
-                billViewModel.updateBillStatus()
+                val billId = billViewModel.getBillID(accNo , (monthDisplay - 1), yearDisplay)
+                billViewModel.updateBillStatus(billId)
 
                 val getPaymentStatus = billViewModel.getPaymentStatus(111111111111111)
                 binding.displayStatus.text = getPaymentStatus

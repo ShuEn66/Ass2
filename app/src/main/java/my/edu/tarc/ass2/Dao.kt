@@ -35,6 +35,9 @@ interface databaseDao {
     @Query("SELECT OverdueCharges FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
     suspend fun getOverdueCharges(accNo: Long,  month: Int,  year:Int):Double
 
+    @Query("SELECT BillID FROM Bill WHERE AccNumber = :accNo AND BillingMonth = :month AND BillingYear =  :year")
+    suspend fun getBillID(accNo: Long,  month: Int,  year:Int):String
+
     @Query("SELECT BillingMonth FROM Bill WHERE AccNumber = :accNo ")
     suspend fun getBarMonth(accNo: Long):List<Int>
 
@@ -44,8 +47,8 @@ interface databaseDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun setBillingDetails(Bill:Bill)
 
-    @Query("UPDATE Bill SET BillStatus = 'Successful' ")
-    suspend fun updateBillStatus()
+    @Query("UPDATE Bill SET BillStatus = 'Paid' WHERE BillID = :billId")
+    suspend fun updateBillStatus(billId: String)
 
     @Query("UPDATE Bill SET CurrentCharges = 0.0")
     suspend fun updateCurrentChanges()
@@ -55,6 +58,9 @@ interface databaseDao {
 
     @Query("UPDATE Bill SET TotalAmount = 0.0")
     suspend fun updateTotalAmount()
+
+    @Query("SELECT * FROM Bill WHERE AccNumber = :accNo")
+    fun getAllBill(accNo: Long):LiveData<List<Bill>>
 
     //USER
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -134,7 +140,7 @@ interface databaseDao {
     @Query("SELECT PayAmount FROM Payment WHERE PaymentID = :paymentId")
     suspend fun getPayAmount(paymentId: Long): Double
 
-    @Query("UPDATE Payment SET PaymentStatus = 'Successful'")
+    @Query("UPDATE Payment SET PaymentStatus = 'Paid'")
     suspend fun updatePaymentStatus()
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

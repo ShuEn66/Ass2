@@ -2,6 +2,7 @@ package my.edu.tarc.ass2.Billing
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
@@ -91,9 +92,16 @@ class BillViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    suspend fun updateBillStatus(){
+    suspend fun getBillID(accNo: Long,  month: Int,  year:Int):String {
         return withContext(Dispatchers.IO) {
-            val d = databaseDao.updateBillStatus()
+            val d = databaseDao.getBillID(accNo, month, year)
+            d
+        }
+    }
+
+    suspend fun updateBillStatus(billId: String){
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.updateBillStatus(billId)
             d
         }
     }
@@ -117,10 +125,18 @@ class BillViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     suspend fun updateTotalAmount(){
-        withContext(Dispatchers.IO) {
-            databaseDao.updateTotalAmount()
+                withContext(Dispatchers.IO) {
+                    databaseDao.updateTotalAmount()
+                }
+    }
+
+    suspend fun getAllBill(accNo: Long): LiveData<List<Bill>> {
+        return withContext(Dispatchers.IO) {
+            val d = databaseDao.getAllBill(accNo)
+            d
         }
     }
+
 
     init {
         val database = AppDatabase.getDatabase(application)

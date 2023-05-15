@@ -35,7 +35,7 @@ class MyAdapter(private val appliancesList : ArrayList<AddedAppliance>, private 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = appliancesList[position]
         holder.applianceName.setText(currentItem.appliance)
-
+        holder.applianceName.isAllCaps = false
     }
 
     class MyViewHolder(itemView: View, private val buttonClickListener: onButtonClickListener?):RecyclerView.ViewHolder(itemView){

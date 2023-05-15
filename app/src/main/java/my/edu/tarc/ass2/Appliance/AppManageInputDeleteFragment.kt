@@ -55,7 +55,6 @@ class AppManageInputDeleteFragment : Fragment() {
         //Get user email
         sharedPre=requireActivity().getPreferences(Context.MODE_PRIVATE)
 
-
         binding.buttonDelete.setOnClickListener{
             lifecycleScope.launch {
                 if (binding.editTextDelete.text.toString().isEmpty()){
@@ -63,7 +62,19 @@ class AppManageInputDeleteFragment : Fragment() {
                 } else {
                     appliancesViewModel.deleteAppliances(binding.editTextDelete.text.toString())
                     Toast.makeText(context,"Appliance deleted", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_appManageInputDeleteFragment_to_appManageAddedFragment)
+                    //findNavController().navigate(R.id.action_appManageInputDeleteFragment_to_appManageAddedFragment)
+
+                    //Clear
+                    appliancesArrayList.clear()
+                    recyclerView?.adapter?.notifyDataSetChanged()
+
+                    //Update view
+                    val layoutManager = LinearLayoutManager(context)
+                    recyclerView = binding.recyclerViewApp
+                    recyclerView.layoutManager = layoutManager
+                    recyclerView.setHasFixedSize(true)
+                    adapter = MyAdapter(appliancesArrayList, findNavController())
+                    recyclerView.adapter = adapter
                 }
             }
 

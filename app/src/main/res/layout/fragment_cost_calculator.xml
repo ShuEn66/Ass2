@@ -49,21 +49,21 @@
                     android:textColor="#0B0A0A"
                     android:textSize="24sp" />
 
-                <TextView
+                <!--<TextView
                     android:id="@+id/textCostCalculator2"
                     android:layout_width="100dp"
                     android:layout_height="38dp"
                     android:paddingLeft="10dp"
                     android:text=""
                     android:textColor="#0B0A0A"
-                    android:textSize="20sp" />
+                    android:textSize="20sp" />-->
 
-                <!--<Spinner
+                <Spinner
                     android:id="@+id/spinnerPeriodical"
-                    android:layout_width="100dp"
+                    android:layout_width="110dp"
                     android:layout_height="48dp"
                     android:entries="@array/calculatorPeriodical"
-                    app:layout_constraintEnd_toEndOf="parent" />-->
+                    app:layout_constraintEnd_toEndOf="parent" />
             </LinearLayout>
             <!--End of page title-->
 

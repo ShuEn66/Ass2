@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -58,8 +59,8 @@ class CostCalculatorFragment : Fragment() {
             findNavController().navigate(R.id.action_costCalculatorFragment_to_calAdviceDialogFragment)
         }
 
-        val stringArray = resources.getStringArray(R.array.calculatorPeriodical)
-        binding.textCostCalculator2.text = stringArray[1]
+        //val stringArray = resources.getStringArray(R.array.calculatorPeriodical)
+        //binding.textCostCalculator2.text = stringArray[1]
 
         //To display added appliances
         dataInitializer()
@@ -85,54 +86,73 @@ class CostCalculatorFragment : Fragment() {
                 var totalkwh = 0.0
                 var rate = 0.0
                 var totalCost = 0.0
-                //Display 1 by 1
-                for (i in appliancesList.indices) {
-                    //Calculate
-                    val usage:Double = String.format("%.2f", appliancesList[i].EstimatedUsage).toDouble()
-                    val power = String.format("%.2f", appliancesList[i].AppliancesPower).toDouble()
-                    val kwh = (power * usage)/1000
-                    var cost = 0.0
-                    totalkwh += kwh
-                    if(totalkwh<=200.00){
-                        rate = 0.2180
-                    } else if (200.00<totalkwh && totalkwh<=300.00){
-                        rate = 0.3340
-                    } else if (300.00<totalkwh && totalkwh<=600){
-                        rate = 0.5160
-                    } else{
-                        rate = 0.5460
-                    }
-                    cost = totalkwh * rate
-                    totalCost += cost
+                var dRate = 0.0
 
-                    //Display
-                    val appliances = AddedAppliance(appliancesList[i].AppliancesName, usage, String.format("%.2f", cost).toDouble())
-                    appliancesArrayList.add(appliances)
+                fun calculateTotalAmount(dRate: Double) {
+
+                    appliancesArrayList.clear()
+                    totalCost = 0.0
+                    totalkwh = 0.0
+                    //Display 1 by 1
+                    for (i in appliancesList.indices) {
+                        //Calculate
+                        val usage:Double = String.format("%.2f", appliancesList[i].EstimatedUsage).toDouble()
+                        val power = String.format("%.2f", appliancesList[i].AppliancesPower).toDouble()
+                        val kwh = (power * usage)/1000
+                        var cost = 0.0
+
+                        totalkwh += kwh
+                        if(totalkwh<=200.00){
+                            rate = 0.2180
+                        } else if (200.00<totalkwh && totalkwh<=300.00){
+                            rate = 0.3340
+                        } else if (300.00<totalkwh && totalkwh<=600){
+                            rate = 0.5160
+                        } else{
+                            rate = 0.5460
+                        }
+                        cost = (totalkwh * rate)*dRate
+                        totalCost += cost
+
+                        //Display
+                        val appliances = AddedAppliance(appliancesList[i].AppliancesName, usage, String.format("%.2f", cost).toDouble())
+                        appliancesArrayList.add(appliances)
+                    }
+
+                    binding.textTableTotalNumber.text = (String.format("%.2f", totalCost).toDouble()).toString()
+
+                    // Set the adapter after the data is fetched
+                    adapter = CalAdapter(appliancesArrayList, findNavController())
+                    recyclerView.adapter = adapter
+
                 }
 
-                binding.textTableTotalNumber.text = (String.format("%.2f", totalCost).toDouble()).toString()
+                dRate = 0.033
+                calculateTotalAmount(dRate)
 
-                // Set the adapter after the data is fetched
-                adapter = CalAdapter(appliancesArrayList, findNavController())
-                recyclerView.adapter = adapter
-
+                //If daily / monthly / yearly
+                binding.spinnerPeriodical.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                    override fun onItemSelected(
+                        parent: AdapterView<*>?,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) {
+                        if (binding.spinnerPeriodical.selectedItemPosition == 0){
+                            dRate = 0.033
+                        } else if (binding.spinnerPeriodical.selectedItemPosition == 1){
+                            dRate = 1.0
+                        } else {
+                            dRate = 12.17
+                        }
+                        calculateTotalAmount(dRate)
+                    }
+                    override fun onNothingSelected(parent: AdapterView<*>?) {
+                        dRate = 0.033
+                        calculateTotalAmount(dRate)
+                    }
+                }
             })
         }
-
-        //Old code
-        //Get string name
-        /*applianceName = arrayOf(
-            getString(R.string.appliances_cal_ok),
-            getString(R.string.appliances_cal_ok),
-            getString(R.string.appliances_cal_ok),
-            getString(R.string.appliances_cal_ok),
-            getString(R.string.appliances_cal_ok),
-            getString(R.string.appliances_cal_ok)
-        )
-
-        for (i in applianceName.indices){
-            val appliances = AddedAppliance(applianceName[i])
-            appliancesArrayList.add(appliances)
-        }*/
     }
 }

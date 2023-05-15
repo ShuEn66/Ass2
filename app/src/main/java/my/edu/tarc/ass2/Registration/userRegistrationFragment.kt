@@ -58,10 +58,6 @@ class userRegistrationFragment : Fragment() {
 
 
             lifecycleScope.launch {
-                val user1 = User("lily@gmail.com", "12345", "Lily", "010101010101","0123456789", "House", 1, 3000.00,3412341111)
-                val user2 = User("ali@gmail.com", "54321", "Ali", "101010101010","0987654321", "Home", 3, 8000.00,1234500000)
-                profileViewModel.setUserDetails(user1)
-                profileViewModel.setUserDetails(user2)
 
                 val acc1 = ElectricityAcc(3412341111,"No1,Jalan Besar,Kampung Kecil, 12345, WPKL","Apartment","Lily")
                 val acc2 = ElectricityAcc(1234500000,"No2,Jalan Besar,Kampung Kecil, 12345, WPKL","hostel","Ali")
